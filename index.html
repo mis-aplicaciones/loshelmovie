@@ -1,35 +1,5130 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-	<head>
-		<title></title> 
-        <meta charset="UTF-8">
-        <script src='playerjs.js' type='text/javascript'></script>
-	</head>
-	<body>
+<!-- REEMPLAZA COMPLETAMENTE TU ARCHIVO INDEX.HTML POR ESTE -->
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Libro de Cobranza</title>
+
     <style>
-        html,body{
-            margin:0;padding:0;width:100%;height:100%;
+      :root {
+        --morado: #6c5ce7;
+        --gris: #f5f6fa;
+        --texto: #2d3436;
+        --rojo: #e17055;
+        --verde: #00b894;
+        --amarillo: #fdcb6e;
+        --blanco: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: var(--gris);
+        color: var(--texto);
+        padding-bottom: 90px;
+      }
+
+      .pantalla {
+        display: none;
+        padding: 15px;
+      }
+
+      .activa {
+        display: block;
+      }
+
+      .header {
+        background: linear-gradient(135deg, #6c5ce7, #8e7dff);
+        color: white;
+        padding: 22px;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        margin-bottom: 15px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+      }
+
+      .header h2 {
+        margin: 0;
+        font-size: 24px;
+      }
+
+      .header p {
+        margin-top: 5px;
+        opacity: 0.9;
+      }
+
+      .card {
+        background: white;
+        padding: 15px;
+        border-radius: 18px;
+        margin-bottom: 15px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      }
+
+      .section-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 12px;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 12px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        border-radius: 12px;
+        border: 1px solid #ddd;
+        font-size: 15px;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 12px;
+        background: var(--morado);
+        color: white;
+        font-size: 15px;
+        margin-top: 8px;
+        cursor: pointer;
+      }
+
+      .menu {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        background: white;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
+        z-index: 999;
+      }
+
+      .menu button {
+        flex: 1;
+        background: white;
+        color: #2d3436;
+        font-size: 12px;
+        padding: 12px 5px;
+        margin: 0;
+        border-radius: 0;
+      }
+
+      .menu button.active {
+        background: var(--morado);
+        color: white;
+      }
+
+      .cliente-item {
+        padding: 14px;
+        border-radius: 15px;
+        background: #fafafa;
+        border: 1px solid #eee;
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
+
+      .nombre-cliente {
+        font-weight: bold;
+        font-size: 16px;
+      }
+
+      .credito-card {
+        padding: 14px;
+        border-radius: 15px;
+        background: #fafafa;
+        border: 1px solid #eee;
+        margin-bottom: 12px;
+      }
+
+      .credito-card {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .credito-card.credito-estado-activo {
+        border-left: 5px solid #00b894;
+      }
+
+      .credito-card.credito-estado-hoy {
+        border-left: 5px solid #fdcb6e;
+      }
+
+      .credito-card.credito-estado-proximo {
+        border-left: 5px solid #6c5ce7;
+      }
+
+      .credito-card.credito-estado-moroso {
+        border-left: 5px solid #e17055;
+      }
+
+      .credito-card.credito-estado-cancelado {
+        border-left: 5px solid #b2bec3;
+        opacity: 0.88;
+      }
+
+      .credito-destacado {
+        outline: 3px solid rgba(108, 92, 231, 0.18);
+        box-shadow: 0 0 0 5px rgba(108, 92, 231, 0.08);
+      }
+
+      .credito-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .credito-title {
+        font-weight: 900;
+        font-size: 16px;
+        line-height: 1.2;
+      }
+
+      .credito-badge {
+        display: inline-flex;
+        margin-top: 6px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .credito-badge.activo {
+        background: #e8fff5;
+        color: #078a61;
+      }
+      .credito-badge.hoy {
+        background: #fff4d6;
+        color: #b7791f;
+      }
+      .credito-badge.proximo {
+        background: #e8e0ff;
+        color: #5a35d6;
+      }
+      .credito-badge.moroso {
+        background: #ffe6e1;
+        color: #c0392b;
+      }
+      .credito-badge.cancelado {
+        background: #eef1f4;
+        color: #6b7280;
+      }
+
+      .credito-saldo-box {
+        text-align: right;
+        min-width: 92px;
+      }
+
+      .credito-saldo-box .label {
+        font-size: 11px;
+        color: #636e72;
+        font-weight: 700;
+      }
+
+      .credito-saldo-box .value {
+        font-size: 19px;
+        font-weight: 900;
+      }
+
+      .credito-mini-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px 12px;
+        margin-top: 12px;
+      }
+
+      .credito-mini-item {
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 12px;
+        padding: 10px;
+        font-size: 13px;
+      }
+
+      .credito-mini-item .mini-label {
+        display: block;
+        font-size: 11px;
+        color: #636e72;
+        margin-bottom: 4px;
+        font-weight: 700;
+      }
+
+      .credito-barra {
+        margin-top: 12px;
+        height: 12px;
+        background: #eceff4;
+        border-radius: 999px;
+        overflow: hidden;
+      }
+
+      .credito-barra > div {
+        height: 100%;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #6c5ce7, #8e7dff);
+      }
+
+      .credito-acciones {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 12px;
+      }
+
+      .credito-acciones button,
+      .credito-toggle,
+      .mini-toggle {
+        width: 100%;
+      }
+
+      .credito-toggle,
+      .mini-toggle {
+        background: #eef1ff;
+        color: #4c3fb8;
+        margin-top: 10px;
+      }
+
+      .credito-detalle {
+        margin-top: 12px;
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 14px;
+        padding: 12px;
+        display: grid;
+        gap: 8px;
+      }
+
+      .credito-detalle.oculto {
+        display: none;
+      }
+
+      .credito-detalle .detalle-linea {
+        font-size: 13px;
+        color: #2d3436;
+      }
+
+      .section-title-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+      }
+
+      .section-title-row .section-title {
+        margin-bottom: 0;
+      }
+
+      .cliente-resumen-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .cliente-resumen-item {
+        background: #fafafa;
+        border: 1px solid #eee;
+        border-radius: 14px;
+        padding: 10px;
+      }
+
+      .cliente-resumen-item .mini-label {
+        display: block;
+        font-size: 11px;
+        color: #636e72;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+
+      .cliente-resumen-item .mini-value {
+        font-weight: 900;
+        font-size: 15px;
+      }
+
+      .pago-modal-info {
+        background: #fafafa;
+        border: 1px solid #eee;
+        border-radius: 14px;
+        padding: 10px 12px;
+        margin: 10px 0 12px;
+        font-size: 13px;
+        color: #2d3436;
+      }
+
+      .pago-modal-info .subtle {
+        margin-top: 4px;
+      }
+
+      .historial-clickeable {
+        cursor: pointer;
+      }
+
+      .pago-item {
+        padding: 12px;
+        border-radius: 12px;
+        background: #fafafa;
+        margin-bottom: 8px;
+        border: 1px solid #eee;
+      }
+
+      .alerta {
+        padding: 14px;
+        border-radius: 14px;
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
+
+      .alerta-vencido {
+        background: #fab1a0;
+      }
+
+      .alerta-proximo {
+        background: #ffeaa7;
+      }
+
+      .estado-vencido {
+        color: #e17055;
+        font-weight: bold;
+      }
+
+      .estado-proximo {
+        color: #d35400;
+        font-weight: bold;
+      }
+
+      .estado-normal {
+        color: #00b894;
+        font-weight: bold;
+      }
+
+      .acciones {
+        display: flex;
+        gap: 10px;
+      }
+
+      .acciones button {
+        flex: 1;
+      }
+
+      .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        padding: 20px;
+      }
+
+      .modal-content {
+        background: white;
+        width: 100%;
+        max-width: 400px;
+        border-radius: 20px;
+        padding: 20px;
+      }
+
+      .tipo-pago-modal {
+        display: flex;
+        gap: 12px;
+        margin: 12px 0 6px;
+      }
+
+      .tipo-pago-opcion {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 12px;
+        border: 1px solid #dfe6e9;
+        border-radius: 12px;
+        background: #f8f9fb;
+        font-weight: 600;
+      }
+
+      .historial-clickeable {
+        cursor: pointer;
+      }
+
+      .tipo-pago-modal {
+        display: flex;
+        gap: 12px;
+        margin: 12px 0 6px;
+      }
+
+      .tipo-pago-opcion {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 12px;
+        border: 1px solid #dfe6e9;
+        border-radius: 12px;
+        background: #f8f9fb;
+        font-weight: 600;
+      }
+
+      .historial-clickeable {
+        cursor: pointer;
+      }
+
+      .alerta small {
+        display: block;
+        margin-top: 5px;
+        font-weight: bold;
+      }
+
+      .alert-summary-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .alert-resumen-card {
+        border-radius: 18px;
+        padding: 14px;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+        min-height: 110px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .alert-resumen-card.red {
+        background: linear-gradient(135deg, #ef4444, #fb7185);
+      }
+      .alert-resumen-card.yellow {
+        background: linear-gradient(135deg, #f59e0b, #fbbf24);
+      }
+      .alert-resumen-card.blue {
+        background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+      }
+      .alert-resumen-card.green {
+        background: linear-gradient(135deg, #10b981, #34d399);
+      }
+
+      .alert-resumen-card .title {
+        font-size: 12px;
+        font-weight: 800;
+        opacity: 0.95;
+      }
+      .alert-resumen-card .count {
+        font-size: 24px;
+        font-weight: 800;
+      }
+      .alert-resumen-card .meta {
+        font-size: 12px;
+        opacity: 0.95;
+      }
+
+      .alert-detail-item {
+        background: #fafafa;
+        border: 1px solid #eee;
+        border-radius: 16px;
+        padding: 14px;
+        margin-bottom: 12px;
+      }
+
+      .alert-detail-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .alert-tag {
+        display: inline-block;
+        margin-top: 6px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .alert-tag.red {
+        background: #ffe1dd;
+        color: #d63031;
+      }
+      .alert-tag.yellow {
+        background: #fff1c4;
+        color: #b7791f;
+      }
+      .alert-tag.blue {
+        background: #dff4ff;
+        color: #0ea5e9;
+      }
+
+      .alert-detail-actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 12px;
+      }
+
+      .alert-detail-actions button {
+        flex: 1;
+      }
+
+      .calendar-head {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .calendar-head button {
+        width: 44px;
+        flex: 0 0 44px;
+        border-radius: 12px;
+      }
+
+      .calendar-title {
+        font-weight: 800;
+        text-align: center;
+        flex: 1;
+      }
+
+      .calendar-weekdays,
+      .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .calendar-weekdays div {
+        text-align: center;
+        font-size: 12px;
+        font-weight: 800;
+        color: #636e72;
+      }
+
+      .calendar-day {
+        min-height: 72px;
+        border-radius: 14px;
+        background: #fff;
+        border: 1px solid #eaeaea;
+        padding: 8px;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .calendar-day.empty {
+        background: transparent;
+        border: none;
+        cursor: default;
+      }
+      .calendar-day.today {
+        outline: 2px solid var(--morado);
+      }
+      .calendar-day.selected {
+        background: #f0ebff;
+      }
+      .calendar-num {
+        font-weight: 800;
+        font-size: 14px;
+      }
+      .calendar-badge {
+        position: absolute;
+        right: 8px;
+        bottom: 8px;
+        min-width: 22px;
+        height: 22px;
+        border-radius: 999px;
+        background: var(--morado);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 800;
+        padding: 0 6px;
+      }
+      .calendar-badge.zero {
+        background: #dfe6e9;
+        color: #636e72;
+      }
+      .calendar-detail {
+        margin-top: 12px;
+      }
+      .mini-note {
+        font-size: 12px;
+        color: #636e72;
+        margin-bottom: 8px;
+      }
+      .calendar-item {
+        background: #fafafa;
+        border: 1px solid #eee;
+        border-radius: 14px;
+        padding: 12px;
+        margin-bottom: 10px;
+      }
+
+      .donut-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 0;
+      }
+      .donut {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        position: relative;
+        background: #eceff4;
+      }
+      .donut-center {
+        position: absolute;
+        inset: 34px;
+        background: #fff;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        box-shadow: inset 0 0 0 1px #eee;
+      }
+      .donut-number {
+        font-size: 34px;
+        font-weight: 900;
+        line-height: 1;
+      }
+      .donut-label {
+        font-size: 12px;
+        color: #636e72;
+        margin-top: 6px;
+        font-weight: 700;
+      }
+      .legend-cartera {
+        display: grid;
+        gap: 8px;
+        margin-top: 10px;
+      }
+      .legend-item {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: center;
+        background: #fafafa;
+        border: 1px solid #eee;
+        border-radius: 14px;
+        padding: 10px 12px;
+      }
+      .legend-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .legend-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+      .legend-title {
+        font-weight: 800;
+      }
+      .legend-meta {
+        font-size: 12px;
+        color: #636e72;
+      }
+
+      .dashboard-charts-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .chart-card {
+        min-height: 100%;
+      }
+
+      .cartera-layout {
+        display: grid;
+        grid-template-columns: 168px minmax(0, 1fr);
+        gap: 12px;
+        align-items: center;
+      }
+
+      .cartera-left,
+      .cartera-right {
+        min-width: 0;
+      }
+
+      .cartera-left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .donut-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+      }
+
+      .donut {
+        width: 168px;
+        height: 168px;
+        border-radius: 50%;
+        position: relative;
+        background: #eceff4;
+      }
+
+      .donut-center {
+        position: absolute;
+        inset: 28px;
+        background: #fff;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        box-shadow: inset 0 0 0 1px #eee;
+      }
+
+      .donut-number {
+        font-size: 30px;
+        font-weight: 900;
+        line-height: 1;
+      }
+      .donut-label {
+        font-size: 12px;
+        color: #636e72;
+        margin-top: 6px;
+        font-weight: 700;
+      }
+
+      .legend-cartera {
+        display: grid;
+        gap: 8px;
+        margin-top: 0;
+      }
+
+      .legend-item {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: center;
+        background: #fafafa;
+        border: 1px solid #eee;
+        border-radius: 14px;
+        padding: 10px 12px;
+      }
+
+      .legend-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .legend-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+      .legend-title {
+        font-weight: 800;
+      }
+      .legend-meta {
+        font-size: 12px;
+        color: #636e72;
+      }
+
+      .performance-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+
+      .performance-chart {
+        display: grid;
+        gap: 10px;
+      }
+
+      .performance-bar-card {
+        display: grid;
+        grid-template-columns: 100px minmax(0, 1fr) 88px;
+        gap: 10px;
+        align-items: center;
+        background: #fafafa;
+        border: 1px solid #eee;
+        border-radius: 14px;
+        padding: 10px 12px;
+      }
+
+      .performance-bar-label {
+        font-weight: 800;
+        font-size: 13px;
+        color: #2d3436;
+      }
+
+      .performance-bar-track {
+        height: 14px;
+        border-radius: 999px;
+        background: #eceff4;
+        overflow: hidden;
+      }
+
+      .performance-bar-fill {
+        height: 100%;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #6c5ce7, #8e7dff);
+      }
+
+      .performance-bar-meta {
+        text-align: right;
+        font-weight: 900;
+        font-size: 13px;
+      }
+
+      .performance-summary {
+        margin-top: 10px;
+        background: #fafafa;
+        border: 1px solid #eee;
+        border-radius: 14px;
+        padding: 10px 12px;
+        font-size: 13px;
+        color: #636e72;
+      }
+
+      @media (max-width: 860px) {
+        .dashboard-charts-row {
+          grid-template-columns: 1fr;
         }
+
+        .cartera-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .cartera-left {
+          justify-content: flex-start;
+        }
+
+        .donut {
+          width: 160px;
+          height: 160px;
+        }
+
+        .performance-bar-card {
+          grid-template-columns: 1fr;
+        }
+
+        .performance-bar-meta {
+          text-align: left;
+        }
+      }
+
+      .dashboard-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .kpi-card {
+        border-radius: 20px;
+        padding: 14px;
+        min-height: 118px;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+      }
+
+      .kpi-label {
+        font-size: 12px;
+        opacity: 0.95;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+      }
+
+      .kpi-value {
+        font-size: 24px;
+        font-weight: 800;
+        line-height: 1.05;
+        margin-top: 6px;
+      }
+
+      .kpi-sub {
+        font-size: 12px;
+        opacity: 0.95;
+        margin-top: 8px;
+      }
+
+      .kpi-purple {
+        background: linear-gradient(135deg, #6c5ce7, #8e7dff);
+      }
+      .kpi-pink {
+        background: linear-gradient(135deg, #ff6fa6, #ff9ac1);
+      }
+      .kpi-green {
+        background: linear-gradient(135deg, #10b981, #34d399);
+      }
+      .kpi-orange {
+        background: linear-gradient(135deg, #f59e0b, #fbbf24);
+      }
+      .kpi-red {
+        background: linear-gradient(135deg, #ef4444, #fb7185);
+      }
+      .kpi-blue {
+        background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+      }
+
+      .progress-wrap {
+        width: 100%;
+        height: 14px;
+        background: #eceff4;
+        border-radius: 999px;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        height: 100%;
+        width: 0;
+        background: linear-gradient(90deg, var(--morado), var(--morado-2));
+        border-radius: 999px;
+        transition: width 0.3s ease;
+      }
+
+      .meta-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+        gap: 12px;
+      }
+
+      .chart {
+        display: flex;
+        gap: 8px;
+        align-items: end;
+        height: 160px;
+        padding-top: 10px;
+      }
+
+      .chart-bar {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: end;
+        min-width: 0;
+      }
+
+      .chart-bar .bar {
+        width: 100%;
+        border-radius: 12px 12px 4px 4px;
+        background: linear-gradient(180deg, var(--morado), #a29bfe);
+        min-height: 8px;
+      }
+
+      .chart-bar small {
+        margin-top: 6px;
+        font-size: 11px;
+        text-align: center;
+        display: block;
+      }
+
+      .chart-bar span {
+        font-size: 11px;
+        font-weight: bold;
+        margin-top: 4px;
+      }
+
+      .actividad-list .pago-item {
+        margin-bottom: 10px;
+      }
+
+      .calendar-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .calendar-head button {
+        width: auto;
+        min-width: 42px;
+        padding: 10px 12px;
+        margin-top: 0;
+      }
+
+      .calendar-title {
+        font-weight: 800;
+        text-transform: capitalize;
+        text-align: center;
+        flex: 1;
+      }
+
+      .calendar-weekdays,
+      .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 8px;
+      }
+
+      .calendar-weekdays div {
+        text-align: center;
+        font-size: 11px;
+        font-weight: 700;
+        color: #636e72;
+        padding: 4px 0;
+      }
+
+      .calendar-day {
+        min-height: 74px;
+        border-radius: 14px;
+        border: 1px solid #edf0f4;
+        background: #fafafa;
+        padding: 8px;
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .calendar-day.empty {
+        background: transparent;
+        border: 1px dashed transparent;
+        cursor: default;
+      }
+
+      .calendar-day.today {
+        border-color: var(--morado);
+        background: #f3f0ff;
+      }
+
+      .calendar-day.selected {
+        outline: 2px solid var(--morado);
+        background: #efeaff;
+      }
+
+      .calendar-num {
+        font-weight: 800;
+        font-size: 14px;
+      }
+
+      .calendar-badge {
+        align-self: flex-end;
+        min-width: 22px;
+        height: 22px;
+        border-radius: 999px;
+        background: var(--morado);
+        color: white;
+        font-size: 11px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 6px;
+        margin-top: 4px;
+      }
+
+      .calendar-badge.zero {
+        background: #dfe6e9;
+        color: #2d3436;
+      }
+
+      .calendar-detail {
+        margin-top: 12px;
+      }
+
+      .calendar-detail h4 {
+        margin: 0 0 8px 0;
+      }
+
+      .calendar-item {
+        padding: 10px 12px;
+        border-radius: 12px;
+        background: #fafafa;
+        border: 1px solid #eee;
+        margin-bottom: 8px;
+      }
+
+      .calendar-item button {
+        margin-top: 8px;
+      }
+
+      .subtle {
+        color: #636e72;
+        font-size: 13px;
+      }
+
+      .mini-note {
+        font-size: 12px;
+        color: #636e72;
+        margin-top: 6px;
+      }
+
+      .inline-grid {
+        display: grid;
+        gap: 10px;
+      }
+
+      .nowrap {
+        white-space: nowrap;
+      }
+
+      .alert-summary-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .alert-resumen-card {
+        padding: 14px;
+        border-radius: 16px;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+      }
+
+      .alert-resumen-card .title {
+        font-size: 13px;
+        font-weight: 800;
+        opacity: 0.95;
+      }
+
+      .alert-resumen-card .count {
+        font-size: 24px;
+        font-weight: 800;
+        margin-top: 4px;
+      }
+
+      .alert-resumen-card .meta {
+        font-size: 12px;
+        opacity: 0.95;
+        margin-top: 4px;
+      }
+
+      .alert-resumen-card.red {
+        background: linear-gradient(135deg, #ef4444, #fb7185);
+      }
+
+      .alert-resumen-card.yellow {
+        background: linear-gradient(135deg, #f59e0b, #fbbf24);
+      }
+
+      .alert-resumen-card.blue {
+        background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+      }
+
+      .alertas-tabs {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+
+      .alertas-tabs button {
+        padding: 10px 8px;
+        margin-top: 0;
+        font-size: 12px;
+      }
+
+      .alertas-tabs button.active {
+        background: var(--morado);
+        color: white;
+      }
+
+      .alert-detail-item {
+        padding: 14px;
+        border-radius: 14px;
+        background: #fafafa;
+        border: 1px solid #eee;
+        margin-bottom: 10px;
+      }
+
+      .alert-detail-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        align-items: start;
+      }
+
+      .alert-detail-actions {
+        display: flex;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .alert-detail-actions button {
+        flex: 1;
+        font-size: 13px;
+      }
+
+      .alert-tag {
+        display: inline-block;
+        padding: 3px 8px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .alert-tag.red {
+        background: #ffe3e0;
+        color: #d63031;
+      }
+
+      .alert-tag.yellow {
+        background: #fff4c2;
+        color: #b26a00;
+      }
+
+      .alert-tag.blue {
+        background: #e1f5fe;
+        color: #0b74b8;
+      }
     </style>
-        
-    <div id="playerjs" style="width:100%;height:100%;"></div>
-        
-    <script type="text/javascript">
-            
-        var ps = location.href.substr(location.href.indexOf("html?")+5).split("&");
-            
-        var vs = {id:"playerjs"};
-            
-        for(var i = 0; i<ps.length; i++){
-            var p = ps[i].substr(0,ps[i].indexOf("="));
-            var v = ps[i].substr(ps[i].indexOf("=")+1);
-            if(p!=v){
-                vs[p] = decodeURIComponent(v);
-            }
+  </head>
+
+  <body>
+    <!-- LOGIN -->
+
+    <div id="loginScreen" class="pantalla activa">
+      <div class="card">
+        <h2>🔐 Iniciar Sesión</h2>
+
+        <input id="email" placeholder="Correo" />
+        <input id="password" type="password" placeholder="Contraseña" />
+
+        <button onclick="login()">Ingresar</button>
+      </div>
+    </div>
+
+    <!-- HOME -->
+
+    <div id="homeScreen" class="pantalla">
+      <div class="header">
+        <h2 id="saludo">Hola</h2>
+
+        <p id="subtituloHome">Tu libro de cobranza</p>
+        <div class="hero-note" id="fechaHome"></div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">📈 Tu negocio hoy</div>
+
+        <div class="dashboard-grid">
+          <div
+            class="kpi-card kpi-purple"
+            onclick="irASeccion('calendarSection')"
+          >
+            <div class="kpi-label">💰 Por cobrar total</div>
+            <div class="kpi-value" id="kpiTotalValue">S/ 0</div>
+            <div class="kpi-sub" id="kpiTotalSub">Deuda total activa</div>
+          </div>
+
+          <div
+            class="kpi-card kpi-pink"
+            onclick="ir('clientesScreen', document.querySelectorAll('.menu button')[1])"
+          >
+            <div class="kpi-label">👥 Clientes con deuda</div>
+            <div class="kpi-value" id="kpiClientesValue">0</div>
+            <div class="kpi-sub" id="kpiClientesSub">Cuentas pendientes</div>
+          </div>
+
+          <div class="kpi-card kpi-green" onclick="abrirAlertas('hoy')">
+            <div class="kpi-label">📅 Cobros hoy</div>
+            <div class="kpi-value" id="kpiHoyValue">S/ 0</div>
+            <div class="kpi-sub" id="kpiHoySub">0 clientes</div>
+          </div>
+
+          <div
+            class="kpi-card kpi-orange"
+            onclick="irASeccion('calendarSection')"
+          >
+            <div class="kpi-label">📆 Cobros próximos 7 días</div>
+            <div class="kpi-value" id="kpiSemanaValue">S/ 0</div>
+            <div class="kpi-sub" id="kpiSemanaSub">
+              Cobros programados en 7 días
+            </div>
+          </div>
+
+          <div class="kpi-card kpi-red" onclick="abrirAlertas('morosos')">
+            <div class="kpi-label">⚠ Morosos</div>
+            <div class="kpi-value" id="kpiMorososValue">0</div>
+            <div class="kpi-sub" id="kpiMorososSub">0 por cobrar</div>
+          </div>
+
+          <div class="kpi-card kpi-blue" onclick="abrirAlertas('proximos')">
+            <div class="kpi-label">🔔 Alertas enviadas</div>
+            <div class="kpi-value" id="kpiAlertas3Value">0</div>
+            <div class="kpi-sub" id="kpiAlertas3Sub">Historial de avisos</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="resumen" style="display: none"></div>
+
+      <div class="dashboard-charts-row">
+        <div class="card chart-card">
+          <div class="section-title">📊 Estado de cartera</div>
+          <div class="cartera-layout">
+            <div class="cartera-left">
+              <div class="donut-wrap">
+                <div id="estadoCarteraChart" class="donut">
+                  <div class="donut-center">
+                    <div id="estadoCarteraTotal" class="donut-number">0</div>
+                    <div class="donut-label">créditos activos</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="cartera-right">
+              <div id="estadoCarteraLegend" class="legend-cartera"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card chart-card">
+          <div class="performance-header">
+            <div>
+              <div class="section-title" style="margin-bottom: 4px">
+                📈 Rendimiento de cobranza
+              </div>
+              <div class="subtle">
+                Mes pasado como referencia, mes actual y últimos 7 días
+              </div>
+            </div>
+          </div>
+
+          <div id="rendimientoCobranzaChart" class="performance-chart"></div>
+          <div id="rendimientoCobranzaMeta" class="performance-summary"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">🔔 Alertas para revisar</div>
+
+        <div id="alertasHome"></div>
+      </div>
+
+      <div class="card" id="calendarSection">
+        <div class="section-title">🗓️ Calendario de cobros del mes</div>
+
+        <div class="calendar-head">
+          <button onclick="cambiarMesCalendario(-1)">‹</button>
+          <div id="calendarioMesTitulo" class="calendar-title"></div>
+          <button onclick="cambiarMesCalendario(1)">›</button>
+        </div>
+
+        <div class="calendar-weekdays">
+          <div>L</div>
+          <div>M</div>
+          <div>X</div>
+          <div>J</div>
+          <div>V</div>
+          <div>S</div>
+          <div>D</div>
+        </div>
+
+        <div
+          id="calendarioGrid"
+          class="calendar-grid"
+          style="margin-top: 8px"
+        ></div>
+
+        <div id="detalleCalendarioDia" class="calendar-detail"></div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">🕒 Últimos cobros registrados</div>
+
+        <div id="actividadReciente" class="actividad-list"></div>
+      </div>
+    </div>
+
+    <!-- ALERTAS DETALLE -->
+
+    <div id="alertasScreen" class="pantalla">
+      <div class="header">
+        <h2 id="alertasTitulo">🔔 Alertas</h2>
+        <p id="alertasSubtitulo">Clientes por revisar</p>
+      </div>
+
+      <div class="card">
+        <div class="alertas-tabs">
+          <button id="tabMorosos" onclick="abrirAlertas('morosos')">
+            Vencidos
+          </button>
+          <button id="tabHoy" onclick="abrirAlertas('hoy')">Hoy</button>
+          <button id="tabProximos" onclick="abrirAlertas('proximos')">
+            3 días
+          </button>
+          <button id="tabEnviadas" onclick="abrirAlertas('enviadas')">
+            Enviadas
+          </button>
+        </div>
+
+        <div id="listaAlertasDetalle"></div>
+
+        <button onclick="ir('homeScreen')">⬅ Volver al dashboard</button>
+      </div>
+    </div>
+
+    <!-- CLIENTES -->
+
+    <div id="clientesScreen" class="pantalla">
+      <div class="header">
+        <h2>👥 Clientes</h2>
+
+        <p>Todos tus clientes</p>
+      </div>
+
+      <div class="card">
+        <!-- BOTÓN RECUPERADO -->
+
+        <button onclick="ir('clienteScreen')">➕ Nuevo Cliente</button>
+
+        <input
+          id="buscarCliente"
+          placeholder="Buscar cliente..."
+          oninput="filtrarClientes()"
+        />
+
+        <div id="listaClientes"></div>
+      </div>
+    </div>
+
+    <!-- NUEVO CLIENTE -->
+
+    <div id="clienteScreen" class="pantalla">
+      <div class="header">
+        <h2>👤 Nuevo Cliente</h2>
+
+        <p>Registrar cliente</p>
+      </div>
+
+      <div class="card">
+        <input id="nombre" placeholder="Nombre" />
+        <input id="telefono" placeholder="Teléfono" />
+        <input id="direccion" placeholder="Dirección" />
+
+        <button onclick="guardarCliente()">Guardar Cliente</button>
+      </div>
+    </div>
+
+    <!-- CONFIG -->
+
+    <div id="configScreen" class="pantalla">
+      <div class="header">
+        <h2>⚙️ Configuración</h2>
+
+        <p>Nombre del saludo y plazo de cobro</p>
+      </div>
+
+      <div class="card">
+        <div class="subtle">Nombre de usuario</div>
+        <input id="nombreUsuario" placeholder="Nombre de usuario" />
+
+        <div class="subtle">Frecuencia general de cobro</div>
+        <select id="diasCobro">
+          <option value="7">7 días</option>
+          <option value="10">10 días</option>
+          <option value="15">15 días</option>
+          <option value="30">30 días</option>
+        </select>
+
+        <button onclick="guardarConfiguracion()">Guardar Configuración</button>
+      </div>
+    </div>
+
+    <!-- PAGOS -->
+
+    <div id="pagosScreen" class="pantalla">
+      <div class="header">
+        <h2>💰 Pagos Recientes</h2>
+
+        <p>Últimos 7 días</p>
+      </div>
+
+      <div class="card">
+        <div id="listaPagosRecientes"></div>
+      </div>
+    </div>
+
+    <!-- DETALLE CLIENTE -->
+
+    <div id="clienteDetalleScreen" class="pantalla">
+      <div class="header">
+        <h2 id="clienteNombre"></h2>
+
+        <p id="clienteInfo"></p>
+      </div>
+
+      <div class="card">
+        <div class="section-title">📌 Resumen del cliente</div>
+        <div id="resumenCliente" class="cliente-resumen-grid"></div>
+      </div>
+
+      <div class="card">
+        <button onclick="toggleNuevoCredito()">➕ Nuevo Crédito</button>
+      </div>
+
+      <div id="formCredito" class="card" style="display: none">
+        <div class="section-title">💳 Nuevo Crédito</div>
+
+        <div class="subtle">Fecha de creación del crédito</div>
+        <input id="fecha_creacion" type="date" />
+
+        <input id="producto" placeholder="Producto" />
+        <input id="monto" type="number" placeholder="Monto Total" />
+        <input id="inicial" type="number" placeholder="Inicial" />
+        <input id="cuotas" type="number" placeholder="Cuotas" />
+
+        <div class="subtle">Fecha del primer cobro</div>
+        <input id="fecha_inicio" type="date" />
+
+        <button onclick="guardarCredito()">Guardar Crédito</button>
+      </div>
+
+      <div class="card">
+        <div class="section-title-row">
+          <div class="section-title">📦 Créditos</div>
+          <div class="subtle">
+            Toca “Ver más detalles” para ampliar la información
+          </div>
+        </div>
+
+        <div id="detalleCreditos"></div>
+      </div>
+
+      <div class="card">
+        <div class="section-title-row">
+          <div class="section-title">📜 Historial</div>
+          <button
+            id="btnHistorialCliente"
+            class="mini-toggle"
+            onclick="toggleHistorialCliente(this)"
+          >
+            Ocultar historial
+          </button>
+        </div>
+
+        <div id="detallePagos"></div>
+      </div>
+    </div>
+
+    <!-- MODAL PAGOS -->
+
+    <div id="modalPago" class="modal">
+      <div class="modal-content">
+        <h3 id="tituloPago"></h3>
+        <div id="detallePagoModal" class="pago-modal-info"></div>
+
+        <input id="montoPago" type="number" placeholder="Monto" />
+
+        <div class="tipo-pago-modal">
+          <label class="tipo-pago-opcion">
+            <input type="radio" name="tipoPagoModal" value="cuota" checked />
+            Cuota
+          </label>
+          <label class="tipo-pago-opcion">
+            <input type="radio" name="tipoPagoModal" value="abono" />
+            Abono
+          </label>
+        </div>
+
+        <button onclick="guardarPago()">Guardar Pago</button>
+
+        <button onclick="cerrarModalPago()" style="background: #999">
+          Cancelar
+        </button>
+      </div>
+    </div>
+
+    <!-- MENU -->
+
+    <!-- SOLO REEMPLAZA ESTA SECCIÓN DEL MENÚ INFERIOR POR ESTA NUEVA -->
+
+    <div class="menu">
+      <button class="active" onclick="ir('homeScreen',this)">
+        🏠<br />Resumen
+      </button>
+
+      <button onclick="ir('clientesScreen',this)">👥<br />Clientes</button>
+
+      <!-- NUEVO BOTÓN AGREGADO -->
+
+      <button onclick="ir('clienteScreen',this)">➕<br />Nuevo</button>
+
+      <button onclick="abrirPagosRecientes(this)">💰<br />Pagos</button>
+
+      <button onclick="ir('configScreen',this); cargarConfiguracion();">
+        ⚙️<br />Config
+      </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+    <script>
+      const supabaseClient = window.supabase.createClient(
+        "https://fkkguzjgvmujufdvtojb.supabase.co",
+        "sb_publishable_rewG42YgvzRKElMGkYP_4w_O8DFMKF_"
+      );
+
+      let usuarioActual = null;
+      let clienteActualId = null;
+      let clientesGlobal = [];
+      let frecuenciaGeneral = 10;
+      let nombreUsuarioActual = "";
+      let creditoSeleccionado = null;
+      let creditosClienteMap = new Map();
+      let creditosDetallesAbiertos = new Set();
+      let historialClienteVisible = true;
+      let pagosGlobal = [];
+      let movimientosEnriquecidos = [];
+      let mesCalendarioActual = new Date();
+      let diaCalendarioSeleccionado = fechaLocal();
+      let eventosCalendario = [];
+      let alertasAgrupadas = { morosos: [], hoy: [], proximos: [] };
+      let alertasGlobal = [];
+      let alertasUltimasPorCliente = new Map();
+      let alertaCategoriaActiva = "morosos";
+
+      // Referencias a elementos del dashboard para evitar errores de consola
+      const resumen = document.getElementById("resumen");
+      const alertasHome = document.getElementById("alertasHome");
+      const listaPendientes = document.getElementById("listaPendientes");
+      const actividadReciente = document.getElementById("actividadReciente");
+      const graficoSemana = document.getElementById("rendimientoCobranzaChart");
+      const rendimientoCobranzaMeta = document.getElementById(
+        "rendimientoCobranzaMeta"
+      );
+      const metaSemanaTexto = document.getElementById("cobroSemanaTexto");
+      const metaSemanaPct = document.getElementById("cobroSemanaPct");
+      const metaSemanaBar = document.getElementById("cobroSemanaBar");
+      const metaSemanaDetalle = document.getElementById("cobroSemanaDetalle");
+      const resumenCliente = document.getElementById("resumenCliente");
+      const detallePagoModal = document.getElementById("detallePagoModal");
+
+      function capitalizarPrimeraLetra(valor) {
+        const texto = String(valor ?? "")
+          .replace(/\s+/g, " ")
+          .trimStart();
+        if (!texto) return "";
+        return texto.charAt(0).toUpperCase() + texto.slice(1);
+      }
+
+      function soloDigitos(valor) {
+        return String(valor ?? "").replace(/\D+/g, "");
+      }
+
+      function soloDecimal(valor) {
+        let texto = String(valor ?? "")
+          .replace(/[^0-9.,]/g, "")
+          .replace(/,/g, ".");
+        const partes = texto.split(".");
+        if (partes.length > 2) {
+          texto = partes.shift() + "." + partes.join("");
         }
-            
-        var playerjs = new Playerjs(vs);
-            
+        return texto;
+      }
+
+      function tipoPagoModalEsAbono() {
+        const seleccionado = document.querySelector(
+          'input[name="tipoPagoModal"]:checked'
+        );
+        return seleccionado ? seleccionado.value === "abono" : false;
+      }
+
+      function resetTipoPagoModal() {
+        const cuota = document.querySelector(
+          'input[name="tipoPagoModal"][value="cuota"]'
+        );
+        const abono = document.querySelector(
+          'input[name="tipoPagoModal"][value="abono"]'
+        );
+        if (cuota) cuota.checked = true;
+        if (abono) abono.checked = false;
+      }
+
+      function configurarValidacionesEntradas() {
+        const camposCapitalizar = [
+          "nombre",
+          "producto",
+          "nombreUsuario",
+          "direccion",
+        ];
+        camposCapitalizar.forEach((id) => {
+          const el = document.getElementById(id);
+          if (!el) return;
+          el.autocomplete = "off";
+          el.addEventListener("blur", () => {
+            el.value = capitalizarPrimeraLetra(el.value);
+          });
+        });
+
+        const camposEnteros = ["telefono", "cuotas"];
+        camposEnteros.forEach((id) => {
+          const el = document.getElementById(id);
+          if (!el) return;
+          el.setAttribute("inputmode", "numeric");
+          el.addEventListener("input", () => {
+            const limpio = soloDigitos(el.value);
+            if (el.value !== limpio) el.value = limpio;
+          });
+        });
+
+        const camposDecimal = ["monto", "inicial", "montoPago"];
+        camposDecimal.forEach((id) => {
+          const el = document.getElementById(id);
+          if (!el) return;
+          el.setAttribute("inputmode", "decimal");
+          el.addEventListener("input", () => {
+            const limpio = soloDecimal(el.value);
+            if (el.value !== limpio) el.value = limpio;
+          });
+        });
+      }
+
+      configurarValidacionesEntradas();
+
+      function fechaLocal() {
+        const f = new Date();
+
+        f.setMinutes(f.getMinutes() - f.getTimezoneOffset());
+
+        return f.toISOString().split("T")[0];
+      }
+
+      function ir(id, btn) {
+        document
+          .querySelectorAll(".pantalla")
+          .forEach((p) => p.classList.remove("activa"));
+
+        document.getElementById(id).classList.add("activa");
+
+        document
+          .querySelectorAll(".menu button")
+          .forEach((b) => b.classList.remove("active"));
+
+        if (btn) {
+          btn.classList.add("active");
+        }
+      }
+
+      async function login() {
+        const { data, error } = await supabaseClient.auth.signInWithPassword({
+          email: email.value,
+          password: password.value,
+        });
+
+        if (error) {
+          alert(error.message);
+          return;
+        }
+
+        usuarioActual = data.user;
+
+        saludo.textContent = "Hola, " + usuarioActual.email.split("@")[0];
+
+        loginScreen.classList.remove("activa");
+        homeScreen.classList.add("activa");
+
+        await iniciarApp();
+      }
+
+      supabaseClient.auth.getSession().then(async ({ data }) => {
+        if (data.session) {
+          usuarioActual = data.session.user;
+
+          saludo.textContent = "Hola, " + usuarioActual.email.split("@")[0];
+
+          loginScreen.classList.remove("activa");
+          homeScreen.classList.add("activa");
+
+          await iniciarApp();
+        }
+      });
+
+      async function iniciarApp() {
+        actualizarCabeceraFecha();
+        await cargarConfiguracion();
+        aplicarCabeceraUsuario();
+        await cargarClientes();
+        await verDashboard();
+      }
+
+      async function cargarConfiguracion() {
+        const { data, error } = await supabaseClient
+          .from("Configuracion")
+          .select("*")
+          .eq("owner_id", usuarioActual.id)
+          .maybeSingle();
+
+        if (error && error.code !== "PGRST116") {
+          console.log(error);
+        }
+
+        if (data) {
+          frecuenciaGeneral = Number(data.dias_cobro || 10);
+          nombreUsuarioActual =
+            String(data.nombre_usuario || "").trim() ||
+            nombreUsuarioParaSaludo();
+          if (typeof nombreUsuario !== "undefined") {
+            nombreUsuario.value = nombreUsuarioActual;
+          }
+          diasCobro.value = String(frecuenciaGeneral);
+        } else {
+          frecuenciaGeneral = 10;
+          nombreUsuarioActual = nombreUsuarioParaSaludo();
+          if (typeof nombreUsuario !== "undefined") {
+            nombreUsuario.value = nombreUsuarioActual;
+          }
+          diasCobro.value = "10";
+        }
+
+        aplicarCabeceraUsuario();
+      }
+
+      async function guardarConfiguracion() {
+        const diasSeleccionados = parseInt(
+          document.getElementById("diasCobro").value
+        );
+
+        const nombreSeleccionado = capitalizarPrimeraLetra(
+          String(document.getElementById("nombreUsuario").value || "").trim()
+        );
+
+        try {
+          /* BUSCA SI YA EXISTE */
+
+          const { data: configExistente } = await supabaseClient
+            .from("Configuracion")
+            .select("*")
+            .eq("owner_id", usuarioActual.id)
+            .maybeSingle();
+
+          const payload = {
+            nombre_usuario: nombreSeleccionado || nombreUsuarioParaSaludo(),
+            dias_cobro: diasSeleccionados,
+          };
+
+          /* SI EXISTE ACTUALIZA */
+
+          if (configExistente) {
+            const { error } = await supabaseClient
+              .from("Configuracion")
+              .update(payload)
+              .eq("owner_id", usuarioActual.id);
+
+            if (error) {
+              console.log(error);
+              alert(error.message);
+              return;
+            }
+          } else {
+            /* SI NO EXISTE CREA */
+
+            const { error } = await supabaseClient
+              .from("Configuracion")
+              .insert([
+                {
+                  owner_id: usuarioActual.id,
+                  ...payload,
+                },
+              ]);
+
+            if (error) {
+              console.log(error);
+              alert(error.message);
+              return;
+            }
+          }
+
+          /* ACTUALIZA VARIABLE GLOBAL */
+
+          frecuenciaGeneral = diasSeleccionados;
+          nombreUsuarioActual = nombreSeleccionado || nombreUsuarioParaSaludo();
+          if (document.getElementById("nombreUsuario")) {
+            document.getElementById("nombreUsuario").value =
+              nombreUsuarioActual;
+          }
+
+          /* MANTIENE OPCIÓN */
+
+          document.getElementById("diasCobro").value =
+            String(diasSeleccionados);
+          document.getElementById("nombreUsuario").value = nombreUsuarioActual;
+
+          aplicarCabeceraUsuario();
+
+          alert("Configuración guardada correctamente");
+          await cargarConfiguracion();
+          await verDashboard();
+        } catch (err) {
+          console.log(err);
+          alert("Error guardando configuración");
+        }
+      }
+
+      async function cargarClientes() {
+        const { data } = await supabaseClient
+          .from("Clientes")
+          .select("*")
+          .eq("owner_id", usuarioActual.id)
+          .order("created_at", { ascending: false });
+
+        clientesGlobal = data || [];
+
+        renderClientes(clientesGlobal);
+      }
+
+      function renderClientes(lista) {
+        listaClientes.innerHTML = "";
+
+        lista.forEach((c) => {
+          listaClientes.innerHTML += `
+<div
+class="cliente-item"
+onclick="abrirCliente('${c.id}')"
+>
+
+<div class="nombre-cliente">
+${c.nombre}
+</div>
+
+📞 ${c.telefono || "-"}
+
+</div>
+`;
+        });
+      }
+
+      function filtrarClientes() {
+        const texto = buscarCliente.value.toLowerCase();
+
+        const filtrados = clientesGlobal.filter((c) =>
+          (c.nombre || "").toLowerCase().includes(texto)
+        );
+
+        renderClientes(filtrados);
+      }
+
+      async function guardarCliente() {
+        const { data, error } = await supabaseClient
+          .from("Clientes")
+          .insert([
+            {
+              nombre: capitalizarPrimeraLetra(nombre.value),
+              telefono: soloDigitos(telefono.value),
+              direccion: capitalizarPrimeraLetra(direccion.value),
+              owner_id: usuarioActual.id,
+            },
+          ])
+          .select()
+          .single();
+
+        if (error) {
+          alert(error.message);
+          return;
+        }
+
+        nombre.value = "";
+        telefono.value = "";
+        direccion.value = "";
+
+        await cargarClientes();
+
+        abrirCliente(data.id);
+      }
+
+      function formatearDinero(valor) {
+        return `S/${Number(valor || 0).toFixed(2)}`;
+      }
+
+      function sumarDiasISO(fechaISO, dias) {
+        const d = new Date(fechaISO + "T00:00:00");
+        d.setDate(d.getDate() + dias);
+        return d.toISOString().split("T")[0];
+      }
+
+      function diasEntreFechas(isoInicio, isoFin) {
+        const a = new Date(isoInicio + "T00:00:00");
+        const b = new Date(isoFin + "T00:00:00");
+        return Math.max(0, Math.round((b - a) / (1000 * 60 * 60 * 24)));
+      }
+
+      function irASeccion(id) {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      function nombreUsuarioParaSaludo() {
+        const nombre = String(nombreUsuarioActual || "").trim();
+        if (nombre) return nombre;
+        return usuarioActual?.email
+          ? usuarioActual.email.split("@")[0]
+          : "Usuario";
+      }
+
+      function aplicarCabeceraUsuario() {
+        if (typeof saludo !== "undefined") {
+          saludo.textContent = `Hola, ${nombreUsuarioParaSaludo()}`;
+        }
+      }
+
+      function prepararCamposNuevoCredito() {
+        const hoy = fechaLocal();
+        if (typeof fecha_creacion !== "undefined") fecha_creacion.value = hoy;
+        if (typeof fecha_inicio !== "undefined") fecha_inicio.value = "";
+        if (typeof producto !== "undefined") producto.value = "";
+        if (typeof monto !== "undefined") monto.value = "";
+        if (typeof inicial !== "undefined") inicial.value = "";
+        if (typeof cuotas !== "undefined") cuotas.value = "";
+      }
+
+      function enfocarCredito(creditoId) {
+        const card = document.getElementById(`credito-card-${creditoId}`);
+        if (!card) return;
+
+        card.scrollIntoView({ behavior: "smooth", block: "center" });
+        card.classList.add("credito-destacado");
+        setTimeout(() => card.classList.remove("credito-destacado"), 2200);
+      }
+
+      function categoriaAlertaCredito(credito) {
+        const hoy = fechaLocal();
+        const fecha = credito.fecha_proximo_pago || hoy;
+
+        if (fecha < hoy) {
+          return {
+            categoria: "morosos",
+            dias: diasEntreFechas(fecha, hoy),
+          };
+        }
+
+        if (fecha === hoy) {
+          return { categoria: "hoy", dias: 0 };
+        }
+
+        const dias = diasEntreFechas(hoy, fecha);
+        if (dias <= 3) {
+          return { categoria: "proximos", dias };
+        }
+
+        return { categoria: "general", dias };
+      }
+
+      function mensajeRecordatorioCredito(credito, info) {
+        const nombre = credito.Clientes?.nombre || "Cliente";
+        const producto = credito.producto || "tu producto";
+        const saldo = formatearDinero(credito.saldo);
+        const productos = `• ${producto}`;
+
+        if (info.categoria === "morosos") {
+          return `Hola ${nombre}, tienes ${info.dias} días de retraso en:
+
+${productos}
+
+Saldo pendiente: ${saldo}.
+Por favor comunícate para regularizar tu pago.`;
+        }
+
+        if (info.categoria === "hoy") {
+          return `Hola ${nombre}, hoy vence tu pago de:
+
+${productos}
+
+Saldo pendiente: ${saldo}.
+Gracias por tu puntualidad.`;
+        }
+
+        if (info.categoria === "proximos") {
+          return `Hola ${nombre}, te recordamos que dentro de ${info.dias} día(s) vence tu pago de:
+
+${productos}
+
+Saldo pendiente: ${saldo}.
+Gracias por tu puntualidad.`;
+        }
+
+        return `Hola ${nombre}, te recordamos tu pago pendiente de:
+
+${productos}
+
+Saldo pendiente: ${saldo}.`;
+      }
+
+      function descripcionHistorialMovimiento(m) {
+        const cuotaTexto = textoMovimientoCuota(m)
+          .replace(/^🟢\s*/u, "")
+          .replace(/^🟡\s*/u, "");
+        const saldoRestante = formatearDinero(m.saldo_actual);
+
+        if (m.tipo_pago === "abono") {
+          return `Se registró un abono de ${formatearDinero(m.monto)} el ${
+            m.fecha
+          }. Saldo restante: ${saldoRestante}.`;
+        }
+
+        return `Se pagó ${cuotaTexto.toLowerCase()} por ${formatearDinero(
+          m.monto
+        )} el ${m.fecha}. Saldo restante: ${saldoRestante}. Próximo cobro: ${
+          m.proximo_pago || "-"
+        }.`;
+      }
+
+      async function enviarRecordatorioCredito(creditoId) {
+        const { data: credito, error } = await supabaseClient
+          .from("Creditos")
+          .select("*, Clientes(nombre,telefono)")
+          .eq("id", creditoId)
+          .single();
+
+        if (error) {
+          console.log(error);
+          alert(error.message);
+          return;
+        }
+
+        if (
+          !credito ||
+          credito.estado === "cancelado" ||
+          Number(credito.saldo || 0) <= 0
+        ) {
+          alert("Este crédito ya está cancelado.");
+          return;
+        }
+
+        const ultima = credito.ultima_alerta_at;
+        if (ultima && !puedeReenviarAlerta(ultima)) {
+          alert("Debe esperar al menos 1 día para reenviar otro recordatorio.");
+          return;
+        }
+
+        if (!credito.Clientes?.telefono) {
+          alert("Cliente sin teléfono");
+          return;
+        }
+
+        const info = categoriaAlertaCredito(credito);
+        const mensaje = mensajeRecordatorioCredito(credito, info);
+        const numero = String(credito.Clientes.telefono || "").replace(
+          /\D/g,
+          ""
+        );
+        const ahora = new Date().toISOString();
+
+        const { error: errorAlerta } = await supabaseClient
+          .from("Alertas")
+          .insert([
+            {
+              owner_id: usuarioActual.id,
+              cliente_id: credito.cliente_id,
+              creditos_ids: [credito.id],
+              tipo_alerta: info.categoria,
+              dias_retraso: info.dias || 0,
+              mensaje,
+              fecha_envio: ahora,
+            },
+          ]);
+
+        if (errorAlerta) {
+          console.log(errorAlerta);
+          alert(errorAlerta.message);
+          return;
+        }
+
+        await supabaseClient
+          .from("Creditos")
+          .update({
+            ultima_alerta_at: ahora,
+            ultima_alerta_tipo: info.categoria,
+            alertas_enviadas: Number(credito.alertas_enviadas || 0) + 1,
+          })
+          .eq("id", credito.id);
+
+        await verDashboard();
+        window.open(
+          `https://wa.me/51${numero}?text=${encodeURIComponent(mensaje)}`,
+          "_blank"
+        );
+      }
+
+      function resumenCuotasCredito(credito) {
+        const total = Number(credito.cuotas || 0);
+        const pagadas = Number(credito.cuotas_pagada || 0);
+        const totalMostrado = total > 0 ? total : pagadas;
+        const pagadasMostradas = total > 0 ? Math.min(pagadas, total) : pagadas;
+        const extras = total > 0 ? Math.max(0, pagadas - total) : 0;
+
+        return {
+          totalMostrado,
+          pagadasMostradas,
+          extras,
+        };
+      }
+
+      function estadoCreditoVisual(credito) {
+        const saldo = Number(credito.saldo || 0);
+        if (credito.estado === "cancelado" || saldo <= 0) {
+          return { clase: "cancelado", texto: "Cancelado" };
+        }
+
+        const hoy = fechaLocal();
+        const fecha = credito.fecha_proximo_pago || hoy;
+
+        if (fecha < hoy) {
+          return {
+            clase: "moroso",
+            texto: `Vencido ${diasEntreFechas(fecha, hoy)} días`,
+          };
+        }
+
+        if (fecha === hoy) {
+          return { clase: "hoy", texto: "Vence hoy" };
+        }
+
+        const dias = diasEntreFechas(hoy, fecha);
+        if (dias <= 3) {
+          return { clase: "proximo", texto: `Vence en ${dias} días` };
+        }
+
+        return { clase: "activo", texto: "Al día" };
+      }
+
+      function cuotaSugeridaCredito(credito) {
+        const totalCuotas = Number(credito.cuotas || 0);
+        const pagadas = Number(credito.cuotas_pagada || 0);
+        const pendientes = Math.max(totalCuotas - pagadas, 1);
+        const saldo = Number(credito.saldo || 0);
+        return saldo > 0 ? saldo / pendientes : 0;
+      }
+
+      function toggleDetalleCredito(creditoId) {
+        if (creditosDetallesAbiertos.has(creditoId)) {
+          creditosDetallesAbiertos.delete(creditoId);
+        } else {
+          creditosDetallesAbiertos.add(creditoId);
+        }
+        verCreditosCliente();
+      }
+
+      function toggleHistorialCliente(btn) {
+        historialClienteVisible = !historialClienteVisible;
+        detallePagos.style.display = historialClienteVisible ? "block" : "none";
+        if (btn) {
+          btn.textContent = historialClienteVisible
+            ? "Ocultar historial"
+            : "Ver historial";
+        }
+      }
+
+      function abrirCreditoDesdeHistorial(creditoId) {
+        creditosDetallesAbiertos.add(creditoId);
+        verCreditosCliente();
+        setTimeout(() => enfocarCredito(creditoId), 120);
+      }
+
+      function textoMovimientoCuota(movimiento) {
+        if (movimiento.tipo_pago === "abono") {
+          return "🟡 Abono registrado";
+        }
+
+        const total = Number(movimiento.total_cuotas || 0);
+        const numero = Number(movimiento.numero_cuota || 0);
+        const saldoActual = Number(movimiento.saldo_actual || 0);
+
+        if (total > 0) {
+          if (numero >= total && saldoActual <= 0) {
+            return `🟢 Cuota final (${total} de ${total})`;
+          }
+          return `🟢 Cuota ${numero || 1} de ${total}`;
+        }
+
+        return `🟢 Cuota ${numero || 1}`;
+      }
+
+      function obtenerUltimoMovimientoCredito(creditoId) {
+        const lista = (movimientosEnriquecidos || [])
+          .filter((m) => m.credito_id === creditoId)
+          .sort((a, b) =>
+            (b.created_at || b.fecha || "").localeCompare(
+              a.created_at || a.fecha || ""
+            )
+          );
+
+        return lista[0] || null;
+      }
+
+      function construirAlertasAgrupadas(creditosActivos) {
+        const hoy = fechaLocal();
+        const grupos = {
+          morosos: new Map(),
+          hoy: new Map(),
+          proximos: new Map(),
+        };
+
+        (creditosActivos || []).forEach((c) => {
+          if (!c.fecha_proximo_pago || Number(c.saldo || 0) <= 0) return;
+
+          const fecha = c.fecha_proximo_pago;
+          let categoria = null;
+          let dias = 0;
+
+          if (fecha < hoy) {
+            categoria = "morosos";
+            dias = diasEntreFechas(fecha, hoy);
+          } else if (fecha === hoy) {
+            categoria = "hoy";
+            dias = 0;
+          } else if (diasEntreFechas(hoy, fecha) <= 3) {
+            categoria = "proximos";
+            dias = diasEntreFechas(hoy, fecha);
+          } else {
+            return;
+          }
+
+          const key = c.cliente_id;
+          if (!grupos[categoria].has(key)) {
+            grupos[categoria].set(key, {
+              cliente_id: key,
+              nombre: c.Clientes?.nombre || "Cliente",
+              telefono: c.Clientes?.telefono || "",
+              productos: [],
+              total: 0,
+              dias,
+            });
+          }
+
+          const g = grupos[categoria].get(key);
+          g.productos.push({
+            producto: c.producto || "",
+            saldo: Number(c.saldo || 0),
+          });
+          g.total += Number(c.saldo || 0);
+
+          if (categoria === "morosos") {
+            g.dias = Math.max(g.dias, dias);
+          } else if (categoria === "proximos") {
+            g.dias = Math.min(g.dias, dias);
+          }
+        });
+
+        return {
+          morosos: Array.from(grupos.morosos.values()).sort(
+            (a, b) => b.total - a.total
+          ),
+          hoy: Array.from(grupos.hoy.values()).sort(
+            (a, b) => b.total - a.total
+          ),
+          proximos: Array.from(grupos.proximos.values()).sort(
+            (a, b) => a.dias - b.dias
+          ),
+        };
+      }
+
+      function renderAlertasHome() {
+        const totalMorosos = alertasAgrupadas.morosos.reduce(
+          (s, g) => s + Number(g.total || 0),
+          0
+        );
+        const totalHoy = alertasAgrupadas.hoy.reduce(
+          (s, g) => s + Number(g.total || 0),
+          0
+        );
+        const totalProximos = alertasAgrupadas.proximos.reduce(
+          (s, g) => s + Number(g.total || 0),
+          0
+        );
+
+        alertasHome.innerHTML = `
+<div class="alert-summary-grid">
+  <div class="alert-resumen-card red" onclick="abrirAlertas('morosos')">
+    <div class="title">Vencidos</div>
+    <div class="count">${alertasAgrupadas.morosos.length}</div>
+    <div class="meta">${formatearDinero(totalMorosos)} por cobrar</div>
+  </div>
+
+  <div class="alert-resumen-card yellow" onclick="abrirAlertas('hoy')">
+    <div class="title">Vence hoy</div>
+    <div class="count">${alertasAgrupadas.hoy.length}</div>
+    <div class="meta">${formatearDinero(totalHoy)} en su último día</div>
+  </div>
+
+  <div class="alert-resumen-card blue" onclick="abrirAlertas('proximos')">
+    <div class="title">Próximos 3 días</div>
+    <div class="count">${alertasAgrupadas.proximos.length}</div>
+    <div class="meta">${formatearDinero(totalProximos)} por avisar</div>
+  </div>
+</div>
+`;
+      }
+
+      function abrirAlertas(categoria) {
+        alertaCategoriaActiva = categoria;
+        ir("alertasScreen");
+        renderAlertasDetalle(categoria);
+        marcarPestanaAlertas(categoria);
+      }
+
+      function historialVisibleTexto() {
+        return historialClienteVisible ? "Ocultar historial" : "Ver historial";
+      }
+
+      function marcarPestanaAlertas(categoria) {
+        const tabs = {
+          morosos: tabMorosos,
+          hoy: tabHoy,
+          proximos: tabProximos,
+        };
+
+        Object.values(tabs).forEach((btn) => btn.classList.remove("active"));
+        tabs[categoria]?.classList.add("active");
+      }
+
+      function renderAlertasDetalle(categoria) {
+        const lista = document.getElementById("listaAlertasDetalle");
+        const titulo = document.getElementById("alertasTitulo");
+        const subtitulo = document.getElementById("alertasSubtitulo");
+        const grupos = alertasAgrupadas[categoria] || [];
+
+        const titulos = {
+          morosos: ["🔴 Vencidos", "Clientes que ya pasaron su fecha de pago"],
+          hoy: ["🟡 Vence hoy", "Clientes que deben pagar hoy"],
+          proximos: [
+            "🟢 Próximos 3 días",
+            "Clientes que necesitan recordatorio amable",
+          ],
+        };
+
+        titulo.textContent = titulos[categoria][0];
+        subtitulo.textContent = titulos[categoria][1];
+
+        if (!grupos.length) {
+          lista.innerHTML = `<div class="pago-item">No hay clientes en esta categoría.</div>`;
+          return;
+        }
+
+        lista.innerHTML = grupos
+          .map((g) => {
+            const etiquetas = g.productos
+              .map((p) => `• ${p.producto} - ${formatearDinero(p.saldo)}`)
+              .join("<br>");
+
+            const textoDias =
+              categoria === "morosos"
+                ? `${g.dias} días de retraso`
+                : categoria === "hoy"
+                ? "Último día de pago"
+                : `Vence en ${g.dias} día(s)`;
+
+            const tagClass =
+              categoria === "morosos"
+                ? "red"
+                : categoria === "hoy"
+                ? "yellow"
+                : "blue";
+
+            return `
+<div class="alert-detail-item">
+  <div class="alert-detail-top">
+    <div>
+      <b>${g.nombre}</b><br>
+      <span class="alert-tag ${tagClass}">${textoDias}</span>
+    </div>
+    <div><b>${formatearDinero(g.total)}</b></div>
+  </div>
+
+  <div class="subtle" style="margin-top:8px;">
+    ${etiquetas}
+  </div>
+
+  <div class="alert-detail-actions">
+    <button onclick="abrirCliente('${g.cliente_id}')">Ver cliente</button>
+    <button onclick="enviarWhatsAppAlerta('${categoria}','${
+              g.cliente_id
+            }')">WhatsApp</button>
+  </div>
+</div>
+`;
+          })
+          .join("");
+      }
+
+      function enviarWhatsAppAlerta(categoria, cliente_id) {
+        const grupo = alertasAgrupadas[categoria]?.find(
+          (g) => g.cliente_id === cliente_id
+        );
+        if (!grupo) return;
+
+        if (!grupo.telefono) {
+          alert("Cliente sin teléfono");
+          return;
+        }
+
+        const numero = grupo.telefono.replace(/\D/g, "");
+        const productos = grupo.productos
+          .map((p) => `• ${p.producto} (${formatearDinero(p.saldo)})`)
+          .join("\n");
+
+        let mensaje = "";
+
+        if (categoria === "morosos") {
+          mensaje = `Hola ${grupo.nombre}, tienes ${
+            grupo.dias
+          } días de retraso en los siguientes productos:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(
+            grupo.total
+          )}.\nPor favor comunícate para regularizar tu pago.`;
+        } else if (categoria === "hoy") {
+          mensaje = `Hola ${
+            grupo.nombre
+          }, hoy vence tu pago de:\n\n${productos}\n\nTotal a pagar: ${formatearDinero(
+            grupo.total
+          )}.\nGracias por tu puntualidad.`;
+        } else {
+          mensaje = `Hola ${grupo.nombre}, te recordamos que dentro de ${
+            grupo.dias
+          } día(s) vence tu pago de:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(
+            grupo.total
+          )}.\nGracias por tu puntualidad.`;
+        }
+
+        window.open(
+          `https://wa.me/51${numero}?text=${encodeURIComponent(mensaje)}`,
+          "_blank"
+        );
+      }
+
+      function construirMovimientosEnriquecidos(pagos, creditosActivos) {
+        const creditosMap = new Map(
+          (creditosActivos || []).map((c) => [c.id, c])
+        );
+        const pagosPorCredito = new Map();
+
+        (pagos || []).forEach((p) => {
+          if (!pagosPorCredito.has(p.credito_id)) {
+            pagosPorCredito.set(p.credito_id, []);
+          }
+          pagosPorCredito.get(p.credito_id).push(p);
+        });
+
+        const timeline = [];
+
+        for (const [creditoId, lista] of pagosPorCredito.entries()) {
+          const credito = creditosMap.get(creditoId) || {};
+          const ordenados = [...lista].sort((a, b) => {
+            const aa = a.created_at || a.fecha || "";
+            const bb = b.created_at || b.fecha || "";
+            return aa.localeCompare(bb);
+          });
+
+          let saldo =
+            Number(credito.monto_total || 0) - Number(credito.inicial || 0);
+          if (saldo < 0) saldo = 0;
+
+          let cuotaNumero = 0;
+          let proximoCobro =
+            credito.fecha_inicio || credito.fecha_proximo_pago || "";
+          const totalCuotas = Number(credito.cuotas || 0);
+
+          ordenados.forEach((p) => {
+            const monto = Number(p.monto || 0);
+            const saldoAnterior = Number.isFinite(Number(p.saldo_anterior))
+              ? Number(p.saldo_anterior)
+              : saldo;
+
+            let numeroCuotaMostrada = null;
+            if (p.tipo_pago !== "abono") {
+              cuotaNumero += 1;
+              numeroCuotaMostrada = cuotaNumero;
+              const base =
+                p.proximo_pago ||
+                proximoCobro ||
+                credito.fecha_proximo_pago ||
+                p.fecha;
+              const frecuencia = Number(credito.frecuencia_dias || 10);
+              proximoCobro = base
+                ? sumarDiasISO(base, frecuencia)
+                : credito.fecha_proximo_pago || "";
+            }
+
+            const saldoActual = Number.isFinite(Number(p.saldo_actual))
+              ? Number(p.saldo_actual)
+              : Math.max(0, saldoAnterior - monto);
+            saldo = saldoActual;
+
+            timeline.push({
+              id: p.id,
+              credito_id: creditoId,
+              cliente_id: credito.cliente_id,
+              cliente_nombre: credito.Clientes?.nombre || "Cliente",
+              cliente_telefono: credito.Clientes?.telefono || "",
+              producto: credito.producto || "",
+              monto_total: Number(credito.monto_total || 0),
+              tipo_pago: p.tipo_pago || "cuota",
+              monto,
+              fecha: p.fecha,
+              created_at: p.created_at || p.fecha,
+              numero_cuota: numeroCuotaMostrada,
+              total_cuotas: totalCuotas,
+              saldo_anterior: saldoAnterior,
+              saldo_actual: saldoActual,
+              saldo_actual_credito: Number(credito.saldo || 0),
+              proximo_pago:
+                p.proximo_pago ||
+                proximoCobro ||
+                credito.fecha_proximo_pago ||
+                "",
+              frecuencia_dias: Number(credito.frecuencia_dias || 10),
+            });
+          });
+        }
+
+        return timeline.sort((a, b) => {
+          const aa = a.created_at || a.fecha || "";
+          const bb = b.created_at || b.fecha || "";
+          return bb.localeCompare(aa);
+        });
+      }
+
+      function buildCalendarMap(creditosActivos) {
+        const mapa = new Map();
+
+        (creditosActivos || []).forEach((c) => {
+          if (!c.fecha_proximo_pago) return;
+
+          const key = c.fecha_proximo_pago;
+          if (!mapa.has(key)) mapa.set(key, []);
+
+          mapa.get(key).push({
+            cliente_id: c.cliente_id,
+            nombre: c.Clientes?.nombre || "Cliente",
+            telefono: c.Clientes?.telefono || "",
+            producto: c.producto || "",
+            saldo: Number(c.saldo || 0),
+            fecha: key,
+            dias_restantes: diasEntreFechas(fechaLocal(), key),
+          });
+        });
+
+        return mapa;
+      }
+
+      function renderCalendarioCobros() {
+        const titulo = document.getElementById("calendarioMesTitulo");
+        const grid = document.getElementById("calendarioGrid");
+        const detalle = document.getElementById("detalleCalendarioDia");
+
+        const anio = mesCalendarioActual.getFullYear();
+        const mes = mesCalendarioActual.getMonth();
+
+        const nombreMes = mesCalendarioActual.toLocaleDateString("es-PE", {
+          month: "long",
+          year: "numeric",
+        });
+
+        titulo.textContent =
+          nombreMes.charAt(0).toUpperCase() + nombreMes.slice(1);
+
+        const primerDia = new Date(anio, mes, 1);
+        const diasMes = new Date(anio, mes + 1, 0).getDate();
+        const inicioSemana = (primerDia.getDay() + 6) % 7; // lunes primero
+
+        const eventosMap = eventosCalendario.reduce((acc, grupo) => {
+          acc.set(grupo.fecha, grupo.items);
+          return acc;
+        }, new Map());
+
+        grid.innerHTML = "";
+
+        for (let i = 0; i < inicioSemana; i++) {
+          grid.innerHTML += `<div class="calendar-day empty"></div>`;
+        }
+
+        for (let dia = 1; dia <= diasMes; dia++) {
+          const yyyy = String(anio);
+          const mm = String(mes + 1).padStart(2, "0");
+          const dd = String(dia).padStart(2, "0");
+          const fecha = `${yyyy}-${mm}-${dd}`;
+          const items = eventosMap.get(fecha) || [];
+          const isToday = fecha === fechaLocal();
+          const isSelected = fecha === diaCalendarioSeleccionado;
+          const badgeClass = items.length ? "" : "zero";
+
+          grid.innerHTML += `
+<div class="calendar-day ${isToday ? "today" : ""} ${
+            isSelected ? "selected" : ""
+          }" onclick="seleccionarDiaCalendario('${fecha}')">
+  <div class="calendar-num">${dia}</div>
+  <div class="calendar-badge ${badgeClass}">${items.length || ""}</div>
+</div>
+`;
+        }
+
+        if (
+          diaCalendarioSeleccionado &&
+          eventosMap.get(diaCalendarioSeleccionado)
+        ) {
+          mostrarDetalleCalendario(diaCalendarioSeleccionado);
+        } else {
+          const firstEvent = eventosCalendario.find((x) =>
+            x.fecha.startsWith(`${anio}-${String(mes + 1).padStart(2, "0")}`)
+          );
+          if (firstEvent) {
+            diaCalendarioSeleccionado = firstEvent.fecha;
+            mostrarDetalleCalendario(firstEvent.fecha);
+          } else {
+            detalle.innerHTML = `<div class="pago-item">No hay cobros programados en este mes.</div>`;
+          }
+        }
+      }
+
+      function cambiarMesCalendario(delta) {
+        mesCalendarioActual.setMonth(mesCalendarioActual.getMonth() + delta);
+        renderCalendarioCobros();
+      }
+
+      function seleccionarDiaCalendario(fecha) {
+        diaCalendarioSeleccionado = fecha;
+        renderCalendarioCobros();
+      }
+
+      function mostrarDetalleCalendario(fecha) {
+        const detalle = document.getElementById("detalleCalendarioDia");
+        const grupo = eventosCalendario.find((x) => x.fecha === fecha);
+
+        if (!grupo || !grupo.items.length) {
+          detalle.innerHTML = `<div class="pago-item">No hay cobros programados para este día.</div>`;
+          return;
+        }
+
+        const nombreDia = new Date(fecha + "T00:00:00").toLocaleDateString(
+          "es-PE",
+          {
+            weekday: "long",
+            day: "2-digit",
+            month: "long",
+            year: "numeric",
+          }
+        );
+
+        detalle.innerHTML = `
+          <h4>📌 ${nombreDia.charAt(0).toUpperCase() + nombreDia.slice(1)}</h4>
+          <div class="mini-note">Clientes con cobro programado para esta fecha</div>
+          ${grupo.items
+            .map((item) => {
+              const diferencia = diasEntreFechas(fechaLocal(), item.fecha);
+              return `
+<div class="calendar-item">
+  <b>${item.nombre}</b><br>
+  ${item.producto}<br>
+  💰 ${formatearDinero(item.saldo)}<br>
+  ${
+    diferencia < 0
+      ? `🔴 ${Math.abs(diferencia)} días vencido`
+      : diferencia === 0
+      ? "🟡 Vence hoy"
+      : `🟢 Vence en ${diferencia} días`
+  }
+  <button onclick="enviarWhatsApp('${item.nombre}','${item.telefono}','${
+                item.producto
+              }','${item.saldo}','${diferencia}')">Enviar WhatsApp</button>
+</div>
+`;
+            })
+            .join("")}
+        `;
+      }
+
+      function actualizarCabeceraFecha() {
+        fechaHome.textContent = new Date().toLocaleDateString("es-PE", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "2-digit",
+        });
+      }
+
+      /* DASHBOARD */
+
+      async function verDashboard() {
+        actualizarCabeceraFecha();
+
+        const hoyISO = fechaLocal();
+        const en3DiasISO = sumarDiasISO(hoyISO, 3);
+        const en7DiasISO = sumarDiasISO(hoyISO, 7);
+        const hace6DiasISO = sumarDiasISO(hoyISO, -6);
+
+        const [creditosResp, pagosResp] = await Promise.all([
+          supabaseClient
+            .from("Creditos")
+            .select("*, Clientes(nombre,telefono)")
+            .eq("owner_id", usuarioActual.id)
+            .order("fecha_proximo_pago", { ascending: true }),
+
+          supabaseClient
+            .from("Pagos")
+            .select(
+              "*, Creditos(producto,cliente_id,cliente_id,fecha_proximo_pago,cuotas,monto_total,inicial,saldo,frecuencia_dias,Clientes(nombre,telefono))"
+            )
+            .eq("owner_id", usuarioActual.id)
+            .order("fecha", { ascending: false }),
+        ]);
+
+        const creditos = creditosResp.data || [];
+        pagosGlobal = pagosResp.data || [];
+
+        const creditosActivos = creditos.filter(
+          (c) => c.estado !== "cancelado" && Number(c.saldo || 0) > 0
+        );
+
+        movimientosEnriquecidos = construirMovimientosEnriquecidos(
+          pagosGlobal,
+          creditos
+        );
+        eventosCalendario = Array.from(
+          buildCalendarMap(creditosActivos).entries()
+        ).map(([fecha, items]) => ({ fecha, items }));
+
+        alertasAgrupadas = construirAlertasAgrupadas(creditosActivos);
+        renderAlertasHome();
+
+        const clientesActivos = new Set(
+          creditosActivos.map((c) => c.cliente_id)
+        ).size;
+
+        let totalPorCobrar = 0;
+        let cobradoHoy = 0;
+        let programadoHoy = 0;
+        let programadoSemana = 0;
+        let cobradoSemana = 0;
+        let morososMonto = 0;
+        let alertas3Monto = 0;
+
+        const clientesHoy = new Set();
+        const clientesSemana = new Set();
+        const clientesMorosos = new Set();
+        const clientesProximos = new Set();
+
+        creditosActivos.forEach((c) => {
+          const saldo = Number(c.saldo || 0);
+          const fecha = c.fecha_proximo_pago || hoyISO;
+
+          totalPorCobrar += saldo;
+
+          if (fecha === hoyISO) {
+            cobradoHoy += saldo; /* lo que toca cobrar hoy */
+            programadoHoy += saldo;
+            clientesHoy.add(c.cliente_id);
+          }
+
+          if (fecha >= hoyISO && fecha <= en7DiasISO) {
+            programadoSemana += saldo;
+            clientesSemana.add(c.cliente_id);
+          }
+
+          if (fecha < hoyISO) {
+            morososMonto += saldo;
+            clientesMorosos.add(c.cliente_id);
+          } else if (fecha > hoyISO && diasEntreFechas(hoyISO, fecha) <= 3) {
+            alertas3Monto += saldo;
+            clientesProximos.add(c.cliente_id);
+          }
+        });
+
+        // Cobrado real en los últimos 7 días
+        cobradoSemana = pagosGlobal
+          .filter((p) => (p.fecha || "") >= hace6DiasISO)
+          .reduce((sum, p) => sum + Number(p.monto || 0), 0);
+
+        // KPI cards
+        document.getElementById("kpiTotalValue").textContent =
+          formatearDinero(totalPorCobrar);
+        document.getElementById(
+          "kpiTotalSub"
+        ).textContent = `${clientesActivos} clientes con deuda`;
+
+        document.getElementById("kpiClientesValue").textContent =
+          String(clientesActivos);
+        document.getElementById("kpiClientesSub").textContent =
+          "Cuentas activas por cobrar";
+
+        document.getElementById("kpiHoyValue").textContent =
+          formatearDinero(programadoHoy);
+        document.getElementById(
+          "kpiHoySub"
+        ).textContent = `${clientesHoy.size} cliente(s) con pago hoy`;
+
+        document.getElementById("kpiSemanaValue").textContent =
+          formatearDinero(programadoSemana);
+        document.getElementById(
+          "kpiSemanaSub"
+        ).textContent = `${clientesSemana.size} cliente(s) en 7 días`;
+
+        document.getElementById("kpiMorososValue").textContent = String(
+          clientesMorosos.size
+        );
+        document.getElementById(
+          "kpiMorososSub"
+        ).textContent = `${formatearDinero(morososMonto)} vencidos`;
+
+        document.getElementById("kpiAlertas3Value").textContent = String(
+          clientesProximos.size
+        );
+        document.getElementById(
+          "kpiAlertas3Sub"
+        ).textContent = `${formatearDinero(alertas3Monto)} por avisar`;
+
+        // Semana: cobrados vs programados
+        const metaPct =
+          programadoSemana > 0
+            ? Math.min(
+                100,
+                Math.round((cobradoSemana / programadoSemana) * 100)
+              )
+            : 0;
+
+        document.getElementById(
+          "cobroSemanaTexto"
+        ).textContent = `Cobrado: ${formatearDinero(
+          cobradoSemana
+        )} | Programado: ${formatearDinero(programadoSemana)}`;
+
+        document.getElementById("cobroSemanaPct").textContent = `${metaPct}%`;
+        document.getElementById("cobroSemanaBar").style.width = `${metaPct}%`;
+
+        const faltanteSemana = Math.max(0, programadoSemana - cobradoSemana);
+        document.getElementById("cobroSemanaDetalle").textContent =
+          faltanteSemana > 0
+            ? `Falta cobrar ${formatearDinero(
+                faltanteSemana
+              )} para completar lo programado esta semana`
+            : "Ya se cubrió lo programado para esta semana";
+
+        // Subtítulo del dashboard en formato compacto
+        const mensajeCabecera =
+          clientesMorosos.size > 0
+            ? `Hoy tienes ${clientesMorosos.size} cliente(s) vencidos`
+            : clientesHoy.size > 0
+            ? `Hoy tienes ${clientesHoy.size} cliente(s) por cobrar`
+            : clientesProximos.size > 0
+            ? `Tienes ${clientesProximos.size} cliente(s) por avisar`
+            : "Todo está al día por ahora";
+
+        subtituloHome.textContent = `Plazo de cobro: ${Number(
+          frecuenciaGeneral || 10
+        )} días`;
+        fechaHome.textContent = `${new Date().toLocaleDateString("es-PE", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "2-digit",
+        })} · ${mensajeCabecera}`;
+
+        // Lista principal del dashboard: últimos 7 días gráficos
+        renderActividadReciente();
+        renderCalendarioCobros();
+
+        // Si no hay un día seleccionado en el mes actual, dejar una fecha útil
+        if (!diaCalendarioSeleccionado) {
+          diaCalendarioSeleccionado = hoyISO;
+        }
+
+        // Resumen principal
+        if (!creditosActivos.length) {
+          if (resumen)
+            if (resumen)
+              resumen.innerHTML = `
+<h2>💵 ${formatearDinero(0)}</h2>
+<p>0 vencidos</p>
+<p>0 próximos</p>
+`;
+        } else {
+          if (resumen)
+            if (resumen)
+              resumen.innerHTML = `
+<h2>💵 ${formatearDinero(totalPorCobrar)}</h2>
+<p>🔴 ${clientesMorosos.size} vencidos</p>
+<p>🟡 ${clientesProximos.size} próximos</p>
+`;
+        }
+
+        // Render de alertas detalle si la pantalla ya está abierta
+        if (
+          document.getElementById("alertasScreen").classList.contains("activa")
+        ) {
+          renderAlertasDetalle(alertaCategoriaActiva);
+        }
+      }
+      /* WHATSAPP RESTAURADO */
+
+      function enviarWhatsApp(nombre, telefono, producto, saldo, diferencia) {
+        if (!telefono) {
+          alert("Cliente sin teléfono");
+          return;
+        }
+
+        let mensaje = "";
+
+        if (Number(diferencia) < 0) {
+          mensaje = `Hola ${nombre}, tienes retraso en el pago de ${producto}. Tu saldo pendiente es S/${saldo}. Por favor comunícate para regularizar tu pago.`;
+        } else {
+          mensaje = `Hola ${nombre}, te recordamos que tu pago de ${producto} vence pronto. Saldo pendiente S/${saldo}.`;
+        }
+
+        const numero = telefono.replace(/\D/g, "");
+
+        window.open(
+          `https://wa.me/51${numero}?text=${encodeURIComponent(mensaje)}`,
+          "_blank"
+        );
+      }
+
+      async function abrirCliente(cliente_id) {
+        clienteActualId = cliente_id;
+        creditosDetallesAbiertos = new Set();
+        historialClienteVisible = true;
+
+        document
+          .querySelectorAll(".pantalla")
+          .forEach((p) => p.classList.remove("activa"));
+
+        clienteDetalleScreen.classList.add("activa");
+
+        const { data } = await supabaseClient
+          .from("Clientes")
+          .select("*")
+          .eq("id", cliente_id)
+          .single();
+
+        clienteNombre.textContent = data.nombre;
+
+        clienteInfo.textContent = `📞 ${data.telefono || "-"} | 📍 ${
+          data.direccion || "-"
+        }`;
+
+        await verCreditosCliente();
+        await verHistorial();
+      }
+
+      function toggleNuevoCredito() {
+        if (formCredito.style.display === "none") {
+          prepararCamposNuevoCredito();
+          formCredito.style.display = "block";
+        } else {
+          formCredito.style.display = "none";
+        }
+      }
+
+      async function guardarCredito() {
+        if (!fecha_inicio.value) {
+          alert("Selecciona la fecha del primer cobro");
+          return;
+        }
+
+        const fechaCreacionValor = fecha_creacion.value || fechaLocal();
+        const productoValor = capitalizarPrimeraLetra(producto.value);
+        const montoTotal = Number(monto.value);
+        const inicialPago = Number(inicial.value || 0);
+        const saldoFinal = montoTotal - inicialPago;
+        const frecuencia = Number(frecuenciaGeneral || 10);
+
+        const { error } = await supabaseClient.from("Creditos").insert([
+          {
+            cliente_id: clienteActualId,
+            producto: productoValor,
+            monto_total: montoTotal,
+            inicial: inicialPago,
+            saldo: saldoFinal,
+            cuotas: Number(cuotas.value),
+            cuotas_pagada: 0,
+            fecha_creacion: fechaCreacionValor,
+            fecha_inicio: fecha_inicio.value,
+            fecha_proximo_pago: fecha_inicio.value,
+            frecuencia_dias: frecuencia,
+            estado: "activo",
+            owner_id: usuarioActual.id,
+          },
+        ]);
+
+        if (error) {
+          console.log(error);
+          alert(error.message);
+          return;
+        }
+
+        /* LIMPIAR FORMULARIO */
+
+        prepararCamposNuevoCredito();
+        formCredito.style.display = "none";
+
+        await verCreditosCliente();
+        await verDashboard();
+
+        alert("Crédito guardado");
+      }
+
+      async function verCreditosCliente() {
+        const { data } = await supabaseClient
+          .from("Creditos")
+          .select("*")
+          .eq("cliente_id", clienteActualId)
+          .order("created_at", { ascending: false });
+
+        const creditos = data || [];
+        creditosClienteMap = new Map(creditos.map((c) => [c.id, c]));
+
+        const activos = creditos.filter(
+          (c) => c.estado !== "cancelado" && Number(c.saldo || 0) > 0
+        );
+        const deudaTotal = creditos.reduce(
+          (s, c) => s + Number(c.saldo || 0),
+          0
+        );
+        const totalCréditos = creditos.length;
+
+        if (resumenCliente) {
+          resumenCliente.innerHTML = `
+<div class="cliente-resumen-item">
+  <span class="mini-label">Créditos</span>
+  <div class="mini-value">${totalCréditos}</div>
+</div>
+<div class="cliente-resumen-item">
+  <span class="mini-label">Con deuda</span>
+  <div class="mini-value">${activos.length}</div>
+</div>
+<div class="cliente-resumen-item">
+  <span class="mini-label">Deuda total</span>
+  <div class="mini-value">${formatearDinero(deudaTotal)}</div>
+</div>
+`;
+        }
+
+        detalleCreditos.innerHTML = "";
+
+        creditos.forEach((c) => {
+          const cuotasInfo = resumenCuotasCredito(c);
+          const ultimo = obtenerUltimoMovimientoCredito(c.id);
+          const ultimoTexto = ultimo
+            ? `${textoMovimientoCuota(ultimo)} · ${formatearDinero(
+                ultimo.monto
+              )} · ${ultimo.fecha}`
+            : "Sin cobros todavía";
+
+          const estado = estadoCreditoVisual(c);
+          const abierto = creditosDetallesAbiertos.has(c.id);
+          const totalCuotas = Number(c.cuotas || 0);
+          const pagadas = Number(c.cuotas_pagada || 0);
+          const pendientes =
+            totalCuotas > 0 ? Math.max(totalCuotas - pagadas, 0) : 0;
+          const progreso =
+            totalCuotas > 0
+              ? Math.min(
+                  100,
+                  Math.round(
+                    (Math.min(pagadas, totalCuotas) / totalCuotas) * 100
+                  )
+                )
+              : 0;
+          const cuotaSugerida = cuotaSugeridaCredito(c);
+
+          detalleCreditos.innerHTML += `
+<div class="credito-card credito-estado-${estado.clase}" id="credito-card-${
+            c.id
+          }">
+  <div class="credito-header">
+    <div>
+      <div class="credito-title">${c.producto}</div>
+      <span class="credito-badge ${estado.clase}">${estado.texto}</span>
+    </div>
+    <div class="credito-saldo-box">
+      <div class="label">Saldo restante</div>
+      <div class="value">${formatearDinero(c.saldo)}</div>
+    </div>
+  </div>
+
+  <div class="credito-mini-grid">
+    <div class="credito-mini-item">
+      <span class="mini-label">Precio total del producto</span>
+      ${formatearDinero(c.monto_total)}
+    </div>
+    <div class="credito-mini-item">
+      <span class="mini-label">Aporte inicial</span>
+      ${formatearDinero(c.inicial)}
+    </div>
+    <div class="credito-mini-item">
+      <span class="mini-label">Cuotas pagadas</span>
+      ${cuotasInfo.pagadasMostradas} de ${cuotasInfo.totalMostrado}
+    </div>
+    <div class="credito-mini-item">
+      <span class="mini-label">Próximo cobro</span>
+      ${c.fecha_proximo_pago || "-"}
+    </div>
+  </div>
+
+  <div class="credito-barra"><div style="width:${progreso}%"></div></div>
+  <div class="mini-note">Progreso del crédito: ${progreso}% · Cuota sugerida aprox.: ${formatearDinero(
+            cuotaSugerida
+          )}${pendientes > 0 ? ` · Faltan ${pendientes} cuota(s)` : ""}</div>
+
+  <div class="credito-acciones">
+    <button onclick="abrirModalPago('${c.id}','${c.producto}')" ${
+            c.estado === "cancelado" || Number(c.saldo || 0) <= 0
+              ? "disabled"
+              : ""
+          }>💰 Pagar</button>
+    <button onclick="enviarRecordatorioCredito('${c.id}')" ${
+            c.estado === "cancelado" || Number(c.saldo || 0) <= 0
+              ? "disabled"
+              : ""
+          }>🔔 Recordatorio</button>
+  </div>
+
+  <button class="credito-toggle" onclick="toggleDetalleCredito('${c.id}')">${
+            abierto ? "Ocultar detalles" : "Ver más detalles"
+          }</button>
+
+  <div id="credito-detalle-${c.id}" class="credito-detalle ${
+            abierto ? "" : "oculto"
+          }">
+    <div class="detalle-linea"><b>Fecha de creación del crédito:</b> ${
+      c.fecha_creacion || "-"
+    }</div>
+    <div class="detalle-linea"><b>Fecha del primer cobro:</b> ${
+      c.fecha_inicio || "-"
+    }</div>
+    <div class="detalle-linea"><b>Frecuencia de cobro:</b> cada ${Number(
+      c.frecuencia_dias || 10
+    )} días</div>
+    <div class="detalle-linea"><b>Último cobro:</b> ${ultimoTexto}</div>
+    <div class="detalle-linea"><b>Estado:</b> ${
+      c.estado === "cancelado" ? "Cancelado" : "Activo"
+    }</div>
+  </div>
+</div>
+`;
+        });
+      }
+
+      function abrirModalPago(id, producto) {
+        creditoSeleccionado = id;
+
+        const credito = creditosClienteMap.get(id) || null;
+        tituloPago.innerHTML = `Pago de ${producto}`;
+
+        const saldoActual = Number(credito?.saldo || 0);
+        const totalCuotas = Number(credito?.cuotas || 0);
+        const cuotasPagadas = Number(credito?.cuotas_pagada || 0);
+        const cuotasPendientes = Math.max(totalCuotas - cuotasPagadas, 0);
+        const cuotaSugerida =
+          cuotasPendientes > 0 ? saldoActual / cuotasPendientes : saldoActual;
+
+        if (detallePagoModal) {
+          detallePagoModal.innerHTML = `
+<b>Saldo actual:</b> ${formatearDinero(saldoActual)}<br>
+<b>Cuotas pagadas:</b> ${cuotasPagadas} de ${
+            totalCuotas || cuotasPagadas || 0
+          }<br>
+<b>Cuotas pendientes:</b> ${cuotasPendientes}<br>
+<b>Cuota referencial:</b> ${formatearDinero(cuotaSugerida)}<br>
+<div class="subtle">El abono reduce el saldo sin contar cuota. El pago de cuota suma a la secuencia del crédito.</div>
+`;
+        }
+
+        montoPago.value = "";
+        resetTipoPagoModal();
+
+        modalPago.style.display = "flex";
+      }
+
+      function cerrarModalPago() {
+        modalPago.style.display = "none";
+      }
+
+      async function guardarPago() {
+        if (!creditoSeleccionado) {
+          alert("Crédito inválido");
+          return;
+        }
+
+        const montoValor = Number(montoPago.value);
+        if (!Number.isFinite(montoValor) || montoValor <= 0) {
+          alert("Ingresa un monto válido");
+          return;
+        }
+
+        const { data: credito } = await supabaseClient
+          .from("Creditos")
+          .select("*")
+          .eq("id", creditoSeleccionado)
+          .single();
+
+        if (!credito) {
+          alert("No se encontró el crédito");
+          return;
+        }
+
+        if (montoValor > Number(credito.saldo)) {
+          alert("Monto mayor al saldo");
+          return;
+        }
+
+        const saldoAnterior = Number(credito.saldo || 0);
+        const totalCuotas = Number(credito.cuotas || 0);
+        const cuotasAntes = Number(credito.cuotas_pagada || 0);
+        const numeroCuotaPago = !tipoPagoModalEsAbono()
+          ? cuotasAntes + 1
+          : null;
+
+        let cuotasFinal = cuotasAntes;
+        let nuevoSaldo = saldoAnterior - montoValor;
+        if (nuevoSaldo < 0) nuevoSaldo = 0;
+
+        if (!tipoPagoModalEsAbono()) {
+          cuotasFinal = cuotasAntes + 1;
+        }
+
+        if (totalCuotas > 0) {
+          cuotasFinal = Math.min(cuotasFinal, totalCuotas);
+        }
+
+        let estado = "activo";
+        let nuevaFecha = credito.fecha_proximo_pago || "";
+
+        if (!tipoPagoModalEsAbono() && nuevoSaldo > 0) {
+          const fechaActual = new Date(
+            credito.fecha_proximo_pago || fechaLocal()
+          );
+          fechaActual.setDate(
+            fechaActual.getDate() + Number(credito.frecuencia_dias || 10)
+          );
+          nuevaFecha = fechaActual.toISOString().split("T")[0];
+        }
+
+        if (nuevoSaldo === 0) {
+          estado = "cancelado";
+          cuotasFinal = totalCuotas || cuotasFinal;
+          nuevaFecha = credito.fecha_proximo_pago || nuevaFecha;
+        }
+
+        await supabaseClient.from("Pagos").insert([
+          {
+            credito_id: credito.id,
+            monto: montoValor,
+            fecha: fechaLocal(),
+            tipo_pago: tipoPagoModalEsAbono() ? "abono" : "cuota",
+            owner_id: usuarioActual.id,
+            numero_cuota: numeroCuotaPago,
+            saldo_anterior: saldoAnterior,
+            saldo_actual: nuevoSaldo,
+            proximo_pago: nuevaFecha || null,
+          },
+        ]);
+
+        await supabaseClient
+          .from("Creditos")
+          .update({
+            saldo: nuevoSaldo,
+            cuotas_pagada: cuotasFinal,
+            estado,
+            fecha_proximo_pago: nuevaFecha,
+          })
+          .eq("id", credito.id);
+
+        cerrarModalPago();
+
+        await verCreditosCliente();
+        await verHistorial();
+        await verDashboard();
+
+        alert("Pago registrado");
+      }
+
+      async function verHistorial() {
+        const { data: creditos } = await supabaseClient
+          .from("Creditos")
+          .select("*")
+          .eq("cliente_id", clienteActualId);
+
+        const ids = (creditos || []).map((c) => c.id);
+
+        if (ids.length === 0) {
+          detallePagos.innerHTML = "";
+          return;
+        }
+
+        const movimientos = (movimientosEnriquecidos || [])
+          .filter((m) => ids.includes(m.credito_id))
+          .slice(0);
+
+        if (!movimientos.length) {
+          detallePagos.innerHTML = `<div class="pago-item">Sin pagos registrados</div>`;
+          return;
+        }
+
+        if (!historialClienteVisible) {
+          detallePagos.innerHTML = `<div class="subtle">Historial oculto. Usa el botón para mostrarlo otra vez.</div>`;
+          return;
+        }
+
+        detallePagos.innerHTML = "";
+
+        movimientos.forEach((m) => {
+          detallePagos.innerHTML += `
+<div class="pago-item historial-clickeable" onclick="abrirCreditoDesdeHistorial('${
+            m.credito_id
+          }')">
+  <b>${m.producto}</b><br>
+  ${descripcionHistorialMovimiento(m)}<br>
+  <span class="subtle">Tocar para ver el crédito</span>
+</div>
+`;
+        });
+      }
+
+      async function abrirPagosRecientes(btn) {
+        ir("pagosScreen", btn);
+
+        const hace7Dias = sumarDiasISO(fechaLocal(), -6);
+
+        const recientes = (movimientosEnriquecidos || []).filter(
+          (m) => (m.fecha || "") >= hace7Dias
+        );
+
+        listaPagosRecientes.innerHTML = "";
+
+        if (!recientes.length) {
+          listaPagosRecientes.innerHTML = `
+<div class="pago-item">
+No hay pagos recientes
+</div>
+`;
+          return;
+        }
+
+        recientes.slice(0, 20).forEach((m) => {
+          listaPagosRecientes.innerHTML += `
+<div class="pago-item" style="cursor:pointer;" onclick="abrirCliente('${
+            m.cliente_id
+          }')">
+  <b>${m.cliente_nombre}</b><br>
+  📦 ${m.producto}<br>
+  ${textoMovimientoCuota(m)}<br>
+  💵 Precio total del producto: ${formatearDinero(m.monto_total)}<br>
+  💰 Cobro realizado: ${formatearDinero(m.monto)}<br>
+  💳 Saldo restante: ${formatearDinero(m.saldo_actual)}<br>
+  📆 Próximo cobro: ${m.proximo_pago || "-"}<br>
+  📅 Fecha de pago: ${m.fecha}
+</div>
+`;
+        });
+      }
+
+      /* ====== MEJORAS DE DASHBOARD / ALERTAS / HISTORIAL ====== */
+      let alertasVistaActual = "morosos";
+
+      function contarAlertasEnviadas() {
+        return (alertasGlobal || []).length;
+      }
+
+      function mapPorClienteUltimaAlerta(alertas) {
+        const mapa = new Map();
+        [...(alertas || [])]
+          .sort((a, b) =>
+            (b.fecha_envio || b.created_at || "").localeCompare(
+              a.fecha_envio || a.created_at || ""
+            )
+          )
+          .forEach((a) => {
+            if (!mapa.has(a.cliente_id)) mapa.set(a.cliente_id, a);
+          });
+        return mapa;
+      }
+
+      function formatearFechaHumana(fechaISO) {
+        if (!fechaISO) return "-";
+        const d = new Date(fechaISO);
+        return (
+          d.toLocaleDateString("es-PE", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+          }) +
+          " " +
+          d.toLocaleTimeString("es-PE", { hour: "2-digit", minute: "2-digit" })
+        );
+      }
+
+      function horasDesde(fechaISO) {
+        if (!fechaISO) return null;
+        return Math.max(
+          0,
+          Math.floor(
+            (Date.now() - new Date(fechaISO).getTime()) / (1000 * 60 * 60)
+          )
+        );
+      }
+
+      function puedeReenviarAlerta(fechaISO) {
+        if (!fechaISO) return true;
+        return Date.now() - new Date(fechaISO).getTime() >= 24 * 60 * 60 * 1000;
+      }
+
+      function construirMovimientosEnriquecidos(pagos, creditosActivos) {
+        const creditosMap = new Map(
+          (creditosActivos || []).map((c) => [c.id, c])
+        );
+        const pagosPorCredito = new Map();
+
+        (pagos || []).forEach((p) => {
+          if (!pagosPorCredito.has(p.credito_id))
+            pagosPorCredito.set(p.credito_id, []);
+          pagosPorCredito.get(p.credito_id).push(p);
+        });
+
+        const timeline = [];
+
+        for (const [creditoId, lista] of pagosPorCredito.entries()) {
+          const credito = creditosMap.get(creditoId) || {};
+          const ordenados = [...lista].sort((a, b) => {
+            const aa = a.created_at || a.fecha || "";
+            const bb = b.created_at || b.fecha || "";
+            return aa.localeCompare(bb);
+          });
+
+          let saldo =
+            Number(credito.monto_total || 0) - Number(credito.inicial || 0);
+          if (saldo < 0) saldo = 0;
+
+          let cuotaNumero = 0;
+          let proximoCobro = credito.fecha_proximo_pago || "";
+
+          ordenados.forEach((p) => {
+            const monto = Number(p.monto || 0);
+            const saldoAnterior = saldo;
+
+            if (p.tipo_pago !== "abono") {
+              cuotaNumero += 1;
+              const base =
+                p.proximo_pago ||
+                proximoCobro ||
+                credito.fecha_proximo_pago ||
+                p.fecha;
+              const frecuencia = Number(credito.frecuencia_dias || 10);
+              proximoCobro = base
+                ? sumarDiasISO(base, frecuencia)
+                : credito.fecha_proximo_pago || "";
+            }
+
+            saldo = Math.max(0, saldo - monto);
+
+            timeline.push({
+              id: p.id,
+              credito_id: creditoId,
+              cliente_id: credito.cliente_id,
+              cliente_nombre: credito.Clientes?.nombre || "Cliente",
+              cliente_telefono: credito.Clientes?.telefono || "",
+              producto: credito.producto || "",
+              monto_total: Number(credito.monto_total || 0),
+              tipo_pago: p.tipo_pago || "cuota",
+              monto,
+              fecha: p.fecha,
+              created_at: p.created_at || p.fecha,
+              numero_cuota: p.tipo_pago === "abono" ? null : cuotaNumero,
+              total_cuotas: Number(credito.cuotas || 0),
+              saldo_anterior: Number(p.saldo_anterior ?? saldoAnterior),
+              saldo_actual: Number(p.saldo_actual ?? saldo),
+              saldo_actual_credito: Number(credito.saldo || 0),
+              proximo_pago:
+                p.proximo_pago ||
+                proximoCobro ||
+                credito.fecha_proximo_pago ||
+                "",
+              frecuencia_dias: Number(credito.frecuencia_dias || 10),
+            });
+          });
+        }
+
+        return timeline.sort((a, b) => {
+          const aa = a.created_at || a.fecha || "";
+          const bb = b.created_at || b.fecha || "";
+          return bb.localeCompare(aa);
+        });
+      }
+
+      function buildCalendarMap(creditosActivos) {
+        const mapa = new Map();
+
+        (creditosActivos || []).forEach((c) => {
+          if (!c.fecha_proximo_pago) return;
+          const key = c.fecha_proximo_pago;
+          if (!mapa.has(key)) mapa.set(key, []);
+          mapa.get(key).push({
+            cliente_id: c.cliente_id,
+            nombre: c.Clientes?.nombre || "Cliente",
+            telefono: c.Clientes?.telefono || "",
+            producto: c.producto || "",
+            monto_total: Number(c.monto_total || 0),
+            saldo: Number(c.saldo || 0),
+            cuotas: Number(c.cuotas || 0),
+            cuotas_pagada: Number(c.cuotas_pagada || 0),
+            frecuencia_dias: Number(c.frecuencia_dias || 10),
+            fecha_proximo_pago: key,
+            fecha: key,
+            dias_restantes: diasEntreFechas(fechaLocal(), key),
+          });
+        });
+
+        return mapa;
+      }
+
+      function renderCarteraChart(stats) {
+        const donut = document.getElementById("estadoCarteraChart");
+        const totalBox = document.getElementById("estadoCarteraTotal");
+        const legend = document.getElementById("estadoCarteraLegend");
+        if (!donut || !totalBox || !legend) return;
+
+        const total = stats.reduce((s, x) => s + x.count, 0) || 1;
+        const colors = {
+          vencidos: "#ef4444",
+          hoy: "#f59e0b",
+          proximos: "#0ea5e9",
+          alDia: "#10b981",
+        };
+
+        const parts = [];
+        let acc = 0;
+        stats.forEach((x) => {
+          const p = (x.count / total) * 100;
+          parts.push(`${colors[x.key]} ${acc}% ${acc + p}%`);
+          acc += p;
+        });
+        donut.style.background = `conic-gradient(${parts.join(",")})`;
+        totalBox.textContent = String(total);
+
+        legend.innerHTML = stats
+          .map((x) => {
+            const pct = Math.round((x.count / total) * 100);
+            return `
+<div class="legend-item">
+  <div class="legend-left">
+    <span class="legend-dot" style="background:${colors[x.key]}"></span>
+    <div>
+      <div class="legend-title">${x.label}</div>
+      <div class="legend-meta">${x.count} clientes · ${formatearDinero(
+              x.amount
+            )} · ${pct}%</div>
+    </div>
+  </div>
+  <div><b>${x.count}</b></div>
+</div>
+`;
+          })
+          .join("");
+      }
+
+      function renderRendimientoCobranza() {
+        const chart = document.getElementById("rendimientoCobranzaChart");
+        const meta = document.getElementById("rendimientoCobranzaMeta");
+        if (!chart || !meta) return;
+
+        const hoy = new Date();
+        const anio = hoy.getFullYear();
+        const mesActual = hoy.getMonth();
+
+        const inicioMesActual = new Date(anio, mesActual, 1);
+        const inicioMesSiguiente = new Date(anio, mesActual + 1, 1);
+        const inicioMesPasado = new Date(anio, mesActual - 1, 1);
+        const finMesPasado = new Date(anio, mesActual, 0);
+        const hace7Dias = new Date(hoy);
+        hace7Dias.setDate(hace7Dias.getDate() - 6);
+
+        const pagos = pagosGlobal || [];
+
+        const totalMesActual = pagos
+          .filter((p) => {
+            const d = new Date((p.fecha || "") + "T00:00:00");
+            return d >= inicioMesActual && d < inicioMesSiguiente;
+          })
+          .reduce((s, p) => s + Number(p.monto || 0), 0);
+
+        const totalMesPasado = pagos
+          .filter((p) => {
+            const d = new Date((p.fecha || "") + "T00:00:00");
+            return d >= inicioMesPasado && d <= finMesPasado;
+          })
+          .reduce((s, p) => s + Number(p.monto || 0), 0);
+
+        const total7Dias = pagos
+          .filter((p) => {
+            const d = new Date((p.fecha || "") + "T00:00:00");
+            return d >= hace7Dias && d <= hoy;
+          })
+          .reduce((s, p) => s + Number(p.monto || 0), 0);
+
+        const series = [
+          { label: "Mes pasado", value: totalMesPasado },
+          { label: "Mes actual", value: totalMesActual },
+          { label: "Últimos 7 días", value: total7Dias },
+        ];
+
+        const max = Math.max(...series.map((x) => x.value), 1);
+
+        chart.innerHTML = series
+          .map((x) => {
+            const width = Math.max(10, Math.round((x.value / max) * 100));
+            return `
+<div class="performance-bar-card">
+  <div class="performance-bar-label">${x.label}</div>
+  <div class="performance-bar-track">
+    <div class="performance-bar-fill" style="width:${width}%"></div>
+  </div>
+  <div class="performance-bar-meta">${formatearDinero(x.value)}</div>
+</div>
+`;
+          })
+          .join("");
+
+        const diff = totalMesActual - totalMesPasado;
+        const sign = diff >= 0 ? "+" : "−";
+        const pct =
+          totalMesPasado > 0 ? Math.round((diff / totalMesPasado) * 100) : 0;
+
+        meta.innerHTML = `
+<b>Resumen de cobranza</b><br>
+Mes pasado: <b>${formatearDinero(totalMesPasado)}</b><br>
+Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
+Últimos 7 días: <b>${formatearDinero(total7Dias)}</b><br>
+<span class="subtle">${sign}${formatearDinero(
+          Math.abs(diff)
+        )} vs. mes pasado (${pct}%)</span>
+`;
+      }
+
+      function renderAlertasHome() {
+        const totalEnviadas = contarAlertasEnviadas();
+        const totalMorosos = alertasAgrupadas.morosos.reduce(
+          (s, g) => s + Number(g.total || 0),
+          0
+        );
+        const totalHoy = alertasAgrupadas.hoy.reduce(
+          (s, g) => s + Number(g.total || 0),
+          0
+        );
+        const totalProximos = alertasAgrupadas.proximos.reduce(
+          (s, g) => s + Number(g.total || 0),
+          0
+        );
+
+        alertasHome.innerHTML = `
+<div class="alert-summary-grid">
+  <div class="alert-resumen-card red" onclick="abrirAlertas('morosos')">
+    <div class="title">Vencidos</div>
+    <div class="count">${alertasAgrupadas.morosos.length}</div>
+    <div class="meta">${formatearDinero(totalMorosos)} por cobrar</div>
+  </div>
+
+  <div class="alert-resumen-card yellow" onclick="abrirAlertas('hoy')">
+    <div class="title">Vence hoy</div>
+    <div class="count">${alertasAgrupadas.hoy.length}</div>
+    <div class="meta">${formatearDinero(totalHoy)} en su último día</div>
+  </div>
+
+  <div class="alert-resumen-card blue" onclick="abrirAlertas('proximos')">
+    <div class="title">Próximos 3 días</div>
+    <div class="count">${alertasAgrupadas.proximos.length}</div>
+    <div class="meta">${formatearDinero(totalProximos)} por avisar</div>
+  </div>
+
+  <div class="alert-resumen-card green" onclick="abrirAlertas('enviadas')">
+    <div class="title">Alertas enviadas</div>
+    <div class="count">${totalEnviadas}</div>
+    <div class="meta">Historial de avisos</div>
+  </div>
+</div>
+`;
+      }
+
+      function abrirAlertas(categoria) {
+        alertaCategoriaActiva = categoria;
+        ir("alertasScreen");
+        renderAlertasDetalle(categoria);
+        marcarPestanaAlertas(categoria);
+      }
+
+      function marcarPestanaAlertas(categoria) {
+        const tabs = {
+          morosos: tabMorosos,
+          hoy: tabHoy,
+          proximos: tabProximos,
+          enviadas: tabEnviadas,
+        };
+
+        Object.values(tabs).forEach((btn) => btn?.classList.remove("active"));
+        tabs[categoria]?.classList.add("active");
+      }
+
+      function renderAlertasDetalle(categoria) {
+        const lista = document.getElementById("listaAlertasDetalle");
+        const titulo = document.getElementById("alertasTitulo");
+        const subtitulo = document.getElementById("alertasSubtitulo");
+
+        const titulos = {
+          morosos: ["🔴 Vencidos", "Clientes que ya pasaron su fecha de pago"],
+          hoy: ["🟡 Vence hoy", "Clientes que deben pagar hoy"],
+          proximos: [
+            "🟢 Próximos 3 días",
+            "Clientes que necesitan recordatorio amable",
+          ],
+          enviadas: [
+            "🔔 Alertas enviadas",
+            "Historial de avisos ya registrados",
+          ],
+        };
+
+        titulo.textContent = titulos[categoria][0];
+        subtitulo.textContent = titulos[categoria][1];
+
+        if (categoria === "enviadas") {
+          const ultimas = Array.from(alertasUltimasPorCliente.values());
+          if (!ultimas.length) {
+            lista.innerHTML = `<div class="pago-item">No hay alertas enviadas todavía.</div>`;
+            return;
+          }
+
+          lista.innerHTML = ultimas
+            .map((a) => {
+              const horas = horasDesde(a.fecha_envio || a.created_at);
+              const puede = puedeReenviarAlerta(a.fecha_envio || a.created_at);
+              return `
+<div class="alert-detail-item">
+  <div class="alert-detail-top">
+    <div>
+      <b>${a.cliente_nombre || "Cliente"}</b><br>
+      <span class="alert-tag blue">${a.tipo_alerta || "alerta"}</span>
+    </div>
+    <div><b>${formatearFechaHumana(a.fecha_envio || a.created_at)}</b></div>
+  </div>
+
+  <div class="subtle" style="margin-top:8px;">
+    ${
+      horas >= 24
+        ? `${Math.floor(horas / 24)} día(s) desde la última alerta`
+        : `${horas || 0} hora(s) desde la última alerta`
+    }
+  </div>
+
+  <div class="alert-detail-actions">
+    <button onclick="abrirCliente('${a.cliente_id}')">Ver cliente</button>
+    <button ${puede ? "" : "disabled"} onclick="reenviarAlertaDesdeHistorial('${
+                a.cliente_id
+              }')">${puede ? "Reenviar" : "Esperar 1 día"}</button>
+  </div>
+</div>
+`;
+            })
+            .join("");
+          return;
+        }
+
+        const grupos = alertasAgrupadas[categoria] || [];
+        if (!grupos.length) {
+          lista.innerHTML = `<div class="pago-item">No hay clientes en esta categoría.</div>`;
+          return;
+        }
+
+        lista.innerHTML = grupos
+          .map((g) => {
+            const etiquetas = g.productos
+              .map((p) => `• ${p.producto} - ${formatearDinero(p.saldo)}`)
+              .join("<br>");
+            const textoDias =
+              categoria === "morosos"
+                ? `${g.dias} días de retraso`
+                : categoria === "hoy"
+                ? "Último día de pago"
+                : `Vence en ${g.dias} día(s)`;
+            const tagClass =
+              categoria === "morosos"
+                ? "red"
+                : categoria === "hoy"
+                ? "yellow"
+                : "blue";
+            const ultima = alertasUltimasPorCliente.get(g.cliente_id);
+            const puede =
+              !ultima ||
+              puedeReenviarAlerta(ultima.fecha_envio || ultima.created_at);
+            const ultimoTexto = ultima
+              ? `Última alerta: ${formatearFechaHumana(
+                  ultima.fecha_envio || ultima.created_at
+                )}`
+              : "Sin alerta enviada";
+            return `
+<div class="alert-detail-item">
+  <div class="alert-detail-top">
+    <div>
+      <b>${g.nombre}</b><br>
+      <span class="alert-tag ${tagClass}">${textoDias}</span>
+    </div>
+    <div><b>${formatearDinero(g.total)}</b></div>
+  </div>
+
+  <div class="subtle" style="margin-top:8px;">
+    ${etiquetas}
+  </div>
+  <div class="subtle" style="margin-top:8px; font-weight:700;">
+    ${ultimoTexto}
+  </div>
+
+  <div class="alert-detail-actions">
+    <button onclick="abrirCliente('${g.cliente_id}')">Ver cliente</button>
+    <button ${
+      puede ? "" : "disabled"
+    } onclick="registrarAlertaYEnviar('${categoria}','${g.cliente_id}')">${
+              puede ? "WhatsApp" : "Esperar 1 día"
+            }</button>
+  </div>
+</div>
+`;
+          })
+          .join("");
+      }
+
+      async function registrarAlertaYEnviar(categoria, cliente_id) {
+        const grupo = alertasAgrupadas[categoria]?.find(
+          (g) => g.cliente_id === cliente_id
+        );
+        if (!grupo) return;
+        const ultima = alertasUltimasPorCliente.get(cliente_id);
+        if (
+          ultima &&
+          !puedeReenviarAlerta(ultima.fecha_envio || ultima.created_at)
+        ) {
+          alert("Debe esperar al menos 1 día para reenviar otra alerta.");
+          return;
+        }
+        if (!grupo.telefono) {
+          alert("Cliente sin teléfono");
+          return;
+        }
+
+        const numero = grupo.telefono.replace(/\D/g, "");
+        const productos = grupo.productos
+          .map((p) => `• ${p.producto} (${formatearDinero(p.saldo)})`)
+          .join("\n");
+        const ahora = new Date().toISOString();
+        let mensaje = "";
+        let dias_retraso = 0;
+
+        if (categoria === "morosos") {
+          dias_retraso = grupo.dias;
+          mensaje = `Hola ${grupo.nombre}, tienes ${
+            grupo.dias
+          } días de retraso en los siguientes productos:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(
+            grupo.total
+          )}.\nPor favor comunícate para regularizar tu pago.`;
+        } else if (categoria === "hoy") {
+          dias_retraso = 0;
+          mensaje = `Hola ${
+            grupo.nombre
+          }, hoy vence tu pago de:\n\n${productos}\n\nTotal a pagar: ${formatearDinero(
+            grupo.total
+          )}.\nGracias por tu puntualidad.`;
+        } else {
+          dias_retraso = grupo.dias;
+          mensaje = `Hola ${grupo.nombre}, te recordamos que dentro de ${
+            grupo.dias
+          } día(s) vence tu pago de:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(
+            grupo.total
+          )}.\nGracias por tu puntualidad.`;
+        }
+
+        const { error } = await supabaseClient.from("Alertas").insert([
+          {
+            owner_id: usuarioActual.id,
+            cliente_id,
+            creditos_ids: grupo.creditosIds || [],
+            tipo_alerta: categoria,
+            dias_retraso,
+            mensaje,
+            fecha_envio: ahora,
+          },
+        ]);
+        if (error) {
+          console.log(error);
+          alert(error.message);
+          return;
+        }
+
+        if ((grupo.creditosIds || []).length) {
+          for (const credito_id_item of grupo.creditosIds) {
+            const { data: cr } = await supabaseClient
+              .from("Creditos")
+              .select("alertas_enviadas")
+              .eq("id", credito_id_item)
+              .single();
+            const count = Number(cr?.alertas_enviadas || 0) + 1;
+            await supabaseClient
+              .from("Creditos")
+              .update({
+                ultima_alerta_at: ahora,
+                ultima_alerta_tipo: categoria,
+                alertas_enviadas: count,
+              })
+              .eq("id", credito_id_item);
+          }
+        }
+
+        await verDashboard();
+        abrirWhatsAppConMensaje(numero, mensaje);
+      }
+
+      function reenviarAlertaDesdeHistorial(cliente_id) {
+        const alerta = alertasUltimasPorCliente.get(cliente_id);
+        if (!alerta) return;
+        if (!puedeReenviarAlerta(alerta.fecha_envio || alerta.created_at)) {
+          alert("Debe esperar al menos 1 día para reenviar otra alerta.");
+          return;
+        }
+        const numero = (alerta.cliente_telefono || "").replace(/\D/g, "");
+        if (!numero) {
+          alert("Cliente sin teléfono");
+          return;
+        }
+        abrirWhatsAppConMensaje(
+          numero,
+          alerta.mensaje || "Hola, te recordamos tu pago pendiente."
+        );
+      }
+
+      function abrirWhatsAppConMensaje(numero, mensaje) {
+        window.open(
+          `https://wa.me/51${numero}?text=${encodeURIComponent(mensaje)}`,
+          "_blank"
+        );
+      }
+
+      function renderActividadReciente() {
+        const recientes = (movimientosEnriquecidos || []).slice(0, 6);
+
+        if (!recientes.length) {
+          actividadReciente.innerHTML = `<div class="pago-item">Sin cobros recientes</div>`;
+          return;
+        }
+
+        actividadReciente.innerHTML = recientes
+          .map((m) => {
+            const tipoTexto = textoMovimientoCuota(m);
+
+            return `
+<div class="pago-item" style="cursor:pointer;" onclick="abrirCliente('${
+              m.cliente_id
+            }')">
+  <b>${m.cliente_nombre}</b><br>
+  📦 ${m.producto}<br>
+  💵 Precio total del producto: ${formatearDinero(m.monto_total)}<br>
+  ${tipoTexto}<br>
+  💰 Cobro realizado: ${formatearDinero(m.monto)}<br>
+  💳 Saldo restante: ${formatearDinero(m.saldo_actual)}<br>
+  📅 Fecha de pago: ${m.fecha}<br>
+  📆 Próximo cobro: ${m.proximo_pago || "-"}
+</div>
+`;
+          })
+          .join("");
+      }
+
+      function renderCalendarioCobros() {
+        const titulo = document.getElementById("calendarioMesTitulo");
+        const grid = document.getElementById("calendarioGrid");
+        const detalle = document.getElementById("detalleCalendarioDia");
+
+        const anio = mesCalendarioActual.getFullYear();
+        const mes = mesCalendarioActual.getMonth();
+
+        const nombreMes = mesCalendarioActual.toLocaleDateString("es-PE", {
+          month: "long",
+          year: "numeric",
+        });
+
+        titulo.textContent =
+          nombreMes.charAt(0).toUpperCase() + nombreMes.slice(1);
+
+        const primerDia = new Date(anio, mes, 1);
+        const diasMes = new Date(anio, mes + 1, 0).getDate();
+        const inicioSemana = (primerDia.getDay() + 6) % 7;
+
+        const eventosMap = eventosCalendario.reduce((acc, grupo) => {
+          acc.set(grupo.fecha, grupo.items);
+          return acc;
+        }, new Map());
+
+        grid.innerHTML = "";
+
+        for (let i = 0; i < inicioSemana; i++) {
+          grid.innerHTML += `<div class="calendar-day empty"></div>`;
+        }
+
+        for (let dia = 1; dia <= diasMes; dia++) {
+          const yyyy = String(anio);
+          const mm = String(mes + 1).padStart(2, "0");
+          const dd = String(dia).padStart(2, "0");
+          const fecha = `${yyyy}-${mm}-${dd}`;
+          const items = eventosMap.get(fecha) || [];
+          const isToday = fecha === fechaLocal();
+          const isSelected = fecha === diaCalendarioSeleccionado;
+          const badgeClass = items.length ? "" : "zero";
+
+          grid.innerHTML += `
+<div class="calendar-day ${isToday ? "today" : ""} ${
+            isSelected ? "selected" : ""
+          }" onclick="seleccionarDiaCalendario('${fecha}')">
+  <div class="calendar-num">${dia}</div>
+  <div class="calendar-badge ${badgeClass}">${items.length || ""}</div>
+</div>
+`;
+        }
+
+        if (
+          diaCalendarioSeleccionado &&
+          eventosMap.get(diaCalendarioSeleccionado)
+        ) {
+          mostrarDetalleCalendario(diaCalendarioSeleccionado);
+        } else {
+          const firstEvent = eventosCalendario.find((x) =>
+            x.fecha.startsWith(`${anio}-${String(mes + 1).padStart(2, "0")}`)
+          );
+          if (firstEvent) {
+            diaCalendarioSeleccionado = firstEvent.fecha;
+            mostrarDetalleCalendario(firstEvent.fecha);
+          } else {
+            detalle.innerHTML = `<div class="pago-item">No hay cobros programados en este mes.</div>`;
+          }
+        }
+      }
+
+      function renderCarteraChartFromData(creditosActivos, hoyISO, en3DiasISO) {
+        const stats = [
+          {
+            key: "vencidos",
+            label: "Vencidos",
+            count: 0,
+            amount: 0,
+          },
+          {
+            key: "hoy",
+            label: "Vence hoy",
+            count: 0,
+            amount: 0,
+          },
+          {
+            key: "proximos",
+            label: "Próximos 3 días",
+            count: 0,
+            amount: 0,
+          },
+          {
+            key: "alDia",
+            label: "Al día",
+            count: 0,
+            amount: 0,
+          },
+        ];
+
+        (creditosActivos || []).forEach((c) => {
+          const fecha = c.fecha_proximo_pago || hoyISO;
+          const saldo = Number(c.saldo || 0);
+          if (fecha < hoyISO) {
+            stats[0].count += 1;
+            stats[0].amount += saldo;
+          } else if (fecha === hoyISO) {
+            stats[1].count += 1;
+            stats[1].amount += saldo;
+          } else if (fecha > hoyISO && fecha <= en3DiasISO) {
+            stats[2].count += 1;
+            stats[2].amount += saldo;
+          } else {
+            stats[3].count += 1;
+            stats[3].amount += saldo;
+          }
+        });
+
+        renderCarteraChart(stats);
+      }
+
+      function renderUltimosCobros() {
+        renderActividadReciente();
+      }
+
+      async function abrirPagosRecientes(btn) {
+        ir("pagosScreen", btn);
+        listaPagosRecientes.innerHTML = "";
+
+        const recientes = (movimientosEnriquecidos || []).slice(0, 20);
+        if (!recientes.length) {
+          listaPagosRecientes.innerHTML = `<div class="pago-item">No hay pagos recientes</div>`;
+          return;
+        }
+
+        recientes.forEach((m) => {
+          const tipoTexto =
+            m.tipo_pago === "abono"
+              ? "🟡 Abono"
+              : `🟢 Cuota ${m.numero_cuota || 1}/${m.total_cuotas || "?"}`;
+
+          listaPagosRecientes.innerHTML += `
+<div class="pago-item" style="cursor:pointer;" onclick="abrirCliente('${
+            m.cliente_id
+          }')">
+  <b>${m.cliente_nombre}</b><br>
+  📦 ${m.producto}<br>
+  💵 Precio total del producto: ${formatearDinero(m.monto_total)}<br>
+  ${tipoTexto}<br>
+  💰 Pagado: ${formatearDinero(m.monto)}<br>
+  💳 Saldo restante: ${formatearDinero(m.saldo_actual)}<br>
+  📅 Fecha de pago: ${m.fecha}<br>
+  📆 Próximo cobro: ${m.proximo_pago || "-"}
+</div>
+`;
+        });
+      }
+
+      async function verDashboard() {
+        actualizarCabeceraFecha();
+
+        const hoyISO = fechaLocal();
+        const en3DiasISO = sumarDiasISO(hoyISO, 3);
+        const en7DiasISO = sumarDiasISO(hoyISO, 7);
+        const hace6DiasISO = sumarDiasISO(hoyISO, -6);
+
+        const [creditosResp, pagosResp, alertasResp] = await Promise.all([
+          supabaseClient
+            .from("Creditos")
+            .select("*, Clientes(nombre,telefono)")
+            .eq("owner_id", usuarioActual.id)
+            .order("fecha_proximo_pago", { ascending: true }),
+
+          supabaseClient
+            .from("Pagos")
+            .select(
+              "*, Creditos(producto,cliente_id,fecha_proximo_pago,cuotas,monto_total,inicial,saldo,frecuencia_dias,Clientes(nombre,telefono))"
+            )
+            .eq("owner_id", usuarioActual.id)
+            .order("fecha", { ascending: false }),
+
+          supabaseClient
+            .from("Alertas")
+            .select("*")
+            .eq("owner_id", usuarioActual.id)
+            .order("fecha_envio", { ascending: false }),
+        ]);
+
+        const creditos = creditosResp.data || [];
+        pagosGlobal = pagosResp.data || [];
+
+        const clientesMap = new Map(
+          creditos.map((c) => [
+            c.cliente_id,
+            {
+              nombre: c.Clientes?.nombre || "Cliente",
+              telefono: c.Clientes?.telefono || "",
+            },
+          ])
+        );
+
+        alertasGlobal = (alertasResp.data || []).map((a) => ({
+          ...a,
+          cliente_nombre: clientesMap.get(a.cliente_id)?.nombre || "Cliente",
+          cliente_telefono: clientesMap.get(a.cliente_id)?.telefono || "",
+        }));
+        alertasUltimasPorCliente = mapPorClienteUltimaAlerta(alertasGlobal);
+
+        const creditosActivos = creditos.filter(
+          (c) => c.estado !== "cancelado" && Number(c.saldo || 0) > 0
+        );
+
+        movimientosEnriquecidos = construirMovimientosEnriquecidos(
+          pagosGlobal,
+          creditos
+        );
+        eventosCalendario = Array.from(
+          buildCalendarMap(creditosActivos).entries()
+        ).map(([fecha, items]) => ({ fecha, items }));
+
+        alertasAgrupadas = construirAlertasAgrupadas(creditosActivos);
+        renderAlertasHome();
+
+        const clientesActivos = new Set(
+          creditosActivos.map((c) => c.cliente_id)
+        ).size;
+        const clientesMorosos = new Set(
+          alertasAgrupadas.morosos.map((g) => g.cliente_id)
+        ).size;
+        const clientesHoy = new Set(
+          alertasAgrupadas.hoy.map((g) => g.cliente_id)
+        ).size;
+        const clientesProximos = new Set(
+          alertasAgrupadas.proximos.map((g) => g.cliente_id)
+        ).size;
+
+        let totalPorCobrar = 0;
+        let cobradoHoy = 0;
+        let programadoSemana = 0;
+        let morososMonto = 0;
+        let alertasEnviadasTotal = alertasGlobal.length;
+
+        creditosActivos.forEach((c) => {
+          const saldo = Number(c.saldo || 0);
+          const fecha = c.fecha_proximo_pago || hoyISO;
+          totalPorCobrar += saldo;
+          if (fecha === hoyISO) cobradoHoy += saldo;
+          if (fecha >= hoyISO && fecha <= en7DiasISO) programadoSemana += saldo;
+          if (fecha < hoyISO) morososMonto += saldo;
+        });
+
+        // KPI
+        document.getElementById("kpiTotalValue").textContent =
+          formatearDinero(totalPorCobrar);
+        document.getElementById(
+          "kpiTotalSub"
+        ).textContent = `${clientesActivos} clientes con deuda`;
+
+        document.getElementById("kpiClientesValue").textContent =
+          String(clientesActivos);
+        document.getElementById("kpiClientesSub").textContent =
+          "Cuentas activas por cobrar";
+
+        document.getElementById("kpiHoyValue").textContent =
+          formatearDinero(cobradoHoy);
+        document.getElementById(
+          "kpiHoySub"
+        ).textContent = `${clientesHoy} cliente(s) con pago hoy`;
+
+        document.getElementById("kpiSemanaValue").textContent =
+          formatearDinero(programadoSemana);
+        document.getElementById(
+          "kpiSemanaSub"
+        ).textContent = `${clientesProximos} cliente(s) por cobrar en 3 días`;
+
+        document.getElementById("kpiMorososValue").textContent =
+          String(clientesMorosos);
+        document.getElementById(
+          "kpiMorososSub"
+        ).textContent = `${formatearDinero(morososMonto)} vencidos`;
+
+        document.getElementById("kpiAlertas3Value").textContent =
+          String(alertasEnviadasTotal);
+        document.getElementById("kpiAlertas3Sub").textContent =
+          "Historial de alertas";
+
+        // Subtítulo
+        if (clientesMorosos > 0) {
+          subtituloHome.textContent = `Tienes ${clientesMorosos} cliente(s) vencidos hoy`;
+        } else if (clientesHoy > 0) {
+          subtituloHome.textContent = `Hoy tienes ${clientesHoy} cliente(s) por cobrar`;
+        } else if (clientesProximos > 0) {
+          subtituloHome.textContent = `Tienes ${clientesProximos} cliente(s) por avisar`;
+        } else {
+          subtituloHome.textContent = "Todo está al día por ahora";
+        }
+
+        // Cartas de cartera
+        renderCarteraChartFromData(creditosActivos, hoyISO, en3DiasISO);
+        renderRendimientoCobranza();
+
+        // Cambiar el texto del card principal de la semana por algo claro
+        const semanaTexto = document.getElementById("cobroSemanaTexto");
+        const semanaPct = document.getElementById("cobroSemanaPct");
+        const semanaDetalle = document.getElementById("cobroSemanaDetalle");
+        if (semanaTexto)
+          semanaTexto.textContent = `Programado en 7 días: ${formatearDinero(
+            programadoSemana
+          )}`;
+        if (semanaPct)
+          semanaPct.textContent = `${
+            clientesProximos + clientesHoy + clientesMorosos > 0
+              ? Math.min(
+                  100,
+                  Math.round((cobradoHoy / (programadoSemana || 1)) * 100)
+                )
+              : 0
+          }%`;
+        if (semanaDetalle)
+          semanaDetalle.textContent = "Cobros por vencer en la próxima semana";
+
+        renderUltimosCobros();
+        renderCalendarioCobros();
+
+        // Resumen principal
+        if (resumen)
+          if (resumen)
+            resumen.innerHTML = `
+<h2>💵 ${formatearDinero(totalPorCobrar)}</h2>
+<p>🔴 ${clientesMorosos} vencidos</p>
+<p>🟡 ${clientesProximos} próximos</p>
+`;
+
+        // Si pantalla alerta abierta, refrescar detalle
+        if (
+          document.getElementById("alertasScreen").classList.contains("activa")
+        ) {
+          renderAlertasDetalle(alertaCategoriaActiva);
+        }
+      }
+
+      async function guardarPago() {
+        if (!creditoSeleccionado) {
+          alert("Crédito inválido");
+          return;
+        }
+
+        const montoValor = Number(montoPago.value);
+        if (!montoValor || montoValor <= 0) {
+          alert("Ingrese un monto válido");
+          return;
+        }
+
+        const { data: credito } = await supabaseClient
+          .from("Creditos")
+          .select("*")
+          .eq("id", creditoSeleccionado)
+          .single();
+
+        if (!credito) {
+          alert("No se encontró el crédito");
+          return;
+        }
+
+        if (montoValor > Number(credito.saldo)) {
+          alert("Monto mayor al saldo");
+          return;
+        }
+
+        const saldoAnterior = Number(credito.saldo || 0);
+        const numeroCuotaPago = tipoPagoModalEsAbono()
+          ? null
+          : Number(credito.cuotas_pagada || 0) + 1;
+
+        let nuevoSaldo = saldoAnterior - montoValor;
+        if (nuevoSaldo < 0) nuevoSaldo = 0;
+
+        let cuotasFinal = Number(credito.cuotas_pagada || 0);
+        if (!tipoPagoModalEsAbono()) cuotasFinal += 1;
+
+        let estado = "activo";
+        let nuevaFecha = credito.fecha_proximo_pago;
+        if (!tipoPagoModalEsAbono() && nuevoSaldo > 0) {
+          const baseFecha = credito.fecha_proximo_pago || fechaLocal();
+          nuevaFecha = sumarDiasISO(
+            baseFecha,
+            Number(credito.frecuencia_dias || 10)
+          );
+        }
+
+        if (nuevoSaldo === 0) {
+          estado = "cancelado";
+          cuotasFinal = Number(credito.cuotas || cuotasFinal);
+        }
+
+        const { error: errorPago } = await supabaseClient.from("Pagos").insert([
+          {
+            credito_id: credito.id,
+            monto: montoValor,
+            fecha: fechaLocal(),
+            tipo_pago: tipoPagoModalEsAbono() ? "abono" : "cuota",
+            numero_cuota: numeroCuotaPago,
+            saldo_anterior: saldoAnterior,
+            saldo_actual: nuevoSaldo,
+            proximo_pago: nuevaFecha,
+            owner_id: usuarioActual.id,
+          },
+        ]);
+        if (errorPago) {
+          console.log(errorPago);
+          alert(errorPago.message);
+          return;
+        }
+
+        const { error: errorCredito } = await supabaseClient
+          .from("Creditos")
+          .update({
+            saldo: nuevoSaldo,
+            cuotas_pagada: cuotasFinal,
+            estado,
+            fecha_proximo_pago: nuevaFecha,
+          })
+          .eq("id", credito.id);
+
+        if (errorCredito) {
+          console.log(errorCredito);
+          alert(errorCredito.message);
+          return;
+        }
+
+        cerrarModalPago();
+        await verDashboard();
+        await verCreditosCliente();
+        await verHistorial();
+        alert("Pago registrado");
+      }
+
+      function registrarAlertaYEnviar(categoria, cliente_id) {
+        return enviarWhatsAppAlerta(categoria, cliente_id, true);
+      }
+
+      function renderAlertasHome() {
+        const totalEnviadas = contarAlertasEnviadas();
+        const totalMorosos = alertasAgrupadas.morosos.reduce(
+          (s, g) => s + Number(g.total || 0),
+          0
+        );
+        const totalHoy = alertasAgrupadas.hoy.reduce(
+          (s, g) => s + Number(g.total || 0),
+          0
+        );
+        const totalProximos = alertasAgrupadas.proximos.reduce(
+          (s, g) => s + Number(g.total || 0),
+          0
+        );
+
+        alertasHome.innerHTML = `
+<div class="alert-summary-grid">
+  <div class="alert-resumen-card red" onclick="abrirAlertas('morosos')">
+    <div class="title">Vencidos</div>
+    <div class="count">${alertasAgrupadas.morosos.length}</div>
+    <div class="meta">${formatearDinero(totalMorosos)} por cobrar</div>
+  </div>
+
+  <div class="alert-resumen-card yellow" onclick="abrirAlertas('hoy')">
+    <div class="title">Vence hoy</div>
+    <div class="count">${alertasAgrupadas.hoy.length}</div>
+    <div class="meta">${formatearDinero(totalHoy)} en su último día</div>
+  </div>
+
+  <div class="alert-resumen-card blue" onclick="abrirAlertas('proximos')">
+    <div class="title">Próximos 3 días</div>
+    <div class="count">${alertasAgrupadas.proximos.length}</div>
+    <div class="meta">${formatearDinero(totalProximos)} por avisar</div>
+  </div>
+
+  <div class="alert-resumen-card green" onclick="abrirAlertas('enviadas')">
+    <div class="title">Alertas enviadas</div>
+    <div class="count">${totalEnviadas}</div>
+    <div class="meta">Historial de avisos</div>
+  </div>
+</div>
+`;
+      }
+
+      async function abrirPagosRecientes(btn) {
+        ir("pagosScreen", btn);
+        listaPagosRecientes.innerHTML = "";
+
+        const recientes = (movimientosEnriquecidos || []).slice(0, 20);
+        if (!recientes.length) {
+          listaPagosRecientes.innerHTML = `<div class="pago-item">No hay pagos recientes</div>`;
+          return;
+        }
+
+        recientes.forEach((m) => {
+          const tipoTexto =
+            m.tipo_pago === "abono"
+              ? "🟡 Abono"
+              : `🟢 Cuota ${m.numero_cuota || 1}/${m.total_cuotas || "?"}`;
+
+          listaPagosRecientes.innerHTML += `
+<div class="pago-item" style="cursor:pointer;" onclick="abrirCliente('${
+            m.cliente_id
+          }')">
+  <b>${m.cliente_nombre}</b><br>
+  📦 ${m.producto}<br>
+  💵 Precio total del producto: ${formatearDinero(m.monto_total)}<br>
+  ${tipoTexto}<br>
+  💰 Pagado: ${formatearDinero(m.monto)}<br>
+  💳 Saldo restante: ${formatearDinero(m.saldo_actual)}<br>
+  📅 Fecha de pago: ${m.fecha}<br>
+  📆 Próximo cobro: ${m.proximo_pago || "-"}
+</div>
+`;
+        });
+      }
+
+      function construirAlertasAgrupadas(creditosActivos) {
+        const hoy = fechaLocal();
+        const grupos = {
+          morosos: new Map(),
+          hoy: new Map(),
+          proximos: new Map(),
+        };
+
+        (creditosActivos || []).forEach((c) => {
+          if (!c.fecha_proximo_pago || Number(c.saldo || 0) <= 0) return;
+
+          const fecha = c.fecha_proximo_pago;
+          let categoria = null;
+          let dias = 0;
+
+          if (fecha < hoy) {
+            categoria = "morosos";
+            dias = diasEntreFechas(fecha, hoy);
+          } else if (fecha === hoy) {
+            categoria = "hoy";
+            dias = 0;
+          } else if (diasEntreFechas(hoy, fecha) <= 3) {
+            categoria = "proximos";
+            dias = diasEntreFechas(hoy, fecha);
+          } else {
+            return;
+          }
+
+          const key = c.cliente_id;
+          if (!grupos[categoria].has(key)) {
+            grupos[categoria].set(key, {
+              cliente_id: key,
+              nombre: c.Clientes?.nombre || "Cliente",
+              telefono: c.Clientes?.telefono || "",
+              productos: [],
+              creditosIds: [],
+              total: 0,
+              dias,
+            });
+          }
+
+          const g = grupos[categoria].get(key);
+          g.creditosIds.push(c.id);
+          g.productos.push({
+            producto: c.producto || "",
+            saldo: Number(c.saldo || 0),
+          });
+          g.total += Number(c.saldo || 0);
+
+          if (categoria === "morosos") {
+            g.dias = Math.max(g.dias, dias);
+          } else if (categoria === "proximos") {
+            g.dias = Math.min(g.dias, dias);
+          }
+        });
+
+        return {
+          morosos: Array.from(grupos.morosos.values()).sort(
+            (a, b) => b.total - a.total
+          ),
+          hoy: Array.from(grupos.hoy.values()).sort(
+            (a, b) => b.total - a.total
+          ),
+          proximos: Array.from(grupos.proximos.values()).sort(
+            (a, b) => a.dias - b.dias
+          ),
+        };
+      }
+
+      function renderAlertasHome() {
+        const totalEnviadas = contarAlertasEnviadas();
+        const totalMorosos = alertasAgrupadas.morosos.reduce(
+          (s, g) => s + Number(g.total || 0),
+          0
+        );
+        const totalHoy = alertasAgrupadas.hoy.reduce(
+          (s, g) => s + Number(g.total || 0),
+          0
+        );
+        const totalProximos = alertasAgrupadas.proximos.reduce(
+          (s, g) => s + Number(g.total || 0),
+          0
+        );
+
+        alertasHome.innerHTML = `
+<div class="alert-summary-grid">
+  <div class="alert-resumen-card red" onclick="abrirAlertas('morosos')">
+    <div class="title">Vencidos</div>
+    <div class="count">${alertasAgrupadas.morosos.length}</div>
+    <div class="meta">${formatearDinero(totalMorosos)} por cobrar</div>
+  </div>
+
+  <div class="alert-resumen-card yellow" onclick="abrirAlertas('hoy')">
+    <div class="title">Vence hoy</div>
+    <div class="count">${alertasAgrupadas.hoy.length}</div>
+    <div class="meta">${formatearDinero(totalHoy)} en su último día</div>
+  </div>
+
+  <div class="alert-resumen-card blue" onclick="abrirAlertas('proximos')">
+    <div class="title">Próximos 3 días</div>
+    <div class="count">${alertasAgrupadas.proximos.length}</div>
+    <div class="meta">${formatearDinero(totalProximos)} por avisar</div>
+  </div>
+
+  <div class="alert-resumen-card green" onclick="abrirAlertas('enviadas')">
+    <div class="title">Alertas enviadas</div>
+    <div class="count">${totalEnviadas}</div>
+    <div class="meta">Historial de avisos</div>
+  </div>
+</div>
+`;
+      }
+
+      function abrirAlertas(categoria) {
+        alertaCategoriaActiva = categoria;
+        ir("alertasScreen");
+        renderAlertasDetalle(categoria);
+        marcarPestanaAlertas(categoria);
+      }
+
+      function marcarPestanaAlertas(categoria) {
+        const tabs = {
+          morosos: tabMorosos,
+          hoy: tabHoy,
+          proximos: tabProximos,
+          enviadas: tabEnviadas,
+        };
+
+        Object.values(tabs).forEach((btn) => btn?.classList.remove("active"));
+        tabs[categoria]?.classList.add("active");
+      }
+
+      function renderAlertasDetalle(categoria) {
+        const lista = document.getElementById("listaAlertasDetalle");
+        const titulo = document.getElementById("alertasTitulo");
+        const subtitulo = document.getElementById("alertasSubtitulo");
+
+        const titulos = {
+          morosos: ["🔴 Vencidos", "Clientes que ya pasaron su fecha de pago"],
+          hoy: ["🟡 Vence hoy", "Clientes que deben pagar hoy"],
+          proximos: [
+            "🟢 Próximos 3 días",
+            "Clientes que necesitan recordatorio amable",
+          ],
+          enviadas: [
+            "🔔 Alertas enviadas",
+            "Historial de avisos ya registrados",
+          ],
+        };
+
+        titulo.textContent = titulos[categoria][0];
+        subtitulo.textContent = titulos[categoria][1];
+
+        if (categoria === "enviadas") {
+          const ultimas = Array.from(alertasUltimasPorCliente.values());
+          if (!ultimas.length) {
+            lista.innerHTML = `<div class="pago-item">No hay alertas enviadas todavía.</div>`;
+            return;
+          }
+
+          lista.innerHTML = ultimas
+            .map((a) => {
+              const horas = horasDesde(a.fecha_envio || a.created_at);
+              const puede = puedeReenviarAlerta(a.fecha_envio || a.created_at);
+              return `
+<div class="alert-detail-item">
+  <div class="alert-detail-top">
+    <div>
+      <b>${a.cliente_nombre || "Cliente"}</b><br>
+      <span class="alert-tag blue">${a.tipo_alerta || "alerta"}</span>
+    </div>
+    <div><b>${formatearFechaHumana(a.fecha_envio || a.created_at)}</b></div>
+  </div>
+
+  <div class="subtle" style="margin-top:8px;">
+    ${
+      horas >= 24
+        ? `${Math.floor(horas / 24)} día(s) desde la última alerta`
+        : `${horas || 0} hora(s) desde la última alerta`
+    }
+  </div>
+
+  <div class="alert-detail-actions">
+    <button onclick="abrirCliente('${a.cliente_id}')">Ver cliente</button>
+    <button ${puede ? "" : "disabled"} onclick="reenviarAlertaDesdeHistorial('${
+                a.cliente_id
+              }')">${puede ? "Reenviar" : "Esperar 1 día"}</button>
+  </div>
+</div>
+`;
+            })
+            .join("");
+          return;
+        }
+
+        const grupos = alertasAgrupadas[categoria] || [];
+        if (!grupos.length) {
+          lista.innerHTML = `<div class="pago-item">No hay clientes en esta categoría.</div>`;
+          return;
+        }
+
+        lista.innerHTML = grupos
+          .map((g) => {
+            const etiquetas = g.productos
+              .map((p) => `• ${p.producto} - ${formatearDinero(p.saldo)}`)
+              .join("<br>");
+            const textoDias =
+              categoria === "morosos"
+                ? `${g.dias} días de retraso`
+                : categoria === "hoy"
+                ? "Último día de pago"
+                : `Vence en ${g.dias} día(s)`;
+            const tagClass =
+              categoria === "morosos"
+                ? "red"
+                : categoria === "hoy"
+                ? "yellow"
+                : "blue";
+            const ultima = alertasUltimasPorCliente.get(g.cliente_id);
+            const puede =
+              !ultima ||
+              puedeReenviarAlerta(ultima.fecha_envio || ultima.created_at);
+            const ultimoTexto = ultima
+              ? `Última alerta: ${formatearFechaHumana(
+                  ultima.fecha_envio || ultima.created_at
+                )}`
+              : "Sin alerta enviada";
+            return `
+<div class="alert-detail-item">
+  <div class="alert-detail-top">
+    <div>
+      <b>${g.nombre}</b><br>
+      <span class="alert-tag ${tagClass}">${textoDias}</span>
+    </div>
+    <div><b>${formatearDinero(g.total)}</b></div>
+  </div>
+
+  <div class="subtle" style="margin-top:8px;">
+    ${etiquetas}
+  </div>
+  <div class="subtle" style="margin-top:8px; font-weight:700;">
+    ${ultimoTexto}
+  </div>
+
+  <div class="alert-detail-actions">
+    <button onclick="abrirCliente('${g.cliente_id}')">Ver cliente</button>
+    <button ${
+      puede ? "" : "disabled"
+    } onclick="registrarAlertaYEnviar('${categoria}','${g.cliente_id}')">${
+              puede ? "WhatsApp" : "Esperar 1 día"
+            }</button>
+  </div>
+</div>
+`;
+          })
+          .join("");
+      }
+
+      async function registrarAlertaYEnviar(categoria, cliente_id) {
+        const grupo = alertasAgrupadas[categoria]?.find(
+          (g) => g.cliente_id === cliente_id
+        );
+        if (!grupo) return;
+        const ultima = alertasUltimasPorCliente.get(cliente_id);
+        if (
+          ultima &&
+          !puedeReenviarAlerta(ultima.fecha_envio || ultima.created_at)
+        ) {
+          alert("Debe esperar al menos 1 día para reenviar otra alerta.");
+          return;
+        }
+        if (!grupo.telefono) {
+          alert("Cliente sin teléfono");
+          return;
+        }
+
+        const numero = grupo.telefono.replace(/\D/g, "");
+        const productos = grupo.productos
+          .map((p) => `• ${p.producto} (${formatearDinero(p.saldo)})`)
+          .join("\n");
+        const ahora = new Date().toISOString();
+        let mensaje = "";
+        let dias_retraso = 0;
+
+        if (categoria === "morosos") {
+          dias_retraso = grupo.dias;
+          mensaje = `Hola ${grupo.nombre}, tienes ${
+            grupo.dias
+          } días de retraso en los siguientes productos:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(
+            grupo.total
+          )}.\nPor favor comunícate para regularizar tu pago.`;
+        } else if (categoria === "hoy") {
+          dias_retraso = 0;
+          mensaje = `Hola ${
+            grupo.nombre
+          }, hoy vence tu pago de:\n\n${productos}\n\nTotal a pagar: ${formatearDinero(
+            grupo.total
+          )}.\nGracias por tu puntualidad.`;
+        } else {
+          dias_retraso = grupo.dias;
+          mensaje = `Hola ${grupo.nombre}, te recordamos que dentro de ${
+            grupo.dias
+          } día(s) vence tu pago de:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(
+            grupo.total
+          )}.\nGracias por tu puntualidad.`;
+        }
+
+        const { error } = await supabaseClient.from("Alertas").insert([
+          {
+            owner_id: usuarioActual.id,
+            cliente_id,
+            creditos_ids: grupo.creditosIds || [],
+            tipo_alerta: categoria,
+            dias_retraso,
+            mensaje,
+            fecha_envio: ahora,
+          },
+        ]);
+        if (error) {
+          console.log(error);
+          alert(error.message);
+          return;
+        }
+
+        if ((grupo.creditosIds || []).length) {
+          for (const credito_id_item of grupo.creditosIds) {
+            const { data: cr } = await supabaseClient
+              .from("Creditos")
+              .select("alertas_enviadas")
+              .eq("id", credito_id_item)
+              .single();
+            const count = Number(cr?.alertas_enviadas || 0) + 1;
+            await supabaseClient
+              .from("Creditos")
+              .update({
+                ultima_alerta_at: ahora,
+                ultima_alerta_tipo: categoria,
+                alertas_enviadas: count,
+              })
+              .eq("id", credito_id_item);
+          }
+        }
+
+        await verDashboard();
+        abrirWhatsAppConMensaje(numero, mensaje);
+      }
+
+      function reenviarAlertaDesdeHistorial(cliente_id) {
+        const alerta = alertasUltimasPorCliente.get(cliente_id);
+        if (!alerta) return;
+        if (!puedeReenviarAlerta(alerta.fecha_envio || alerta.created_at)) {
+          alert("Debe esperar al menos 1 día para reenviar otra alerta.");
+          return;
+        }
+        const numero = (alerta.cliente_telefono || "").replace(/\D/g, "");
+        if (!numero) {
+          alert("Cliente sin teléfono");
+          return;
+        }
+        abrirWhatsAppConMensaje(
+          numero,
+          alerta.mensaje || "Hola, te recordamos tu pago pendiente."
+        );
+      }
+
+      function abrirWhatsAppConMensaje(numero, mensaje) {
+        window.open(
+          `https://wa.me/51${numero}?text=${encodeURIComponent(mensaje)}`,
+          "_blank"
+        );
+      }
+
+      function construirAlertasAgrupadas(creditosActivos) {
+        const hoy = fechaLocal();
+        const grupos = {
+          morosos: new Map(),
+          hoy: new Map(),
+          proximos: new Map(),
+        };
+
+        (creditosActivos || []).forEach((c) => {
+          if (!c.fecha_proximo_pago || Number(c.saldo || 0) <= 0) return;
+
+          const fecha = c.fecha_proximo_pago;
+          let categoria = null;
+          let dias = 0;
+
+          if (fecha < hoy) {
+            categoria = "morosos";
+            dias = diasEntreFechas(fecha, hoy);
+          } else if (fecha === hoy) {
+            categoria = "hoy";
+            dias = 0;
+          } else if (diasEntreFechas(hoy, fecha) <= 3) {
+            categoria = "proximos";
+            dias = diasEntreFechas(hoy, fecha);
+          } else {
+            return;
+          }
+
+          const key = c.cliente_id;
+          if (!grupos[categoria].has(key)) {
+            grupos[categoria].set(key, {
+              cliente_id: key,
+              nombre: c.Clientes?.nombre || "Cliente",
+              telefono: c.Clientes?.telefono || "",
+              productos: [],
+              creditosIds: [],
+              total: 0,
+              dias,
+            });
+          }
+
+          const g = grupos[categoria].get(key);
+          g.creditosIds.push(c.id);
+          g.productos.push({
+            producto: c.producto || "",
+            saldo: Number(c.saldo || 0),
+          });
+          g.total += Number(c.saldo || 0);
+
+          if (categoria === "morosos") {
+            g.dias = Math.max(g.dias, dias);
+          } else if (categoria === "proximos") {
+            g.dias = Math.min(g.dias, dias);
+          }
+        });
+
+        return {
+          morosos: Array.from(grupos.morosos.values()).sort(
+            (a, b) => b.total - a.total
+          ),
+          hoy: Array.from(grupos.hoy.values()).sort(
+            (a, b) => b.total - a.total
+          ),
+          proximos: Array.from(grupos.proximos.values()).sort(
+            (a, b) => a.dias - b.dias
+          ),
+        };
+      }
+
+      window.addEventListener("focus", () => {
+        if (usuarioActual) {
+          verDashboard();
+        }
+      });
+
+      document.addEventListener("visibilitychange", () => {
+        if (!document.hidden && usuarioActual) {
+          verDashboard();
+        }
+      });
+
+      setInterval(() => {
+        if (
+          usuarioActual &&
+          document.getElementById("homeScreen").classList.contains("activa")
+        ) {
+          verDashboard();
+        }
+      }, 60000);
     </script>
-</body>
+  </body>
 </html>
