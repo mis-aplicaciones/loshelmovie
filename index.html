@@ -60,6 +60,37 @@
         opacity: 0.9;
       }
 
+      .header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .header-left {
+        min-width: 0;
+        flex: 1;
+      }
+
+      .logout-btn {
+        width: 46px;
+        height: 46px;
+        flex: 0 0 46px;
+        padding: 0;
+        margin: 0;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.16);
+        color: #fff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+      }
+
+      .logout-btn ion-icon {
+        font-size: 22px;
+      }
+
       .card {
         background: white;
         padding: 15px;
@@ -119,10 +150,14 @@
         bottom: 0;
         left: 0;
         width: 100%;
-        display: flex;
+        display: none;
         background: white;
         box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
         z-index: 999;
+      }
+
+      .menu.visible {
+        display: flex;
       }
 
       .menu button {
@@ -185,12 +220,12 @@
 
       .credito-card.credito-estado-cancelado {
         border-left: 5px solid #b2bec3;
-        opacity: .88;
+        opacity: 0.88;
       }
 
       .credito-destacado {
-        outline: 3px solid rgba(108,92,231,.18);
-        box-shadow: 0 0 0 5px rgba(108,92,231,.08);
+        outline: 3px solid rgba(108, 92, 231, 0.18);
+        box-shadow: 0 0 0 5px rgba(108, 92, 231, 0.08);
       }
 
       .credito-header {
@@ -215,11 +250,26 @@
         font-weight: 800;
       }
 
-      .credito-badge.activo { background:#e8fff5; color:#078a61; }
-      .credito-badge.hoy { background:#fff4d6; color:#b7791f; }
-      .credito-badge.proximo { background:#e8e0ff; color:#5a35d6; }
-      .credito-badge.moroso { background:#ffe6e1; color:#c0392b; }
-      .credito-badge.cancelado { background:#eef1f4; color:#6b7280; }
+      .credito-badge.activo {
+        background: #e8fff5;
+        color: #078a61;
+      }
+      .credito-badge.hoy {
+        background: #fff4d6;
+        color: #b7791f;
+      }
+      .credito-badge.proximo {
+        background: #e8e0ff;
+        color: #5a35d6;
+      }
+      .credito-badge.moroso {
+        background: #ffe6e1;
+        color: #c0392b;
+      }
+      .credito-badge.cancelado {
+        background: #eef1f4;
+        color: #6b7280;
+      }
 
       .credito-saldo-box {
         text-align: right;
@@ -506,14 +556,32 @@
         justify-content: space-between;
       }
 
-      .alert-resumen-card.red { background: linear-gradient(135deg, #ef4444, #fb7185); }
-      .alert-resumen-card.yellow { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
-      .alert-resumen-card.blue { background: linear-gradient(135deg, #0ea5e9, #38bdf8); }
-      .alert-resumen-card.green { background: linear-gradient(135deg, #10b981, #34d399); }
+      .alert-resumen-card.red {
+        background: linear-gradient(135deg, #ef4444, #fb7185);
+      }
+      .alert-resumen-card.yellow {
+        background: linear-gradient(135deg, #f59e0b, #fbbf24);
+      }
+      .alert-resumen-card.blue {
+        background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+      }
+      .alert-resumen-card.green {
+        background: linear-gradient(135deg, #10b981, #34d399);
+      }
 
-      .alert-resumen-card .title { font-size: 12px; font-weight: 800; opacity: .95; }
-      .alert-resumen-card .count { font-size: 24px; font-weight: 800; }
-      .alert-resumen-card .meta { font-size: 12px; opacity: .95; }
+      .alert-resumen-card .title {
+        font-size: 12px;
+        font-weight: 800;
+        opacity: 0.95;
+      }
+      .alert-resumen-card .count {
+        font-size: 24px;
+        font-weight: 800;
+      }
+      .alert-resumen-card .meta {
+        font-size: 12px;
+        opacity: 0.95;
+      }
 
       .alert-detail-item {
         background: #fafafa;
@@ -524,262 +592,368 @@
       }
 
       .alert-detail-top {
-        display:flex;
-        justify-content:space-between;
-        gap:12px;
-        align-items:flex-start;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: flex-start;
       }
 
       .alert-tag {
-        display:inline-block;
-        margin-top:6px;
-        padding:4px 10px;
-        border-radius:999px;
-        font-size:12px;
-        font-weight:700;
+        display: inline-block;
+        margin-top: 6px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 700;
       }
 
-      .alert-tag.red { background:#ffe1dd; color:#d63031; }
-      .alert-tag.yellow { background:#fff1c4; color:#b7791f; }
-      .alert-tag.blue { background:#dff4ff; color:#0ea5e9; }
+      .alert-tag.red {
+        background: #ffe1dd;
+        color: #d63031;
+      }
+      .alert-tag.yellow {
+        background: #fff1c4;
+        color: #b7791f;
+      }
+      .alert-tag.blue {
+        background: #dff4ff;
+        color: #0ea5e9;
+      }
 
       .alert-detail-actions {
-        display:flex;
-        gap:10px;
-        margin-top:12px;
+        display: flex;
+        gap: 10px;
+        margin-top: 12px;
       }
 
       .alert-detail-actions button {
-        flex:1;
+        flex: 1;
       }
 
       .calendar-head {
-        display:flex;
-        gap:10px;
-        align-items:center;
-        justify-content:space-between;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-between;
       }
 
       .calendar-head button {
-        width:44px;
-        flex:0 0 44px;
-        border-radius:12px;
+        width: 44px;
+        flex: 0 0 44px;
+        border-radius: 12px;
       }
 
       .calendar-title {
-        font-weight:800;
-        text-align:center;
-        flex:1;
+        font-weight: 800;
+        text-align: center;
+        flex: 1;
       }
 
-      .calendar-weekdays, .calendar-grid {
-        display:grid;
-        grid-template-columns:repeat(7, minmax(0,1fr));
-        gap:8px;
+      .calendar-weekdays,
+      .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 8px;
       }
 
       .calendar-weekdays div {
-        text-align:center;
-        font-size:12px;
-        font-weight:800;
-        color:#636e72;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 800;
+        color: #636e72;
       }
 
       .calendar-day {
-        min-height:72px;
-        border-radius:14px;
-        background:#fff;
-        border:1px solid #eaeaea;
-        padding:8px;
-        cursor:pointer;
-        position:relative;
+        min-height: 72px;
+        border-radius: 14px;
+        background: #fff;
+        border: 1px solid #eaeaea;
+        padding: 8px;
+        cursor: pointer;
+        position: relative;
       }
 
-      .calendar-day.empty { background:transparent; border:none; cursor:default; }
-      .calendar-day.today { outline:2px solid var(--morado); }
-      .calendar-day.selected { background:#f0ebff; }
-      .calendar-num { font-weight:800; font-size:14px; }
+      .calendar-day.empty {
+        background: transparent;
+        border: none;
+        cursor: default;
+      }
+      .calendar-day.today {
+        outline: 2px solid var(--morado);
+      }
+      .calendar-day.selected {
+        background: #f0ebff;
+      }
+      .calendar-num {
+        font-weight: 800;
+        font-size: 14px;
+      }
       .calendar-badge {
-        position:absolute;
-        right:8px;
-        bottom:8px;
-        min-width:22px;
-        height:22px;
-        border-radius:999px;
-        background:var(--morado);
-        color:#fff;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        font-size:12px;
-        font-weight:800;
-        padding:0 6px;
+        position: absolute;
+        right: 8px;
+        bottom: 8px;
+        min-width: 22px;
+        height: 22px;
+        border-radius: 999px;
+        background: var(--morado);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 800;
+        padding: 0 6px;
       }
-      .calendar-badge.zero { background:#dfe6e9; color:#636e72; }
-      .calendar-detail { margin-top:12px; }
-      .mini-note { font-size:12px; color:#636e72; margin-bottom:8px; }
-      .calendar-item { background:#fafafa; border:1px solid #eee; border-radius:14px; padding:12px; margin-bottom:10px; }
+      .calendar-badge.zero {
+        background: #dfe6e9;
+        color: #636e72;
+      }
+      .calendar-detail {
+        margin-top: 12px;
+      }
+      .mini-note {
+        font-size: 12px;
+        color: #636e72;
+        margin-bottom: 8px;
+      }
+      .calendar-item {
+        background: #fafafa;
+        border: 1px solid #eee;
+        border-radius: 14px;
+        padding: 12px;
+        margin-bottom: 10px;
+      }
 
-      .donut-wrap { display:flex; justify-content:center; align-items:center; padding:12px 0; }
+      .donut-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 0;
+      }
       .donut {
-        width:220px; height:220px; border-radius:50%;
-        position:relative; background:#eceff4;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        position: relative;
+        background: #eceff4;
       }
       .donut-center {
-        position:absolute; inset:34px;
-        background:#fff; border-radius:50%;
-        display:flex; flex-direction:column; align-items:center; justify-content:center;
-        text-align:center; box-shadow:inset 0 0 0 1px #eee;
+        position: absolute;
+        inset: 34px;
+        background: #fff;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        box-shadow: inset 0 0 0 1px #eee;
       }
-      .donut-number { font-size:34px; font-weight:900; line-height:1; }
-      .donut-label { font-size:12px; color:#636e72; margin-top:6px; font-weight:700; }
-      .legend-cartera { display:grid; gap:8px; margin-top:10px; }
+      .donut-number {
+        font-size: 34px;
+        font-weight: 900;
+        line-height: 1;
+      }
+      .donut-label {
+        font-size: 12px;
+        color: #636e72;
+        margin-top: 6px;
+        font-weight: 700;
+      }
+      .legend-cartera {
+        display: grid;
+        gap: 8px;
+        margin-top: 10px;
+      }
       .legend-item {
-        display:flex; justify-content:space-between; gap:10px; align-items:center;
-        background:#fafafa; border:1px solid #eee; border-radius:14px; padding:10px 12px;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: center;
+        background: #fafafa;
+        border: 1px solid #eee;
+        border-radius: 14px;
+        padding: 10px 12px;
       }
-      .legend-left { display:flex; align-items:center; gap:10px; }
-      .legend-dot { width:12px; height:12px; border-radius:50%; }
-      .legend-title { font-weight:800; }
-      .legend-meta { font-size:12px; color:#636e72; }
+      .legend-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .legend-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+      .legend-title {
+        font-weight: 800;
+      }
+      .legend-meta {
+        font-size: 12px;
+        color: #636e72;
+      }
 
       .dashboard-charts-row {
-        display:grid;
+        display: grid;
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap:12px;
-        margin-bottom:12px;
+        gap: 12px;
+        margin-bottom: 12px;
       }
 
-      .chart-card { min-height: 100%; }
+      .chart-card {
+        min-height: 100%;
+      }
 
       .cartera-layout {
-        display:grid;
+        display: grid;
         grid-template-columns: 168px minmax(0, 1fr);
-        gap:12px;
-        align-items:center;
+        gap: 12px;
+        align-items: center;
       }
 
       .cartera-left,
       .cartera-right {
-        min-width:0;
+        min-width: 0;
       }
 
       .cartera-left {
-        display:flex;
-        justify-content:center;
-        align-items:center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       .donut-wrap {
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        padding:0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
       }
 
       .donut {
-        width:168px;
-        height:168px;
-        border-radius:50%;
-        position:relative;
-        background:#eceff4;
+        width: 168px;
+        height: 168px;
+        border-radius: 50%;
+        position: relative;
+        background: #eceff4;
       }
 
       .donut-center {
-        position:absolute;
-        inset:28px;
-        background:#fff;
-        border-radius:50%;
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        justify-content:center;
-        text-align:center;
-        box-shadow:inset 0 0 0 1px #eee;
+        position: absolute;
+        inset: 28px;
+        background: #fff;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        box-shadow: inset 0 0 0 1px #eee;
       }
 
-      .donut-number { font-size:30px; font-weight:900; line-height:1; }
-      .donut-label { font-size:12px; color:#636e72; margin-top:6px; font-weight:700; }
+      .donut-number {
+        font-size: 30px;
+        font-weight: 900;
+        line-height: 1;
+      }
+      .donut-label {
+        font-size: 12px;
+        color: #636e72;
+        margin-top: 6px;
+        font-weight: 700;
+      }
 
       .legend-cartera {
-        display:grid;
-        gap:8px;
-        margin-top:0;
+        display: grid;
+        gap: 8px;
+        margin-top: 0;
       }
 
       .legend-item {
-        display:flex;
-        justify-content:space-between;
-        gap:10px;
-        align-items:center;
-        background:#fafafa;
-        border:1px solid #eee;
-        border-radius:14px;
-        padding:10px 12px;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: center;
+        background: #fafafa;
+        border: 1px solid #eee;
+        border-radius: 14px;
+        padding: 10px 12px;
       }
 
-      .legend-left { display:flex; align-items:center; gap:10px; }
-      .legend-dot { width:12px; height:12px; border-radius:50%; }
-      .legend-title { font-weight:800; }
-      .legend-meta { font-size:12px; color:#636e72; }
+      .legend-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .legend-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+      .legend-title {
+        font-weight: 800;
+      }
+      .legend-meta {
+        font-size: 12px;
+        color: #636e72;
+      }
 
       .performance-header {
-        display:flex;
-        align-items:flex-start;
-        justify-content:space-between;
-        gap:12px;
-        margin-bottom:10px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 10px;
       }
 
       .performance-chart {
-        display:grid;
-        gap:10px;
+        display: grid;
+        gap: 10px;
       }
 
       .performance-bar-card {
-        display:grid;
+        display: grid;
         grid-template-columns: 100px minmax(0, 1fr) 88px;
-        gap:10px;
-        align-items:center;
-        background:#fafafa;
-        border:1px solid #eee;
-        border-radius:14px;
-        padding:10px 12px;
+        gap: 10px;
+        align-items: center;
+        background: #fafafa;
+        border: 1px solid #eee;
+        border-radius: 14px;
+        padding: 10px 12px;
       }
 
       .performance-bar-label {
-        font-weight:800;
-        font-size:13px;
-        color:#2d3436;
+        font-weight: 800;
+        font-size: 13px;
+        color: #2d3436;
       }
 
       .performance-bar-track {
-        height:14px;
-        border-radius:999px;
-        background:#eceff4;
-        overflow:hidden;
+        height: 14px;
+        border-radius: 999px;
+        background: #eceff4;
+        overflow: hidden;
       }
 
       .performance-bar-fill {
-        height:100%;
-        border-radius:999px;
-        background:linear-gradient(90deg, #6c5ce7, #8e7dff);
+        height: 100%;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #6c5ce7, #8e7dff);
       }
 
       .performance-bar-meta {
-        text-align:right;
-        font-weight:900;
-        font-size:13px;
+        text-align: right;
+        font-weight: 900;
+        font-size: 13px;
       }
 
       .performance-summary {
-        margin-top:10px;
-        background:#fafafa;
-        border:1px solid #eee;
-        border-radius:14px;
-        padding:10px 12px;
-        font-size:13px;
-        color:#636e72;
+        margin-top: 10px;
+        background: #fafafa;
+        border: 1px solid #eee;
+        border-radius: 14px;
+        padding: 10px 12px;
+        font-size: 13px;
+        color: #636e72;
       }
 
       @media (max-width: 860px) {
@@ -792,12 +966,12 @@
         }
 
         .cartera-left {
-          justify-content:flex-start;
+          justify-content: flex-start;
         }
 
         .donut {
-          width:160px;
-          height:160px;
+          width: 160px;
+          height: 160px;
         }
 
         .performance-bar-card {
@@ -805,7 +979,7 @@
         }
 
         .performance-bar-meta {
-          text-align:left;
+          text-align: left;
         }
       }
 
@@ -848,12 +1022,24 @@
         margin-top: 8px;
       }
 
-      .kpi-purple { background: linear-gradient(135deg, #6c5ce7, #8e7dff); }
-      .kpi-pink   { background: linear-gradient(135deg, #ff6fa6, #ff9ac1); }
-      .kpi-green  { background: linear-gradient(135deg, #10b981, #34d399); }
-      .kpi-orange { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
-      .kpi-red    { background: linear-gradient(135deg, #ef4444, #fb7185); }
-      .kpi-blue   { background: linear-gradient(135deg, #0ea5e9, #38bdf8); }
+      .kpi-purple {
+        background: linear-gradient(135deg, #6c5ce7, #8e7dff);
+      }
+      .kpi-pink {
+        background: linear-gradient(135deg, #ff6fa6, #ff9ac1);
+      }
+      .kpi-green {
+        background: linear-gradient(135deg, #10b981, #34d399);
+      }
+      .kpi-orange {
+        background: linear-gradient(135deg, #f59e0b, #fbbf24);
+      }
+      .kpi-red {
+        background: linear-gradient(135deg, #ef4444, #fb7185);
+      }
+      .kpi-blue {
+        background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+      }
 
       .progress-wrap {
         width: 100%;
@@ -1050,7 +1236,7 @@
       .nowrap {
         white-space: nowrap;
       }
-    
+
       .alert-summary-grid {
         display: grid;
         grid-template-columns: 1fr;
@@ -1161,8 +1347,1153 @@
         background: #e1f5fe;
         color: #0b74b8;
       }
-
     </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      :root {
+        --morado: #8b5cf6;
+        --morado-2: #ec4899;
+        --gris: #f8f5ff;
+        --texto: #241b35;
+        --rojo: #ef476f;
+        --verde: #06d6a0;
+        --amarillo: #f4b942;
+        --blanco: #ffffff;
+        --azul: #3b82f6;
+        --card-shadow: 0 18px 40px rgba(36, 27, 53, 0.08);
+        --card-border: rgba(139, 92, 246, 0.1);
+        --card-radius: 24px;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont,
+          sans-serif;
+        background: radial-gradient(
+            circle at top left,
+            rgba(236, 72, 153, 0.1),
+            transparent 28%
+          ),
+          radial-gradient(
+            circle at top right,
+            rgba(139, 92, 246, 0.12),
+            transparent 24%
+          ),
+          linear-gradient(180deg, #fff 0%, #f8f5ff 22%, #eef2ff 100%);
+        color: var(--texto);
+        padding-bottom: 96px;
+      }
+
+      .pantalla {
+        display: none;
+        padding: 16px;
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+
+      .activa {
+        display: block;
+      }
+
+      /* LOGIN CENTERING */
+      #loginScreen.activa {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #loginScreen .card {
+        width: min(92vw, 460px);
+      }
+
+      .header {
+        background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+        color: white;
+        padding: 24px;
+        border-radius: 30px;
+        margin-bottom: 16px;
+        box-shadow: 0 18px 38px rgba(139, 92, 246, 0.18);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .header::after {
+        content: "";
+        position: absolute;
+        inset: auto -45px -60px auto;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        filter: blur(8px);
+      }
+
+      .header h2 {
+        margin: 0;
+        font-size: 26px;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+      }
+
+      .header p {
+        margin-top: 6px;
+        opacity: 0.92;
+        line-height: 1.35;
+      }
+
+      .header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .header-left {
+        min-width: 0;
+        flex: 1;
+      }
+
+      .hero-note {
+        margin-top: 10px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .logout-btn {
+        width: 48px;
+        height: 48px;
+        flex: 0 0 48px;
+        padding: 0;
+        margin: 0;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.18);
+        color: #fff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+      }
+
+      .logout-btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .logout-btn i {
+        font-size: 20px;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 16px;
+        border-radius: var(--card-radius);
+        margin-bottom: 16px;
+        box-shadow: var(--card-shadow);
+        border: 1px solid var(--card-border);
+        backdrop-filter: blur(10px);
+      }
+
+      .section-title {
+        font-size: 18px;
+        font-weight: 900;
+        margin-bottom: 12px;
+        letter-spacing: -0.01em;
+      }
+
+      .section-title-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .section-title-row .section-title {
+        margin-bottom: 0;
+      }
+
+      .subtle {
+        font-size: 13px;
+        color: #6b7280;
+        line-height: 1.35;
+      }
+
+      .mini-note {
+        font-size: 12px;
+        color: #6b7280;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 13px 14px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        border-radius: 16px;
+        border: 1px solid rgba(139, 92, 246, 0.14);
+        font-size: 15px;
+        background: rgba(255, 255, 255, 0.95);
+        color: var(--texto);
+        outline: none;
+        transition: border-color 0.18s ease, box-shadow 0.18s ease,
+          transform 0.18s ease;
+      }
+
+      input:focus,
+      select:focus {
+        border-color: rgba(139, 92, 246, 0.42);
+        box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+      }
+
+      button {
+        width: 100%;
+        padding: 12px 14px;
+        border: none;
+        border-radius: 16px;
+        background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+        color: white;
+        font-size: 15px;
+        font-weight: 800;
+        margin-top: 8px;
+        cursor: pointer;
+        transition: transform 0.18s ease, box-shadow 0.18s ease,
+          opacity 0.18s ease;
+        box-shadow: 0 12px 20px rgba(139, 92, 246, 0.18);
+      }
+
+      button:hover {
+        transform: translateY(-1px);
+      }
+
+      button:disabled {
+        opacity: 0.55;
+        cursor: not-allowed;
+        box-shadow: none;
+      }
+
+      .auth-actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .auth-actions button {
+        flex: 1;
+      }
+
+      .registro-hint {
+        font-size: 13px;
+        color: #6b7280;
+        margin-top: 8px;
+        line-height: 1.4;
+      }
+
+      .menu {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        display: none;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(14px);
+        box-shadow: 0 -12px 28px rgba(16, 24, 40, 0.08);
+        z-index: 999;
+        border-top: 1px solid rgba(139, 92, 246, 0.08);
+      }
+
+      .menu.visible {
+        display: flex;
+      }
+
+      .menu button {
+        flex: 1;
+        background: transparent;
+        color: #4b5563;
+        font-size: 12px;
+        padding: 10px 6px 12px;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+      }
+
+      .menu button.active {
+        background: linear-gradient(180deg, #8b5cf6 0%, #7c3aed 100%);
+        color: white;
+      }
+
+      .menu .nav-icon {
+        font-size: 18px;
+        line-height: 1;
+        margin-bottom: 3px;
+      }
+
+      .cliente-item {
+        padding: 14px;
+        border-radius: 18px;
+        background: linear-gradient(180deg, #fff, #faf8ff);
+        border: 1px solid rgba(139, 92, 246, 0.08);
+        margin-bottom: 10px;
+        cursor: pointer;
+        box-shadow: 0 10px 20px rgba(15, 23, 42, 0.05);
+        transition: transform 0.18s ease, box-shadow 0.18s ease,
+          border-color 0.18s ease;
+      }
+
+      .cliente-item:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 16px 26px rgba(15, 23, 42, 0.08);
+        border-color: rgba(139, 92, 246, 0.14);
+      }
+
+      .nombre-cliente {
+        font-weight: 900;
+        font-size: 16px;
+        line-height: 1.25;
+      }
+
+      .dashboard-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .dashboard-charts-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 14px;
+        margin-bottom: 14px;
+      }
+
+      .chart-card {
+        min-height: 100%;
+      }
+
+      .kpi-card {
+        border-radius: 24px;
+        padding: 16px;
+        min-height: 126px;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 16px 30px rgba(0, 0, 0, 0.09);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+        position: relative;
+        transition: transform 0.18s ease, box-shadow 0.18s ease;
+      }
+
+      .kpi-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 20px 34px rgba(0, 0, 0, 0.12);
+      }
+
+      .kpi-card::before {
+        content: "";
+        position: absolute;
+        inset: auto -20px -25px auto;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        filter: blur(2px);
+      }
+
+      .kpi-label {
+        font-size: 12px;
+        opacity: 0.95;
+        font-weight: 800;
+        letter-spacing: 0.2px;
+      }
+
+      .kpi-value {
+        font-size: 28px;
+        font-weight: 900;
+        line-height: 1;
+        margin-top: 6px;
+      }
+
+      .kpi-sub {
+        font-size: 12px;
+        opacity: 0.94;
+        margin-top: 8px;
+      }
+
+      .kpi-purple {
+        background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+      }
+      .kpi-pink {
+        background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
+      }
+      .kpi-green {
+        background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+      }
+      .kpi-orange {
+        background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+      }
+      .kpi-red {
+        background: linear-gradient(135deg, #ef4444 0%, #fb7185 100%);
+      }
+      .kpi-blue {
+        background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%);
+      }
+
+      .meta-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+        gap: 12px;
+      }
+
+      .progress-wrap {
+        width: 100%;
+        height: 14px;
+        background: #eceff4;
+        border-radius: 999px;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        height: 100%;
+        width: 0;
+        background: linear-gradient(90deg, #8b5cf6, #ec4899);
+        border-radius: 999px;
+        transition: width 0.3s ease;
+      }
+
+      .chart {
+        display: flex;
+        gap: 10px;
+        align-items: end;
+        height: 160px;
+        padding-top: 10px;
+      }
+
+      .chart-bar {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: end;
+        min-width: 0;
+      }
+
+      .chart-bar .bar {
+        width: 100%;
+        border-radius: 16px 16px 6px 6px;
+        background: linear-gradient(180deg, #8b5cf6, #a78bfa);
+        min-height: 8px;
+      }
+
+      .chart-bar small {
+        margin-top: 6px;
+        font-size: 11px;
+        text-align: center;
+        display: block;
+      }
+
+      .chart-bar span {
+        font-size: 11px;
+        font-weight: 800;
+        margin-top: 4px;
+      }
+
+      .actividad-list .pago-item {
+        margin-bottom: 10px;
+      }
+
+      .hero-note {
+        font-size: 13px;
+        opacity: 0.96;
+        margin-top: 8px;
+      }
+
+      .link-card {
+        cursor: pointer;
+      }
+
+      .card,
+      .pago-item,
+      .credito-card,
+      .cliente-resumen-item,
+      .legend-item,
+      .calendar-item,
+      .alert-detail-item,
+      .performance-bar-card {
+        border-color: rgba(139, 92, 246, 0.08);
+      }
+
+      .credito-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 22px;
+        padding: 16px;
+        background: linear-gradient(180deg, #ffffff 0%, #fbfaff 100%);
+        box-shadow: 0 14px 28px rgba(15, 23, 42, 0.06);
+      }
+
+      .credito-card.credito-estado-activo {
+        border-left: 6px solid #06d6a0;
+      }
+      .credito-card.credito-estado-hoy {
+        border-left: 6px solid #f4b942;
+      }
+      .credito-card.credito-estado-proximo {
+        border-left: 6px solid #3b82f6;
+      }
+      .credito-card.credito-estado-moroso {
+        border-left: 6px solid #ef476f;
+      }
+      .credito-card.credito-estado-cancelado {
+        border-left: 6px solid #cbd5e1;
+        opacity: 0.88;
+      }
+
+      .credito-destacado {
+        outline: 3px solid rgba(139, 92, 246, 0.2);
+        box-shadow: 0 0 0 6px rgba(139, 92, 246, 0.08);
+      }
+
+      .credito-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .credito-title {
+        font-weight: 900;
+        font-size: 16px;
+        line-height: 1.2;
+      }
+
+      .credito-badge {
+        display: inline-flex;
+        margin-top: 6px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .credito-badge.activo {
+        background: #e8fff5;
+        color: #078a61;
+      }
+      .credito-badge.hoy {
+        background: #fff6db;
+        color: #9a6a00;
+      }
+      .credito-badge.proximo {
+        background: #e9f2ff;
+        color: #1d4ed8;
+      }
+      .credito-badge.moroso {
+        background: #ffe7ec;
+        color: #be123c;
+      }
+      .credito-badge.cancelado {
+        background: #eef2f7;
+        color: #64748b;
+      }
+
+      .credito-mini-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 12px;
+      }
+
+      .credito-mini-item {
+        background: #fff;
+        border: 1px solid rgba(139, 92, 246, 0.08);
+        border-radius: 16px;
+        padding: 10px;
+      }
+
+      .mini-label {
+        display: block;
+        font-size: 11px;
+        color: #6b7280;
+        font-weight: 800;
+        margin-bottom: 4px;
+      }
+
+      .mini-value {
+        font-weight: 900;
+        font-size: 15px;
+      }
+
+      .credito-saldo-box {
+        margin-top: 12px;
+        border-radius: 18px;
+        padding: 12px;
+        background: linear-gradient(180deg, #ffffff, #faf8ff);
+        border: 1px solid rgba(139, 92, 246, 0.08);
+      }
+
+      .credito-barra {
+        margin-top: 12px;
+        height: 12px;
+        background: #eceff4;
+        border-radius: 999px;
+        overflow: hidden;
+      }
+
+      .credito-barra > div {
+        height: 100%;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #8b5cf6, #ec4899);
+      }
+
+      .credito-acciones {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+        margin-top: 12px;
+      }
+
+      .credito-acciones button,
+      .credito-toggle,
+      .mini-toggle {
+        width: 100%;
+      }
+
+      .credito-toggle,
+      .mini-toggle {
+        background: #f2ecff;
+        color: #5b21b6;
+        margin-top: 10px;
+      }
+
+      .credito-detalle {
+        margin-top: 12px;
+        background: #fff;
+        border: 1px solid rgba(139, 92, 246, 0.1);
+        border-radius: 18px;
+        padding: 12px;
+        display: grid;
+        gap: 8px;
+      }
+
+      .credito-detalle.oculto {
+        display: none;
+      }
+
+      .credito-detalle .detalle-linea {
+        font-size: 13px;
+        color: #2d3436;
+      }
+
+      .cliente-resumen-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .cliente-resumen-item {
+        background: linear-gradient(180deg, #fff, #fbfaff);
+        border: 1px solid rgba(139, 92, 246, 0.08);
+        border-radius: 18px;
+        padding: 12px;
+      }
+
+      .cliente-resumen-item .mini-label {
+        display: block;
+        font-size: 11px;
+        color: #6b7280;
+        font-weight: 800;
+        margin-bottom: 4px;
+      }
+
+      .cliente-resumen-item .mini-value {
+        font-weight: 900;
+        font-size: 16px;
+      }
+
+      .pago-modal-info {
+        background: linear-gradient(180deg, #faf8ff, #ffffff);
+        border: 1px solid rgba(139, 92, 246, 0.08);
+        border-radius: 18px;
+        padding: 12px;
+        margin: 10px 0 12px;
+        font-size: 13px;
+        color: #2d3436;
+      }
+
+      .tipo-pago-modal {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 8px;
+      }
+
+      .tipo-pago-opcion {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px;
+        border-radius: 16px;
+        border: 1px solid rgba(139, 92, 246, 0.1);
+        background: #fff;
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      .tipo-pago-opcion input {
+        width: auto;
+        margin: 0;
+      }
+
+      .alert-summary-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .alert-resumen-card {
+        border-radius: 18px;
+        padding: 14px;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      }
+
+      .alert-resumen-card.green {
+        background: linear-gradient(135deg, #10b981, #34d399);
+      }
+      .alert-resumen-card.yellow {
+        background: linear-gradient(135deg, #f59e0b, #fbbf24);
+      }
+      .alert-resumen-card.red {
+        background: linear-gradient(135deg, #ef4444, #fb7185);
+      }
+      .alert-resumen-card.blue {
+        background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+      }
+
+      .alertas-tabs {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+
+      .alertas-tabs button {
+        padding: 10px 8px;
+        margin-top: 0;
+        font-size: 12px;
+        background: #f2ecff;
+        color: #5b21b6;
+        box-shadow: none;
+      }
+
+      .alertas-tabs button.active {
+        background: linear-gradient(135deg, #8b5cf6, #ec4899);
+        color: white;
+      }
+
+      .alert-detail-item {
+        padding: 14px;
+        border-radius: 18px;
+        background: linear-gradient(180deg, #fff, #faf8ff);
+        border: 1px solid rgba(139, 92, 246, 0.08);
+        margin-bottom: 12px;
+      }
+
+      .alert-detail-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: flex-start;
+      }
+
+      .alert-detail-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 12px;
+      }
+
+      .alert-detail-actions button {
+        flex: 1;
+      }
+
+      .calendar-head {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .calendar-head button {
+        width: 44px;
+        flex: 0 0 44px;
+        border-radius: 14px;
+        box-shadow: none;
+      }
+
+      .calendar-title {
+        font-weight: 900;
+        text-align: center;
+        flex: 1;
+      }
+
+      .calendar-weekdays,
+      .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .calendar-weekdays div {
+        text-align: center;
+        font-size: 12px;
+        font-weight: 900;
+        color: #6b7280;
+      }
+
+      .calendar-day {
+        min-height: 72px;
+        border-radius: 16px;
+        background: #fff;
+        border: 1px solid rgba(139, 92, 246, 0.08);
+        padding: 8px;
+        cursor: pointer;
+        position: relative;
+        box-shadow: 0 10px 18px rgba(15, 23, 42, 0.05);
+      }
+
+      .calendar-day.empty {
+        background: transparent;
+        border: 1px dashed rgba(139, 92, 246, 0.08);
+        box-shadow: none;
+      }
+
+      .calendar-day.today {
+        outline: 2px solid rgba(139, 92, 246, 0.2);
+      }
+
+      .calendar-num {
+        font-weight: 900;
+        font-size: 14px;
+      }
+
+      .calendar-badge {
+        display: inline-flex;
+        margin-top: 8px;
+        padding: 4px 8px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .calendar-badge.green {
+        background: #e8fff5;
+        color: #078a61;
+      }
+      .calendar-badge.yellow {
+        background: #fff6db;
+        color: #9a6a00;
+      }
+      .calendar-badge.blue {
+        background: #e9f2ff;
+        color: #1d4ed8;
+      }
+      .calendar-badge.red {
+        background: #ffe7ec;
+        color: #be123c;
+      }
+      .calendar-badge.zero {
+        background: #dfe6e9;
+        color: #64748b;
+      }
+
+      .calendar-detail {
+        margin-top: 12px;
+      }
+
+      .mini-note {
+        font-size: 12px;
+        color: #6b7280;
+        margin-bottom: 8px;
+      }
+
+      .calendar-item {
+        background: linear-gradient(180deg, #fff, #faf8ff);
+        border: 1px solid rgba(139, 92, 246, 0.08);
+        border-radius: 16px;
+        padding: 12px;
+        margin-bottom: 10px;
+      }
+
+      .donut-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .donut {
+        width: 216px;
+        height: 216px;
+        border-radius: 50%;
+        background: conic-gradient(
+          #10b981 0 25%,
+          #f59e0b 25% 45%,
+          #3b82f6 45% 70%,
+          #ef476f 70% 100%
+        );
+        position: relative;
+        box-shadow: inset 0 0 0 12px rgba(255, 255, 255, 0.82),
+          0 10px 24px rgba(15, 23, 42, 0.08);
+      }
+
+      .donut-center {
+        position: absolute;
+        inset: 50% auto auto 50%;
+        transform: translate(-50%, -50%);
+        width: 128px;
+        height: 128px;
+        border-radius: 50%;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+      }
+
+      .donut-number {
+        font-size: 30px;
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .donut-label {
+        font-size: 12px;
+        color: #6b7280;
+        margin-top: 6px;
+        font-weight: 700;
+      }
+
+      .legend-cartera {
+        display: grid;
+        gap: 8px;
+        margin-top: 0;
+      }
+
+      .legend-item {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: center;
+        background: linear-gradient(180deg, #fff, #fbf8ff);
+        border: 1px solid rgba(139, 92, 246, 0.08);
+        border-radius: 16px;
+        padding: 10px 12px;
+      }
+
+      .legend-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .legend-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+
+      .legend-title {
+        font-weight: 900;
+      }
+
+      .legend-meta {
+        font-size: 12px;
+        color: #6b7280;
+      }
+
+      .performance-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+
+      .performance-chart {
+        display: grid;
+        gap: 10px;
+      }
+
+      .performance-bar-card {
+        display: grid;
+        grid-template-columns: 104px minmax(0, 1fr) 88px;
+        gap: 10px;
+        align-items: center;
+        background: linear-gradient(180deg, #fff, #faf8ff);
+        border: 1px solid rgba(139, 92, 246, 0.08);
+        border-radius: 16px;
+        padding: 10px 12px;
+      }
+
+      .performance-bar-label {
+        font-weight: 900;
+        font-size: 13px;
+        color: #2d3436;
+      }
+
+      .performance-bar-track {
+        height: 12px;
+        background: #eceff4;
+        border-radius: 999px;
+        overflow: hidden;
+      }
+
+      .performance-bar-fill {
+        height: 100%;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #8b5cf6, #ec4899);
+      }
+
+      .performance-bar-meta {
+        text-align: right;
+        font-size: 12px;
+        font-weight: 800;
+        color: #4b5563;
+      }
+
+      .card:hover {
+        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+      }
+
+      .pago-item,
+      .alert-detail-item,
+      .cliente-resumen-item,
+      .legend-item,
+      .calendar-item,
+      .performance-bar-card {
+        transition: transform 0.18s ease, box-shadow 0.18s ease;
+      }
+
+      .pago-item:hover,
+      .alert-detail-item:hover,
+      .cliente-resumen-item:hover,
+      .legend-item:hover,
+      .calendar-item:hover,
+      .performance-bar-card:hover {
+        transform: translateY(-1px);
+      }
+
+      .fa-solid,
+      .fa-regular {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @media (max-width: 980px) {
+        .dashboard-charts-row,
+        .cartera-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .cliente-resumen-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .dashboard-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .credito-mini-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .credito-acciones {
+          grid-template-columns: 1fr;
+        }
+
+        .alert-detail-actions,
+        .tipo-pago-modal,
+        .alertas-tabs {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .dashboard-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .performance-bar-card {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+
+        .performance-bar-meta {
+          text-align: left;
+        }
+
+        .alert-detail-actions,
+        .alertas-tabs,
+        .tipo-pago-modal {
+          grid-template-columns: 1fr;
+        }
+
+        .calendar-weekdays,
+        .calendar-grid {
+          gap: 6px;
+        }
+
+        .donut {
+          width: 188px;
+          height: 188px;
+        }
+
+        .donut-center {
+          width: 112px;
+          height: 112px;
+        }
+
+        .donut-number {
+          font-size: 26px;
+        }
+      }
+    </style>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"
+    ></script>
   </head>
 
   <body>
@@ -1178,11 +2509,14 @@
         <button onclick="login()">Ingresar</button>
 
         <div class="auth-actions">
-          <button type="button" onclick="abrirModalRegistro()">Registrar usuario</button>
+          <button type="button" onclick="abrirModalRegistro()">
+            Registrar usuario
+          </button>
         </div>
 
         <div class="registro-hint">
-          Si ya te registraste y verificaste tu correo, vuelve aquí para iniciar sesión.
+          Si ya te registraste y verificaste tu correo, vuelve aquí para iniciar
+          sesión.
         </div>
       </div>
     </div>
@@ -1195,10 +2529,16 @@
 
         <input id="registroEmail" type="email" placeholder="Correo" />
         <input id="registroPassword" type="password" placeholder="Contraseña" />
-        <input id="registroPassword2" type="password" placeholder="Confirmar contraseña" />
+        <input
+          id="registroPassword2"
+          type="password"
+          placeholder="Confirmar contraseña"
+        />
 
         <button onclick="registrarUsuario()">Crear cuenta</button>
-        <button onclick="cerrarModalRegistro()" style="background: #999">Cancelar</button>
+        <button onclick="cerrarModalRegistro()" style="background: #999">
+          Cancelar
+        </button>
       </div>
     </div>
 
@@ -1206,23 +2546,41 @@
 
     <div id="homeScreen" class="pantalla">
       <div class="header">
-        <h2 id="saludo">Hola</h2>
+        <div class="header-top">
+          <div class="header-left">
+            <h2 id="saludo">Hola</h2>
+            <p id="subtituloHome">Tu libro de cobranza</p>
+            <div class="hero-note" id="fechaHome"></div>
+          </div>
 
-        <p id="subtituloHome">Tu libro de cobranza</p>
-        <div class="hero-note" id="fechaHome"></div>
+          <button
+            class="logout-btn"
+            onclick="cerrarSesion()"
+            aria-label="Cerrar sesión"
+            title="Cerrar sesión"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+        </div>
       </div>
 
       <div class="card">
         <div class="section-title">📈 Tu negocio hoy</div>
 
         <div class="dashboard-grid">
-          <div class="kpi-card kpi-purple" onclick="irASeccion('calendarSection')">
+          <div
+            class="kpi-card kpi-purple"
+            onclick="irASeccion('calendarSection')"
+          >
             <div class="kpi-label">💰 Por cobrar total</div>
             <div class="kpi-value" id="kpiTotalValue">S/ 0</div>
             <div class="kpi-sub" id="kpiTotalSub">Deuda total activa</div>
           </div>
 
-          <div class="kpi-card kpi-pink" onclick="ir('clientesScreen', document.querySelectorAll('.menu button')[1])">
+          <div
+            class="kpi-card kpi-pink"
+            onclick="ir('clientesScreen', document.querySelectorAll('.menu button')[1])"
+          >
             <div class="kpi-label">👥 Clientes con deuda</div>
             <div class="kpi-value" id="kpiClientesValue">0</div>
             <div class="kpi-sub" id="kpiClientesSub">Cuentas pendientes</div>
@@ -1234,10 +2592,15 @@
             <div class="kpi-sub" id="kpiHoySub">0 clientes</div>
           </div>
 
-          <div class="kpi-card kpi-orange" onclick="irASeccion('calendarSection')">
+          <div
+            class="kpi-card kpi-orange"
+            onclick="irASeccion('calendarSection')"
+          >
             <div class="kpi-label">📆 Cobros próximos 7 días</div>
             <div class="kpi-value" id="kpiSemanaValue">S/ 0</div>
-            <div class="kpi-sub" id="kpiSemanaSub">Cobros programados en 7 días</div>
+            <div class="kpi-sub" id="kpiSemanaSub">
+              Cobros programados en 7 días
+            </div>
           </div>
 
           <div class="kpi-card kpi-red" onclick="abrirAlertas('morosos')">
@@ -1254,9 +2617,9 @@
         </div>
       </div>
 
-            <div id="resumen" style="display:none;"></div>
+      <div id="resumen" style="display: none"></div>
 
-<div class="dashboard-charts-row">
+      <div class="dashboard-charts-row">
         <div class="card chart-card">
           <div class="section-title">📊 Estado de cartera</div>
           <div class="cartera-layout">
@@ -1280,8 +2643,12 @@
         <div class="card chart-card">
           <div class="performance-header">
             <div>
-              <div class="section-title" style="margin-bottom:4px;">📈 Rendimiento de cobranza</div>
-              <div class="subtle">Mes pasado como referencia, mes actual y últimos 7 días</div>
+              <div class="section-title" style="margin-bottom: 4px">
+                📈 Rendimiento de cobranza
+              </div>
+              <div class="subtle">
+                Mes pasado como referencia, mes actual y últimos 7 días
+              </div>
             </div>
           </div>
 
@@ -1306,10 +2673,20 @@
         </div>
 
         <div class="calendar-weekdays">
-          <div>L</div><div>M</div><div>X</div><div>J</div><div>V</div><div>S</div><div>D</div>
+          <div>L</div>
+          <div>M</div>
+          <div>X</div>
+          <div>J</div>
+          <div>V</div>
+          <div>S</div>
+          <div>D</div>
         </div>
 
-        <div id="calendarioGrid" class="calendar-grid" style="margin-top:8px;"></div>
+        <div
+          id="calendarioGrid"
+          class="calendar-grid"
+          style="margin-top: 8px"
+        ></div>
 
         <div id="detalleCalendarioDia" class="calendar-detail"></div>
       </div>
@@ -1331,10 +2708,16 @@
 
       <div class="card">
         <div class="alertas-tabs">
-          <button id="tabMorosos" onclick="abrirAlertas('morosos')">Vencidos</button>
+          <button id="tabMorosos" onclick="abrirAlertas('morosos')">
+            Vencidos
+          </button>
           <button id="tabHoy" onclick="abrirAlertas('hoy')">Hoy</button>
-          <button id="tabProximos" onclick="abrirAlertas('proximos')">3 días</button>
-          <button id="tabEnviadas" onclick="abrirAlertas('enviadas')">Enviadas</button>
+          <button id="tabProximos" onclick="abrirAlertas('proximos')">
+            3 días
+          </button>
+          <button id="tabEnviadas" onclick="abrirAlertas('enviadas')">
+            Enviadas
+          </button>
         </div>
 
         <div id="listaAlertasDetalle"></div>
@@ -1342,7 +2725,6 @@
         <button onclick="ir('homeScreen')">⬅ Volver al dashboard</button>
       </div>
     </div>
-
 
     <!-- CLIENTES -->
 
@@ -1463,7 +2845,9 @@
       <div class="card">
         <div class="section-title-row">
           <div class="section-title">📦 Créditos</div>
-          <div class="subtle">Toca “Ver más detalles” para ampliar la información</div>
+          <div class="subtle">
+            Toca “Ver más detalles” para ampliar la información
+          </div>
         </div>
 
         <div id="detalleCreditos"></div>
@@ -1472,7 +2856,13 @@
       <div class="card">
         <div class="section-title-row">
           <div class="section-title">📜 Historial</div>
-          <button id="btnHistorialCliente" class="mini-toggle" onclick="toggleHistorialCliente(this)">Ocultar historial</button>
+          <button
+            id="btnHistorialCliente"
+            class="mini-toggle"
+            onclick="toggleHistorialCliente(this)"
+          >
+            Ocultar historial
+          </button>
         </div>
 
         <div id="detallePagos"></div>
@@ -1513,19 +2903,25 @@
 
     <div class="menu">
       <button class="active" onclick="ir('homeScreen',this)">
-        🏠<br />Resumen
+        <i class="fa-solid fa-house nav-icon"></i><br />Resumen
       </button>
 
-      <button onclick="ir('clientesScreen',this)">👥<br />Clientes</button>
+      <button onclick="ir('clientesScreen',this)">
+        <i class="fa-solid fa-users nav-icon"></i><br />Clientes
+      </button>
 
       <!-- NUEVO BOTÓN AGREGADO -->
 
-      <button onclick="ir('clienteScreen',this)">➕<br />Nuevo</button>
+      <button onclick="ir('clienteScreen',this)">
+        <i class="fa-solid fa-user-plus nav-icon"></i><br />Nuevo
+      </button>
 
-      <button onclick="abrirPagosRecientes(this)">💰<br />Pagos</button>
+      <button onclick="abrirPagosRecientes(this)">
+        <i class="fa-solid fa-wallet nav-icon"></i><br />Pagos
+      </button>
 
       <button onclick="ir('configScreen',this); cargarConfiguracion();">
-        ⚙️<br />Config
+        <i class="fa-solid fa-gear nav-icon"></i><br />Config
       </button>
     </div>
 
@@ -1555,6 +2951,35 @@
       let alertasGlobal = [];
       let alertasUltimasPorCliente = new Map();
       let alertaCategoriaActiva = "morosos";
+      const menuPrincipal = document.querySelector(".menu");
+
+      function mostrarInterfazAutenticada() {
+        if (menuPrincipal) {
+          menuPrincipal.classList.add("visible");
+        }
+        document
+          .querySelectorAll(".menu button")
+          .forEach((b) => b.classList.remove("active"));
+        const primerBotonMenu = document.querySelector(".menu button");
+        if (primerBotonMenu) {
+          primerBotonMenu.classList.add("active");
+        }
+        loginScreen.classList.remove("activa");
+        homeScreen.classList.add("activa");
+      }
+
+      function ocultarInterfazAutenticada() {
+        if (menuPrincipal) {
+          menuPrincipal.classList.remove("visible");
+        }
+        document
+          .querySelectorAll(".menu button")
+          .forEach((b) => b.classList.remove("active"));
+        document
+          .querySelectorAll(".pantalla")
+          .forEach((p) => p.classList.remove("activa"));
+        loginScreen.classList.add("activa");
+      }
 
       // Referencias a elementos del dashboard para evitar errores de consola
       const resumen = document.getElementById("resumen");
@@ -1562,7 +2987,9 @@
       const listaPendientes = document.getElementById("listaPendientes");
       const actividadReciente = document.getElementById("actividadReciente");
       const graficoSemana = document.getElementById("rendimientoCobranzaChart");
-      const rendimientoCobranzaMeta = document.getElementById("rendimientoCobranzaMeta");
+      const rendimientoCobranzaMeta = document.getElementById(
+        "rendimientoCobranzaMeta"
+      );
       const metaSemanaTexto = document.getElementById("cobroSemanaTexto");
       const metaSemanaPct = document.getElementById("cobroSemanaPct");
       const metaSemanaBar = document.getElementById("cobroSemanaBar");
@@ -1571,7 +2998,9 @@
       const detallePagoModal = document.getElementById("detallePagoModal");
 
       function capitalizarPrimeraLetra(valor) {
-        const texto = String(valor ?? "").replace(/\s+/g, " ").trimStart();
+        const texto = String(valor ?? "")
+          .replace(/\s+/g, " ")
+          .trimStart();
         if (!texto) return "";
         return texto.charAt(0).toUpperCase() + texto.slice(1);
       }
@@ -1592,19 +3021,30 @@
       }
 
       function tipoPagoModalEsAbono() {
-        const seleccionado = document.querySelector('input[name="tipoPagoModal"]:checked');
+        const seleccionado = document.querySelector(
+          'input[name="tipoPagoModal"]:checked'
+        );
         return seleccionado ? seleccionado.value === "abono" : false;
       }
 
       function resetTipoPagoModal() {
-        const cuota = document.querySelector('input[name="tipoPagoModal"][value="cuota"]');
-        const abono = document.querySelector('input[name="tipoPagoModal"][value="abono"]');
+        const cuota = document.querySelector(
+          'input[name="tipoPagoModal"][value="cuota"]'
+        );
+        const abono = document.querySelector(
+          'input[name="tipoPagoModal"][value="abono"]'
+        );
         if (cuota) cuota.checked = true;
         if (abono) abono.checked = false;
       }
 
       function configurarValidacionesEntradas() {
-        const camposCapitalizar = ["nombre", "producto", "nombreUsuario", "direccion"];
+        const camposCapitalizar = [
+          "nombre",
+          "producto",
+          "nombreUsuario",
+          "direccion",
+        ];
         camposCapitalizar.forEach((id) => {
           const el = document.getElementById(id);
           if (!el) return;
@@ -1678,10 +3118,31 @@
 
         saludo.textContent = "Hola, " + usuarioActual.email.split("@")[0];
 
-        loginScreen.classList.remove("activa");
-        homeScreen.classList.add("activa");
-
+        mostrarInterfazAutenticada();
         await iniciarApp();
+      }
+
+      async function cerrarSesion() {
+        try {
+          await supabaseClient.auth.signOut();
+        } catch (error) {
+          console.log(error);
+        }
+
+        usuarioActual = null;
+        clienteActualId = null;
+        if (menuPrincipal) {
+          menuPrincipal.classList.remove("visible");
+        }
+        document
+          .querySelectorAll(".menu button")
+          .forEach((b) => b.classList.remove("active"));
+        document
+          .querySelectorAll(".pantalla")
+          .forEach((p) => p.classList.remove("activa"));
+        loginScreen.classList.add("activa");
+        email.value = "";
+        password.value = "";
       }
 
       function abrirModalRegistro() {
@@ -1737,12 +3198,15 @@
         if (data.session) {
           usuarioActual = data.user;
           saludo.textContent = "Hola, " + usuarioActual.email.split("@")[0];
-          loginScreen.classList.remove("activa");
-          homeScreen.classList.add("activa");
+          mostrarInterfazAutenticada();
           await iniciarApp();
-          alert("Cuenta creada correctamente. Ya puedes gestionar tus créditos.");
+          alert(
+            "Cuenta creada correctamente. Ya puedes gestionar tus créditos."
+          );
         } else {
-          alert("Cuenta creada. Revisa tu correo para verificarla y luego inicia sesión.");
+          alert(
+            "Cuenta creada. Revisa tu correo para verificarla y luego inicia sesión."
+          );
         }
       }
 
@@ -1752,9 +3216,7 @@
 
           saludo.textContent = "Hola, " + usuarioActual.email.split("@")[0];
 
-          loginScreen.classList.remove("activa");
-          homeScreen.classList.add("activa");
-
+          mostrarInterfazAutenticada();
           await iniciarApp();
         }
       });
@@ -1780,7 +3242,9 @@
 
         if (data) {
           frecuenciaGeneral = Number(data.dias_cobro || 10);
-          nombreUsuarioActual = String(data.nombre_usuario || "").trim() || nombreUsuarioParaSaludo();
+          nombreUsuarioActual =
+            String(data.nombre_usuario || "").trim() ||
+            nombreUsuarioParaSaludo();
           if (typeof nombreUsuario !== "undefined") {
             nombreUsuario.value = nombreUsuarioActual;
           }
@@ -1857,12 +3321,14 @@
           frecuenciaGeneral = diasSeleccionados;
           nombreUsuarioActual = nombreSeleccionado || nombreUsuarioParaSaludo();
           if (document.getElementById("nombreUsuario")) {
-            document.getElementById("nombreUsuario").value = nombreUsuarioActual;
+            document.getElementById("nombreUsuario").value =
+              nombreUsuarioActual;
           }
 
           /* MANTIENE OPCIÓN */
 
-          document.getElementById("diasCobro").value = String(diasSeleccionados);
+          document.getElementById("diasCobro").value =
+            String(diasSeleccionados);
           document.getElementById("nombreUsuario").value = nombreUsuarioActual;
 
           aplicarCabeceraUsuario();
@@ -1947,7 +3413,6 @@ ${c.nombre}
         abrirCliente(data.id);
       }
 
-
       function formatearDinero(valor) {
         return `S/${Number(valor || 0).toFixed(2)}`;
       }
@@ -1972,7 +3437,9 @@ ${c.nombre}
       function nombreUsuarioParaSaludo() {
         const nombre = String(nombreUsuarioActual || "").trim();
         if (nombre) return nombre;
-        return usuarioActual?.email ? usuarioActual.email.split("@")[0] : "Usuario";
+        return usuarioActual?.email
+          ? usuarioActual.email.split("@")[0]
+          : "Usuario";
       }
 
       function aplicarCabeceraUsuario() {
@@ -2064,14 +3531,22 @@ Saldo pendiente: ${saldo}.`;
       }
 
       function descripcionHistorialMovimiento(m) {
-        const cuotaTexto = textoMovimientoCuota(m).replace(/^🟢\s*/u, "").replace(/^🟡\s*/u, "");
+        const cuotaTexto = textoMovimientoCuota(m)
+          .replace(/^🟢\s*/u, "")
+          .replace(/^🟡\s*/u, "");
         const saldoRestante = formatearDinero(m.saldo_actual);
 
         if (m.tipo_pago === "abono") {
-          return `Se registró un abono de ${formatearDinero(m.monto)} el ${m.fecha}. Saldo restante: ${saldoRestante}.`;
+          return `Se registró un abono de ${formatearDinero(m.monto)} el ${
+            m.fecha
+          }. Saldo restante: ${saldoRestante}.`;
         }
 
-        return `Se pagó ${cuotaTexto.toLowerCase()} por ${formatearDinero(m.monto)} el ${m.fecha}. Saldo restante: ${saldoRestante}. Próximo cobro: ${m.proximo_pago || "-"}.`;
+        return `Se pagó ${cuotaTexto.toLowerCase()} por ${formatearDinero(
+          m.monto
+        )} el ${m.fecha}. Saldo restante: ${saldoRestante}. Próximo cobro: ${
+          m.proximo_pago || "-"
+        }.`;
       }
 
       async function enviarRecordatorioCredito(creditoId) {
@@ -2087,7 +3562,11 @@ Saldo pendiente: ${saldo}.`;
           return;
         }
 
-        if (!credito || credito.estado === "cancelado" || Number(credito.saldo || 0) <= 0) {
+        if (
+          !credito ||
+          credito.estado === "cancelado" ||
+          Number(credito.saldo || 0) <= 0
+        ) {
           alert("Este crédito ya está cancelado.");
           return;
         }
@@ -2105,20 +3584,25 @@ Saldo pendiente: ${saldo}.`;
 
         const info = categoriaAlertaCredito(credito);
         const mensaje = mensajeRecordatorioCredito(credito, info);
-        const numero = String(credito.Clientes.telefono || "").replace(/\D/g, "");
+        const numero = String(credito.Clientes.telefono || "").replace(
+          /\D/g,
+          ""
+        );
         const ahora = new Date().toISOString();
 
-        const { error: errorAlerta } = await supabaseClient.from("Alertas").insert([
-          {
-            owner_id: usuarioActual.id,
-            cliente_id: credito.cliente_id,
-            creditos_ids: [credito.id],
-            tipo_alerta: info.categoria,
-            dias_retraso: info.dias || 0,
-            mensaje,
-            fecha_envio: ahora,
-          },
-        ]);
+        const { error: errorAlerta } = await supabaseClient
+          .from("Alertas")
+          .insert([
+            {
+              owner_id: usuarioActual.id,
+              cliente_id: credito.cliente_id,
+              creditos_ids: [credito.id],
+              tipo_alerta: info.categoria,
+              dias_retraso: info.dias || 0,
+              mensaje,
+              fecha_envio: ahora,
+            },
+          ]);
 
         if (errorAlerta) {
           console.log(errorAlerta);
@@ -2136,7 +3620,10 @@ Saldo pendiente: ${saldo}.`;
           .eq("id", credito.id);
 
         await verDashboard();
-        window.open(`https://wa.me/51${numero}?text=${encodeURIComponent(mensaje)}`, "_blank");
+        window.open(
+          `https://wa.me/51${numero}?text=${encodeURIComponent(mensaje)}`,
+          "_blank"
+        );
       }
 
       function resumenCuotasCredito(credito) {
@@ -2152,7 +3639,6 @@ Saldo pendiente: ${saldo}.`;
           extras,
         };
       }
-
 
       function estadoCreditoVisual(credito) {
         const saldo = Number(credito.saldo || 0);
@@ -2203,7 +3689,9 @@ Saldo pendiente: ${saldo}.`;
         historialClienteVisible = !historialClienteVisible;
         detallePagos.style.display = historialClienteVisible ? "block" : "none";
         if (btn) {
-          btn.textContent = historialClienteVisible ? "Ocultar historial" : "Ver historial";
+          btn.textContent = historialClienteVisible
+            ? "Ocultar historial"
+            : "Ver historial";
         }
       }
 
@@ -2235,11 +3723,14 @@ Saldo pendiente: ${saldo}.`;
       function obtenerUltimoMovimientoCredito(creditoId) {
         const lista = (movimientosEnriquecidos || [])
           .filter((m) => m.credito_id === creditoId)
-          .sort((a, b) => (b.created_at || b.fecha || "").localeCompare(a.created_at || a.fecha || ""));
+          .sort((a, b) =>
+            (b.created_at || b.fecha || "").localeCompare(
+              a.created_at || a.fecha || ""
+            )
+          );
 
         return lista[0] || null;
       }
-
 
       function construirAlertasAgrupadas(creditosActivos) {
         const hoy = fechaLocal();
@@ -2296,16 +3787,31 @@ Saldo pendiente: ${saldo}.`;
         });
 
         return {
-          morosos: Array.from(grupos.morosos.values()).sort((a, b) => b.total - a.total),
-          hoy: Array.from(grupos.hoy.values()).sort((a, b) => b.total - a.total),
-          proximos: Array.from(grupos.proximos.values()).sort((a, b) => a.dias - b.dias),
+          morosos: Array.from(grupos.morosos.values()).sort(
+            (a, b) => b.total - a.total
+          ),
+          hoy: Array.from(grupos.hoy.values()).sort(
+            (a, b) => b.total - a.total
+          ),
+          proximos: Array.from(grupos.proximos.values()).sort(
+            (a, b) => a.dias - b.dias
+          ),
         };
       }
 
       function renderAlertasHome() {
-        const totalMorosos = alertasAgrupadas.morosos.reduce((s, g) => s + Number(g.total || 0), 0);
-        const totalHoy = alertasAgrupadas.hoy.reduce((s, g) => s + Number(g.total || 0), 0);
-        const totalProximos = alertasAgrupadas.proximos.reduce((s, g) => s + Number(g.total || 0), 0);
+        const totalMorosos = alertasAgrupadas.morosos.reduce(
+          (s, g) => s + Number(g.total || 0),
+          0
+        );
+        const totalHoy = alertasAgrupadas.hoy.reduce(
+          (s, g) => s + Number(g.total || 0),
+          0
+        );
+        const totalProximos = alertasAgrupadas.proximos.reduce(
+          (s, g) => s + Number(g.total || 0),
+          0
+        );
 
         alertasHome.innerHTML = `
 <div class="alert-summary-grid">
@@ -2361,7 +3867,10 @@ Saldo pendiente: ${saldo}.`;
         const titulos = {
           morosos: ["🔴 Vencidos", "Clientes que ya pasaron su fecha de pago"],
           hoy: ["🟡 Vence hoy", "Clientes que deben pagar hoy"],
-          proximos: ["🟢 Próximos 3 días", "Clientes que necesitan recordatorio amable"],
+          proximos: [
+            "🟢 Próximos 3 días",
+            "Clientes que necesitan recordatorio amable",
+          ],
         };
 
         titulo.textContent = titulos[categoria][0];
@@ -2386,7 +3895,11 @@ Saldo pendiente: ${saldo}.`;
                 : `Vence en ${g.dias} día(s)`;
 
             const tagClass =
-              categoria === "morosos" ? "red" : categoria === "hoy" ? "yellow" : "blue";
+              categoria === "morosos"
+                ? "red"
+                : categoria === "hoy"
+                ? "yellow"
+                : "blue";
 
             return `
 <div class="alert-detail-item">
@@ -2404,7 +3917,9 @@ Saldo pendiente: ${saldo}.`;
 
   <div class="alert-detail-actions">
     <button onclick="abrirCliente('${g.cliente_id}')">Ver cliente</button>
-    <button onclick="enviarWhatsAppAlerta('${categoria}','${g.cliente_id}')">WhatsApp</button>
+    <button onclick="enviarWhatsAppAlerta('${categoria}','${
+              g.cliente_id
+            }')">WhatsApp</button>
   </div>
 </div>
 `;
@@ -2413,7 +3928,9 @@ Saldo pendiente: ${saldo}.`;
       }
 
       function enviarWhatsAppAlerta(categoria, cliente_id) {
-        const grupo = alertasAgrupadas[categoria]?.find((g) => g.cliente_id === cliente_id);
+        const grupo = alertasAgrupadas[categoria]?.find(
+          (g) => g.cliente_id === cliente_id
+        );
         if (!grupo) return;
 
         if (!grupo.telefono) {
@@ -2429,11 +3946,23 @@ Saldo pendiente: ${saldo}.`;
         let mensaje = "";
 
         if (categoria === "morosos") {
-          mensaje = `Hola ${grupo.nombre}, tienes ${grupo.dias} días de retraso en los siguientes productos:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(grupo.total)}.\nPor favor comunícate para regularizar tu pago.`;
+          mensaje = `Hola ${grupo.nombre}, tienes ${
+            grupo.dias
+          } días de retraso en los siguientes productos:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(
+            grupo.total
+          )}.\nPor favor comunícate para regularizar tu pago.`;
         } else if (categoria === "hoy") {
-          mensaje = `Hola ${grupo.nombre}, hoy vence tu pago de:\n\n${productos}\n\nTotal a pagar: ${formatearDinero(grupo.total)}.\nGracias por tu puntualidad.`;
+          mensaje = `Hola ${
+            grupo.nombre
+          }, hoy vence tu pago de:\n\n${productos}\n\nTotal a pagar: ${formatearDinero(
+            grupo.total
+          )}.\nGracias por tu puntualidad.`;
         } else {
-          mensaje = `Hola ${grupo.nombre}, te recordamos que dentro de ${grupo.dias} día(s) vence tu pago de:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(grupo.total)}.\nGracias por tu puntualidad.`;
+          mensaje = `Hola ${grupo.nombre}, te recordamos que dentro de ${
+            grupo.dias
+          } día(s) vence tu pago de:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(
+            grupo.total
+          )}.\nGracias por tu puntualidad.`;
         }
 
         window.open(
@@ -2443,7 +3972,9 @@ Saldo pendiente: ${saldo}.`;
       }
 
       function construirMovimientosEnriquecidos(pagos, creditosActivos) {
-        const creditosMap = new Map((creditosActivos || []).map((c) => [c.id, c]));
+        const creditosMap = new Map(
+          (creditosActivos || []).map((c) => [c.id, c])
+        );
         const pagosPorCredito = new Map();
 
         (pagos || []).forEach((p) => {
@@ -2463,11 +3994,13 @@ Saldo pendiente: ${saldo}.`;
             return aa.localeCompare(bb);
           });
 
-          let saldo = Number(credito.monto_total || 0) - Number(credito.inicial || 0);
+          let saldo =
+            Number(credito.monto_total || 0) - Number(credito.inicial || 0);
           if (saldo < 0) saldo = 0;
 
           let cuotaNumero = 0;
-          let proximoCobro = credito.fecha_inicio || credito.fecha_proximo_pago || "";
+          let proximoCobro =
+            credito.fecha_inicio || credito.fecha_proximo_pago || "";
           const totalCuotas = Number(credito.cuotas || 0);
 
           ordenados.forEach((p) => {
@@ -2480,9 +4013,15 @@ Saldo pendiente: ${saldo}.`;
             if (p.tipo_pago !== "abono") {
               cuotaNumero += 1;
               numeroCuotaMostrada = cuotaNumero;
-              const base = p.proximo_pago || proximoCobro || credito.fecha_proximo_pago || p.fecha;
+              const base =
+                p.proximo_pago ||
+                proximoCobro ||
+                credito.fecha_proximo_pago ||
+                p.fecha;
               const frecuencia = Number(credito.frecuencia_dias || 10);
-              proximoCobro = base ? sumarDiasISO(base, frecuencia) : credito.fecha_proximo_pago || "";
+              proximoCobro = base
+                ? sumarDiasISO(base, frecuencia)
+                : credito.fecha_proximo_pago || "";
             }
 
             const saldoActual = Number.isFinite(Number(p.saldo_actual))
@@ -2507,7 +4046,11 @@ Saldo pendiente: ${saldo}.`;
               saldo_anterior: saldoAnterior,
               saldo_actual: saldoActual,
               saldo_actual_credito: Number(credito.saldo || 0),
-              proximo_pago: p.proximo_pago || proximoCobro || credito.fecha_proximo_pago || "",
+              proximo_pago:
+                p.proximo_pago ||
+                proximoCobro ||
+                credito.fecha_proximo_pago ||
+                "",
               frecuencia_dias: Number(credito.frecuencia_dias || 10),
             });
           });
@@ -2556,7 +4099,8 @@ Saldo pendiente: ${saldo}.`;
           year: "numeric",
         });
 
-        titulo.textContent = nombreMes.charAt(0).toUpperCase() + nombreMes.slice(1);
+        titulo.textContent =
+          nombreMes.charAt(0).toUpperCase() + nombreMes.slice(1);
 
         const primerDia = new Date(anio, mes, 1);
         const diasMes = new Date(anio, mes + 1, 0).getDate();
@@ -2584,17 +4128,24 @@ Saldo pendiente: ${saldo}.`;
           const badgeClass = items.length ? "" : "zero";
 
           grid.innerHTML += `
-<div class="calendar-day ${isToday ? "today" : ""} ${isSelected ? "selected" : ""}" onclick="seleccionarDiaCalendario('${fecha}')">
+<div class="calendar-day ${isToday ? "today" : ""} ${
+            isSelected ? "selected" : ""
+          }" onclick="seleccionarDiaCalendario('${fecha}')">
   <div class="calendar-num">${dia}</div>
   <div class="calendar-badge ${badgeClass}">${items.length || ""}</div>
 </div>
 `;
         }
 
-        if (diaCalendarioSeleccionado && eventosMap.get(diaCalendarioSeleccionado)) {
+        if (
+          diaCalendarioSeleccionado &&
+          eventosMap.get(diaCalendarioSeleccionado)
+        ) {
           mostrarDetalleCalendario(diaCalendarioSeleccionado);
         } else {
-          const firstEvent = eventosCalendario.find((x) => x.fecha.startsWith(`${anio}-${String(mes + 1).padStart(2, "0")}`));
+          const firstEvent = eventosCalendario.find((x) =>
+            x.fecha.startsWith(`${anio}-${String(mes + 1).padStart(2, "0")}`)
+          );
           if (firstEvent) {
             diaCalendarioSeleccionado = firstEvent.fecha;
             mostrarDetalleCalendario(firstEvent.fecha);
@@ -2623,12 +4174,15 @@ Saldo pendiente: ${saldo}.`;
           return;
         }
 
-        const nombreDia = new Date(fecha + "T00:00:00").toLocaleDateString("es-PE", {
-          weekday: "long",
-          day: "2-digit",
-          month: "long",
-          year: "numeric",
-        });
+        const nombreDia = new Date(fecha + "T00:00:00").toLocaleDateString(
+          "es-PE",
+          {
+            weekday: "long",
+            day: "2-digit",
+            month: "long",
+            year: "numeric",
+          }
+        );
 
         detalle.innerHTML = `
           <h4>📌 ${nombreDia.charAt(0).toUpperCase() + nombreDia.slice(1)}</h4>
@@ -2641,8 +4195,16 @@ Saldo pendiente: ${saldo}.`;
   <b>${item.nombre}</b><br>
   ${item.producto}<br>
   💰 ${formatearDinero(item.saldo)}<br>
-  ${diferencia < 0 ? `🔴 ${Math.abs(diferencia)} días vencido` : diferencia === 0 ? "🟡 Vence hoy" : `🟢 Vence en ${diferencia} días`}
-  <button onclick="enviarWhatsApp('${item.nombre}','${item.telefono}','${item.producto}','${item.saldo}','${diferencia}')">Enviar WhatsApp</button>
+  ${
+    diferencia < 0
+      ? `🔴 ${Math.abs(diferencia)} días vencido`
+      : diferencia === 0
+      ? "🟡 Vence hoy"
+      : `🟢 Vence en ${diferencia} días`
+  }
+  <button onclick="enviarWhatsApp('${item.nombre}','${item.telefono}','${
+                item.producto
+              }','${item.saldo}','${diferencia}')">Enviar WhatsApp</button>
 </div>
 `;
             })
@@ -2661,7 +4223,6 @@ Saldo pendiente: ${saldo}.`;
 
       /* DASHBOARD */
 
-
       async function verDashboard() {
         actualizarCabeceraFecha();
 
@@ -2679,7 +4240,9 @@ Saldo pendiente: ${saldo}.`;
 
           supabaseClient
             .from("Pagos")
-            .select("*, Creditos(producto,cliente_id,cliente_id,fecha_proximo_pago,cuotas,monto_total,inicial,saldo,frecuencia_dias,Clientes(nombre,telefono))")
+            .select(
+              "*, Creditos(producto,cliente_id,cliente_id,fecha_proximo_pago,cuotas,monto_total,inicial,saldo,frecuencia_dias,Clientes(nombre,telefono))"
+            )
             .eq("owner_id", usuarioActual.id)
             .order("fecha", { ascending: false }),
         ]);
@@ -2691,15 +4254,20 @@ Saldo pendiente: ${saldo}.`;
           (c) => c.estado !== "cancelado" && Number(c.saldo || 0) > 0
         );
 
-        movimientosEnriquecidos = construirMovimientosEnriquecidos(pagosGlobal, creditos);
-        eventosCalendario = Array.from(buildCalendarMap(creditosActivos).entries()).map(
-          ([fecha, items]) => ({ fecha, items })
+        movimientosEnriquecidos = construirMovimientosEnriquecidos(
+          pagosGlobal,
+          creditos
         );
+        eventosCalendario = Array.from(
+          buildCalendarMap(creditosActivos).entries()
+        ).map(([fecha, items]) => ({ fecha, items }));
 
         alertasAgrupadas = construirAlertasAgrupadas(creditosActivos);
         renderAlertasHome();
 
-        const clientesActivos = new Set(creditosActivos.map((c) => c.cliente_id)).size;
+        const clientesActivos = new Set(
+          creditosActivos.map((c) => c.cliente_id)
+        ).size;
 
         let totalPorCobrar = 0;
         let cobradoHoy = 0;
@@ -2746,31 +4314,57 @@ Saldo pendiente: ${saldo}.`;
           .reduce((sum, p) => sum + Number(p.monto || 0), 0);
 
         // KPI cards
-        document.getElementById("kpiTotalValue").textContent = formatearDinero(totalPorCobrar);
-        document.getElementById("kpiTotalSub").textContent = `${clientesActivos} clientes con deuda`;
+        document.getElementById("kpiTotalValue").textContent =
+          formatearDinero(totalPorCobrar);
+        document.getElementById(
+          "kpiTotalSub"
+        ).textContent = `${clientesActivos} clientes con deuda`;
 
-        document.getElementById("kpiClientesValue").textContent = String(clientesActivos);
-        document.getElementById("kpiClientesSub").textContent = "Cuentas activas por cobrar";
+        document.getElementById("kpiClientesValue").textContent =
+          String(clientesActivos);
+        document.getElementById("kpiClientesSub").textContent =
+          "Cuentas activas por cobrar";
 
-        document.getElementById("kpiHoyValue").textContent = formatearDinero(programadoHoy);
-        document.getElementById("kpiHoySub").textContent = `${clientesHoy.size} cliente(s) con pago hoy`;
+        document.getElementById("kpiHoyValue").textContent =
+          formatearDinero(programadoHoy);
+        document.getElementById(
+          "kpiHoySub"
+        ).textContent = `${clientesHoy.size} cliente(s) con pago hoy`;
 
-        document.getElementById("kpiSemanaValue").textContent = formatearDinero(programadoSemana);
-        document.getElementById("kpiSemanaSub").textContent = `${clientesSemana.size} cliente(s) en 7 días`;
+        document.getElementById("kpiSemanaValue").textContent =
+          formatearDinero(programadoSemana);
+        document.getElementById(
+          "kpiSemanaSub"
+        ).textContent = `${clientesSemana.size} cliente(s) en 7 días`;
 
-        document.getElementById("kpiMorososValue").textContent = String(clientesMorosos.size);
-        document.getElementById("kpiMorososSub").textContent = `${formatearDinero(morososMonto)} vencidos`;
+        document.getElementById("kpiMorososValue").textContent = String(
+          clientesMorosos.size
+        );
+        document.getElementById(
+          "kpiMorososSub"
+        ).textContent = `${formatearDinero(morososMonto)} vencidos`;
 
-        document.getElementById("kpiAlertas3Value").textContent = String(clientesProximos.size);
-        document.getElementById("kpiAlertas3Sub").textContent = `${formatearDinero(alertas3Monto)} por avisar`;
+        document.getElementById("kpiAlertas3Value").textContent = String(
+          clientesProximos.size
+        );
+        document.getElementById(
+          "kpiAlertas3Sub"
+        ).textContent = `${formatearDinero(alertas3Monto)} por avisar`;
 
         // Semana: cobrados vs programados
-        const metaPct = programadoSemana > 0
-          ? Math.min(100, Math.round((cobradoSemana / programadoSemana) * 100))
-          : 0;
+        const metaPct =
+          programadoSemana > 0
+            ? Math.min(
+                100,
+                Math.round((cobradoSemana / programadoSemana) * 100)
+              )
+            : 0;
 
-        document.getElementById("cobroSemanaTexto").textContent =
-          `Cobrado: ${formatearDinero(cobradoSemana)} | Programado: ${formatearDinero(programadoSemana)}`;
+        document.getElementById(
+          "cobroSemanaTexto"
+        ).textContent = `Cobrado: ${formatearDinero(
+          cobradoSemana
+        )} | Programado: ${formatearDinero(programadoSemana)}`;
 
         document.getElementById("cobroSemanaPct").textContent = `${metaPct}%`;
         document.getElementById("cobroSemanaBar").style.width = `${metaPct}%`;
@@ -2778,19 +4372,24 @@ Saldo pendiente: ${saldo}.`;
         const faltanteSemana = Math.max(0, programadoSemana - cobradoSemana);
         document.getElementById("cobroSemanaDetalle").textContent =
           faltanteSemana > 0
-            ? `Falta cobrar ${formatearDinero(faltanteSemana)} para completar lo programado esta semana`
+            ? `Falta cobrar ${formatearDinero(
+                faltanteSemana
+              )} para completar lo programado esta semana`
             : "Ya se cubrió lo programado para esta semana";
 
         // Subtítulo del dashboard en formato compacto
-        const mensajeCabecera = clientesMorosos.size > 0
-          ? `Hoy tienes ${clientesMorosos.size} cliente(s) vencidos`
-          : clientesHoy.size > 0
-          ? `Hoy tienes ${clientesHoy.size} cliente(s) por cobrar`
-          : clientesProximos.size > 0
-          ? `Tienes ${clientesProximos.size} cliente(s) por avisar`
-          : "Todo está al día por ahora";
+        const mensajeCabecera =
+          clientesMorosos.size > 0
+            ? `Hoy tienes ${clientesMorosos.size} cliente(s) vencidos`
+            : clientesHoy.size > 0
+            ? `Hoy tienes ${clientesHoy.size} cliente(s) por cobrar`
+            : clientesProximos.size > 0
+            ? `Tienes ${clientesProximos.size} cliente(s) por avisar`
+            : "Todo está al día por ahora";
 
-        subtituloHome.textContent = `Plazo de cobro: ${Number(frecuenciaGeneral || 10)} días`;
+        subtituloHome.textContent = `Plazo de cobro: ${Number(
+          frecuenciaGeneral || 10
+        )} días`;
         fechaHome.textContent = `${new Date().toLocaleDateString("es-PE", {
           weekday: "long",
           year: "numeric",
@@ -2809,13 +4408,17 @@ Saldo pendiente: ${saldo}.`;
 
         // Resumen principal
         if (!creditosActivos.length) {
-          if (resumen) if (resumen) resumen.innerHTML = `
+          if (resumen)
+            if (resumen)
+              resumen.innerHTML = `
 <h2>💵 ${formatearDinero(0)}</h2>
 <p>0 vencidos</p>
 <p>0 próximos</p>
 `;
         } else {
-          if (resumen) if (resumen) resumen.innerHTML = `
+          if (resumen)
+            if (resumen)
+              resumen.innerHTML = `
 <h2>💵 ${formatearDinero(totalPorCobrar)}</h2>
 <p>🔴 ${clientesMorosos.size} vencidos</p>
 <p>🟡 ${clientesProximos.size} próximos</p>
@@ -2823,7 +4426,9 @@ Saldo pendiente: ${saldo}.`;
         }
 
         // Render de alertas detalle si la pantalla ya está abierta
-        if (document.getElementById("alertasScreen").classList.contains("activa")) {
+        if (
+          document.getElementById("alertasScreen").classList.contains("activa")
+        ) {
           renderAlertasDetalle(alertaCategoriaActiva);
         }
       }
@@ -2945,8 +4550,13 @@ Saldo pendiente: ${saldo}.`;
         const creditos = data || [];
         creditosClienteMap = new Map(creditos.map((c) => [c.id, c]));
 
-        const activos = creditos.filter((c) => c.estado !== "cancelado" && Number(c.saldo || 0) > 0);
-        const deudaTotal = creditos.reduce((s, c) => s + Number(c.saldo || 0), 0);
+        const activos = creditos.filter(
+          (c) => c.estado !== "cancelado" && Number(c.saldo || 0) > 0
+        );
+        const deudaTotal = creditos.reduce(
+          (s, c) => s + Number(c.saldo || 0),
+          0
+        );
         const totalCréditos = creditos.length;
 
         if (resumenCliente) {
@@ -2972,19 +4582,32 @@ Saldo pendiente: ${saldo}.`;
           const cuotasInfo = resumenCuotasCredito(c);
           const ultimo = obtenerUltimoMovimientoCredito(c.id);
           const ultimoTexto = ultimo
-            ? `${textoMovimientoCuota(ultimo)} · ${formatearDinero(ultimo.monto)} · ${ultimo.fecha}`
+            ? `${textoMovimientoCuota(ultimo)} · ${formatearDinero(
+                ultimo.monto
+              )} · ${ultimo.fecha}`
             : "Sin cobros todavía";
 
           const estado = estadoCreditoVisual(c);
           const abierto = creditosDetallesAbiertos.has(c.id);
           const totalCuotas = Number(c.cuotas || 0);
           const pagadas = Number(c.cuotas_pagada || 0);
-          const pendientes = totalCuotas > 0 ? Math.max(totalCuotas - pagadas, 0) : 0;
-          const progreso = totalCuotas > 0 ? Math.min(100, Math.round((Math.min(pagadas, totalCuotas) / totalCuotas) * 100)) : 0;
+          const pendientes =
+            totalCuotas > 0 ? Math.max(totalCuotas - pagadas, 0) : 0;
+          const progreso =
+            totalCuotas > 0
+              ? Math.min(
+                  100,
+                  Math.round(
+                    (Math.min(pagadas, totalCuotas) / totalCuotas) * 100
+                  )
+                )
+              : 0;
           const cuotaSugerida = cuotaSugeridaCredito(c);
 
           detalleCreditos.innerHTML += `
-<div class="credito-card credito-estado-${estado.clase}" id="credito-card-${c.id}">
+<div class="credito-card credito-estado-${estado.clase}" id="credito-card-${
+            c.id
+          }">
   <div class="credito-header">
     <div>
       <div class="credito-title">${c.producto}</div>
@@ -3016,21 +4639,43 @@ Saldo pendiente: ${saldo}.`;
   </div>
 
   <div class="credito-barra"><div style="width:${progreso}%"></div></div>
-  <div class="mini-note">Progreso del crédito: ${progreso}% · Cuota sugerida aprox.: ${formatearDinero(cuotaSugerida)}${pendientes > 0 ? ` · Faltan ${pendientes} cuota(s)` : ""}</div>
+  <div class="mini-note">Progreso del crédito: ${progreso}% · Cuota sugerida aprox.: ${formatearDinero(
+            cuotaSugerida
+          )}${pendientes > 0 ? ` · Faltan ${pendientes} cuota(s)` : ""}</div>
 
   <div class="credito-acciones">
-    <button onclick="abrirModalPago('${c.id}','${c.producto}')" ${c.estado === "cancelado" || Number(c.saldo || 0) <= 0 ? "disabled" : ""}>💰 Pagar</button>
-    <button onclick="enviarRecordatorioCredito('${c.id}')" ${c.estado === "cancelado" || Number(c.saldo || 0) <= 0 ? "disabled" : ""}>🔔 Recordatorio</button>
+    <button onclick="abrirModalPago('${c.id}','${c.producto}')" ${
+            c.estado === "cancelado" || Number(c.saldo || 0) <= 0
+              ? "disabled"
+              : ""
+          }>💰 Pagar</button>
+    <button onclick="enviarRecordatorioCredito('${c.id}')" ${
+            c.estado === "cancelado" || Number(c.saldo || 0) <= 0
+              ? "disabled"
+              : ""
+          }>🔔 Recordatorio</button>
   </div>
 
-  <button class="credito-toggle" onclick="toggleDetalleCredito('${c.id}')">${abierto ? "Ocultar detalles" : "Ver más detalles"}</button>
+  <button class="credito-toggle" onclick="toggleDetalleCredito('${c.id}')">${
+            abierto ? "Ocultar detalles" : "Ver más detalles"
+          }</button>
 
-  <div id="credito-detalle-${c.id}" class="credito-detalle ${abierto ? "" : "oculto"}">
-    <div class="detalle-linea"><b>Fecha de creación del crédito:</b> ${c.fecha_creacion || "-"}</div>
-    <div class="detalle-linea"><b>Fecha del primer cobro:</b> ${c.fecha_inicio || "-"}</div>
-    <div class="detalle-linea"><b>Frecuencia de cobro:</b> cada ${Number(c.frecuencia_dias || 10)} días</div>
+  <div id="credito-detalle-${c.id}" class="credito-detalle ${
+            abierto ? "" : "oculto"
+          }">
+    <div class="detalle-linea"><b>Fecha de creación del crédito:</b> ${
+      c.fecha_creacion || "-"
+    }</div>
+    <div class="detalle-linea"><b>Fecha del primer cobro:</b> ${
+      c.fecha_inicio || "-"
+    }</div>
+    <div class="detalle-linea"><b>Frecuencia de cobro:</b> cada ${Number(
+      c.frecuencia_dias || 10
+    )} días</div>
     <div class="detalle-linea"><b>Último cobro:</b> ${ultimoTexto}</div>
-    <div class="detalle-linea"><b>Estado:</b> ${c.estado === "cancelado" ? "Cancelado" : "Activo"}</div>
+    <div class="detalle-linea"><b>Estado:</b> ${
+      c.estado === "cancelado" ? "Cancelado" : "Activo"
+    }</div>
   </div>
 </div>
 `;
@@ -3047,12 +4692,15 @@ Saldo pendiente: ${saldo}.`;
         const totalCuotas = Number(credito?.cuotas || 0);
         const cuotasPagadas = Number(credito?.cuotas_pagada || 0);
         const cuotasPendientes = Math.max(totalCuotas - cuotasPagadas, 0);
-        const cuotaSugerida = cuotasPendientes > 0 ? saldoActual / cuotasPendientes : saldoActual;
+        const cuotaSugerida =
+          cuotasPendientes > 0 ? saldoActual / cuotasPendientes : saldoActual;
 
         if (detallePagoModal) {
           detallePagoModal.innerHTML = `
 <b>Saldo actual:</b> ${formatearDinero(saldoActual)}<br>
-<b>Cuotas pagadas:</b> ${cuotasPagadas} de ${totalCuotas || cuotasPagadas || 0}<br>
+<b>Cuotas pagadas:</b> ${cuotasPagadas} de ${
+            totalCuotas || cuotasPagadas || 0
+          }<br>
 <b>Cuotas pendientes:</b> ${cuotasPendientes}<br>
 <b>Cuota referencial:</b> ${formatearDinero(cuotaSugerida)}<br>
 <div class="subtle">El abono reduce el saldo sin contar cuota. El pago de cuota suma a la secuencia del crédito.</div>
@@ -3100,7 +4748,9 @@ Saldo pendiente: ${saldo}.`;
         const saldoAnterior = Number(credito.saldo || 0);
         const totalCuotas = Number(credito.cuotas || 0);
         const cuotasAntes = Number(credito.cuotas_pagada || 0);
-        const numeroCuotaPago = !tipoPagoModalEsAbono() ? cuotasAntes + 1 : null;
+        const numeroCuotaPago = !tipoPagoModalEsAbono()
+          ? cuotasAntes + 1
+          : null;
 
         let cuotasFinal = cuotasAntes;
         let nuevoSaldo = saldoAnterior - montoValor;
@@ -3118,7 +4768,9 @@ Saldo pendiente: ${saldo}.`;
         let nuevaFecha = credito.fecha_proximo_pago || "";
 
         if (!tipoPagoModalEsAbono() && nuevoSaldo > 0) {
-          const fechaActual = new Date(credito.fecha_proximo_pago || fechaLocal());
+          const fechaActual = new Date(
+            credito.fecha_proximo_pago || fechaLocal()
+          );
           fechaActual.setDate(
             fechaActual.getDate() + Number(credito.frecuencia_dias || 10)
           );
@@ -3195,7 +4847,9 @@ Saldo pendiente: ${saldo}.`;
 
         movimientos.forEach((m) => {
           detallePagos.innerHTML += `
-<div class="pago-item historial-clickeable" onclick="abrirCreditoDesdeHistorial('${m.credito_id}')">
+<div class="pago-item historial-clickeable" onclick="abrirCreditoDesdeHistorial('${
+            m.credito_id
+          }')">
   <b>${m.producto}</b><br>
   ${descripcionHistorialMovimiento(m)}<br>
   <span class="subtle">Tocar para ver el crédito</span>
@@ -3209,7 +4863,9 @@ Saldo pendiente: ${saldo}.`;
 
         const hace7Dias = sumarDiasISO(fechaLocal(), -6);
 
-        const recientes = (movimientosEnriquecidos || []).filter((m) => (m.fecha || "") >= hace7Dias);
+        const recientes = (movimientosEnriquecidos || []).filter(
+          (m) => (m.fecha || "") >= hace7Dias
+        );
 
         listaPagosRecientes.innerHTML = "";
 
@@ -3224,7 +4880,9 @@ No hay pagos recientes
 
         recientes.slice(0, 20).forEach((m) => {
           listaPagosRecientes.innerHTML += `
-<div class="pago-item" style="cursor:pointer;" onclick="abrirCliente('${m.cliente_id}')">
+<div class="pago-item" style="cursor:pointer;" onclick="abrirCliente('${
+            m.cliente_id
+          }')">
   <b>${m.cliente_nombre}</b><br>
   📦 ${m.producto}<br>
   ${textoMovimientoCuota(m)}<br>
@@ -3238,7 +4896,6 @@ No hay pagos recientes
         });
       }
 
-
       /* ====== MEJORAS DE DASHBOARD / ALERTAS / HISTORIAL ====== */
       let alertasVistaActual = "morosos";
 
@@ -3249,7 +4906,11 @@ No hay pagos recientes
       function mapPorClienteUltimaAlerta(alertas) {
         const mapa = new Map();
         [...(alertas || [])]
-          .sort((a, b) => (b.fecha_envio || b.created_at || "").localeCompare(a.fecha_envio || a.created_at || ""))
+          .sort((a, b) =>
+            (b.fecha_envio || b.created_at || "").localeCompare(
+              a.fecha_envio || a.created_at || ""
+            )
+          )
           .forEach((a) => {
             if (!mapa.has(a.cliente_id)) mapa.set(a.cliente_id, a);
           });
@@ -3259,29 +4920,41 @@ No hay pagos recientes
       function formatearFechaHumana(fechaISO) {
         if (!fechaISO) return "-";
         const d = new Date(fechaISO);
-        return d.toLocaleDateString("es-PE", {
-          day: "2-digit",
-          month: "2-digit",
-          year: "numeric",
-        }) + " " + d.toLocaleTimeString("es-PE", { hour: "2-digit", minute: "2-digit" });
+        return (
+          d.toLocaleDateString("es-PE", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+          }) +
+          " " +
+          d.toLocaleTimeString("es-PE", { hour: "2-digit", minute: "2-digit" })
+        );
       }
 
       function horasDesde(fechaISO) {
         if (!fechaISO) return null;
-        return Math.max(0, Math.floor((Date.now() - new Date(fechaISO).getTime()) / (1000 * 60 * 60)));
+        return Math.max(
+          0,
+          Math.floor(
+            (Date.now() - new Date(fechaISO).getTime()) / (1000 * 60 * 60)
+          )
+        );
       }
 
       function puedeReenviarAlerta(fechaISO) {
         if (!fechaISO) return true;
-        return (Date.now() - new Date(fechaISO).getTime()) >= 24 * 60 * 60 * 1000;
+        return Date.now() - new Date(fechaISO).getTime() >= 24 * 60 * 60 * 1000;
       }
 
       function construirMovimientosEnriquecidos(pagos, creditosActivos) {
-        const creditosMap = new Map((creditosActivos || []).map((c) => [c.id, c]));
+        const creditosMap = new Map(
+          (creditosActivos || []).map((c) => [c.id, c])
+        );
         const pagosPorCredito = new Map();
 
         (pagos || []).forEach((p) => {
-          if (!pagosPorCredito.has(p.credito_id)) pagosPorCredito.set(p.credito_id, []);
+          if (!pagosPorCredito.has(p.credito_id))
+            pagosPorCredito.set(p.credito_id, []);
           pagosPorCredito.get(p.credito_id).push(p);
         });
 
@@ -3295,7 +4968,8 @@ No hay pagos recientes
             return aa.localeCompare(bb);
           });
 
-          let saldo = Number(credito.monto_total || 0) - Number(credito.inicial || 0);
+          let saldo =
+            Number(credito.monto_total || 0) - Number(credito.inicial || 0);
           if (saldo < 0) saldo = 0;
 
           let cuotaNumero = 0;
@@ -3307,9 +4981,15 @@ No hay pagos recientes
 
             if (p.tipo_pago !== "abono") {
               cuotaNumero += 1;
-              const base = p.proximo_pago || proximoCobro || credito.fecha_proximo_pago || p.fecha;
+              const base =
+                p.proximo_pago ||
+                proximoCobro ||
+                credito.fecha_proximo_pago ||
+                p.fecha;
               const frecuencia = Number(credito.frecuencia_dias || 10);
-              proximoCobro = base ? sumarDiasISO(base, frecuencia) : credito.fecha_proximo_pago || "";
+              proximoCobro = base
+                ? sumarDiasISO(base, frecuencia)
+                : credito.fecha_proximo_pago || "";
             }
 
             saldo = Math.max(0, saldo - monto);
@@ -3331,7 +5011,11 @@ No hay pagos recientes
               saldo_anterior: Number(p.saldo_anterior ?? saldoAnterior),
               saldo_actual: Number(p.saldo_actual ?? saldo),
               saldo_actual_credito: Number(credito.saldo || 0),
-              proximo_pago: p.proximo_pago || proximoCobro || credito.fecha_proximo_pago || "",
+              proximo_pago:
+                p.proximo_pago ||
+                proximoCobro ||
+                credito.fecha_proximo_pago ||
+                "",
               frecuencia_dias: Number(credito.frecuencia_dias || 10),
             });
           });
@@ -3394,21 +5078,25 @@ No hay pagos recientes
         donut.style.background = `conic-gradient(${parts.join(",")})`;
         totalBox.textContent = String(total);
 
-        legend.innerHTML = stats.map((x) => {
-          const pct = Math.round((x.count / total) * 100);
-          return `
+        legend.innerHTML = stats
+          .map((x) => {
+            const pct = Math.round((x.count / total) * 100);
+            return `
 <div class="legend-item">
   <div class="legend-left">
     <span class="legend-dot" style="background:${colors[x.key]}"></span>
     <div>
       <div class="legend-title">${x.label}</div>
-      <div class="legend-meta">${x.count} clientes · ${formatearDinero(x.amount)} · ${pct}%</div>
+      <div class="legend-meta">${x.count} clientes · ${formatearDinero(
+              x.amount
+            )} · ${pct}%</div>
     </div>
   </div>
   <div><b>${x.count}</b></div>
 </div>
 `;
-        }).join("");
+          })
+          .join("");
       }
 
       function renderRendimientoCobranza() {
@@ -3475,22 +5163,34 @@ No hay pagos recientes
 
         const diff = totalMesActual - totalMesPasado;
         const sign = diff >= 0 ? "+" : "−";
-        const pct = totalMesPasado > 0 ? Math.round((diff / totalMesPasado) * 100) : 0;
+        const pct =
+          totalMesPasado > 0 ? Math.round((diff / totalMesPasado) * 100) : 0;
 
         meta.innerHTML = `
 <b>Resumen de cobranza</b><br>
 Mes pasado: <b>${formatearDinero(totalMesPasado)}</b><br>
 Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
 Últimos 7 días: <b>${formatearDinero(total7Dias)}</b><br>
-<span class="subtle">${sign}${formatearDinero(Math.abs(diff))} vs. mes pasado (${pct}%)</span>
+<span class="subtle">${sign}${formatearDinero(
+          Math.abs(diff)
+        )} vs. mes pasado (${pct}%)</span>
 `;
       }
 
       function renderAlertasHome() {
         const totalEnviadas = contarAlertasEnviadas();
-        const totalMorosos = alertasAgrupadas.morosos.reduce((s, g) => s + Number(g.total || 0), 0);
-        const totalHoy = alertasAgrupadas.hoy.reduce((s, g) => s + Number(g.total || 0), 0);
-        const totalProximos = alertasAgrupadas.proximos.reduce((s, g) => s + Number(g.total || 0), 0);
+        const totalMorosos = alertasAgrupadas.morosos.reduce(
+          (s, g) => s + Number(g.total || 0),
+          0
+        );
+        const totalHoy = alertasAgrupadas.hoy.reduce(
+          (s, g) => s + Number(g.total || 0),
+          0
+        );
+        const totalProximos = alertasAgrupadas.proximos.reduce(
+          (s, g) => s + Number(g.total || 0),
+          0
+        );
 
         alertasHome.innerHTML = `
 <div class="alert-summary-grid">
@@ -3548,8 +5248,14 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
         const titulos = {
           morosos: ["🔴 Vencidos", "Clientes que ya pasaron su fecha de pago"],
           hoy: ["🟡 Vence hoy", "Clientes que deben pagar hoy"],
-          proximos: ["🟢 Próximos 3 días", "Clientes que necesitan recordatorio amable"],
-          enviadas: ["🔔 Alertas enviadas", "Historial de avisos ya registrados"],
+          proximos: [
+            "🟢 Próximos 3 días",
+            "Clientes que necesitan recordatorio amable",
+          ],
+          enviadas: [
+            "🔔 Alertas enviadas",
+            "Historial de avisos ya registrados",
+          ],
         };
 
         titulo.textContent = titulos[categoria][0];
@@ -3562,10 +5268,11 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
             return;
           }
 
-          lista.innerHTML = ultimas.map((a) => {
-            const horas = horasDesde(a.fecha_envio || a.created_at);
-            const puede = puedeReenviarAlerta(a.fecha_envio || a.created_at);
-            return `
+          lista.innerHTML = ultimas
+            .map((a) => {
+              const horas = horasDesde(a.fecha_envio || a.created_at);
+              const puede = puedeReenviarAlerta(a.fecha_envio || a.created_at);
+              return `
 <div class="alert-detail-item">
   <div class="alert-detail-top">
     <div>
@@ -3576,16 +5283,23 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
   </div>
 
   <div class="subtle" style="margin-top:8px;">
-    ${horas >= 24 ? `${Math.floor(horas / 24)} día(s) desde la última alerta` : `${horas || 0} hora(s) desde la última alerta`}
+    ${
+      horas >= 24
+        ? `${Math.floor(horas / 24)} día(s) desde la última alerta`
+        : `${horas || 0} hora(s) desde la última alerta`
+    }
   </div>
 
   <div class="alert-detail-actions">
     <button onclick="abrirCliente('${a.cliente_id}')">Ver cliente</button>
-    <button ${puede ? '' : 'disabled'} onclick="reenviarAlertaDesdeHistorial('${a.cliente_id}')">${puede ? 'Reenviar' : 'Esperar 1 día'}</button>
+    <button ${puede ? "" : "disabled"} onclick="reenviarAlertaDesdeHistorial('${
+                a.cliente_id
+              }')">${puede ? "Reenviar" : "Esperar 1 día"}</button>
   </div>
 </div>
 `;
-          }).join("");
+            })
+            .join("");
           return;
         }
 
@@ -3595,18 +5309,33 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
           return;
         }
 
-        lista.innerHTML = grupos.map((g) => {
-          const etiquetas = g.productos.map((p) => `• ${p.producto} - ${formatearDinero(p.saldo)}`).join("<br>");
-          const textoDias = categoria === "morosos"
-            ? `${g.dias} días de retraso`
-            : categoria === "hoy"
-              ? "Último día de pago"
-              : `Vence en ${g.dias} día(s)`;
-          const tagClass = categoria === "morosos" ? "red" : categoria === "hoy" ? "yellow" : "blue";
-          const ultima = alertasUltimasPorCliente.get(g.cliente_id);
-          const puede = !ultima || puedeReenviarAlerta(ultima.fecha_envio || ultima.created_at);
-          const ultimoTexto = ultima ? `Última alerta: ${formatearFechaHumana(ultima.fecha_envio || ultima.created_at)}` : "Sin alerta enviada";
-          return `
+        lista.innerHTML = grupos
+          .map((g) => {
+            const etiquetas = g.productos
+              .map((p) => `• ${p.producto} - ${formatearDinero(p.saldo)}`)
+              .join("<br>");
+            const textoDias =
+              categoria === "morosos"
+                ? `${g.dias} días de retraso`
+                : categoria === "hoy"
+                ? "Último día de pago"
+                : `Vence en ${g.dias} día(s)`;
+            const tagClass =
+              categoria === "morosos"
+                ? "red"
+                : categoria === "hoy"
+                ? "yellow"
+                : "blue";
+            const ultima = alertasUltimasPorCliente.get(g.cliente_id);
+            const puede =
+              !ultima ||
+              puedeReenviarAlerta(ultima.fecha_envio || ultima.created_at);
+            const ultimoTexto = ultima
+              ? `Última alerta: ${formatearFechaHumana(
+                  ultima.fecha_envio || ultima.created_at
+                )}`
+              : "Sin alerta enviada";
+            return `
 <div class="alert-detail-item">
   <div class="alert-detail-top">
     <div>
@@ -3625,18 +5354,28 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
 
   <div class="alert-detail-actions">
     <button onclick="abrirCliente('${g.cliente_id}')">Ver cliente</button>
-    <button ${puede ? '' : 'disabled'} onclick="registrarAlertaYEnviar('${categoria}','${g.cliente_id}')">${puede ? 'WhatsApp' : 'Esperar 1 día'}</button>
+    <button ${
+      puede ? "" : "disabled"
+    } onclick="registrarAlertaYEnviar('${categoria}','${g.cliente_id}')">${
+              puede ? "WhatsApp" : "Esperar 1 día"
+            }</button>
   </div>
 </div>
 `;
-        }).join("");
+          })
+          .join("");
       }
 
       async function registrarAlertaYEnviar(categoria, cliente_id) {
-        const grupo = alertasAgrupadas[categoria]?.find((g) => g.cliente_id === cliente_id);
+        const grupo = alertasAgrupadas[categoria]?.find(
+          (g) => g.cliente_id === cliente_id
+        );
         if (!grupo) return;
         const ultima = alertasUltimasPorCliente.get(cliente_id);
-        if (ultima && !puedeReenviarAlerta(ultima.fecha_envio || ultima.created_at)) {
+        if (
+          ultima &&
+          !puedeReenviarAlerta(ultima.fecha_envio || ultima.created_at)
+        ) {
           alert("Debe esperar al menos 1 día para reenviar otra alerta.");
           return;
         }
@@ -3646,20 +5385,34 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
         }
 
         const numero = grupo.telefono.replace(/\D/g, "");
-        const productos = grupo.productos.map((p) => `• ${p.producto} (${formatearDinero(p.saldo)})`).join("\n");
+        const productos = grupo.productos
+          .map((p) => `• ${p.producto} (${formatearDinero(p.saldo)})`)
+          .join("\n");
         const ahora = new Date().toISOString();
         let mensaje = "";
         let dias_retraso = 0;
 
         if (categoria === "morosos") {
           dias_retraso = grupo.dias;
-          mensaje = `Hola ${grupo.nombre}, tienes ${grupo.dias} días de retraso en los siguientes productos:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(grupo.total)}.\nPor favor comunícate para regularizar tu pago.`;
+          mensaje = `Hola ${grupo.nombre}, tienes ${
+            grupo.dias
+          } días de retraso en los siguientes productos:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(
+            grupo.total
+          )}.\nPor favor comunícate para regularizar tu pago.`;
         } else if (categoria === "hoy") {
           dias_retraso = 0;
-          mensaje = `Hola ${grupo.nombre}, hoy vence tu pago de:\n\n${productos}\n\nTotal a pagar: ${formatearDinero(grupo.total)}.\nGracias por tu puntualidad.`;
+          mensaje = `Hola ${
+            grupo.nombre
+          }, hoy vence tu pago de:\n\n${productos}\n\nTotal a pagar: ${formatearDinero(
+            grupo.total
+          )}.\nGracias por tu puntualidad.`;
         } else {
           dias_retraso = grupo.dias;
-          mensaje = `Hola ${grupo.nombre}, te recordamos que dentro de ${grupo.dias} día(s) vence tu pago de:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(grupo.total)}.\nGracias por tu puntualidad.`;
+          mensaje = `Hola ${grupo.nombre}, te recordamos que dentro de ${
+            grupo.dias
+          } día(s) vence tu pago de:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(
+            grupo.total
+          )}.\nGracias por tu puntualidad.`;
         }
 
         const { error } = await supabaseClient.from("Alertas").insert([
@@ -3714,11 +5467,17 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
           alert("Cliente sin teléfono");
           return;
         }
-        abrirWhatsAppConMensaje(numero, alerta.mensaje || "Hola, te recordamos tu pago pendiente.");
+        abrirWhatsAppConMensaje(
+          numero,
+          alerta.mensaje || "Hola, te recordamos tu pago pendiente."
+        );
       }
 
       function abrirWhatsAppConMensaje(numero, mensaje) {
-        window.open(`https://wa.me/51${numero}?text=${encodeURIComponent(mensaje)}`, "_blank");
+        window.open(
+          `https://wa.me/51${numero}?text=${encodeURIComponent(mensaje)}`,
+          "_blank"
+        );
       }
 
       function renderActividadReciente() {
@@ -3734,7 +5493,9 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
             const tipoTexto = textoMovimientoCuota(m);
 
             return `
-<div class="pago-item" style="cursor:pointer;" onclick="abrirCliente('${m.cliente_id}')">
+<div class="pago-item" style="cursor:pointer;" onclick="abrirCliente('${
+              m.cliente_id
+            }')">
   <b>${m.cliente_nombre}</b><br>
   📦 ${m.producto}<br>
   💵 Precio total del producto: ${formatearDinero(m.monto_total)}<br>
@@ -3762,7 +5523,8 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
           year: "numeric",
         });
 
-        titulo.textContent = nombreMes.charAt(0).toUpperCase() + nombreMes.slice(1);
+        titulo.textContent =
+          nombreMes.charAt(0).toUpperCase() + nombreMes.slice(1);
 
         const primerDia = new Date(anio, mes, 1);
         const diasMes = new Date(anio, mes + 1, 0).getDate();
@@ -3790,17 +5552,24 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
           const badgeClass = items.length ? "" : "zero";
 
           grid.innerHTML += `
-<div class="calendar-day ${isToday ? "today" : ""} ${isSelected ? "selected" : ""}" onclick="seleccionarDiaCalendario('${fecha}')">
+<div class="calendar-day ${isToday ? "today" : ""} ${
+            isSelected ? "selected" : ""
+          }" onclick="seleccionarDiaCalendario('${fecha}')">
   <div class="calendar-num">${dia}</div>
   <div class="calendar-badge ${badgeClass}">${items.length || ""}</div>
 </div>
 `;
         }
 
-        if (diaCalendarioSeleccionado && eventosMap.get(diaCalendarioSeleccionado)) {
+        if (
+          diaCalendarioSeleccionado &&
+          eventosMap.get(diaCalendarioSeleccionado)
+        ) {
           mostrarDetalleCalendario(diaCalendarioSeleccionado);
         } else {
-          const firstEvent = eventosCalendario.find((x) => x.fecha.startsWith(`${anio}-${String(mes + 1).padStart(2, "0")}`));
+          const firstEvent = eventosCalendario.find((x) =>
+            x.fecha.startsWith(`${anio}-${String(mes + 1).padStart(2, "0")}`)
+          );
           if (firstEvent) {
             diaCalendarioSeleccionado = firstEvent.fecha;
             mostrarDetalleCalendario(firstEvent.fecha);
@@ -3842,13 +5611,17 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
           const fecha = c.fecha_proximo_pago || hoyISO;
           const saldo = Number(c.saldo || 0);
           if (fecha < hoyISO) {
-            stats[0].count += 1; stats[0].amount += saldo;
+            stats[0].count += 1;
+            stats[0].amount += saldo;
           } else if (fecha === hoyISO) {
-            stats[1].count += 1; stats[1].amount += saldo;
+            stats[1].count += 1;
+            stats[1].amount += saldo;
           } else if (fecha > hoyISO && fecha <= en3DiasISO) {
-            stats[2].count += 1; stats[2].amount += saldo;
+            stats[2].count += 1;
+            stats[2].amount += saldo;
           } else {
-            stats[3].count += 1; stats[3].amount += saldo;
+            stats[3].count += 1;
+            stats[3].amount += saldo;
           }
         });
 
@@ -3870,12 +5643,15 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
         }
 
         recientes.forEach((m) => {
-          const tipoTexto = m.tipo_pago === "abono"
-            ? "🟡 Abono"
-            : `🟢 Cuota ${m.numero_cuota || 1}/${m.total_cuotas || "?"}`;
+          const tipoTexto =
+            m.tipo_pago === "abono"
+              ? "🟡 Abono"
+              : `🟢 Cuota ${m.numero_cuota || 1}/${m.total_cuotas || "?"}`;
 
           listaPagosRecientes.innerHTML += `
-<div class="pago-item" style="cursor:pointer;" onclick="abrirCliente('${m.cliente_id}')">
+<div class="pago-item" style="cursor:pointer;" onclick="abrirCliente('${
+            m.cliente_id
+          }')">
   <b>${m.cliente_nombre}</b><br>
   📦 ${m.producto}<br>
   💵 Precio total del producto: ${formatearDinero(m.monto_total)}<br>
@@ -3906,7 +5682,9 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
 
           supabaseClient
             .from("Pagos")
-            .select("*, Creditos(producto,cliente_id,fecha_proximo_pago,cuotas,monto_total,inicial,saldo,frecuencia_dias,Clientes(nombre,telefono))")
+            .select(
+              "*, Creditos(producto,cliente_id,fecha_proximo_pago,cuotas,monto_total,inicial,saldo,frecuencia_dias,Clientes(nombre,telefono))"
+            )
             .eq("owner_id", usuarioActual.id)
             .order("fecha", { ascending: false }),
 
@@ -3920,15 +5698,20 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
         const creditos = creditosResp.data || [];
         pagosGlobal = pagosResp.data || [];
 
-        const clientesMap = new Map(creditos.map((c) => [c.cliente_id, {
-          nombre: c.Clientes?.nombre || "Cliente",
-          telefono: c.Clientes?.telefono || ""
-        }]));
+        const clientesMap = new Map(
+          creditos.map((c) => [
+            c.cliente_id,
+            {
+              nombre: c.Clientes?.nombre || "Cliente",
+              telefono: c.Clientes?.telefono || "",
+            },
+          ])
+        );
 
         alertasGlobal = (alertasResp.data || []).map((a) => ({
           ...a,
           cliente_nombre: clientesMap.get(a.cliente_id)?.nombre || "Cliente",
-          cliente_telefono: clientesMap.get(a.cliente_id)?.telefono || ""
+          cliente_telefono: clientesMap.get(a.cliente_id)?.telefono || "",
         }));
         alertasUltimasPorCliente = mapPorClienteUltimaAlerta(alertasGlobal);
 
@@ -3936,18 +5719,29 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
           (c) => c.estado !== "cancelado" && Number(c.saldo || 0) > 0
         );
 
-        movimientosEnriquecidos = construirMovimientosEnriquecidos(pagosGlobal, creditos);
-        eventosCalendario = Array.from(buildCalendarMap(creditosActivos).entries()).map(
-          ([fecha, items]) => ({ fecha, items })
+        movimientosEnriquecidos = construirMovimientosEnriquecidos(
+          pagosGlobal,
+          creditos
         );
+        eventosCalendario = Array.from(
+          buildCalendarMap(creditosActivos).entries()
+        ).map(([fecha, items]) => ({ fecha, items }));
 
         alertasAgrupadas = construirAlertasAgrupadas(creditosActivos);
         renderAlertasHome();
 
-        const clientesActivos = new Set(creditosActivos.map((c) => c.cliente_id)).size;
-        const clientesMorosos = new Set(alertasAgrupadas.morosos.map((g) => g.cliente_id)).size;
-        const clientesHoy = new Set(alertasAgrupadas.hoy.map((g) => g.cliente_id)).size;
-        const clientesProximos = new Set(alertasAgrupadas.proximos.map((g) => g.cliente_id)).size;
+        const clientesActivos = new Set(
+          creditosActivos.map((c) => c.cliente_id)
+        ).size;
+        const clientesMorosos = new Set(
+          alertasAgrupadas.morosos.map((g) => g.cliente_id)
+        ).size;
+        const clientesHoy = new Set(
+          alertasAgrupadas.hoy.map((g) => g.cliente_id)
+        ).size;
+        const clientesProximos = new Set(
+          alertasAgrupadas.proximos.map((g) => g.cliente_id)
+        ).size;
 
         let totalPorCobrar = 0;
         let cobradoHoy = 0;
@@ -3965,23 +5759,39 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
         });
 
         // KPI
-        document.getElementById("kpiTotalValue").textContent = formatearDinero(totalPorCobrar);
-        document.getElementById("kpiTotalSub").textContent = `${clientesActivos} clientes con deuda`;
+        document.getElementById("kpiTotalValue").textContent =
+          formatearDinero(totalPorCobrar);
+        document.getElementById(
+          "kpiTotalSub"
+        ).textContent = `${clientesActivos} clientes con deuda`;
 
-        document.getElementById("kpiClientesValue").textContent = String(clientesActivos);
-        document.getElementById("kpiClientesSub").textContent = "Cuentas activas por cobrar";
+        document.getElementById("kpiClientesValue").textContent =
+          String(clientesActivos);
+        document.getElementById("kpiClientesSub").textContent =
+          "Cuentas activas por cobrar";
 
-        document.getElementById("kpiHoyValue").textContent = formatearDinero(cobradoHoy);
-        document.getElementById("kpiHoySub").textContent = `${clientesHoy} cliente(s) con pago hoy`;
+        document.getElementById("kpiHoyValue").textContent =
+          formatearDinero(cobradoHoy);
+        document.getElementById(
+          "kpiHoySub"
+        ).textContent = `${clientesHoy} cliente(s) con pago hoy`;
 
-        document.getElementById("kpiSemanaValue").textContent = formatearDinero(programadoSemana);
-        document.getElementById("kpiSemanaSub").textContent = `${clientesProximos} cliente(s) por cobrar en 3 días`;
+        document.getElementById("kpiSemanaValue").textContent =
+          formatearDinero(programadoSemana);
+        document.getElementById(
+          "kpiSemanaSub"
+        ).textContent = `${clientesProximos} cliente(s) por cobrar en 3 días`;
 
-        document.getElementById("kpiMorososValue").textContent = String(clientesMorosos);
-        document.getElementById("kpiMorososSub").textContent = `${formatearDinero(morososMonto)} vencidos`;
+        document.getElementById("kpiMorososValue").textContent =
+          String(clientesMorosos);
+        document.getElementById(
+          "kpiMorososSub"
+        ).textContent = `${formatearDinero(morososMonto)} vencidos`;
 
-        document.getElementById("kpiAlertas3Value").textContent = String(alertasEnviadasTotal);
-        document.getElementById("kpiAlertas3Sub").textContent = "Historial de alertas";
+        document.getElementById("kpiAlertas3Value").textContent =
+          String(alertasEnviadasTotal);
+        document.getElementById("kpiAlertas3Sub").textContent =
+          "Historial de alertas";
 
         // Subtítulo
         if (clientesMorosos > 0) {
@@ -4002,22 +5812,38 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
         const semanaTexto = document.getElementById("cobroSemanaTexto");
         const semanaPct = document.getElementById("cobroSemanaPct");
         const semanaDetalle = document.getElementById("cobroSemanaDetalle");
-        if (semanaTexto) semanaTexto.textContent = `Programado en 7 días: ${formatearDinero(programadoSemana)}`;
-        if (semanaPct) semanaPct.textContent = `${clientesProximos + clientesHoy + clientesMorosos > 0 ? Math.min(100, Math.round((cobradoHoy / (programadoSemana || 1)) * 100)) : 0}%`;
-        if (semanaDetalle) semanaDetalle.textContent = "Cobros por vencer en la próxima semana";
+        if (semanaTexto)
+          semanaTexto.textContent = `Programado en 7 días: ${formatearDinero(
+            programadoSemana
+          )}`;
+        if (semanaPct)
+          semanaPct.textContent = `${
+            clientesProximos + clientesHoy + clientesMorosos > 0
+              ? Math.min(
+                  100,
+                  Math.round((cobradoHoy / (programadoSemana || 1)) * 100)
+                )
+              : 0
+          }%`;
+        if (semanaDetalle)
+          semanaDetalle.textContent = "Cobros por vencer en la próxima semana";
 
         renderUltimosCobros();
         renderCalendarioCobros();
 
         // Resumen principal
-        if (resumen) if (resumen) resumen.innerHTML = `
+        if (resumen)
+          if (resumen)
+            resumen.innerHTML = `
 <h2>💵 ${formatearDinero(totalPorCobrar)}</h2>
 <p>🔴 ${clientesMorosos} vencidos</p>
 <p>🟡 ${clientesProximos} próximos</p>
 `;
 
         // Si pantalla alerta abierta, refrescar detalle
-        if (document.getElementById("alertasScreen").classList.contains("activa")) {
+        if (
+          document.getElementById("alertasScreen").classList.contains("activa")
+        ) {
           renderAlertasDetalle(alertaCategoriaActiva);
         }
       }
@@ -4051,7 +5877,9 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
         }
 
         const saldoAnterior = Number(credito.saldo || 0);
-        const numeroCuotaPago = tipoPagoModalEsAbono() ? null : Number(credito.cuotas_pagada || 0) + 1;
+        const numeroCuotaPago = tipoPagoModalEsAbono()
+          ? null
+          : Number(credito.cuotas_pagada || 0) + 1;
 
         let nuevoSaldo = saldoAnterior - montoValor;
         if (nuevoSaldo < 0) nuevoSaldo = 0;
@@ -4063,7 +5891,10 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
         let nuevaFecha = credito.fecha_proximo_pago;
         if (!tipoPagoModalEsAbono() && nuevoSaldo > 0) {
           const baseFecha = credito.fecha_proximo_pago || fechaLocal();
-          nuevaFecha = sumarDiasISO(baseFecha, Number(credito.frecuencia_dias || 10));
+          nuevaFecha = sumarDiasISO(
+            baseFecha,
+            Number(credito.frecuencia_dias || 10)
+          );
         }
 
         if (nuevoSaldo === 0) {
@@ -4119,9 +5950,18 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
 
       function renderAlertasHome() {
         const totalEnviadas = contarAlertasEnviadas();
-        const totalMorosos = alertasAgrupadas.morosos.reduce((s, g) => s + Number(g.total || 0), 0);
-        const totalHoy = alertasAgrupadas.hoy.reduce((s, g) => s + Number(g.total || 0), 0);
-        const totalProximos = alertasAgrupadas.proximos.reduce((s, g) => s + Number(g.total || 0), 0);
+        const totalMorosos = alertasAgrupadas.morosos.reduce(
+          (s, g) => s + Number(g.total || 0),
+          0
+        );
+        const totalHoy = alertasAgrupadas.hoy.reduce(
+          (s, g) => s + Number(g.total || 0),
+          0
+        );
+        const totalProximos = alertasAgrupadas.proximos.reduce(
+          (s, g) => s + Number(g.total || 0),
+          0
+        );
 
         alertasHome.innerHTML = `
 <div class="alert-summary-grid">
@@ -4163,12 +6003,15 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
         }
 
         recientes.forEach((m) => {
-          const tipoTexto = m.tipo_pago === "abono"
-            ? "🟡 Abono"
-            : `🟢 Cuota ${m.numero_cuota || 1}/${m.total_cuotas || "?"}`;
+          const tipoTexto =
+            m.tipo_pago === "abono"
+              ? "🟡 Abono"
+              : `🟢 Cuota ${m.numero_cuota || 1}/${m.total_cuotas || "?"}`;
 
           listaPagosRecientes.innerHTML += `
-<div class="pago-item" style="cursor:pointer;" onclick="abrirCliente('${m.cliente_id}')">
+<div class="pago-item" style="cursor:pointer;" onclick="abrirCliente('${
+            m.cliente_id
+          }')">
   <b>${m.cliente_nombre}</b><br>
   📦 ${m.producto}<br>
   💵 Precio total del producto: ${formatearDinero(m.monto_total)}<br>
@@ -4239,18 +6082,32 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
         });
 
         return {
-          morosos: Array.from(grupos.morosos.values()).sort((a, b) => b.total - a.total),
-          hoy: Array.from(grupos.hoy.values()).sort((a, b) => b.total - a.total),
-          proximos: Array.from(grupos.proximos.values()).sort((a, b) => a.dias - b.dias),
+          morosos: Array.from(grupos.morosos.values()).sort(
+            (a, b) => b.total - a.total
+          ),
+          hoy: Array.from(grupos.hoy.values()).sort(
+            (a, b) => b.total - a.total
+          ),
+          proximos: Array.from(grupos.proximos.values()).sort(
+            (a, b) => a.dias - b.dias
+          ),
         };
       }
 
-
       function renderAlertasHome() {
         const totalEnviadas = contarAlertasEnviadas();
-        const totalMorosos = alertasAgrupadas.morosos.reduce((s, g) => s + Number(g.total || 0), 0);
-        const totalHoy = alertasAgrupadas.hoy.reduce((s, g) => s + Number(g.total || 0), 0);
-        const totalProximos = alertasAgrupadas.proximos.reduce((s, g) => s + Number(g.total || 0), 0);
+        const totalMorosos = alertasAgrupadas.morosos.reduce(
+          (s, g) => s + Number(g.total || 0),
+          0
+        );
+        const totalHoy = alertasAgrupadas.hoy.reduce(
+          (s, g) => s + Number(g.total || 0),
+          0
+        );
+        const totalProximos = alertasAgrupadas.proximos.reduce(
+          (s, g) => s + Number(g.total || 0),
+          0
+        );
 
         alertasHome.innerHTML = `
 <div class="alert-summary-grid">
@@ -4308,8 +6165,14 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
         const titulos = {
           morosos: ["🔴 Vencidos", "Clientes que ya pasaron su fecha de pago"],
           hoy: ["🟡 Vence hoy", "Clientes que deben pagar hoy"],
-          proximos: ["🟢 Próximos 3 días", "Clientes que necesitan recordatorio amable"],
-          enviadas: ["🔔 Alertas enviadas", "Historial de avisos ya registrados"],
+          proximos: [
+            "🟢 Próximos 3 días",
+            "Clientes que necesitan recordatorio amable",
+          ],
+          enviadas: [
+            "🔔 Alertas enviadas",
+            "Historial de avisos ya registrados",
+          ],
         };
 
         titulo.textContent = titulos[categoria][0];
@@ -4322,10 +6185,11 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
             return;
           }
 
-          lista.innerHTML = ultimas.map((a) => {
-            const horas = horasDesde(a.fecha_envio || a.created_at);
-            const puede = puedeReenviarAlerta(a.fecha_envio || a.created_at);
-            return `
+          lista.innerHTML = ultimas
+            .map((a) => {
+              const horas = horasDesde(a.fecha_envio || a.created_at);
+              const puede = puedeReenviarAlerta(a.fecha_envio || a.created_at);
+              return `
 <div class="alert-detail-item">
   <div class="alert-detail-top">
     <div>
@@ -4336,16 +6200,23 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
   </div>
 
   <div class="subtle" style="margin-top:8px;">
-    ${horas >= 24 ? `${Math.floor(horas / 24)} día(s) desde la última alerta` : `${horas || 0} hora(s) desde la última alerta`}
+    ${
+      horas >= 24
+        ? `${Math.floor(horas / 24)} día(s) desde la última alerta`
+        : `${horas || 0} hora(s) desde la última alerta`
+    }
   </div>
 
   <div class="alert-detail-actions">
     <button onclick="abrirCliente('${a.cliente_id}')">Ver cliente</button>
-    <button ${puede ? '' : 'disabled'} onclick="reenviarAlertaDesdeHistorial('${a.cliente_id}')">${puede ? 'Reenviar' : 'Esperar 1 día'}</button>
+    <button ${puede ? "" : "disabled"} onclick="reenviarAlertaDesdeHistorial('${
+                a.cliente_id
+              }')">${puede ? "Reenviar" : "Esperar 1 día"}</button>
   </div>
 </div>
 `;
-          }).join("");
+            })
+            .join("");
           return;
         }
 
@@ -4355,18 +6226,33 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
           return;
         }
 
-        lista.innerHTML = grupos.map((g) => {
-          const etiquetas = g.productos.map((p) => `• ${p.producto} - ${formatearDinero(p.saldo)}`).join("<br>");
-          const textoDias = categoria === "morosos"
-            ? `${g.dias} días de retraso`
-            : categoria === "hoy"
-              ? "Último día de pago"
-              : `Vence en ${g.dias} día(s)`;
-          const tagClass = categoria === "morosos" ? "red" : categoria === "hoy" ? "yellow" : "blue";
-          const ultima = alertasUltimasPorCliente.get(g.cliente_id);
-          const puede = !ultima || puedeReenviarAlerta(ultima.fecha_envio || ultima.created_at);
-          const ultimoTexto = ultima ? `Última alerta: ${formatearFechaHumana(ultima.fecha_envio || ultima.created_at)}` : "Sin alerta enviada";
-          return `
+        lista.innerHTML = grupos
+          .map((g) => {
+            const etiquetas = g.productos
+              .map((p) => `• ${p.producto} - ${formatearDinero(p.saldo)}`)
+              .join("<br>");
+            const textoDias =
+              categoria === "morosos"
+                ? `${g.dias} días de retraso`
+                : categoria === "hoy"
+                ? "Último día de pago"
+                : `Vence en ${g.dias} día(s)`;
+            const tagClass =
+              categoria === "morosos"
+                ? "red"
+                : categoria === "hoy"
+                ? "yellow"
+                : "blue";
+            const ultima = alertasUltimasPorCliente.get(g.cliente_id);
+            const puede =
+              !ultima ||
+              puedeReenviarAlerta(ultima.fecha_envio || ultima.created_at);
+            const ultimoTexto = ultima
+              ? `Última alerta: ${formatearFechaHumana(
+                  ultima.fecha_envio || ultima.created_at
+                )}`
+              : "Sin alerta enviada";
+            return `
 <div class="alert-detail-item">
   <div class="alert-detail-top">
     <div>
@@ -4385,18 +6271,28 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
 
   <div class="alert-detail-actions">
     <button onclick="abrirCliente('${g.cliente_id}')">Ver cliente</button>
-    <button ${puede ? '' : 'disabled'} onclick="registrarAlertaYEnviar('${categoria}','${g.cliente_id}')">${puede ? 'WhatsApp' : 'Esperar 1 día'}</button>
+    <button ${
+      puede ? "" : "disabled"
+    } onclick="registrarAlertaYEnviar('${categoria}','${g.cliente_id}')">${
+              puede ? "WhatsApp" : "Esperar 1 día"
+            }</button>
   </div>
 </div>
 `;
-        }).join("");
+          })
+          .join("");
       }
 
       async function registrarAlertaYEnviar(categoria, cliente_id) {
-        const grupo = alertasAgrupadas[categoria]?.find((g) => g.cliente_id === cliente_id);
+        const grupo = alertasAgrupadas[categoria]?.find(
+          (g) => g.cliente_id === cliente_id
+        );
         if (!grupo) return;
         const ultima = alertasUltimasPorCliente.get(cliente_id);
-        if (ultima && !puedeReenviarAlerta(ultima.fecha_envio || ultima.created_at)) {
+        if (
+          ultima &&
+          !puedeReenviarAlerta(ultima.fecha_envio || ultima.created_at)
+        ) {
           alert("Debe esperar al menos 1 día para reenviar otra alerta.");
           return;
         }
@@ -4406,20 +6302,34 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
         }
 
         const numero = grupo.telefono.replace(/\D/g, "");
-        const productos = grupo.productos.map((p) => `• ${p.producto} (${formatearDinero(p.saldo)})`).join("\n");
+        const productos = grupo.productos
+          .map((p) => `• ${p.producto} (${formatearDinero(p.saldo)})`)
+          .join("\n");
         const ahora = new Date().toISOString();
         let mensaje = "";
         let dias_retraso = 0;
 
         if (categoria === "morosos") {
           dias_retraso = grupo.dias;
-          mensaje = `Hola ${grupo.nombre}, tienes ${grupo.dias} días de retraso en los siguientes productos:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(grupo.total)}.\nPor favor comunícate para regularizar tu pago.`;
+          mensaje = `Hola ${grupo.nombre}, tienes ${
+            grupo.dias
+          } días de retraso en los siguientes productos:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(
+            grupo.total
+          )}.\nPor favor comunícate para regularizar tu pago.`;
         } else if (categoria === "hoy") {
           dias_retraso = 0;
-          mensaje = `Hola ${grupo.nombre}, hoy vence tu pago de:\n\n${productos}\n\nTotal a pagar: ${formatearDinero(grupo.total)}.\nGracias por tu puntualidad.`;
+          mensaje = `Hola ${
+            grupo.nombre
+          }, hoy vence tu pago de:\n\n${productos}\n\nTotal a pagar: ${formatearDinero(
+            grupo.total
+          )}.\nGracias por tu puntualidad.`;
         } else {
           dias_retraso = grupo.dias;
-          mensaje = `Hola ${grupo.nombre}, te recordamos que dentro de ${grupo.dias} día(s) vence tu pago de:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(grupo.total)}.\nGracias por tu puntualidad.`;
+          mensaje = `Hola ${grupo.nombre}, te recordamos que dentro de ${
+            grupo.dias
+          } día(s) vence tu pago de:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(
+            grupo.total
+          )}.\nGracias por tu puntualidad.`;
         }
 
         const { error } = await supabaseClient.from("Alertas").insert([
@@ -4474,13 +6384,18 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
           alert("Cliente sin teléfono");
           return;
         }
-        abrirWhatsAppConMensaje(numero, alerta.mensaje || "Hola, te recordamos tu pago pendiente.");
+        abrirWhatsAppConMensaje(
+          numero,
+          alerta.mensaje || "Hola, te recordamos tu pago pendiente."
+        );
       }
 
       function abrirWhatsAppConMensaje(numero, mensaje) {
-        window.open(`https://wa.me/51${numero}?text=${encodeURIComponent(mensaje)}`, "_blank");
+        window.open(
+          `https://wa.me/51${numero}?text=${encodeURIComponent(mensaje)}`,
+          "_blank"
+        );
       }
-
 
       function construirAlertasAgrupadas(creditosActivos) {
         const hoy = fechaLocal();
@@ -4539,12 +6454,17 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
         });
 
         return {
-          morosos: Array.from(grupos.morosos.values()).sort((a, b) => b.total - a.total),
-          hoy: Array.from(grupos.hoy.values()).sort((a, b) => b.total - a.total),
-          proximos: Array.from(grupos.proximos.values()).sort((a, b) => a.dias - b.dias),
+          morosos: Array.from(grupos.morosos.values()).sort(
+            (a, b) => b.total - a.total
+          ),
+          hoy: Array.from(grupos.hoy.values()).sort(
+            (a, b) => b.total - a.total
+          ),
+          proximos: Array.from(grupos.proximos.values()).sort(
+            (a, b) => a.dias - b.dias
+          ),
         };
       }
-
 
       window.addEventListener("focus", () => {
         if (usuarioActual) {
@@ -4559,11 +6479,13 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
       });
 
       setInterval(() => {
-        if (usuarioActual && document.getElementById("homeScreen").classList.contains("activa")) {
+        if (
+          usuarioActual &&
+          document.getElementById("homeScreen").classList.contains("activa")
+        ) {
           verDashboard();
         }
       }, 60000);
-
     </script>
   </body>
 </html>
