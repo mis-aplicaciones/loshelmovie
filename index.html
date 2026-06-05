@@ -1197,6 +1197,70 @@
         color: #0b74b8;
       }
 
+    
+      /* ===== Overrides para evitar desfasajes y mantener compatibilidad ===== */
+      .dashboard-charts-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 12px;
+        margin-bottom: 12px;
+        align-items: stretch;
+      }
+
+      .chart-card { min-height: 100%; }
+
+      .cartera-layout {
+        display: grid;
+        grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
+        gap: 12px;
+        align-items: center;
+      }
+
+      .cartera-left,
+      .cartera-right {
+        min-width: 0;
+      }
+
+      .cartera-left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .donut-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        width: 100%;
+      }
+
+      .donut {
+        margin: 0 auto;
+      }
+
+      .legend-cartera {
+        margin-top: 0;
+      }
+
+      @media (max-width: 860px) {
+        .dashboard-charts-row {
+          grid-template-columns: 1fr;
+        }
+
+        .cartera-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .cartera-left {
+          padding-bottom: 4px;
+        }
+
+        .cartera-right {
+          width: 100%;
+        }
+      }
+
     </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer" />
 
@@ -2251,6 +2315,70 @@
           font-size: 26px;
         }
       }
+    
+      /* ===== Overrides para evitar desfasajes y mantener compatibilidad ===== */
+      .dashboard-charts-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 12px;
+        margin-bottom: 12px;
+        align-items: stretch;
+      }
+
+      .chart-card { min-height: 100%; }
+
+      .cartera-layout {
+        display: grid;
+        grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
+        gap: 12px;
+        align-items: center;
+      }
+
+      .cartera-left,
+      .cartera-right {
+        min-width: 0;
+      }
+
+      .cartera-left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .donut-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        width: 100%;
+      }
+
+      .donut {
+        margin: 0 auto;
+      }
+
+      .legend-cartera {
+        margin-top: 0;
+      }
+
+      @media (max-width: 860px) {
+        .dashboard-charts-row {
+          grid-template-columns: 1fr;
+        }
+
+        .cartera-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .cartera-left {
+          padding-bottom: 4px;
+        }
+
+        .cartera-right {
+          width: 100%;
+        }
+      }
+
     </style>
 
     <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
@@ -2779,7 +2907,71 @@
   .chart-card .section-title .subtle{
     margin-top:4px;
   }
-</style>
+
+      /* ===== Overrides para evitar desfasajes y mantener compatibilidad ===== */
+      .dashboard-charts-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 12px;
+        margin-bottom: 12px;
+        align-items: stretch;
+      }
+
+      .chart-card { min-height: 100%; }
+
+      .cartera-layout {
+        display: grid;
+        grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
+        gap: 12px;
+        align-items: center;
+      }
+
+      .cartera-left,
+      .cartera-right {
+        min-width: 0;
+      }
+
+      .cartera-left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .donut-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        width: 100%;
+      }
+
+      .donut {
+        margin: 0 auto;
+      }
+
+      .legend-cartera {
+        margin-top: 0;
+      }
+
+      @media (max-width: 860px) {
+        .dashboard-charts-row {
+          grid-template-columns: 1fr;
+        }
+
+        .cartera-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .cartera-left {
+          padding-bottom: 4px;
+        }
+
+        .cartera-right {
+          width: 100%;
+        }
+      }
+
+    </style>
 
 <style>
   .performance-bars{
@@ -2836,7 +3028,71 @@
   .alert-preview-card button{
     box-shadow: none;
   }
-</style>
+
+      /* ===== Overrides para evitar desfasajes y mantener compatibilidad ===== */
+      .dashboard-charts-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 12px;
+        margin-bottom: 12px;
+        align-items: stretch;
+      }
+
+      .chart-card { min-height: 100%; }
+
+      .cartera-layout {
+        display: grid;
+        grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
+        gap: 12px;
+        align-items: center;
+      }
+
+      .cartera-left,
+      .cartera-right {
+        min-width: 0;
+      }
+
+      .cartera-left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .donut-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        width: 100%;
+      }
+
+      .donut {
+        margin: 0 auto;
+      }
+
+      .legend-cartera {
+        margin-top: 0;
+      }
+
+      @media (max-width: 860px) {
+        .dashboard-charts-row {
+          grid-template-columns: 1fr;
+        }
+
+        .cartera-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .cartera-left {
+          padding-bottom: 4px;
+        }
+
+        .cartera-right {
+          width: 100%;
+        }
+      }
+
+    </style>
 
 </head>
 
@@ -2879,6 +3135,7 @@
       </div>
     </div>
 
+    
     <!-- HOME -->
 
     <div id="homeScreen" class="pantalla">
@@ -2956,12 +3213,11 @@
         </div>
       </div>
 
-            <div id="resumen" style="display:none;"></div>
+      <div class="card">
+        <div id="resumen"></div>
+      </div>
 
-<div class="dashboard-charts-row">
-<div id="resumen" style="display:none;"></div>
-
-<div class="dashboard-charts-row">
+      <div class="dashboard-charts-row">
         <div class="card chart-card">
           <div class="section-title">📊 Estado de cartera</div>
           <div class="cartera-layout">
@@ -2997,7 +3253,6 @@
 
       <div class="card">
         <div class="section-title">🔔 Alertas para revisar</div>
-
         <div id="alertasHome"></div>
       </div>
 
@@ -3021,12 +3276,21 @@
 
       <div class="card">
         <div class="section-title">🕒 Últimos cobros</div>
-
         <div id="actividadReciente" class="actividad-list"></div>
+      </div>
+
+      <div style="display:none;">
+        <div id="listaPendientes"></div>
+        <div id="cobroSemanaTexto"></div>
+        <div id="cobroSemanaPct"></div>
+        <div id="cobroSemanaBar"></div>
+        <div id="cobroSemanaDetalle"></div>
       </div>
     </div>
 
     <!-- ALERTAS DETALLE -->
+
+<!-- ALERTAS DETALLE -->
 
     <div id="alertasScreen" class="pantalla">
       <div class="header">
