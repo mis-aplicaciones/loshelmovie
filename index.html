@@ -220,12 +220,12 @@
 
       .credito-card.credito-estado-cancelado {
         border-left: 5px solid #b2bec3;
-        opacity: 0.88;
+        opacity: .88;
       }
 
       .credito-destacado {
-        outline: 3px solid rgba(108, 92, 231, 0.18);
-        box-shadow: 0 0 0 5px rgba(108, 92, 231, 0.08);
+        outline: 3px solid rgba(108,92,231,.18);
+        box-shadow: 0 0 0 5px rgba(108,92,231,.08);
       }
 
       .credito-header {
@@ -250,26 +250,11 @@
         font-weight: 800;
       }
 
-      .credito-badge.activo {
-        background: #e8fff5;
-        color: #078a61;
-      }
-      .credito-badge.hoy {
-        background: #fff4d6;
-        color: #b7791f;
-      }
-      .credito-badge.proximo {
-        background: #e8e0ff;
-        color: #5a35d6;
-      }
-      .credito-badge.moroso {
-        background: #ffe6e1;
-        color: #c0392b;
-      }
-      .credito-badge.cancelado {
-        background: #eef1f4;
-        color: #6b7280;
-      }
+      .credito-badge.activo { background:#e8fff5; color:#078a61; }
+      .credito-badge.hoy { background:#fff4d6; color:#b7791f; }
+      .credito-badge.proximo { background:#e8e0ff; color:#5a35d6; }
+      .credito-badge.moroso { background:#ffe6e1; color:#c0392b; }
+      .credito-badge.cancelado { background:#eef1f4; color:#6b7280; }
 
       .credito-saldo-box {
         text-align: right;
@@ -556,32 +541,14 @@
         justify-content: space-between;
       }
 
-      .alert-resumen-card.red {
-        background: linear-gradient(135deg, #ef4444, #fb7185);
-      }
-      .alert-resumen-card.yellow {
-        background: linear-gradient(135deg, #f59e0b, #fbbf24);
-      }
-      .alert-resumen-card.blue {
-        background: linear-gradient(135deg, #0ea5e9, #38bdf8);
-      }
-      .alert-resumen-card.green {
-        background: linear-gradient(135deg, #10b981, #34d399);
-      }
+      .alert-resumen-card.red { background: linear-gradient(135deg, #ef4444, #fb7185); }
+      .alert-resumen-card.yellow { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
+      .alert-resumen-card.blue { background: linear-gradient(135deg, #0ea5e9, #38bdf8); }
+      .alert-resumen-card.green { background: linear-gradient(135deg, #10b981, #34d399); }
 
-      .alert-resumen-card .title {
-        font-size: 12px;
-        font-weight: 800;
-        opacity: 0.95;
-      }
-      .alert-resumen-card .count {
-        font-size: 24px;
-        font-weight: 800;
-      }
-      .alert-resumen-card .meta {
-        font-size: 12px;
-        opacity: 0.95;
-      }
+      .alert-resumen-card .title { font-size: 12px; font-weight: 800; opacity: .95; }
+      .alert-resumen-card .count { font-size: 24px; font-weight: 800; }
+      .alert-resumen-card .meta { font-size: 12px; opacity: .95; }
 
       .alert-detail-item {
         background: #fafafa;
@@ -592,368 +559,262 @@
       }
 
       .alert-detail-top {
-        display: flex;
-        justify-content: space-between;
-        gap: 12px;
-        align-items: flex-start;
+        display:flex;
+        justify-content:space-between;
+        gap:12px;
+        align-items:flex-start;
       }
 
       .alert-tag {
-        display: inline-block;
-        margin-top: 6px;
-        padding: 4px 10px;
-        border-radius: 999px;
-        font-size: 12px;
-        font-weight: 700;
+        display:inline-block;
+        margin-top:6px;
+        padding:4px 10px;
+        border-radius:999px;
+        font-size:12px;
+        font-weight:700;
       }
 
-      .alert-tag.red {
-        background: #ffe1dd;
-        color: #d63031;
-      }
-      .alert-tag.yellow {
-        background: #fff1c4;
-        color: #b7791f;
-      }
-      .alert-tag.blue {
-        background: #dff4ff;
-        color: #0ea5e9;
-      }
+      .alert-tag.red { background:#ffe1dd; color:#d63031; }
+      .alert-tag.yellow { background:#fff1c4; color:#b7791f; }
+      .alert-tag.blue { background:#dff4ff; color:#0ea5e9; }
 
       .alert-detail-actions {
-        display: flex;
-        gap: 10px;
-        margin-top: 12px;
+        display:flex;
+        gap:10px;
+        margin-top:12px;
       }
 
       .alert-detail-actions button {
-        flex: 1;
+        flex:1;
       }
 
       .calendar-head {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        justify-content: space-between;
+        display:flex;
+        gap:10px;
+        align-items:center;
+        justify-content:space-between;
       }
 
       .calendar-head button {
-        width: 44px;
-        flex: 0 0 44px;
-        border-radius: 12px;
+        width:44px;
+        flex:0 0 44px;
+        border-radius:12px;
       }
 
       .calendar-title {
-        font-weight: 800;
-        text-align: center;
-        flex: 1;
+        font-weight:800;
+        text-align:center;
+        flex:1;
       }
 
-      .calendar-weekdays,
-      .calendar-grid {
-        display: grid;
-        grid-template-columns: repeat(7, minmax(0, 1fr));
-        gap: 8px;
+      .calendar-weekdays, .calendar-grid {
+        display:grid;
+        grid-template-columns:repeat(7, minmax(0,1fr));
+        gap:8px;
       }
 
       .calendar-weekdays div {
-        text-align: center;
-        font-size: 12px;
-        font-weight: 800;
-        color: #636e72;
+        text-align:center;
+        font-size:12px;
+        font-weight:800;
+        color:#636e72;
       }
 
       .calendar-day {
-        min-height: 72px;
-        border-radius: 14px;
-        background: #fff;
-        border: 1px solid #eaeaea;
-        padding: 8px;
-        cursor: pointer;
-        position: relative;
+        min-height:72px;
+        border-radius:14px;
+        background:#fff;
+        border:1px solid #eaeaea;
+        padding:8px;
+        cursor:pointer;
+        position:relative;
       }
 
-      .calendar-day.empty {
-        background: transparent;
-        border: none;
-        cursor: default;
-      }
-      .calendar-day.today {
-        outline: 2px solid var(--morado);
-      }
-      .calendar-day.selected {
-        background: #f0ebff;
-      }
-      .calendar-num {
-        font-weight: 800;
-        font-size: 14px;
-      }
+      .calendar-day.empty { background:transparent; border:none; cursor:default; }
+      .calendar-day.today { outline:2px solid var(--morado); }
+      .calendar-day.selected { background:#f0ebff; }
+      .calendar-num { font-weight:800; font-size:14px; }
       .calendar-badge {
-        position: absolute;
-        right: 8px;
-        bottom: 8px;
-        min-width: 22px;
-        height: 22px;
-        border-radius: 999px;
-        background: var(--morado);
-        color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 12px;
-        font-weight: 800;
-        padding: 0 6px;
+        position:absolute;
+        right:8px;
+        bottom:8px;
+        min-width:22px;
+        height:22px;
+        border-radius:999px;
+        background:var(--morado);
+        color:#fff;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:12px;
+        font-weight:800;
+        padding:0 6px;
       }
-      .calendar-badge.zero {
-        background: #dfe6e9;
-        color: #636e72;
-      }
-      .calendar-detail {
-        margin-top: 12px;
-      }
-      .mini-note {
-        font-size: 12px;
-        color: #636e72;
-        margin-bottom: 8px;
-      }
-      .calendar-item {
-        background: #fafafa;
-        border: 1px solid #eee;
-        border-radius: 14px;
-        padding: 12px;
-        margin-bottom: 10px;
-      }
+      .calendar-badge.zero { background:#dfe6e9; color:#636e72; }
+      .calendar-detail { margin-top:12px; }
+      .mini-note { font-size:12px; color:#636e72; margin-bottom:8px; }
+      .calendar-item { background:#fafafa; border:1px solid #eee; border-radius:14px; padding:12px; margin-bottom:10px; }
 
-      .donut-wrap {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 12px 0;
-      }
+      .donut-wrap { display:flex; justify-content:center; align-items:center; padding:12px 0; }
       .donut {
-        width: 220px;
-        height: 220px;
-        border-radius: 50%;
-        position: relative;
-        background: #eceff4;
+        width:220px; height:220px; border-radius:50%;
+        position:relative; background:#eceff4;
       }
       .donut-center {
-        position: absolute;
-        inset: 34px;
-        background: #fff;
-        border-radius: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        box-shadow: inset 0 0 0 1px #eee;
+        position:absolute; inset:34px;
+        background:#fff; border-radius:50%;
+        display:flex; flex-direction:column; align-items:center; justify-content:center;
+        text-align:center; box-shadow:inset 0 0 0 1px #eee;
       }
-      .donut-number {
-        font-size: 34px;
-        font-weight: 900;
-        line-height: 1;
-      }
-      .donut-label {
-        font-size: 12px;
-        color: #636e72;
-        margin-top: 6px;
-        font-weight: 700;
-      }
-      .legend-cartera {
-        display: grid;
-        gap: 8px;
-        margin-top: 10px;
-      }
+      .donut-number { font-size:34px; font-weight:900; line-height:1; }
+      .donut-label { font-size:12px; color:#636e72; margin-top:6px; font-weight:700; }
+      .legend-cartera { display:grid; gap:8px; margin-top:10px; }
       .legend-item {
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-        align-items: center;
-        background: #fafafa;
-        border: 1px solid #eee;
-        border-radius: 14px;
-        padding: 10px 12px;
+        display:flex; justify-content:space-between; gap:10px; align-items:center;
+        background:#fafafa; border:1px solid #eee; border-radius:14px; padding:10px 12px;
       }
-      .legend-left {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-      .legend-dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-      }
-      .legend-title {
-        font-weight: 800;
-      }
-      .legend-meta {
-        font-size: 12px;
-        color: #636e72;
-      }
+      .legend-left { display:flex; align-items:center; gap:10px; }
+      .legend-dot { width:12px; height:12px; border-radius:50%; }
+      .legend-title { font-weight:800; }
+      .legend-meta { font-size:12px; color:#636e72; }
 
       .dashboard-charts-row {
-        display: grid;
+        display:grid;
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: 12px;
-        margin-bottom: 12px;
+        gap:12px;
+        margin-bottom:12px;
       }
 
-      .chart-card {
-        min-height: 100%;
-      }
+      .chart-card { min-height: 100%; }
 
       .cartera-layout {
-        display: grid;
+        display:grid;
         grid-template-columns: 168px minmax(0, 1fr);
-        gap: 12px;
-        align-items: center;
+        gap:12px;
+        align-items:center;
       }
 
       .cartera-left,
       .cartera-right {
-        min-width: 0;
+        min-width:0;
       }
 
       .cartera-left {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        display:flex;
+        justify-content:center;
+        align-items:center;
       }
 
       .donut-wrap {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        padding:0;
       }
 
       .donut {
-        width: 168px;
-        height: 168px;
-        border-radius: 50%;
-        position: relative;
-        background: #eceff4;
+        width:168px;
+        height:168px;
+        border-radius:50%;
+        position:relative;
+        background:#eceff4;
       }
 
       .donut-center {
-        position: absolute;
-        inset: 28px;
-        background: #fff;
-        border-radius: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        box-shadow: inset 0 0 0 1px #eee;
+        position:absolute;
+        inset:28px;
+        background:#fff;
+        border-radius:50%;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        box-shadow:inset 0 0 0 1px #eee;
       }
 
-      .donut-number {
-        font-size: 30px;
-        font-weight: 900;
-        line-height: 1;
-      }
-      .donut-label {
-        font-size: 12px;
-        color: #636e72;
-        margin-top: 6px;
-        font-weight: 700;
-      }
+      .donut-number { font-size:30px; font-weight:900; line-height:1; }
+      .donut-label { font-size:12px; color:#636e72; margin-top:6px; font-weight:700; }
 
       .legend-cartera {
-        display: grid;
-        gap: 8px;
-        margin-top: 0;
+        display:grid;
+        gap:8px;
+        margin-top:0;
       }
 
       .legend-item {
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-        align-items: center;
-        background: #fafafa;
-        border: 1px solid #eee;
-        border-radius: 14px;
-        padding: 10px 12px;
+        display:flex;
+        justify-content:space-between;
+        gap:10px;
+        align-items:center;
+        background:#fafafa;
+        border:1px solid #eee;
+        border-radius:14px;
+        padding:10px 12px;
       }
 
-      .legend-left {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-      .legend-dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-      }
-      .legend-title {
-        font-weight: 800;
-      }
-      .legend-meta {
-        font-size: 12px;
-        color: #636e72;
-      }
+      .legend-left { display:flex; align-items:center; gap:10px; }
+      .legend-dot { width:12px; height:12px; border-radius:50%; }
+      .legend-title { font-weight:800; }
+      .legend-meta { font-size:12px; color:#636e72; }
 
       .performance-header {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 12px;
-        margin-bottom: 10px;
+        display:flex;
+        align-items:flex-start;
+        justify-content:space-between;
+        gap:12px;
+        margin-bottom:10px;
       }
 
       .performance-chart {
-        display: grid;
-        gap: 10px;
+        display:grid;
+        gap:10px;
       }
 
       .performance-bar-card {
-        display: grid;
+        display:grid;
         grid-template-columns: 100px minmax(0, 1fr) 88px;
-        gap: 10px;
-        align-items: center;
-        background: #fafafa;
-        border: 1px solid #eee;
-        border-radius: 14px;
-        padding: 10px 12px;
+        gap:10px;
+        align-items:center;
+        background:#fafafa;
+        border:1px solid #eee;
+        border-radius:14px;
+        padding:10px 12px;
       }
 
       .performance-bar-label {
-        font-weight: 800;
-        font-size: 13px;
-        color: #2d3436;
+        font-weight:800;
+        font-size:13px;
+        color:#2d3436;
       }
 
       .performance-bar-track {
-        height: 14px;
-        border-radius: 999px;
-        background: #eceff4;
-        overflow: hidden;
+        height:14px;
+        border-radius:999px;
+        background:#eceff4;
+        overflow:hidden;
       }
 
       .performance-bar-fill {
-        height: 100%;
-        border-radius: 999px;
-        background: linear-gradient(90deg, #6c5ce7, #8e7dff);
+        height:100%;
+        border-radius:999px;
+        background:linear-gradient(90deg, #6c5ce7, #8e7dff);
       }
 
       .performance-bar-meta {
-        text-align: right;
-        font-weight: 900;
-        font-size: 13px;
+        text-align:right;
+        font-weight:900;
+        font-size:13px;
       }
 
       .performance-summary {
-        margin-top: 10px;
-        background: #fafafa;
-        border: 1px solid #eee;
-        border-radius: 14px;
-        padding: 10px 12px;
-        font-size: 13px;
-        color: #636e72;
+        margin-top:10px;
+        background:#fafafa;
+        border:1px solid #eee;
+        border-radius:14px;
+        padding:10px 12px;
+        font-size:13px;
+        color:#636e72;
       }
 
       @media (max-width: 860px) {
@@ -966,12 +827,12 @@
         }
 
         .cartera-left {
-          justify-content: flex-start;
+          justify-content:flex-start;
         }
 
         .donut {
-          width: 160px;
-          height: 160px;
+          width:160px;
+          height:160px;
         }
 
         .performance-bar-card {
@@ -979,7 +840,7 @@
         }
 
         .performance-bar-meta {
-          text-align: left;
+          text-align:left;
         }
       }
 
@@ -1022,24 +883,12 @@
         margin-top: 8px;
       }
 
-      .kpi-purple {
-        background: linear-gradient(135deg, #6c5ce7, #8e7dff);
-      }
-      .kpi-pink {
-        background: linear-gradient(135deg, #ff6fa6, #ff9ac1);
-      }
-      .kpi-green {
-        background: linear-gradient(135deg, #10b981, #34d399);
-      }
-      .kpi-orange {
-        background: linear-gradient(135deg, #f59e0b, #fbbf24);
-      }
-      .kpi-red {
-        background: linear-gradient(135deg, #ef4444, #fb7185);
-      }
-      .kpi-blue {
-        background: linear-gradient(135deg, #0ea5e9, #38bdf8);
-      }
+      .kpi-purple { background: linear-gradient(135deg, #6c5ce7, #8e7dff); }
+      .kpi-pink   { background: linear-gradient(135deg, #ff6fa6, #ff9ac1); }
+      .kpi-green  { background: linear-gradient(135deg, #10b981, #34d399); }
+      .kpi-orange { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
+      .kpi-red    { background: linear-gradient(135deg, #ef4444, #fb7185); }
+      .kpi-blue   { background: linear-gradient(135deg, #0ea5e9, #38bdf8); }
 
       .progress-wrap {
         width: 100%;
@@ -1236,7 +1085,7 @@
       .nowrap {
         white-space: nowrap;
       }
-
+    
       .alert-summary-grid {
         display: grid;
         grid-template-columns: 1fr;
@@ -1347,12 +1196,9 @@
         background: #e1f5fe;
         color: #0b74b8;
       }
+
     </style>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      referrerpolicy="no-referrer"
-    />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer" />
 
     <style>
       :root {
@@ -1366,7 +1212,7 @@
         --blanco: #ffffff;
         --azul: #3b82f6;
         --card-shadow: 0 18px 40px rgba(36, 27, 53, 0.08);
-        --card-border: rgba(139, 92, 246, 0.1);
+        --card-border: rgba(139, 92, 246, 0.10);
         --card-radius: 24px;
       }
 
@@ -1376,18 +1222,10 @@
 
       body {
         margin: 0;
-        font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont,
-          sans-serif;
-        background: radial-gradient(
-            circle at top left,
-            rgba(236, 72, 153, 0.1),
-            transparent 28%
-          ),
-          radial-gradient(
-            circle at top right,
-            rgba(139, 92, 246, 0.12),
-            transparent 24%
-          ),
+        font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(236, 72, 153, 0.10), transparent 28%),
+          radial-gradient(circle at top right, rgba(139, 92, 246, 0.12), transparent 24%),
           linear-gradient(180deg, #fff 0%, #f8f5ff 22%, #eef2ff 100%);
         color: var(--texto);
         padding-bottom: 96px;
@@ -1434,7 +1272,7 @@
         width: 180px;
         height: 180px;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(255,255,255,0.10);
         filter: blur(8px);
       }
 
@@ -1470,7 +1308,7 @@
         gap: 8px;
         padding: 8px 12px;
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.15);
+        background: rgba(255,255,255,0.15);
         backdrop-filter: blur(10px);
         font-size: 12px;
         font-weight: 700;
@@ -1489,7 +1327,7 @@
         align-items: center;
         justify-content: center;
         box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
-        border: 1px solid rgba(255, 255, 255, 0.22);
+        border: 1px solid rgba(255,255,255,0.22);
       }
 
       .logout-btn:hover {
@@ -1549,17 +1387,16 @@
         border-radius: 16px;
         border: 1px solid rgba(139, 92, 246, 0.14);
         font-size: 15px;
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255,255,255,0.95);
         color: var(--texto);
         outline: none;
-        transition: border-color 0.18s ease, box-shadow 0.18s ease,
-          transform 0.18s ease;
+        transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
       }
 
       input:focus,
       select:focus {
         border-color: rgba(139, 92, 246, 0.42);
-        box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+        box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.10);
       }
 
       button {
@@ -1573,8 +1410,7 @@
         font-weight: 800;
         margin-top: 8px;
         cursor: pointer;
-        transition: transform 0.18s ease, box-shadow 0.18s ease,
-          opacity 0.18s ease;
+        transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
         box-shadow: 0 12px 20px rgba(139, 92, 246, 0.18);
       }
 
@@ -1583,7 +1419,7 @@
       }
 
       button:disabled {
-        opacity: 0.55;
+        opacity: .55;
         cursor: not-allowed;
         box-shadow: none;
       }
@@ -1656,8 +1492,7 @@
         margin-bottom: 10px;
         cursor: pointer;
         box-shadow: 0 10px 20px rgba(15, 23, 42, 0.05);
-        transition: transform 0.18s ease, box-shadow 0.18s ease,
-          border-color 0.18s ease;
+        transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
       }
 
       .cliente-item:hover {
@@ -1716,7 +1551,7 @@
         width: 100px;
         height: 100px;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(255,255,255,0.10);
         filter: blur(2px);
       }
 
@@ -1724,7 +1559,7 @@
         font-size: 12px;
         opacity: 0.95;
         font-weight: 800;
-        letter-spacing: 0.2px;
+        letter-spacing: .2px;
       }
 
       .kpi-value {
@@ -1740,24 +1575,12 @@
         margin-top: 8px;
       }
 
-      .kpi-purple {
-        background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
-      }
-      .kpi-pink {
-        background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
-      }
-      .kpi-green {
-        background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
-      }
-      .kpi-orange {
-        background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
-      }
-      .kpi-red {
-        background: linear-gradient(135deg, #ef4444 0%, #fb7185 100%);
-      }
-      .kpi-blue {
-        background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%);
-      }
+      .kpi-purple { background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%); }
+      .kpi-pink { background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%); }
+      .kpi-green { background: linear-gradient(135deg, #10b981 0%, #34d399 100%); }
+      .kpi-orange { background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%); }
+      .kpi-red { background: linear-gradient(135deg, #ef4444 0%, #fb7185 100%); }
+      .kpi-blue { background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%); }
 
       .meta-row {
         display: flex;
@@ -1826,7 +1649,7 @@
 
       .hero-note {
         font-size: 13px;
-        opacity: 0.96;
+        opacity: .96;
         margin-top: 8px;
       }
 
@@ -1854,26 +1677,15 @@
         box-shadow: 0 14px 28px rgba(15, 23, 42, 0.06);
       }
 
-      .credito-card.credito-estado-activo {
-        border-left: 6px solid #06d6a0;
-      }
-      .credito-card.credito-estado-hoy {
-        border-left: 6px solid #f4b942;
-      }
-      .credito-card.credito-estado-proximo {
-        border-left: 6px solid #3b82f6;
-      }
-      .credito-card.credito-estado-moroso {
-        border-left: 6px solid #ef476f;
-      }
-      .credito-card.credito-estado-cancelado {
-        border-left: 6px solid #cbd5e1;
-        opacity: 0.88;
-      }
+      .credito-card.credito-estado-activo { border-left: 6px solid #06d6a0; }
+      .credito-card.credito-estado-hoy { border-left: 6px solid #f4b942; }
+      .credito-card.credito-estado-proximo { border-left: 6px solid #3b82f6; }
+      .credito-card.credito-estado-moroso { border-left: 6px solid #ef476f; }
+      .credito-card.credito-estado-cancelado { border-left: 6px solid #cbd5e1; opacity: .88; }
 
       .credito-destacado {
-        outline: 3px solid rgba(139, 92, 246, 0.2);
-        box-shadow: 0 0 0 6px rgba(139, 92, 246, 0.08);
+        outline: 3px solid rgba(139, 92, 246, .20);
+        box-shadow: 0 0 0 6px rgba(139, 92, 246, .08);
       }
 
       .credito-header {
@@ -1898,26 +1710,11 @@
         font-weight: 800;
       }
 
-      .credito-badge.activo {
-        background: #e8fff5;
-        color: #078a61;
-      }
-      .credito-badge.hoy {
-        background: #fff6db;
-        color: #9a6a00;
-      }
-      .credito-badge.proximo {
-        background: #e9f2ff;
-        color: #1d4ed8;
-      }
-      .credito-badge.moroso {
-        background: #ffe7ec;
-        color: #be123c;
-      }
-      .credito-badge.cancelado {
-        background: #eef2f7;
-        color: #64748b;
-      }
+      .credito-badge.activo { background:#e8fff5; color:#078a61; }
+      .credito-badge.hoy { background:#fff6db; color:#9a6a00; }
+      .credito-badge.proximo { background:#e9f2ff; color:#1d4ed8; }
+      .credito-badge.moroso { background:#ffe7ec; color:#be123c; }
+      .credito-badge.cancelado { background:#eef2f7; color:#64748b; }
 
       .credito-mini-grid {
         display: grid;
@@ -1991,7 +1788,7 @@
       .credito-detalle {
         margin-top: 12px;
         background: #fff;
-        border: 1px solid rgba(139, 92, 246, 0.1);
+        border: 1px solid rgba(139, 92, 246, 0.10);
         border-radius: 18px;
         padding: 12px;
         display: grid;
@@ -2056,7 +1853,7 @@
         gap: 10px;
         padding: 12px;
         border-radius: 16px;
-        border: 1px solid rgba(139, 92, 246, 0.1);
+        border: 1px solid rgba(139, 92, 246, 0.10);
         background: #fff;
         cursor: pointer;
         font-weight: 700;
@@ -2078,21 +1875,13 @@
         padding: 14px;
         color: white;
         cursor: pointer;
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.10);
       }
 
-      .alert-resumen-card.green {
-        background: linear-gradient(135deg, #10b981, #34d399);
-      }
-      .alert-resumen-card.yellow {
-        background: linear-gradient(135deg, #f59e0b, #fbbf24);
-      }
-      .alert-resumen-card.red {
-        background: linear-gradient(135deg, #ef4444, #fb7185);
-      }
-      .alert-resumen-card.blue {
-        background: linear-gradient(135deg, #0ea5e9, #38bdf8);
-      }
+      .alert-resumen-card.green { background: linear-gradient(135deg, #10b981, #34d399); }
+      .alert-resumen-card.yellow { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
+      .alert-resumen-card.red { background: linear-gradient(135deg, #ef4444, #fb7185); }
+      .alert-resumen-card.blue { background: linear-gradient(135deg, #0ea5e9, #38bdf8); }
 
       .alertas-tabs {
         display: grid;
@@ -2161,8 +1950,7 @@
         flex: 1;
       }
 
-      .calendar-weekdays,
-      .calendar-grid {
+      .calendar-weekdays, .calendar-grid {
         display: grid;
         grid-template-columns: repeat(7, minmax(0, 1fr));
         gap: 8px;
@@ -2193,7 +1981,7 @@
       }
 
       .calendar-day.today {
-        outline: 2px solid rgba(139, 92, 246, 0.2);
+        outline: 2px solid rgba(139, 92, 246, 0.20);
       }
 
       .calendar-num {
@@ -2210,26 +1998,11 @@
         font-weight: 800;
       }
 
-      .calendar-badge.green {
-        background: #e8fff5;
-        color: #078a61;
-      }
-      .calendar-badge.yellow {
-        background: #fff6db;
-        color: #9a6a00;
-      }
-      .calendar-badge.blue {
-        background: #e9f2ff;
-        color: #1d4ed8;
-      }
-      .calendar-badge.red {
-        background: #ffe7ec;
-        color: #be123c;
-      }
-      .calendar-badge.zero {
-        background: #dfe6e9;
-        color: #64748b;
-      }
+      .calendar-badge.green { background:#e8fff5; color:#078a61; }
+      .calendar-badge.yellow { background:#fff6db; color:#9a6a00; }
+      .calendar-badge.blue { background:#e9f2ff; color:#1d4ed8; }
+      .calendar-badge.red { background:#ffe7ec; color:#be123c; }
+      .calendar-badge.zero { background:#dfe6e9; color:#64748b; }
 
       .calendar-detail {
         margin-top: 12px;
@@ -2259,15 +2032,9 @@
         width: 216px;
         height: 216px;
         border-radius: 50%;
-        background: conic-gradient(
-          #10b981 0 25%,
-          #f59e0b 25% 45%,
-          #3b82f6 45% 70%,
-          #ef476f 70% 100%
-        );
+        background: conic-gradient(#10b981 0 25%, #f59e0b 25% 45%, #3b82f6 45% 70%, #ef476f 70% 100%);
         position: relative;
-        box-shadow: inset 0 0 0 12px rgba(255, 255, 255, 0.82),
-          0 10px 24px rgba(15, 23, 42, 0.08);
+        box-shadow: inset 0 0 0 12px rgba(255,255,255,0.82), 0 10px 24px rgba(15,23,42,0.08);
       }
 
       .donut-center {
@@ -2283,7 +2050,7 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+        box-shadow: 0 8px 18px rgba(15,23,42,0.06);
       }
 
       .donut-number {
@@ -2388,7 +2155,7 @@
       }
 
       .card:hover {
-        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.10);
       }
 
       .pago-item,
@@ -2486,15 +2253,594 @@
       }
     </style>
 
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"
-    ></script>
-  </head>
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  
+<style>
+  /* === DASHBOARD REFERENCE REDESIGN OVERRIDES === */
+  .dashboard-grid{
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  @media (max-width: 1120px){
+    .dashboard-grid{
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+  }
+
+  @media (max-width: 640px){
+    .dashboard-grid{
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 10px !important;
+    }
+  }
+
+  .kpi-card{
+    background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.82)) !important;
+    border: 1px solid rgba(139,92,246,.10) !important;
+    border-radius: 22px !important;
+    color: var(--texto) !important;
+    box-shadow: 0 12px 30px rgba(36,27,53,.08) !important;
+    min-height: 150px !important;
+    padding: 14px 14px 12px !important;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .kpi-card::after{
+    content:"";
+    position:absolute;
+    inset:auto -30px -30px auto;
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background: radial-gradient(circle, rgba(255,255,255,.55), transparent 68%);
+    pointer-events:none;
+  }
+
+  .kpi-head{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    margin-bottom:10px;
+  }
+
+  .kpi-icon{
+    width:36px;
+    height:36px;
+    border-radius:12px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    flex:0 0 36px;
+    font-size:16px;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.55);
+  }
+
+  .kpi-label{
+    font-size: 13px !important;
+    line-height:1.15;
+    font-weight: 800 !important;
+    letter-spacing: 0 !important;
+    color: #3a2f56 !important;
+    opacity: 1 !important;
+    margin-top: 2px;
+  }
+
+  .kpi-value{
+    font-size: 26px !important;
+    font-weight: 900 !important;
+    color: var(--texto) !important;
+    margin-top: 0 !important;
+  }
+
+  .kpi-sub{
+    font-size: 12px !important;
+    color: #635b74 !important;
+    opacity: 1 !important;
+    margin-top: 6px !important;
+  }
+
+  .kpi-purple .kpi-icon{ background: linear-gradient(135deg, rgba(139,92,246,.14), rgba(236,72,153,.12)); color:#8b5cf6; }
+  .kpi-pink .kpi-icon{ background: linear-gradient(135deg, rgba(236,72,153,.14), rgba(255,255,255,.20)); color:#ec4899; }
+  .kpi-green .kpi-icon{ background: linear-gradient(135deg, rgba(6,214,160,.14), rgba(255,255,255,.20)); color:#10b981; }
+  .kpi-orange .kpi-icon{ background: linear-gradient(135deg, rgba(244,185,66,.16), rgba(255,255,255,.20)); color:#f59e0b; }
+  .kpi-red .kpi-icon{ background: linear-gradient(135deg, rgba(239,71,111,.16), rgba(255,255,255,.20)); color:#ef4444; }
+  .kpi-blue .kpi-icon{ background: linear-gradient(135deg, rgba(59,130,246,.14), rgba(255,255,255,.20)); color:#3b82f6; }
+
+  .dashboard-charts-row{
+    display:grid;
+    grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);
+    gap:12px;
+    margin-bottom:12px;
+  }
+
+  @media (max-width: 980px){
+    .dashboard-charts-row{
+      grid-template-columns:1fr;
+    }
+  }
+
+  .chart-card{
+    min-height:100%;
+  }
+
+  .cartera-layout{
+    display:grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap:14px;
+    align-items:center;
+  }
+
+  @media (max-width: 760px){
+    .cartera-layout{
+      grid-template-columns:1fr;
+    }
+  }
+
+  .donut{
+    width: 176px !important;
+    height: 176px !important;
+    box-shadow: inset 0 0 0 1px rgba(139,92,246,.08);
+  }
+
+  .donut-center{
+    inset: 30px !important;
+  }
+
+  .donut-number{
+    font-size: 30px !important;
+    color: var(--texto);
+  }
+
+  .legend-cartera{
+    gap: 10px !important;
+  }
+
+  .legend-item{
+    background: linear-gradient(180deg, #ffffff, #fbfbff) !important;
+    border: 1px solid rgba(139,92,246,.10) !important;
+    border-radius: 16px !important;
+    padding: 10px 12px !important;
+    box-shadow: 0 8px 20px rgba(36,27,53,.04);
+  }
+
+  .legend-title{
+    font-size: 13px;
+  }
+
+  .legend-meta{
+    font-size: 12px;
+  }
+
+  .performance-header{
+    margin-bottom: 8px !important;
+  }
+
+  .performance-chart{
+    display:grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    align-items:end;
+    min-height: 260px;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 700px){
+    .performance-chart{
+      grid-template-columns:1fr;
+      min-height: unset;
+    }
+  }
+
+  .performance-bar-card{
+    background: linear-gradient(180deg, #ffffff, #fbfbff) !important;
+    border: 1px solid rgba(139,92,246,.10) !important;
+    border-radius: 20px !important;
+    padding: 14px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+    gap:10px !important;
+    box-shadow: 0 10px 25px rgba(36,27,53,.05) !important;
+    min-height: 220px;
+  }
+
+  .performance-bar-label{
+    font-size: 13px !important;
+    font-weight: 800 !important;
+    color: #43385e !important;
+    text-align:center;
+  }
+
+  .performance-bar-track{
+    height: 150px !important;
+    background: linear-gradient(180deg, rgba(236,72,153,.08), rgba(139,92,246,.06)) !important;
+    border-radius: 18px !important;
+    padding: 10px !important;
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
+  }
+
+  .performance-bar-fill{
+    width: 100% !important;
+    border-radius: 14px !important;
+    background: linear-gradient(180deg, #ec4899, #8b5cf6) !important;
+    box-shadow: 0 10px 22px rgba(139,92,246,.22);
+  }
+
+  .performance-bar-meta{
+    text-align:center !important;
+    font-size: 16px !important;
+    font-weight: 900 !important;
+    color: var(--texto) !important;
+  }
+
+  .performance-summary{
+    margin-top:12px !important;
+    border-radius:18px !important;
+    background: #f7f3ff !important;
+    border: 1px solid rgba(139,92,246,.10) !important;
+    color: #4d4467 !important;
+    padding: 12px 14px !important;
+  }
+
+  .alert-preview-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:12px;
+  }
+
+  .alert-preview-head .link-btn{
+    width:auto;
+    margin:0;
+    padding:0;
+    border:none;
+    background:transparent;
+    color:#8b5cf6;
+    font-weight:800;
+    cursor:pointer;
+    font-size:13px;
+  }
+
+  .alert-preview-grid{
+    display:grid;
+    grid-template-columns: repeat(4, minmax(0,1fr));
+    gap: 12px;
+  }
+
+  @media (max-width: 1100px){
+    .alert-preview-grid{
+      grid-template-columns: repeat(2, minmax(0,1fr));
+    }
+  }
+
+  @media (max-width: 640px){
+    .alert-preview-grid{
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .alert-preview-card{
+    border-radius: 22px;
+    border: 1px solid rgba(139,92,246,.10);
+    padding: 14px;
+    background: linear-gradient(180deg, #fff, #fcfbff);
+    box-shadow: 0 10px 25px rgba(36,27,53,.05);
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    min-height: 188px;
+  }
+
+  .alert-preview-card.red{
+    background: linear-gradient(180deg, #fff6f8, #fff);
+    border-color: rgba(239,71,111,.12);
+  }
+
+  .alert-preview-card.yellow{
+    background: linear-gradient(180deg, #fffaf0, #fff);
+    border-color: rgba(244,185,66,.12);
+  }
+
+  .alert-preview-card.blue{
+    background: linear-gradient(180deg, #f3f8ff, #fff);
+    border-color: rgba(59,130,246,.12);
+  }
+
+  .alert-preview-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:10px;
+  }
+
+  .alert-preview-icon{
+    width: 40px;
+    height: 40px;
+    border-radius: 14px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-size: 16px;
+    flex: 0 0 40px;
+  }
+
+  .alert-preview-card.red .alert-preview-icon{
+    background: rgba(239,71,111,.10);
+    color: #ef4444;
+  }
+
+  .alert-preview-card.yellow .alert-preview-icon{
+    background: rgba(244,185,66,.14);
+    color: #d97706;
+  }
+
+  .alert-preview-card.blue .alert-preview-icon{
+    background: rgba(59,130,246,.12);
+    color: #2563eb;
+  }
+
+  .alert-preview-days{
+    display:inline-flex;
+    align-items:center;
+    padding: 5px 10px;
+    border-radius:999px;
+    font-size:11px;
+    font-weight:800;
+    white-space:nowrap;
+  }
+
+  .alert-preview-card.red .alert-preview-days{
+    background: #ffe3e8;
+    color:#d63031;
+  }
+
+  .alert-preview-card.yellow .alert-preview-days{
+    background: #fff2c8;
+    color:#b26a00;
+  }
+
+  .alert-preview-card.blue .alert-preview-days{
+    background: #e1efff;
+    color:#1557b0;
+  }
+
+  .alert-preview-name{
+    font-weight: 900;
+    font-size: 15px;
+    color: #31274a;
+  }
+
+  .alert-preview-product{
+    font-size: 13px;
+    color:#655d76;
+  }
+
+  .alert-preview-amount{
+    font-size: 18px;
+    font-weight: 900;
+    color:#241b35;
+  }
+
+  .alert-preview-note{
+    font-size: 12px;
+    color:#635b74;
+  }
+
+  .alert-preview-card button{
+    margin-top:auto;
+    width:100%;
+    border-radius: 14px;
+    font-size: 13px;
+    padding: 10px 12px;
+    background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  }
+
+  .recent-collections-list{
+    display:grid;
+    gap: 10px;
+  }
+
+  .recent-collection-row{
+    display:grid;
+    grid-template-columns: minmax(0, 2fr) repeat(3, minmax(0, 0.72fr)) 34px;
+    gap: 10px;
+    align-items:center;
+    padding: 12px 14px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #ffffff, #fbfbff);
+    border: 1px solid rgba(139,92,246,.10);
+    box-shadow: 0 10px 25px rgba(36,27,53,.05);
+    cursor:pointer;
+  }
+
+  @media (max-width: 900px){
+    .recent-collection-row{
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+
+  .recent-main{
+    min-width:0;
+  }
+
+  .recent-name{
+    font-size: 15px;
+    font-weight: 900;
+    color:#31274a;
+    margin-bottom:2px;
+  }
+
+  .recent-product{
+    font-size: 13px;
+    color:#635b74;
+  }
+
+  .recent-meta{
+    font-size: 12px;
+    color:#8b5cf6;
+    margin-top:6px;
+    font-weight:700;
+  }
+
+  .recent-metrics{
+    display:grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 8px;
+    min-width:0;
+  }
+
+  @media (max-width: 900px){
+    .recent-metrics{
+      grid-template-columns: repeat(3, minmax(0,1fr));
+    }
+  }
+
+  .recent-metric{
+    background:#faf7ff;
+    border:1px solid rgba(139,92,246,.09);
+    border-radius:14px;
+    padding:8px 10px;
+    text-align:center;
+  }
+
+  .recent-metric .label{
+    font-size:11px;
+    color:#6b6280;
+    font-weight:700;
+  }
+
+  .recent-metric .value{
+    margin-top:2px;
+    font-size:13px;
+    font-weight:900;
+    color:#241b35;
+  }
+
+  .recent-metric .value.green{
+    color:#16a34a;
+  }
+
+  .recent-metric .value.red{
+    color:#ef4444;
+  }
+
+  .recent-metric .value.blue{
+    color:#2563eb;
+  }
+
+  .recent-right{
+    text-align:right;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:8px;
+    color:#8b5cf6;
+    font-size:20px;
+  }
+
+  .recent-right .recent-next{
+    text-align:right;
+  }
+
+  .recent-next .label{
+    font-size:11px;
+    color:#6b6280;
+    font-weight:700;
+  }
+
+  .recent-next .value{
+    font-size:13px;
+    font-weight:900;
+    color:#241b35;
+    margin-top:2px;
+  }
+
+  .section-subtitle{
+    font-size: 13px;
+    color: #655d76;
+    margin-top: -4px;
+    margin-bottom: 12px;
+  }
+
+  .chart-card .section-title{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+  }
+
+  .chart-card .section-title .subtle{
+    margin-top:4px;
+  }
+</style>
+
+<style>
+  .performance-bars{
+    display:grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    align-items: end;
+    width:100%;
+  }
+
+  @media (max-width:700px){
+    .performance-bars{
+      grid-template-columns:1fr;
+    }
+  }
+
+  .performance-bar-card{
+    min-height: 250px;
+  }
+
+  .performance-bar-track{
+    position: relative;
+    height: 170px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+  }
+
+  .performance-bar-fill{
+    width: 64%;
+    border-radius: 18px 18px 12px 12px;
+    min-height: 12px;
+  }
+
+  .performance-bar-fill.gray{ background: linear-gradient(180deg, #c7cadf, #b1b6d8); }
+  .performance-bar-fill.pink{ background: linear-gradient(180deg, #ec4899, #f472b6); }
+  .performance-bar-fill.purple{ background: linear-gradient(180deg, #8b5cf6, #a78bfa); }
+
+  .recent-collection-row:hover{
+    transform: translateY(-1px);
+    box-shadow: 0 14px 30px rgba(36,27,53,.08);
+  }
+
+  .recent-collection-row .recent-name,
+  .recent-collection-row .recent-product,
+  .recent-collection-row .recent-meta,
+  .recent-collection-row .recent-right,
+  .recent-collection-row .recent-metrics .value,
+  .recent-collection-row .recent-metrics .label{
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  .alert-preview-card button{
+    box-shadow: none;
+  }
+</style>
+
+</head>
+
+</head>
 
   <body>
     <!-- LOGIN -->
@@ -2509,14 +2855,11 @@
         <button onclick="login()">Ingresar</button>
 
         <div class="auth-actions">
-          <button type="button" onclick="abrirModalRegistro()">
-            Registrar usuario
-          </button>
+          <button type="button" onclick="abrirModalRegistro()">Registrar usuario</button>
         </div>
 
         <div class="registro-hint">
-          Si ya te registraste y verificaste tu correo, vuelve aquí para iniciar
-          sesión.
+          Si ya te registraste y verificaste tu correo, vuelve aquí para iniciar sesión.
         </div>
       </div>
     </div>
@@ -2529,16 +2872,10 @@
 
         <input id="registroEmail" type="email" placeholder="Correo" />
         <input id="registroPassword" type="password" placeholder="Contraseña" />
-        <input
-          id="registroPassword2"
-          type="password"
-          placeholder="Confirmar contraseña"
-        />
+        <input id="registroPassword2" type="password" placeholder="Confirmar contraseña" />
 
         <button onclick="registrarUsuario()">Crear cuenta</button>
-        <button onclick="cerrarModalRegistro()" style="background: #999">
-          Cancelar
-        </button>
+        <button onclick="cerrarModalRegistro()" style="background: #999">Cancelar</button>
       </div>
     </div>
 
@@ -2553,12 +2890,7 @@
             <div class="hero-note" id="fechaHome"></div>
           </div>
 
-          <button
-            class="logout-btn"
-            onclick="cerrarSesion()"
-            aria-label="Cerrar sesión"
-            title="Cerrar sesión"
-          >
+          <button class="logout-btn" onclick="cerrarSesion()" aria-label="Cerrar sesión" title="Cerrar sesión">
             <i class="fa-solid fa-right-from-bracket"></i>
           </button>
         </div>
@@ -2568,58 +2900,68 @@
         <div class="section-title">📈 Tu negocio hoy</div>
 
         <div class="dashboard-grid">
-          <div
-            class="kpi-card kpi-purple"
-            onclick="irASeccion('calendarSection')"
-          >
-            <div class="kpi-label">💰 Por cobrar total</div>
+          <div class="kpi-card kpi-purple" onclick="irASeccion('calendarSection')">
+            <div class="kpi-head">
+              <span class="kpi-icon"><i class="fa-solid fa-wallet"></i></span>
+              <div class="kpi-label">Por cobrar total</div>
+            </div>
             <div class="kpi-value" id="kpiTotalValue">S/ 0</div>
             <div class="kpi-sub" id="kpiTotalSub">Deuda total activa</div>
           </div>
 
-          <div
-            class="kpi-card kpi-pink"
-            onclick="ir('clientesScreen', document.querySelectorAll('.menu button')[1])"
-          >
-            <div class="kpi-label">👥 Clientes con deuda</div>
+          <div class="kpi-card kpi-pink" onclick="ir('clientesScreen', document.querySelectorAll('.menu button')[1])">
+            <div class="kpi-head">
+              <span class="kpi-icon"><i class="fa-solid fa-users"></i></span>
+              <div class="kpi-label">Clientes con deuda</div>
+            </div>
             <div class="kpi-value" id="kpiClientesValue">0</div>
             <div class="kpi-sub" id="kpiClientesSub">Cuentas pendientes</div>
           </div>
 
           <div class="kpi-card kpi-green" onclick="abrirAlertas('hoy')">
-            <div class="kpi-label">📅 Cobros hoy</div>
+            <div class="kpi-head">
+              <span class="kpi-icon"><i class="fa-regular fa-calendar-check"></i></span>
+              <div class="kpi-label">Cobros hoy</div>
+            </div>
             <div class="kpi-value" id="kpiHoyValue">S/ 0</div>
-            <div class="kpi-sub" id="kpiHoySub">0 clientes</div>
+            <div class="kpi-sub" id="kpiHoySub">Clientes por cobrar hoy</div>
           </div>
 
-          <div
-            class="kpi-card kpi-orange"
-            onclick="irASeccion('calendarSection')"
-          >
-            <div class="kpi-label">📆 Cobros próximos 7 días</div>
-            <div class="kpi-value" id="kpiSemanaValue">S/ 0</div>
-            <div class="kpi-sub" id="kpiSemanaSub">
-              Cobros programados en 7 días
+          <div class="kpi-card kpi-orange" onclick="irASeccion('calendarSection')">
+            <div class="kpi-head">
+              <span class="kpi-icon"><i class="fa-regular fa-clock"></i></span>
+              <div class="kpi-label">Cobros próximos 7 días</div>
             </div>
+            <div class="kpi-value" id="kpiSemanaValue">S/ 0</div>
+            <div class="kpi-sub" id="kpiSemanaSub">Cobros programados en 7 días</div>
           </div>
 
           <div class="kpi-card kpi-red" onclick="abrirAlertas('morosos')">
-            <div class="kpi-label">⚠ Morosos</div>
+            <div class="kpi-head">
+              <span class="kpi-icon"><i class="fa-solid fa-triangle-exclamation"></i></span>
+              <div class="kpi-label">Morosos</div>
+            </div>
             <div class="kpi-value" id="kpiMorososValue">0</div>
-            <div class="kpi-sub" id="kpiMorososSub">0 por cobrar</div>
+            <div class="kpi-sub" id="kpiMorososSub">Clientes vencidos</div>
           </div>
 
-          <div class="kpi-card kpi-blue" onclick="abrirAlertas('proximos')">
-            <div class="kpi-label">🔔 Alertas enviadas</div>
+          <div class="kpi-card kpi-blue" onclick="abrirAlertas('enviadas')">
+            <div class="kpi-head">
+              <span class="kpi-icon"><i class="fa-solid fa-bell"></i></span>
+              <div class="kpi-label">Alertas enviadas</div>
+            </div>
             <div class="kpi-value" id="kpiAlertas3Value">0</div>
             <div class="kpi-sub" id="kpiAlertas3Sub">Historial de avisos</div>
           </div>
         </div>
       </div>
 
-      <div id="resumen" style="display: none"></div>
+            <div id="resumen" style="display:none;"></div>
 
-      <div class="dashboard-charts-row">
+<div class="dashboard-charts-row">
+<div id="resumen" style="display:none;"></div>
+
+<div class="dashboard-charts-row">
         <div class="card chart-card">
           <div class="section-title">📊 Estado de cartera</div>
           <div class="cartera-layout">
@@ -2643,12 +2985,8 @@
         <div class="card chart-card">
           <div class="performance-header">
             <div>
-              <div class="section-title" style="margin-bottom: 4px">
-                📈 Rendimiento de cobranza
-              </div>
-              <div class="subtle">
-                Mes pasado como referencia, mes actual y últimos 7 días
-              </div>
+              <div class="section-title" style="margin-bottom:4px;">📈 Rendimiento de cobranza</div>
+              <div class="subtle">Mes pasado como referencia, mes actual y últimos 7 días</div>
             </div>
           </div>
 
@@ -2673,26 +3011,16 @@
         </div>
 
         <div class="calendar-weekdays">
-          <div>L</div>
-          <div>M</div>
-          <div>X</div>
-          <div>J</div>
-          <div>V</div>
-          <div>S</div>
-          <div>D</div>
+          <div>L</div><div>M</div><div>X</div><div>J</div><div>V</div><div>S</div><div>D</div>
         </div>
 
-        <div
-          id="calendarioGrid"
-          class="calendar-grid"
-          style="margin-top: 8px"
-        ></div>
+        <div id="calendarioGrid" class="calendar-grid" style="margin-top:8px;"></div>
 
         <div id="detalleCalendarioDia" class="calendar-detail"></div>
       </div>
 
       <div class="card">
-        <div class="section-title">🕒 Últimos cobros registrados</div>
+        <div class="section-title">🕒 Últimos cobros</div>
 
         <div id="actividadReciente" class="actividad-list"></div>
       </div>
@@ -2708,16 +3036,10 @@
 
       <div class="card">
         <div class="alertas-tabs">
-          <button id="tabMorosos" onclick="abrirAlertas('morosos')">
-            Vencidos
-          </button>
+          <button id="tabMorosos" onclick="abrirAlertas('morosos')">Vencidos</button>
           <button id="tabHoy" onclick="abrirAlertas('hoy')">Hoy</button>
-          <button id="tabProximos" onclick="abrirAlertas('proximos')">
-            3 días
-          </button>
-          <button id="tabEnviadas" onclick="abrirAlertas('enviadas')">
-            Enviadas
-          </button>
+          <button id="tabProximos" onclick="abrirAlertas('proximos')">3 días</button>
+          <button id="tabEnviadas" onclick="abrirAlertas('enviadas')">Enviadas</button>
         </div>
 
         <div id="listaAlertasDetalle"></div>
@@ -2725,6 +3047,7 @@
         <button onclick="ir('homeScreen')">⬅ Volver al dashboard</button>
       </div>
     </div>
+
 
     <!-- CLIENTES -->
 
@@ -2845,9 +3168,7 @@
       <div class="card">
         <div class="section-title-row">
           <div class="section-title">📦 Créditos</div>
-          <div class="subtle">
-            Toca “Ver más detalles” para ampliar la información
-          </div>
+          <div class="subtle">Toca “Ver más detalles” para ampliar la información</div>
         </div>
 
         <div id="detalleCreditos"></div>
@@ -2856,13 +3177,7 @@
       <div class="card">
         <div class="section-title-row">
           <div class="section-title">📜 Historial</div>
-          <button
-            id="btnHistorialCliente"
-            class="mini-toggle"
-            onclick="toggleHistorialCliente(this)"
-          >
-            Ocultar historial
-          </button>
+          <button id="btnHistorialCliente" class="mini-toggle" onclick="toggleHistorialCliente(this)">Ocultar historial</button>
         </div>
 
         <div id="detallePagos"></div>
@@ -2906,23 +3221,18 @@
         <i class="fa-solid fa-house nav-icon"></i><br />Resumen
       </button>
 
-      <button onclick="ir('clientesScreen',this)">
-        <i class="fa-solid fa-users nav-icon"></i><br />Clientes
-      </button>
+      <button onclick="ir('clientesScreen',this)"><i class="fa-solid fa-users nav-icon"></i><br />Clientes</button>
 
       <!-- NUEVO BOTÓN AGREGADO -->
 
-      <button onclick="ir('clienteScreen',this)">
-        <i class="fa-solid fa-user-plus nav-icon"></i><br />Nuevo
-      </button>
+      <button onclick="ir('clienteScreen',this)"><i class="fa-solid fa-user-plus nav-icon"></i><br />Nuevo</button>
 
-      <button onclick="abrirPagosRecientes(this)">
-        <i class="fa-solid fa-wallet nav-icon"></i><br />Pagos
-      </button>
+      <button onclick="abrirPagosRecientes(this)"><i class="fa-solid fa-wallet nav-icon"></i><br />Pagos</button>
 
       <button onclick="ir('configScreen',this); cargarConfiguracion();">
         <i class="fa-solid fa-gear nav-icon"></i><br />Config
       </button>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
@@ -2957,9 +3267,7 @@
         if (menuPrincipal) {
           menuPrincipal.classList.add("visible");
         }
-        document
-          .querySelectorAll(".menu button")
-          .forEach((b) => b.classList.remove("active"));
+        document.querySelectorAll(".menu button").forEach((b) => b.classList.remove("active"));
         const primerBotonMenu = document.querySelector(".menu button");
         if (primerBotonMenu) {
           primerBotonMenu.classList.add("active");
@@ -2972,12 +3280,8 @@
         if (menuPrincipal) {
           menuPrincipal.classList.remove("visible");
         }
-        document
-          .querySelectorAll(".menu button")
-          .forEach((b) => b.classList.remove("active"));
-        document
-          .querySelectorAll(".pantalla")
-          .forEach((p) => p.classList.remove("activa"));
+        document.querySelectorAll(".menu button").forEach((b) => b.classList.remove("active"));
+        document.querySelectorAll(".pantalla").forEach((p) => p.classList.remove("activa"));
         loginScreen.classList.add("activa");
       }
 
@@ -2987,9 +3291,7 @@
       const listaPendientes = document.getElementById("listaPendientes");
       const actividadReciente = document.getElementById("actividadReciente");
       const graficoSemana = document.getElementById("rendimientoCobranzaChart");
-      const rendimientoCobranzaMeta = document.getElementById(
-        "rendimientoCobranzaMeta"
-      );
+      const rendimientoCobranzaMeta = document.getElementById("rendimientoCobranzaMeta");
       const metaSemanaTexto = document.getElementById("cobroSemanaTexto");
       const metaSemanaPct = document.getElementById("cobroSemanaPct");
       const metaSemanaBar = document.getElementById("cobroSemanaBar");
@@ -2998,9 +3300,7 @@
       const detallePagoModal = document.getElementById("detallePagoModal");
 
       function capitalizarPrimeraLetra(valor) {
-        const texto = String(valor ?? "")
-          .replace(/\s+/g, " ")
-          .trimStart();
+        const texto = String(valor ?? "").replace(/\s+/g, " ").trimStart();
         if (!texto) return "";
         return texto.charAt(0).toUpperCase() + texto.slice(1);
       }
@@ -3021,30 +3321,19 @@
       }
 
       function tipoPagoModalEsAbono() {
-        const seleccionado = document.querySelector(
-          'input[name="tipoPagoModal"]:checked'
-        );
+        const seleccionado = document.querySelector('input[name="tipoPagoModal"]:checked');
         return seleccionado ? seleccionado.value === "abono" : false;
       }
 
       function resetTipoPagoModal() {
-        const cuota = document.querySelector(
-          'input[name="tipoPagoModal"][value="cuota"]'
-        );
-        const abono = document.querySelector(
-          'input[name="tipoPagoModal"][value="abono"]'
-        );
+        const cuota = document.querySelector('input[name="tipoPagoModal"][value="cuota"]');
+        const abono = document.querySelector('input[name="tipoPagoModal"][value="abono"]');
         if (cuota) cuota.checked = true;
         if (abono) abono.checked = false;
       }
 
       function configurarValidacionesEntradas() {
-        const camposCapitalizar = [
-          "nombre",
-          "producto",
-          "nombreUsuario",
-          "direccion",
-        ];
+        const camposCapitalizar = ["nombre", "producto", "nombreUsuario", "direccion"];
         camposCapitalizar.forEach((id) => {
           const el = document.getElementById(id);
           if (!el) return;
@@ -3134,12 +3423,8 @@
         if (menuPrincipal) {
           menuPrincipal.classList.remove("visible");
         }
-        document
-          .querySelectorAll(".menu button")
-          .forEach((b) => b.classList.remove("active"));
-        document
-          .querySelectorAll(".pantalla")
-          .forEach((p) => p.classList.remove("activa"));
+        document.querySelectorAll(".menu button").forEach((b) => b.classList.remove("active"));
+        document.querySelectorAll(".pantalla").forEach((p) => p.classList.remove("activa"));
         loginScreen.classList.add("activa");
         email.value = "";
         password.value = "";
@@ -3200,13 +3485,9 @@
           saludo.textContent = "Hola, " + usuarioActual.email.split("@")[0];
           mostrarInterfazAutenticada();
           await iniciarApp();
-          alert(
-            "Cuenta creada correctamente. Ya puedes gestionar tus créditos."
-          );
+          alert("Cuenta creada correctamente. Ya puedes gestionar tus créditos.");
         } else {
-          alert(
-            "Cuenta creada. Revisa tu correo para verificarla y luego inicia sesión."
-          );
+          alert("Cuenta creada. Revisa tu correo para verificarla y luego inicia sesión.");
         }
       }
 
@@ -3242,9 +3523,7 @@
 
         if (data) {
           frecuenciaGeneral = Number(data.dias_cobro || 10);
-          nombreUsuarioActual =
-            String(data.nombre_usuario || "").trim() ||
-            nombreUsuarioParaSaludo();
+          nombreUsuarioActual = String(data.nombre_usuario || "").trim() || nombreUsuarioParaSaludo();
           if (typeof nombreUsuario !== "undefined") {
             nombreUsuario.value = nombreUsuarioActual;
           }
@@ -3321,14 +3600,12 @@
           frecuenciaGeneral = diasSeleccionados;
           nombreUsuarioActual = nombreSeleccionado || nombreUsuarioParaSaludo();
           if (document.getElementById("nombreUsuario")) {
-            document.getElementById("nombreUsuario").value =
-              nombreUsuarioActual;
+            document.getElementById("nombreUsuario").value = nombreUsuarioActual;
           }
 
           /* MANTIENE OPCIÓN */
 
-          document.getElementById("diasCobro").value =
-            String(diasSeleccionados);
+          document.getElementById("diasCobro").value = String(diasSeleccionados);
           document.getElementById("nombreUsuario").value = nombreUsuarioActual;
 
           aplicarCabeceraUsuario();
@@ -3413,6 +3690,7 @@ ${c.nombre}
         abrirCliente(data.id);
       }
 
+
       function formatearDinero(valor) {
         return `S/${Number(valor || 0).toFixed(2)}`;
       }
@@ -3437,9 +3715,7 @@ ${c.nombre}
       function nombreUsuarioParaSaludo() {
         const nombre = String(nombreUsuarioActual || "").trim();
         if (nombre) return nombre;
-        return usuarioActual?.email
-          ? usuarioActual.email.split("@")[0]
-          : "Usuario";
+        return usuarioActual?.email ? usuarioActual.email.split("@")[0] : "Usuario";
       }
 
       function aplicarCabeceraUsuario() {
@@ -3531,22 +3807,14 @@ Saldo pendiente: ${saldo}.`;
       }
 
       function descripcionHistorialMovimiento(m) {
-        const cuotaTexto = textoMovimientoCuota(m)
-          .replace(/^🟢\s*/u, "")
-          .replace(/^🟡\s*/u, "");
+        const cuotaTexto = textoMovimientoCuota(m).replace(/^🟢\s*/u, "").replace(/^🟡\s*/u, "");
         const saldoRestante = formatearDinero(m.saldo_actual);
 
         if (m.tipo_pago === "abono") {
-          return `Se registró un abono de ${formatearDinero(m.monto)} el ${
-            m.fecha
-          }. Saldo restante: ${saldoRestante}.`;
+          return `Se registró un abono de ${formatearDinero(m.monto)} el ${m.fecha}. Saldo restante: ${saldoRestante}.`;
         }
 
-        return `Se pagó ${cuotaTexto.toLowerCase()} por ${formatearDinero(
-          m.monto
-        )} el ${m.fecha}. Saldo restante: ${saldoRestante}. Próximo cobro: ${
-          m.proximo_pago || "-"
-        }.`;
+        return `Se pagó ${cuotaTexto.toLowerCase()} por ${formatearDinero(m.monto)} el ${m.fecha}. Saldo restante: ${saldoRestante}. Próximo cobro: ${m.proximo_pago || "-"}.`;
       }
 
       async function enviarRecordatorioCredito(creditoId) {
@@ -3562,11 +3830,7 @@ Saldo pendiente: ${saldo}.`;
           return;
         }
 
-        if (
-          !credito ||
-          credito.estado === "cancelado" ||
-          Number(credito.saldo || 0) <= 0
-        ) {
+        if (!credito || credito.estado === "cancelado" || Number(credito.saldo || 0) <= 0) {
           alert("Este crédito ya está cancelado.");
           return;
         }
@@ -3584,25 +3848,20 @@ Saldo pendiente: ${saldo}.`;
 
         const info = categoriaAlertaCredito(credito);
         const mensaje = mensajeRecordatorioCredito(credito, info);
-        const numero = String(credito.Clientes.telefono || "").replace(
-          /\D/g,
-          ""
-        );
+        const numero = String(credito.Clientes.telefono || "").replace(/\D/g, "");
         const ahora = new Date().toISOString();
 
-        const { error: errorAlerta } = await supabaseClient
-          .from("Alertas")
-          .insert([
-            {
-              owner_id: usuarioActual.id,
-              cliente_id: credito.cliente_id,
-              creditos_ids: [credito.id],
-              tipo_alerta: info.categoria,
-              dias_retraso: info.dias || 0,
-              mensaje,
-              fecha_envio: ahora,
-            },
-          ]);
+        const { error: errorAlerta } = await supabaseClient.from("Alertas").insert([
+          {
+            owner_id: usuarioActual.id,
+            cliente_id: credito.cliente_id,
+            creditos_ids: [credito.id],
+            tipo_alerta: info.categoria,
+            dias_retraso: info.dias || 0,
+            mensaje,
+            fecha_envio: ahora,
+          },
+        ]);
 
         if (errorAlerta) {
           console.log(errorAlerta);
@@ -3620,10 +3879,7 @@ Saldo pendiente: ${saldo}.`;
           .eq("id", credito.id);
 
         await verDashboard();
-        window.open(
-          `https://wa.me/51${numero}?text=${encodeURIComponent(mensaje)}`,
-          "_blank"
-        );
+        window.open(`https://wa.me/51${numero}?text=${encodeURIComponent(mensaje)}`, "_blank");
       }
 
       function resumenCuotasCredito(credito) {
@@ -3639,6 +3895,7 @@ Saldo pendiente: ${saldo}.`;
           extras,
         };
       }
+
 
       function estadoCreditoVisual(credito) {
         const saldo = Number(credito.saldo || 0);
@@ -3689,9 +3946,7 @@ Saldo pendiente: ${saldo}.`;
         historialClienteVisible = !historialClienteVisible;
         detallePagos.style.display = historialClienteVisible ? "block" : "none";
         if (btn) {
-          btn.textContent = historialClienteVisible
-            ? "Ocultar historial"
-            : "Ver historial";
+          btn.textContent = historialClienteVisible ? "Ocultar historial" : "Ver historial";
         }
       }
 
@@ -3723,14 +3978,11 @@ Saldo pendiente: ${saldo}.`;
       function obtenerUltimoMovimientoCredito(creditoId) {
         const lista = (movimientosEnriquecidos || [])
           .filter((m) => m.credito_id === creditoId)
-          .sort((a, b) =>
-            (b.created_at || b.fecha || "").localeCompare(
-              a.created_at || a.fecha || ""
-            )
-          );
+          .sort((a, b) => (b.created_at || b.fecha || "").localeCompare(a.created_at || a.fecha || ""));
 
         return lista[0] || null;
       }
+
 
       function construirAlertasAgrupadas(creditosActivos) {
         const hoy = fechaLocal();
@@ -3787,55 +4039,86 @@ Saldo pendiente: ${saldo}.`;
         });
 
         return {
-          morosos: Array.from(grupos.morosos.values()).sort(
-            (a, b) => b.total - a.total
-          ),
-          hoy: Array.from(grupos.hoy.values()).sort(
-            (a, b) => b.total - a.total
-          ),
-          proximos: Array.from(grupos.proximos.values()).sort(
-            (a, b) => a.dias - b.dias
-          ),
+          morosos: Array.from(grupos.morosos.values()).sort((a, b) => b.total - a.total),
+          hoy: Array.from(grupos.hoy.values()).sort((a, b) => b.total - a.total),
+          proximos: Array.from(grupos.proximos.values()).sort((a, b) => a.dias - b.dias),
         };
       }
 
       function renderAlertasHome() {
-        const totalMorosos = alertasAgrupadas.morosos.reduce(
-          (s, g) => s + Number(g.total || 0),
-          0
-        );
-        const totalHoy = alertasAgrupadas.hoy.reduce(
-          (s, g) => s + Number(g.total || 0),
-          0
-        );
-        const totalProximos = alertasAgrupadas.proximos.reduce(
-          (s, g) => s + Number(g.total || 0),
-          0
-        );
+        const destacar = [
+          ...(alertasAgrupadas.morosos || []).map((g) => ({ ...g, categoria: "morosos" })),
+          ...(alertasAgrupadas.hoy || []).map((g) => ({ ...g, categoria: "hoy" })),
+          ...(alertasAgrupadas.proximos || []).map((g) => ({ ...g, categoria: "proximos" })),
+        ].slice(0, 4);
+
+        const iconos = {
+          morosos: "fa-solid fa-triangle-exclamation",
+          hoy: "fa-regular fa-calendar-check",
+          proximos: "fa-regular fa-paper-plane",
+        };
+
+        const clases = {
+          morosos: "red",
+          hoy: "yellow",
+          proximos: "blue",
+        };
+
+        const mensajes = {
+          morosos: (g) => `${g.dias} días de atraso`,
+          hoy: () => "Vence hoy",
+          proximos: (g) => `Vence en ${g.dias} días`,
+        };
+
+        const subtitulos = {
+          morosos: "Aviso urgente",
+          hoy: "Último día de pago",
+          proximos: "Recordatorio amable",
+        };
+
+        if (!destacar.length) {
+          alertasHome.innerHTML = `
+<div class="alert-preview-head">
+  <div>
+    <div class="section-title" style="margin:0;">🔔 Alertas para revisar</div>
+    <div class="section-subtitle">Clientes que necesitan atención</div>
+  </div>
+</div>
+<div class="pago-item">No hay alertas para revisar.</div>
+`;
+          return;
+        }
 
         alertasHome.innerHTML = `
-<div class="alert-summary-grid">
-  <div class="alert-resumen-card red" onclick="abrirAlertas('morosos')">
-    <div class="title">Vencidos</div>
-    <div class="count">${alertasAgrupadas.morosos.length}</div>
-    <div class="meta">${formatearDinero(totalMorosos)} por cobrar</div>
+<div class="alert-preview-head">
+  <div>
+    <div class="section-title" style="margin:0;">🔔 Alertas para revisar</div>
+    <div class="section-subtitle">Clientes que necesitan atención</div>
   </div>
+  <button class="link-btn" onclick="abrirAlertas('morosos')">Ver todas</button>
+</div>
 
-  <div class="alert-resumen-card yellow" onclick="abrirAlertas('hoy')">
-    <div class="title">Vence hoy</div>
-    <div class="count">${alertasAgrupadas.hoy.length}</div>
-    <div class="meta">${formatearDinero(totalHoy)} en su último día</div>
-  </div>
+<div class="alert-preview-grid">
+  ${destacar.map((g) => `
+    <div class="alert-preview-card ${clases[g.categoria]}">
+      <div class="alert-preview-top">
+        <span class="alert-preview-icon"><i class="${iconos[g.categoria]}"></i></span>
+        <span class="alert-preview-days">${mensajes[g.categoria](g)}</span>
+      </div>
 
-  <div class="alert-resumen-card blue" onclick="abrirAlertas('proximos')">
-    <div class="title">Próximos 3 días</div>
-    <div class="count">${alertasAgrupadas.proximos.length}</div>
-    <div class="meta">${formatearDinero(totalProximos)} por avisar</div>
-  </div>
+      <div class="alert-preview-name">${g.nombre}</div>
+      <div class="alert-preview-product">${(g.productos || []).map((p) => p.producto).join(" · ")}</div>
+      <div class="alert-preview-amount">${formatearDinero(g.total)}</div>
+      <div class="alert-preview-note">${subtitulos[g.categoria]}</div>
+
+      <button onclick="enviarWhatsAppAlerta('${g.categoria}','${g.cliente_id}')">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+      </button>
+    </div>
+  `).join("")}
 </div>
 `;
       }
-
       function abrirAlertas(categoria) {
         alertaCategoriaActiva = categoria;
         ir("alertasScreen");
@@ -3867,10 +4150,7 @@ Saldo pendiente: ${saldo}.`;
         const titulos = {
           morosos: ["🔴 Vencidos", "Clientes que ya pasaron su fecha de pago"],
           hoy: ["🟡 Vence hoy", "Clientes que deben pagar hoy"],
-          proximos: [
-            "🟢 Próximos 3 días",
-            "Clientes que necesitan recordatorio amable",
-          ],
+          proximos: ["🟢 Próximos 3 días", "Clientes que necesitan recordatorio amable"],
         };
 
         titulo.textContent = titulos[categoria][0];
@@ -3895,11 +4175,7 @@ Saldo pendiente: ${saldo}.`;
                 : `Vence en ${g.dias} día(s)`;
 
             const tagClass =
-              categoria === "morosos"
-                ? "red"
-                : categoria === "hoy"
-                ? "yellow"
-                : "blue";
+              categoria === "morosos" ? "red" : categoria === "hoy" ? "yellow" : "blue";
 
             return `
 <div class="alert-detail-item">
@@ -3917,9 +4193,7 @@ Saldo pendiente: ${saldo}.`;
 
   <div class="alert-detail-actions">
     <button onclick="abrirCliente('${g.cliente_id}')">Ver cliente</button>
-    <button onclick="enviarWhatsAppAlerta('${categoria}','${
-              g.cliente_id
-            }')">WhatsApp</button>
+    <button onclick="enviarWhatsAppAlerta('${categoria}','${g.cliente_id}')">WhatsApp</button>
   </div>
 </div>
 `;
@@ -3928,9 +4202,7 @@ Saldo pendiente: ${saldo}.`;
       }
 
       function enviarWhatsAppAlerta(categoria, cliente_id) {
-        const grupo = alertasAgrupadas[categoria]?.find(
-          (g) => g.cliente_id === cliente_id
-        );
+        const grupo = alertasAgrupadas[categoria]?.find((g) => g.cliente_id === cliente_id);
         if (!grupo) return;
 
         if (!grupo.telefono) {
@@ -3946,23 +4218,11 @@ Saldo pendiente: ${saldo}.`;
         let mensaje = "";
 
         if (categoria === "morosos") {
-          mensaje = `Hola ${grupo.nombre}, tienes ${
-            grupo.dias
-          } días de retraso en los siguientes productos:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(
-            grupo.total
-          )}.\nPor favor comunícate para regularizar tu pago.`;
+          mensaje = `Hola ${grupo.nombre}, tienes ${grupo.dias} días de retraso en los siguientes productos:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(grupo.total)}.\nPor favor comunícate para regularizar tu pago.`;
         } else if (categoria === "hoy") {
-          mensaje = `Hola ${
-            grupo.nombre
-          }, hoy vence tu pago de:\n\n${productos}\n\nTotal a pagar: ${formatearDinero(
-            grupo.total
-          )}.\nGracias por tu puntualidad.`;
+          mensaje = `Hola ${grupo.nombre}, hoy vence tu pago de:\n\n${productos}\n\nTotal a pagar: ${formatearDinero(grupo.total)}.\nGracias por tu puntualidad.`;
         } else {
-          mensaje = `Hola ${grupo.nombre}, te recordamos que dentro de ${
-            grupo.dias
-          } día(s) vence tu pago de:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(
-            grupo.total
-          )}.\nGracias por tu puntualidad.`;
+          mensaje = `Hola ${grupo.nombre}, te recordamos que dentro de ${grupo.dias} día(s) vence tu pago de:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(grupo.total)}.\nGracias por tu puntualidad.`;
         }
 
         window.open(
@@ -3972,9 +4232,7 @@ Saldo pendiente: ${saldo}.`;
       }
 
       function construirMovimientosEnriquecidos(pagos, creditosActivos) {
-        const creditosMap = new Map(
-          (creditosActivos || []).map((c) => [c.id, c])
-        );
+        const creditosMap = new Map((creditosActivos || []).map((c) => [c.id, c]));
         const pagosPorCredito = new Map();
 
         (pagos || []).forEach((p) => {
@@ -3994,13 +4252,11 @@ Saldo pendiente: ${saldo}.`;
             return aa.localeCompare(bb);
           });
 
-          let saldo =
-            Number(credito.monto_total || 0) - Number(credito.inicial || 0);
+          let saldo = Number(credito.monto_total || 0) - Number(credito.inicial || 0);
           if (saldo < 0) saldo = 0;
 
           let cuotaNumero = 0;
-          let proximoCobro =
-            credito.fecha_inicio || credito.fecha_proximo_pago || "";
+          let proximoCobro = credito.fecha_inicio || credito.fecha_proximo_pago || "";
           const totalCuotas = Number(credito.cuotas || 0);
 
           ordenados.forEach((p) => {
@@ -4013,15 +4269,9 @@ Saldo pendiente: ${saldo}.`;
             if (p.tipo_pago !== "abono") {
               cuotaNumero += 1;
               numeroCuotaMostrada = cuotaNumero;
-              const base =
-                p.proximo_pago ||
-                proximoCobro ||
-                credito.fecha_proximo_pago ||
-                p.fecha;
+              const base = p.proximo_pago || proximoCobro || credito.fecha_proximo_pago || p.fecha;
               const frecuencia = Number(credito.frecuencia_dias || 10);
-              proximoCobro = base
-                ? sumarDiasISO(base, frecuencia)
-                : credito.fecha_proximo_pago || "";
+              proximoCobro = base ? sumarDiasISO(base, frecuencia) : credito.fecha_proximo_pago || "";
             }
 
             const saldoActual = Number.isFinite(Number(p.saldo_actual))
@@ -4046,11 +4296,7 @@ Saldo pendiente: ${saldo}.`;
               saldo_anterior: saldoAnterior,
               saldo_actual: saldoActual,
               saldo_actual_credito: Number(credito.saldo || 0),
-              proximo_pago:
-                p.proximo_pago ||
-                proximoCobro ||
-                credito.fecha_proximo_pago ||
-                "",
+              proximo_pago: p.proximo_pago || proximoCobro || credito.fecha_proximo_pago || "",
               frecuencia_dias: Number(credito.frecuencia_dias || 10),
             });
           });
@@ -4099,8 +4345,7 @@ Saldo pendiente: ${saldo}.`;
           year: "numeric",
         });
 
-        titulo.textContent =
-          nombreMes.charAt(0).toUpperCase() + nombreMes.slice(1);
+        titulo.textContent = nombreMes.charAt(0).toUpperCase() + nombreMes.slice(1);
 
         const primerDia = new Date(anio, mes, 1);
         const diasMes = new Date(anio, mes + 1, 0).getDate();
@@ -4128,24 +4373,17 @@ Saldo pendiente: ${saldo}.`;
           const badgeClass = items.length ? "" : "zero";
 
           grid.innerHTML += `
-<div class="calendar-day ${isToday ? "today" : ""} ${
-            isSelected ? "selected" : ""
-          }" onclick="seleccionarDiaCalendario('${fecha}')">
+<div class="calendar-day ${isToday ? "today" : ""} ${isSelected ? "selected" : ""}" onclick="seleccionarDiaCalendario('${fecha}')">
   <div class="calendar-num">${dia}</div>
   <div class="calendar-badge ${badgeClass}">${items.length || ""}</div>
 </div>
 `;
         }
 
-        if (
-          diaCalendarioSeleccionado &&
-          eventosMap.get(diaCalendarioSeleccionado)
-        ) {
+        if (diaCalendarioSeleccionado && eventosMap.get(diaCalendarioSeleccionado)) {
           mostrarDetalleCalendario(diaCalendarioSeleccionado);
         } else {
-          const firstEvent = eventosCalendario.find((x) =>
-            x.fecha.startsWith(`${anio}-${String(mes + 1).padStart(2, "0")}`)
-          );
+          const firstEvent = eventosCalendario.find((x) => x.fecha.startsWith(`${anio}-${String(mes + 1).padStart(2, "0")}`));
           if (firstEvent) {
             diaCalendarioSeleccionado = firstEvent.fecha;
             mostrarDetalleCalendario(firstEvent.fecha);
@@ -4174,15 +4412,12 @@ Saldo pendiente: ${saldo}.`;
           return;
         }
 
-        const nombreDia = new Date(fecha + "T00:00:00").toLocaleDateString(
-          "es-PE",
-          {
-            weekday: "long",
-            day: "2-digit",
-            month: "long",
-            year: "numeric",
-          }
-        );
+        const nombreDia = new Date(fecha + "T00:00:00").toLocaleDateString("es-PE", {
+          weekday: "long",
+          day: "2-digit",
+          month: "long",
+          year: "numeric",
+        });
 
         detalle.innerHTML = `
           <h4>📌 ${nombreDia.charAt(0).toUpperCase() + nombreDia.slice(1)}</h4>
@@ -4195,16 +4430,8 @@ Saldo pendiente: ${saldo}.`;
   <b>${item.nombre}</b><br>
   ${item.producto}<br>
   💰 ${formatearDinero(item.saldo)}<br>
-  ${
-    diferencia < 0
-      ? `🔴 ${Math.abs(diferencia)} días vencido`
-      : diferencia === 0
-      ? "🟡 Vence hoy"
-      : `🟢 Vence en ${diferencia} días`
-  }
-  <button onclick="enviarWhatsApp('${item.nombre}','${item.telefono}','${
-                item.producto
-              }','${item.saldo}','${diferencia}')">Enviar WhatsApp</button>
+  ${diferencia < 0 ? `🔴 ${Math.abs(diferencia)} días vencido` : diferencia === 0 ? "🟡 Vence hoy" : `🟢 Vence en ${diferencia} días`}
+  <button onclick="enviarWhatsApp('${item.nombre}','${item.telefono}','${item.producto}','${item.saldo}','${diferencia}')">Enviar WhatsApp</button>
 </div>
 `;
             })
@@ -4223,6 +4450,7 @@ Saldo pendiente: ${saldo}.`;
 
       /* DASHBOARD */
 
+
       async function verDashboard() {
         actualizarCabeceraFecha();
 
@@ -4240,9 +4468,7 @@ Saldo pendiente: ${saldo}.`;
 
           supabaseClient
             .from("Pagos")
-            .select(
-              "*, Creditos(producto,cliente_id,cliente_id,fecha_proximo_pago,cuotas,monto_total,inicial,saldo,frecuencia_dias,Clientes(nombre,telefono))"
-            )
+            .select("*, Creditos(producto,cliente_id,cliente_id,fecha_proximo_pago,cuotas,monto_total,inicial,saldo,frecuencia_dias,Clientes(nombre,telefono))")
             .eq("owner_id", usuarioActual.id)
             .order("fecha", { ascending: false }),
         ]);
@@ -4254,20 +4480,15 @@ Saldo pendiente: ${saldo}.`;
           (c) => c.estado !== "cancelado" && Number(c.saldo || 0) > 0
         );
 
-        movimientosEnriquecidos = construirMovimientosEnriquecidos(
-          pagosGlobal,
-          creditos
+        movimientosEnriquecidos = construirMovimientosEnriquecidos(pagosGlobal, creditos);
+        eventosCalendario = Array.from(buildCalendarMap(creditosActivos).entries()).map(
+          ([fecha, items]) => ({ fecha, items })
         );
-        eventosCalendario = Array.from(
-          buildCalendarMap(creditosActivos).entries()
-        ).map(([fecha, items]) => ({ fecha, items }));
 
         alertasAgrupadas = construirAlertasAgrupadas(creditosActivos);
         renderAlertasHome();
 
-        const clientesActivos = new Set(
-          creditosActivos.map((c) => c.cliente_id)
-        ).size;
+        const clientesActivos = new Set(creditosActivos.map((c) => c.cliente_id)).size;
 
         let totalPorCobrar = 0;
         let cobradoHoy = 0;
@@ -4314,57 +4535,31 @@ Saldo pendiente: ${saldo}.`;
           .reduce((sum, p) => sum + Number(p.monto || 0), 0);
 
         // KPI cards
-        document.getElementById("kpiTotalValue").textContent =
-          formatearDinero(totalPorCobrar);
-        document.getElementById(
-          "kpiTotalSub"
-        ).textContent = `${clientesActivos} clientes con deuda`;
+        document.getElementById("kpiTotalValue").textContent = formatearDinero(totalPorCobrar);
+        document.getElementById("kpiTotalSub").textContent = `${clientesActivos} clientes con deuda`;
 
-        document.getElementById("kpiClientesValue").textContent =
-          String(clientesActivos);
-        document.getElementById("kpiClientesSub").textContent =
-          "Cuentas activas por cobrar";
+        document.getElementById("kpiClientesValue").textContent = String(clientesActivos);
+        document.getElementById("kpiClientesSub").textContent = "Cuentas activas por cobrar";
 
-        document.getElementById("kpiHoyValue").textContent =
-          formatearDinero(programadoHoy);
-        document.getElementById(
-          "kpiHoySub"
-        ).textContent = `${clientesHoy.size} cliente(s) con pago hoy`;
+        document.getElementById("kpiHoyValue").textContent = formatearDinero(programadoHoy);
+        document.getElementById("kpiHoySub").textContent = `${clientesHoy.size} cliente(s) con pago hoy`;
 
-        document.getElementById("kpiSemanaValue").textContent =
-          formatearDinero(programadoSemana);
-        document.getElementById(
-          "kpiSemanaSub"
-        ).textContent = `${clientesSemana.size} cliente(s) en 7 días`;
+        document.getElementById("kpiSemanaValue").textContent = formatearDinero(programadoSemana);
+        document.getElementById("kpiSemanaSub").textContent = `${clientesSemana.size} cliente(s) en 7 días`;
 
-        document.getElementById("kpiMorososValue").textContent = String(
-          clientesMorosos.size
-        );
-        document.getElementById(
-          "kpiMorososSub"
-        ).textContent = `${formatearDinero(morososMonto)} vencidos`;
+        document.getElementById("kpiMorososValue").textContent = String(clientesMorosos.size);
+        document.getElementById("kpiMorososSub").textContent = `${formatearDinero(morososMonto)} vencidos`;
 
-        document.getElementById("kpiAlertas3Value").textContent = String(
-          clientesProximos.size
-        );
-        document.getElementById(
-          "kpiAlertas3Sub"
-        ).textContent = `${formatearDinero(alertas3Monto)} por avisar`;
+        document.getElementById("kpiAlertas3Value").textContent = String(clientesProximos.size);
+        document.getElementById("kpiAlertas3Sub").textContent = `${formatearDinero(alertas3Monto)} por avisar`;
 
         // Semana: cobrados vs programados
-        const metaPct =
-          programadoSemana > 0
-            ? Math.min(
-                100,
-                Math.round((cobradoSemana / programadoSemana) * 100)
-              )
-            : 0;
+        const metaPct = programadoSemana > 0
+          ? Math.min(100, Math.round((cobradoSemana / programadoSemana) * 100))
+          : 0;
 
-        document.getElementById(
-          "cobroSemanaTexto"
-        ).textContent = `Cobrado: ${formatearDinero(
-          cobradoSemana
-        )} | Programado: ${formatearDinero(programadoSemana)}`;
+        document.getElementById("cobroSemanaTexto").textContent =
+          `Cobrado: ${formatearDinero(cobradoSemana)} | Programado: ${formatearDinero(programadoSemana)}`;
 
         document.getElementById("cobroSemanaPct").textContent = `${metaPct}%`;
         document.getElementById("cobroSemanaBar").style.width = `${metaPct}%`;
@@ -4372,24 +4567,19 @@ Saldo pendiente: ${saldo}.`;
         const faltanteSemana = Math.max(0, programadoSemana - cobradoSemana);
         document.getElementById("cobroSemanaDetalle").textContent =
           faltanteSemana > 0
-            ? `Falta cobrar ${formatearDinero(
-                faltanteSemana
-              )} para completar lo programado esta semana`
+            ? `Falta cobrar ${formatearDinero(faltanteSemana)} para completar lo programado esta semana`
             : "Ya se cubrió lo programado para esta semana";
 
         // Subtítulo del dashboard en formato compacto
-        const mensajeCabecera =
-          clientesMorosos.size > 0
-            ? `Hoy tienes ${clientesMorosos.size} cliente(s) vencidos`
-            : clientesHoy.size > 0
-            ? `Hoy tienes ${clientesHoy.size} cliente(s) por cobrar`
-            : clientesProximos.size > 0
-            ? `Tienes ${clientesProximos.size} cliente(s) por avisar`
-            : "Todo está al día por ahora";
+        const mensajeCabecera = clientesMorosos.size > 0
+          ? `Hoy tienes ${clientesMorosos.size} cliente(s) vencidos`
+          : clientesHoy.size > 0
+          ? `Hoy tienes ${clientesHoy.size} cliente(s) por cobrar`
+          : clientesProximos.size > 0
+          ? `Tienes ${clientesProximos.size} cliente(s) por avisar`
+          : "Todo está al día por ahora";
 
-        subtituloHome.textContent = `Plazo de cobro: ${Number(
-          frecuenciaGeneral || 10
-        )} días`;
+        subtituloHome.textContent = `Plazo de cobro: ${Number(frecuenciaGeneral || 10)} días`;
         fechaHome.textContent = `${new Date().toLocaleDateString("es-PE", {
           weekday: "long",
           year: "numeric",
@@ -4408,17 +4598,13 @@ Saldo pendiente: ${saldo}.`;
 
         // Resumen principal
         if (!creditosActivos.length) {
-          if (resumen)
-            if (resumen)
-              resumen.innerHTML = `
+          if (resumen) if (resumen) resumen.innerHTML = `
 <h2>💵 ${formatearDinero(0)}</h2>
 <p>0 vencidos</p>
 <p>0 próximos</p>
 `;
         } else {
-          if (resumen)
-            if (resumen)
-              resumen.innerHTML = `
+          if (resumen) if (resumen) resumen.innerHTML = `
 <h2>💵 ${formatearDinero(totalPorCobrar)}</h2>
 <p>🔴 ${clientesMorosos.size} vencidos</p>
 <p>🟡 ${clientesProximos.size} próximos</p>
@@ -4426,9 +4612,7 @@ Saldo pendiente: ${saldo}.`;
         }
 
         // Render de alertas detalle si la pantalla ya está abierta
-        if (
-          document.getElementById("alertasScreen").classList.contains("activa")
-        ) {
+        if (document.getElementById("alertasScreen").classList.contains("activa")) {
           renderAlertasDetalle(alertaCategoriaActiva);
         }
       }
@@ -4550,13 +4734,8 @@ Saldo pendiente: ${saldo}.`;
         const creditos = data || [];
         creditosClienteMap = new Map(creditos.map((c) => [c.id, c]));
 
-        const activos = creditos.filter(
-          (c) => c.estado !== "cancelado" && Number(c.saldo || 0) > 0
-        );
-        const deudaTotal = creditos.reduce(
-          (s, c) => s + Number(c.saldo || 0),
-          0
-        );
+        const activos = creditos.filter((c) => c.estado !== "cancelado" && Number(c.saldo || 0) > 0);
+        const deudaTotal = creditos.reduce((s, c) => s + Number(c.saldo || 0), 0);
         const totalCréditos = creditos.length;
 
         if (resumenCliente) {
@@ -4582,32 +4761,19 @@ Saldo pendiente: ${saldo}.`;
           const cuotasInfo = resumenCuotasCredito(c);
           const ultimo = obtenerUltimoMovimientoCredito(c.id);
           const ultimoTexto = ultimo
-            ? `${textoMovimientoCuota(ultimo)} · ${formatearDinero(
-                ultimo.monto
-              )} · ${ultimo.fecha}`
+            ? `${textoMovimientoCuota(ultimo)} · ${formatearDinero(ultimo.monto)} · ${ultimo.fecha}`
             : "Sin cobros todavía";
 
           const estado = estadoCreditoVisual(c);
           const abierto = creditosDetallesAbiertos.has(c.id);
           const totalCuotas = Number(c.cuotas || 0);
           const pagadas = Number(c.cuotas_pagada || 0);
-          const pendientes =
-            totalCuotas > 0 ? Math.max(totalCuotas - pagadas, 0) : 0;
-          const progreso =
-            totalCuotas > 0
-              ? Math.min(
-                  100,
-                  Math.round(
-                    (Math.min(pagadas, totalCuotas) / totalCuotas) * 100
-                  )
-                )
-              : 0;
+          const pendientes = totalCuotas > 0 ? Math.max(totalCuotas - pagadas, 0) : 0;
+          const progreso = totalCuotas > 0 ? Math.min(100, Math.round((Math.min(pagadas, totalCuotas) / totalCuotas) * 100)) : 0;
           const cuotaSugerida = cuotaSugeridaCredito(c);
 
           detalleCreditos.innerHTML += `
-<div class="credito-card credito-estado-${estado.clase}" id="credito-card-${
-            c.id
-          }">
+<div class="credito-card credito-estado-${estado.clase}" id="credito-card-${c.id}">
   <div class="credito-header">
     <div>
       <div class="credito-title">${c.producto}</div>
@@ -4639,43 +4805,21 @@ Saldo pendiente: ${saldo}.`;
   </div>
 
   <div class="credito-barra"><div style="width:${progreso}%"></div></div>
-  <div class="mini-note">Progreso del crédito: ${progreso}% · Cuota sugerida aprox.: ${formatearDinero(
-            cuotaSugerida
-          )}${pendientes > 0 ? ` · Faltan ${pendientes} cuota(s)` : ""}</div>
+  <div class="mini-note">Progreso del crédito: ${progreso}% · Cuota sugerida aprox.: ${formatearDinero(cuotaSugerida)}${pendientes > 0 ? ` · Faltan ${pendientes} cuota(s)` : ""}</div>
 
   <div class="credito-acciones">
-    <button onclick="abrirModalPago('${c.id}','${c.producto}')" ${
-            c.estado === "cancelado" || Number(c.saldo || 0) <= 0
-              ? "disabled"
-              : ""
-          }>💰 Pagar</button>
-    <button onclick="enviarRecordatorioCredito('${c.id}')" ${
-            c.estado === "cancelado" || Number(c.saldo || 0) <= 0
-              ? "disabled"
-              : ""
-          }>🔔 Recordatorio</button>
+    <button onclick="abrirModalPago('${c.id}','${c.producto}')" ${c.estado === "cancelado" || Number(c.saldo || 0) <= 0 ? "disabled" : ""}>💰 Pagar</button>
+    <button onclick="enviarRecordatorioCredito('${c.id}')" ${c.estado === "cancelado" || Number(c.saldo || 0) <= 0 ? "disabled" : ""}>🔔 Recordatorio</button>
   </div>
 
-  <button class="credito-toggle" onclick="toggleDetalleCredito('${c.id}')">${
-            abierto ? "Ocultar detalles" : "Ver más detalles"
-          }</button>
+  <button class="credito-toggle" onclick="toggleDetalleCredito('${c.id}')">${abierto ? "Ocultar detalles" : "Ver más detalles"}</button>
 
-  <div id="credito-detalle-${c.id}" class="credito-detalle ${
-            abierto ? "" : "oculto"
-          }">
-    <div class="detalle-linea"><b>Fecha de creación del crédito:</b> ${
-      c.fecha_creacion || "-"
-    }</div>
-    <div class="detalle-linea"><b>Fecha del primer cobro:</b> ${
-      c.fecha_inicio || "-"
-    }</div>
-    <div class="detalle-linea"><b>Frecuencia de cobro:</b> cada ${Number(
-      c.frecuencia_dias || 10
-    )} días</div>
+  <div id="credito-detalle-${c.id}" class="credito-detalle ${abierto ? "" : "oculto"}">
+    <div class="detalle-linea"><b>Fecha de creación del crédito:</b> ${c.fecha_creacion || "-"}</div>
+    <div class="detalle-linea"><b>Fecha del primer cobro:</b> ${c.fecha_inicio || "-"}</div>
+    <div class="detalle-linea"><b>Frecuencia de cobro:</b> cada ${Number(c.frecuencia_dias || 10)} días</div>
     <div class="detalle-linea"><b>Último cobro:</b> ${ultimoTexto}</div>
-    <div class="detalle-linea"><b>Estado:</b> ${
-      c.estado === "cancelado" ? "Cancelado" : "Activo"
-    }</div>
+    <div class="detalle-linea"><b>Estado:</b> ${c.estado === "cancelado" ? "Cancelado" : "Activo"}</div>
   </div>
 </div>
 `;
@@ -4692,15 +4836,12 @@ Saldo pendiente: ${saldo}.`;
         const totalCuotas = Number(credito?.cuotas || 0);
         const cuotasPagadas = Number(credito?.cuotas_pagada || 0);
         const cuotasPendientes = Math.max(totalCuotas - cuotasPagadas, 0);
-        const cuotaSugerida =
-          cuotasPendientes > 0 ? saldoActual / cuotasPendientes : saldoActual;
+        const cuotaSugerida = cuotasPendientes > 0 ? saldoActual / cuotasPendientes : saldoActual;
 
         if (detallePagoModal) {
           detallePagoModal.innerHTML = `
 <b>Saldo actual:</b> ${formatearDinero(saldoActual)}<br>
-<b>Cuotas pagadas:</b> ${cuotasPagadas} de ${
-            totalCuotas || cuotasPagadas || 0
-          }<br>
+<b>Cuotas pagadas:</b> ${cuotasPagadas} de ${totalCuotas || cuotasPagadas || 0}<br>
 <b>Cuotas pendientes:</b> ${cuotasPendientes}<br>
 <b>Cuota referencial:</b> ${formatearDinero(cuotaSugerida)}<br>
 <div class="subtle">El abono reduce el saldo sin contar cuota. El pago de cuota suma a la secuencia del crédito.</div>
@@ -4748,9 +4889,7 @@ Saldo pendiente: ${saldo}.`;
         const saldoAnterior = Number(credito.saldo || 0);
         const totalCuotas = Number(credito.cuotas || 0);
         const cuotasAntes = Number(credito.cuotas_pagada || 0);
-        const numeroCuotaPago = !tipoPagoModalEsAbono()
-          ? cuotasAntes + 1
-          : null;
+        const numeroCuotaPago = !tipoPagoModalEsAbono() ? cuotasAntes + 1 : null;
 
         let cuotasFinal = cuotasAntes;
         let nuevoSaldo = saldoAnterior - montoValor;
@@ -4768,9 +4907,7 @@ Saldo pendiente: ${saldo}.`;
         let nuevaFecha = credito.fecha_proximo_pago || "";
 
         if (!tipoPagoModalEsAbono() && nuevoSaldo > 0) {
-          const fechaActual = new Date(
-            credito.fecha_proximo_pago || fechaLocal()
-          );
+          const fechaActual = new Date(credito.fecha_proximo_pago || fechaLocal());
           fechaActual.setDate(
             fechaActual.getDate() + Number(credito.frecuencia_dias || 10)
           );
@@ -4847,9 +4984,7 @@ Saldo pendiente: ${saldo}.`;
 
         movimientos.forEach((m) => {
           detallePagos.innerHTML += `
-<div class="pago-item historial-clickeable" onclick="abrirCreditoDesdeHistorial('${
-            m.credito_id
-          }')">
+<div class="pago-item historial-clickeable" onclick="abrirCreditoDesdeHistorial('${m.credito_id}')">
   <b>${m.producto}</b><br>
   ${descripcionHistorialMovimiento(m)}<br>
   <span class="subtle">Tocar para ver el crédito</span>
@@ -4863,9 +4998,7 @@ Saldo pendiente: ${saldo}.`;
 
         const hace7Dias = sumarDiasISO(fechaLocal(), -6);
 
-        const recientes = (movimientosEnriquecidos || []).filter(
-          (m) => (m.fecha || "") >= hace7Dias
-        );
+        const recientes = (movimientosEnriquecidos || []).filter((m) => (m.fecha || "") >= hace7Dias);
 
         listaPagosRecientes.innerHTML = "";
 
@@ -4880,9 +5013,7 @@ No hay pagos recientes
 
         recientes.slice(0, 20).forEach((m) => {
           listaPagosRecientes.innerHTML += `
-<div class="pago-item" style="cursor:pointer;" onclick="abrirCliente('${
-            m.cliente_id
-          }')">
+<div class="pago-item" style="cursor:pointer;" onclick="abrirCliente('${m.cliente_id}')">
   <b>${m.cliente_nombre}</b><br>
   📦 ${m.producto}<br>
   ${textoMovimientoCuota(m)}<br>
@@ -4896,6 +5027,7 @@ No hay pagos recientes
         });
       }
 
+
       /* ====== MEJORAS DE DASHBOARD / ALERTAS / HISTORIAL ====== */
       let alertasVistaActual = "morosos";
 
@@ -4906,11 +5038,7 @@ No hay pagos recientes
       function mapPorClienteUltimaAlerta(alertas) {
         const mapa = new Map();
         [...(alertas || [])]
-          .sort((a, b) =>
-            (b.fecha_envio || b.created_at || "").localeCompare(
-              a.fecha_envio || a.created_at || ""
-            )
-          )
+          .sort((a, b) => (b.fecha_envio || b.created_at || "").localeCompare(a.fecha_envio || a.created_at || ""))
           .forEach((a) => {
             if (!mapa.has(a.cliente_id)) mapa.set(a.cliente_id, a);
           });
@@ -4920,41 +5048,29 @@ No hay pagos recientes
       function formatearFechaHumana(fechaISO) {
         if (!fechaISO) return "-";
         const d = new Date(fechaISO);
-        return (
-          d.toLocaleDateString("es-PE", {
-            day: "2-digit",
-            month: "2-digit",
-            year: "numeric",
-          }) +
-          " " +
-          d.toLocaleTimeString("es-PE", { hour: "2-digit", minute: "2-digit" })
-        );
+        return d.toLocaleDateString("es-PE", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+        }) + " " + d.toLocaleTimeString("es-PE", { hour: "2-digit", minute: "2-digit" });
       }
 
       function horasDesde(fechaISO) {
         if (!fechaISO) return null;
-        return Math.max(
-          0,
-          Math.floor(
-            (Date.now() - new Date(fechaISO).getTime()) / (1000 * 60 * 60)
-          )
-        );
+        return Math.max(0, Math.floor((Date.now() - new Date(fechaISO).getTime()) / (1000 * 60 * 60)));
       }
 
       function puedeReenviarAlerta(fechaISO) {
         if (!fechaISO) return true;
-        return Date.now() - new Date(fechaISO).getTime() >= 24 * 60 * 60 * 1000;
+        return (Date.now() - new Date(fechaISO).getTime()) >= 24 * 60 * 60 * 1000;
       }
 
       function construirMovimientosEnriquecidos(pagos, creditosActivos) {
-        const creditosMap = new Map(
-          (creditosActivos || []).map((c) => [c.id, c])
-        );
+        const creditosMap = new Map((creditosActivos || []).map((c) => [c.id, c]));
         const pagosPorCredito = new Map();
 
         (pagos || []).forEach((p) => {
-          if (!pagosPorCredito.has(p.credito_id))
-            pagosPorCredito.set(p.credito_id, []);
+          if (!pagosPorCredito.has(p.credito_id)) pagosPorCredito.set(p.credito_id, []);
           pagosPorCredito.get(p.credito_id).push(p);
         });
 
@@ -4968,8 +5084,7 @@ No hay pagos recientes
             return aa.localeCompare(bb);
           });
 
-          let saldo =
-            Number(credito.monto_total || 0) - Number(credito.inicial || 0);
+          let saldo = Number(credito.monto_total || 0) - Number(credito.inicial || 0);
           if (saldo < 0) saldo = 0;
 
           let cuotaNumero = 0;
@@ -4981,15 +5096,9 @@ No hay pagos recientes
 
             if (p.tipo_pago !== "abono") {
               cuotaNumero += 1;
-              const base =
-                p.proximo_pago ||
-                proximoCobro ||
-                credito.fecha_proximo_pago ||
-                p.fecha;
+              const base = p.proximo_pago || proximoCobro || credito.fecha_proximo_pago || p.fecha;
               const frecuencia = Number(credito.frecuencia_dias || 10);
-              proximoCobro = base
-                ? sumarDiasISO(base, frecuencia)
-                : credito.fecha_proximo_pago || "";
+              proximoCobro = base ? sumarDiasISO(base, frecuencia) : credito.fecha_proximo_pago || "";
             }
 
             saldo = Math.max(0, saldo - monto);
@@ -5011,11 +5120,7 @@ No hay pagos recientes
               saldo_anterior: Number(p.saldo_anterior ?? saldoAnterior),
               saldo_actual: Number(p.saldo_actual ?? saldo),
               saldo_actual_credito: Number(credito.saldo || 0),
-              proximo_pago:
-                p.proximo_pago ||
-                proximoCobro ||
-                credito.fecha_proximo_pago ||
-                "",
+              proximo_pago: p.proximo_pago || proximoCobro || credito.fecha_proximo_pago || "",
               frecuencia_dias: Number(credito.frecuencia_dias || 10),
             });
           });
@@ -5078,25 +5183,21 @@ No hay pagos recientes
         donut.style.background = `conic-gradient(${parts.join(",")})`;
         totalBox.textContent = String(total);
 
-        legend.innerHTML = stats
-          .map((x) => {
-            const pct = Math.round((x.count / total) * 100);
-            return `
+        legend.innerHTML = stats.map((x) => {
+          const pct = Math.round((x.count / total) * 100);
+          return `
 <div class="legend-item">
   <div class="legend-left">
     <span class="legend-dot" style="background:${colors[x.key]}"></span>
     <div>
       <div class="legend-title">${x.label}</div>
-      <div class="legend-meta">${x.count} clientes · ${formatearDinero(
-              x.amount
-            )} · ${pct}%</div>
+      <div class="legend-meta">${x.count} clientes · ${formatearDinero(x.amount)} · ${pct}%</div>
     </div>
   </div>
   <div><b>${x.count}</b></div>
 </div>
 `;
-          })
-          .join("");
+        }).join("");
       }
 
       function renderRendimientoCobranza() {
@@ -5139,58 +5240,45 @@ No hay pagos recientes
           .reduce((s, p) => s + Number(p.monto || 0), 0);
 
         const series = [
-          { label: "Mes pasado", value: totalMesPasado },
-          { label: "Mes actual", value: totalMesActual },
-          { label: "Últimos 7 días", value: total7Dias },
+          { label: "Mes pasado", value: totalMesPasado, tone: "gray" },
+          { label: "Mes actual", value: totalMesActual, tone: "pink" },
+          { label: "Últimos 7 días", value: total7Dias, tone: "purple" },
         ];
 
         const max = Math.max(...series.map((x) => x.value), 1);
 
-        chart.innerHTML = series
-          .map((x) => {
-            const width = Math.max(10, Math.round((x.value / max) * 100));
-            return `
+        chart.innerHTML = `
+<div class="performance-bars">
+  ${series.map((x) => {
+    const height = Math.max(12, Math.round((x.value / max) * 100));
+    return `
 <div class="performance-bar-card">
-  <div class="performance-bar-label">${x.label}</div>
-  <div class="performance-bar-track">
-    <div class="performance-bar-fill" style="width:${width}%"></div>
-  </div>
   <div class="performance-bar-meta">${formatearDinero(x.value)}</div>
+  <div class="performance-bar-track">
+    <div class="performance-bar-fill ${x.tone}" style="height:${height}%"></div>
+  </div>
+  <div class="performance-bar-label">${x.label}</div>
 </div>
 `;
-          })
-          .join("");
+  }).join("")}
+</div>
+`;
 
         const diff = totalMesActual - totalMesPasado;
         const sign = diff >= 0 ? "+" : "−";
-        const pct =
-          totalMesPasado > 0 ? Math.round((diff / totalMesPasado) * 100) : 0;
+        const pct = totalMesPasado > 0 ? Math.round((diff / totalMesPasado) * 100) : 0;
 
         meta.innerHTML = `
-<b>Resumen de cobranza</b><br>
-Mes pasado: <b>${formatearDinero(totalMesPasado)}</b><br>
-Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
-Últimos 7 días: <b>${formatearDinero(total7Dias)}</b><br>
-<span class="subtle">${sign}${formatearDinero(
-          Math.abs(diff)
-        )} vs. mes pasado (${pct}%)</span>
+<b>Rendimiento de cobranza</b><br>
+Mes pasado: <b>${formatearDinero(totalMesPasado)}</b> · Mes actual: <b>${formatearDinero(totalMesActual)}</b> · Últimos 7 días: <b>${formatearDinero(total7Dias)}</b><br>
+<span class="subtle">${sign}${formatearDinero(Math.abs(diff))} vs. mes pasado (${pct}%)</span>
 `;
       }
-
       function renderAlertasHome() {
         const totalEnviadas = contarAlertasEnviadas();
-        const totalMorosos = alertasAgrupadas.morosos.reduce(
-          (s, g) => s + Number(g.total || 0),
-          0
-        );
-        const totalHoy = alertasAgrupadas.hoy.reduce(
-          (s, g) => s + Number(g.total || 0),
-          0
-        );
-        const totalProximos = alertasAgrupadas.proximos.reduce(
-          (s, g) => s + Number(g.total || 0),
-          0
-        );
+        const totalMorosos = alertasAgrupadas.morosos.reduce((s, g) => s + Number(g.total || 0), 0);
+        const totalHoy = alertasAgrupadas.hoy.reduce((s, g) => s + Number(g.total || 0), 0);
+        const totalProximos = alertasAgrupadas.proximos.reduce((s, g) => s + Number(g.total || 0), 0);
 
         alertasHome.innerHTML = `
 <div class="alert-summary-grid">
@@ -5248,14 +5336,8 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
         const titulos = {
           morosos: ["🔴 Vencidos", "Clientes que ya pasaron su fecha de pago"],
           hoy: ["🟡 Vence hoy", "Clientes que deben pagar hoy"],
-          proximos: [
-            "🟢 Próximos 3 días",
-            "Clientes que necesitan recordatorio amable",
-          ],
-          enviadas: [
-            "🔔 Alertas enviadas",
-            "Historial de avisos ya registrados",
-          ],
+          proximos: ["🟢 Próximos 3 días", "Clientes que necesitan recordatorio amable"],
+          enviadas: ["🔔 Alertas enviadas", "Historial de avisos ya registrados"],
         };
 
         titulo.textContent = titulos[categoria][0];
@@ -5268,11 +5350,10 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
             return;
           }
 
-          lista.innerHTML = ultimas
-            .map((a) => {
-              const horas = horasDesde(a.fecha_envio || a.created_at);
-              const puede = puedeReenviarAlerta(a.fecha_envio || a.created_at);
-              return `
+          lista.innerHTML = ultimas.map((a) => {
+            const horas = horasDesde(a.fecha_envio || a.created_at);
+            const puede = puedeReenviarAlerta(a.fecha_envio || a.created_at);
+            return `
 <div class="alert-detail-item">
   <div class="alert-detail-top">
     <div>
@@ -5283,23 +5364,16 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
   </div>
 
   <div class="subtle" style="margin-top:8px;">
-    ${
-      horas >= 24
-        ? `${Math.floor(horas / 24)} día(s) desde la última alerta`
-        : `${horas || 0} hora(s) desde la última alerta`
-    }
+    ${horas >= 24 ? `${Math.floor(horas / 24)} día(s) desde la última alerta` : `${horas || 0} hora(s) desde la última alerta`}
   </div>
 
   <div class="alert-detail-actions">
     <button onclick="abrirCliente('${a.cliente_id}')">Ver cliente</button>
-    <button ${puede ? "" : "disabled"} onclick="reenviarAlertaDesdeHistorial('${
-                a.cliente_id
-              }')">${puede ? "Reenviar" : "Esperar 1 día"}</button>
+    <button ${puede ? '' : 'disabled'} onclick="reenviarAlertaDesdeHistorial('${a.cliente_id}')">${puede ? 'Reenviar' : 'Esperar 1 día'}</button>
   </div>
 </div>
 `;
-            })
-            .join("");
+          }).join("");
           return;
         }
 
@@ -5309,33 +5383,18 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
           return;
         }
 
-        lista.innerHTML = grupos
-          .map((g) => {
-            const etiquetas = g.productos
-              .map((p) => `• ${p.producto} - ${formatearDinero(p.saldo)}`)
-              .join("<br>");
-            const textoDias =
-              categoria === "morosos"
-                ? `${g.dias} días de retraso`
-                : categoria === "hoy"
-                ? "Último día de pago"
-                : `Vence en ${g.dias} día(s)`;
-            const tagClass =
-              categoria === "morosos"
-                ? "red"
-                : categoria === "hoy"
-                ? "yellow"
-                : "blue";
-            const ultima = alertasUltimasPorCliente.get(g.cliente_id);
-            const puede =
-              !ultima ||
-              puedeReenviarAlerta(ultima.fecha_envio || ultima.created_at);
-            const ultimoTexto = ultima
-              ? `Última alerta: ${formatearFechaHumana(
-                  ultima.fecha_envio || ultima.created_at
-                )}`
-              : "Sin alerta enviada";
-            return `
+        lista.innerHTML = grupos.map((g) => {
+          const etiquetas = g.productos.map((p) => `• ${p.producto} - ${formatearDinero(p.saldo)}`).join("<br>");
+          const textoDias = categoria === "morosos"
+            ? `${g.dias} días de retraso`
+            : categoria === "hoy"
+              ? "Último día de pago"
+              : `Vence en ${g.dias} día(s)`;
+          const tagClass = categoria === "morosos" ? "red" : categoria === "hoy" ? "yellow" : "blue";
+          const ultima = alertasUltimasPorCliente.get(g.cliente_id);
+          const puede = !ultima || puedeReenviarAlerta(ultima.fecha_envio || ultima.created_at);
+          const ultimoTexto = ultima ? `Última alerta: ${formatearFechaHumana(ultima.fecha_envio || ultima.created_at)}` : "Sin alerta enviada";
+          return `
 <div class="alert-detail-item">
   <div class="alert-detail-top">
     <div>
@@ -5354,28 +5413,18 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
 
   <div class="alert-detail-actions">
     <button onclick="abrirCliente('${g.cliente_id}')">Ver cliente</button>
-    <button ${
-      puede ? "" : "disabled"
-    } onclick="registrarAlertaYEnviar('${categoria}','${g.cliente_id}')">${
-              puede ? "WhatsApp" : "Esperar 1 día"
-            }</button>
+    <button ${puede ? '' : 'disabled'} onclick="registrarAlertaYEnviar('${categoria}','${g.cliente_id}')">${puede ? 'WhatsApp' : 'Esperar 1 día'}</button>
   </div>
 </div>
 `;
-          })
-          .join("");
+        }).join("");
       }
 
       async function registrarAlertaYEnviar(categoria, cliente_id) {
-        const grupo = alertasAgrupadas[categoria]?.find(
-          (g) => g.cliente_id === cliente_id
-        );
+        const grupo = alertasAgrupadas[categoria]?.find((g) => g.cliente_id === cliente_id);
         if (!grupo) return;
         const ultima = alertasUltimasPorCliente.get(cliente_id);
-        if (
-          ultima &&
-          !puedeReenviarAlerta(ultima.fecha_envio || ultima.created_at)
-        ) {
+        if (ultima && !puedeReenviarAlerta(ultima.fecha_envio || ultima.created_at)) {
           alert("Debe esperar al menos 1 día para reenviar otra alerta.");
           return;
         }
@@ -5385,34 +5434,20 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
         }
 
         const numero = grupo.telefono.replace(/\D/g, "");
-        const productos = grupo.productos
-          .map((p) => `• ${p.producto} (${formatearDinero(p.saldo)})`)
-          .join("\n");
+        const productos = grupo.productos.map((p) => `• ${p.producto} (${formatearDinero(p.saldo)})`).join("\n");
         const ahora = new Date().toISOString();
         let mensaje = "";
         let dias_retraso = 0;
 
         if (categoria === "morosos") {
           dias_retraso = grupo.dias;
-          mensaje = `Hola ${grupo.nombre}, tienes ${
-            grupo.dias
-          } días de retraso en los siguientes productos:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(
-            grupo.total
-          )}.\nPor favor comunícate para regularizar tu pago.`;
+          mensaje = `Hola ${grupo.nombre}, tienes ${grupo.dias} días de retraso en los siguientes productos:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(grupo.total)}.\nPor favor comunícate para regularizar tu pago.`;
         } else if (categoria === "hoy") {
           dias_retraso = 0;
-          mensaje = `Hola ${
-            grupo.nombre
-          }, hoy vence tu pago de:\n\n${productos}\n\nTotal a pagar: ${formatearDinero(
-            grupo.total
-          )}.\nGracias por tu puntualidad.`;
+          mensaje = `Hola ${grupo.nombre}, hoy vence tu pago de:\n\n${productos}\n\nTotal a pagar: ${formatearDinero(grupo.total)}.\nGracias por tu puntualidad.`;
         } else {
           dias_retraso = grupo.dias;
-          mensaje = `Hola ${grupo.nombre}, te recordamos que dentro de ${
-            grupo.dias
-          } día(s) vence tu pago de:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(
-            grupo.total
-          )}.\nGracias por tu puntualidad.`;
+          mensaje = `Hola ${grupo.nombre}, te recordamos que dentro de ${grupo.dias} día(s) vence tu pago de:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(grupo.total)}.\nGracias por tu puntualidad.`;
         }
 
         const { error } = await supabaseClient.from("Alertas").insert([
@@ -5467,17 +5502,11 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
           alert("Cliente sin teléfono");
           return;
         }
-        abrirWhatsAppConMensaje(
-          numero,
-          alerta.mensaje || "Hola, te recordamos tu pago pendiente."
-        );
+        abrirWhatsAppConMensaje(numero, alerta.mensaje || "Hola, te recordamos tu pago pendiente.");
       }
 
       function abrirWhatsAppConMensaje(numero, mensaje) {
-        window.open(
-          `https://wa.me/51${numero}?text=${encodeURIComponent(mensaje)}`,
-          "_blank"
-        );
+        window.open(`https://wa.me/51${numero}?text=${encodeURIComponent(mensaje)}`, "_blank");
       }
 
       function renderActividadReciente() {
@@ -5493,23 +5522,42 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
             const tipoTexto = textoMovimientoCuota(m);
 
             return `
-<div class="pago-item" style="cursor:pointer;" onclick="abrirCliente('${
-              m.cliente_id
-            }')">
-  <b>${m.cliente_nombre}</b><br>
-  📦 ${m.producto}<br>
-  💵 Precio total del producto: ${formatearDinero(m.monto_total)}<br>
-  ${tipoTexto}<br>
-  💰 Cobro realizado: ${formatearDinero(m.monto)}<br>
-  💳 Saldo restante: ${formatearDinero(m.saldo_actual)}<br>
-  📅 Fecha de pago: ${m.fecha}<br>
-  📆 Próximo cobro: ${m.proximo_pago || "-"}
+<div class="recent-collection-row" onclick="abrirCliente('${m.cliente_id}')">
+  <div class="recent-main">
+    <div class="recent-name">${m.cliente_nombre}</div>
+    <div class="recent-product">${m.producto}</div>
+    <div class="recent-meta">${tipoTexto}</div>
+  </div>
+
+  <div class="recent-metrics">
+    <div class="recent-metric">
+      <div class="label">Precio total</div>
+      <div class="value">${formatearDinero(m.monto_total)}</div>
+    </div>
+
+    <div class="recent-metric">
+      <div class="label">Cobro realizado</div>
+      <div class="value green">${formatearDinero(m.monto)}</div>
+    </div>
+
+    <div class="recent-metric">
+      <div class="label">Saldo restante</div>
+      <div class="value red">${formatearDinero(m.saldo_actual)}</div>
+    </div>
+  </div>
+
+  <div class="recent-right">
+    <div class="recent-next">
+      <div class="label">Próximo cobro</div>
+      <div class="value">${m.proximo_pago || "-"}</div>
+    </div>
+    <i class="fa-solid fa-chevron-right"></i>
+  </div>
 </div>
 `;
           })
           .join("");
       }
-
       function renderCalendarioCobros() {
         const titulo = document.getElementById("calendarioMesTitulo");
         const grid = document.getElementById("calendarioGrid");
@@ -5523,8 +5571,7 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
           year: "numeric",
         });
 
-        titulo.textContent =
-          nombreMes.charAt(0).toUpperCase() + nombreMes.slice(1);
+        titulo.textContent = nombreMes.charAt(0).toUpperCase() + nombreMes.slice(1);
 
         const primerDia = new Date(anio, mes, 1);
         const diasMes = new Date(anio, mes + 1, 0).getDate();
@@ -5552,24 +5599,17 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
           const badgeClass = items.length ? "" : "zero";
 
           grid.innerHTML += `
-<div class="calendar-day ${isToday ? "today" : ""} ${
-            isSelected ? "selected" : ""
-          }" onclick="seleccionarDiaCalendario('${fecha}')">
+<div class="calendar-day ${isToday ? "today" : ""} ${isSelected ? "selected" : ""}" onclick="seleccionarDiaCalendario('${fecha}')">
   <div class="calendar-num">${dia}</div>
   <div class="calendar-badge ${badgeClass}">${items.length || ""}</div>
 </div>
 `;
         }
 
-        if (
-          diaCalendarioSeleccionado &&
-          eventosMap.get(diaCalendarioSeleccionado)
-        ) {
+        if (diaCalendarioSeleccionado && eventosMap.get(diaCalendarioSeleccionado)) {
           mostrarDetalleCalendario(diaCalendarioSeleccionado);
         } else {
-          const firstEvent = eventosCalendario.find((x) =>
-            x.fecha.startsWith(`${anio}-${String(mes + 1).padStart(2, "0")}`)
-          );
+          const firstEvent = eventosCalendario.find((x) => x.fecha.startsWith(`${anio}-${String(mes + 1).padStart(2, "0")}`));
           if (firstEvent) {
             diaCalendarioSeleccionado = firstEvent.fecha;
             mostrarDetalleCalendario(firstEvent.fecha);
@@ -5611,17 +5651,13 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
           const fecha = c.fecha_proximo_pago || hoyISO;
           const saldo = Number(c.saldo || 0);
           if (fecha < hoyISO) {
-            stats[0].count += 1;
-            stats[0].amount += saldo;
+            stats[0].count += 1; stats[0].amount += saldo;
           } else if (fecha === hoyISO) {
-            stats[1].count += 1;
-            stats[1].amount += saldo;
+            stats[1].count += 1; stats[1].amount += saldo;
           } else if (fecha > hoyISO && fecha <= en3DiasISO) {
-            stats[2].count += 1;
-            stats[2].amount += saldo;
+            stats[2].count += 1; stats[2].amount += saldo;
           } else {
-            stats[3].count += 1;
-            stats[3].amount += saldo;
+            stats[3].count += 1; stats[3].amount += saldo;
           }
         });
 
@@ -5643,15 +5679,12 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
         }
 
         recientes.forEach((m) => {
-          const tipoTexto =
-            m.tipo_pago === "abono"
-              ? "🟡 Abono"
-              : `🟢 Cuota ${m.numero_cuota || 1}/${m.total_cuotas || "?"}`;
+          const tipoTexto = m.tipo_pago === "abono"
+            ? "🟡 Abono"
+            : `🟢 Cuota ${m.numero_cuota || 1}/${m.total_cuotas || "?"}`;
 
           listaPagosRecientes.innerHTML += `
-<div class="pago-item" style="cursor:pointer;" onclick="abrirCliente('${
-            m.cliente_id
-          }')">
+<div class="pago-item" style="cursor:pointer;" onclick="abrirCliente('${m.cliente_id}')">
   <b>${m.cliente_nombre}</b><br>
   📦 ${m.producto}<br>
   💵 Precio total del producto: ${formatearDinero(m.monto_total)}<br>
@@ -5682,9 +5715,7 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
 
           supabaseClient
             .from("Pagos")
-            .select(
-              "*, Creditos(producto,cliente_id,fecha_proximo_pago,cuotas,monto_total,inicial,saldo,frecuencia_dias,Clientes(nombre,telefono))"
-            )
+            .select("*, Creditos(producto,cliente_id,fecha_proximo_pago,cuotas,monto_total,inicial,saldo,frecuencia_dias,Clientes(nombre,telefono))")
             .eq("owner_id", usuarioActual.id)
             .order("fecha", { ascending: false }),
 
@@ -5698,20 +5729,15 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
         const creditos = creditosResp.data || [];
         pagosGlobal = pagosResp.data || [];
 
-        const clientesMap = new Map(
-          creditos.map((c) => [
-            c.cliente_id,
-            {
-              nombre: c.Clientes?.nombre || "Cliente",
-              telefono: c.Clientes?.telefono || "",
-            },
-          ])
-        );
+        const clientesMap = new Map(creditos.map((c) => [c.cliente_id, {
+          nombre: c.Clientes?.nombre || "Cliente",
+          telefono: c.Clientes?.telefono || ""
+        }]));
 
         alertasGlobal = (alertasResp.data || []).map((a) => ({
           ...a,
           cliente_nombre: clientesMap.get(a.cliente_id)?.nombre || "Cliente",
-          cliente_telefono: clientesMap.get(a.cliente_id)?.telefono || "",
+          cliente_telefono: clientesMap.get(a.cliente_id)?.telefono || ""
         }));
         alertasUltimasPorCliente = mapPorClienteUltimaAlerta(alertasGlobal);
 
@@ -5719,29 +5745,18 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
           (c) => c.estado !== "cancelado" && Number(c.saldo || 0) > 0
         );
 
-        movimientosEnriquecidos = construirMovimientosEnriquecidos(
-          pagosGlobal,
-          creditos
+        movimientosEnriquecidos = construirMovimientosEnriquecidos(pagosGlobal, creditos);
+        eventosCalendario = Array.from(buildCalendarMap(creditosActivos).entries()).map(
+          ([fecha, items]) => ({ fecha, items })
         );
-        eventosCalendario = Array.from(
-          buildCalendarMap(creditosActivos).entries()
-        ).map(([fecha, items]) => ({ fecha, items }));
 
         alertasAgrupadas = construirAlertasAgrupadas(creditosActivos);
         renderAlertasHome();
 
-        const clientesActivos = new Set(
-          creditosActivos.map((c) => c.cliente_id)
-        ).size;
-        const clientesMorosos = new Set(
-          alertasAgrupadas.morosos.map((g) => g.cliente_id)
-        ).size;
-        const clientesHoy = new Set(
-          alertasAgrupadas.hoy.map((g) => g.cliente_id)
-        ).size;
-        const clientesProximos = new Set(
-          alertasAgrupadas.proximos.map((g) => g.cliente_id)
-        ).size;
+        const clientesActivos = new Set(creditosActivos.map((c) => c.cliente_id)).size;
+        const clientesMorosos = new Set(alertasAgrupadas.morosos.map((g) => g.cliente_id)).size;
+        const clientesHoy = new Set(alertasAgrupadas.hoy.map((g) => g.cliente_id)).size;
+        const clientesProximos = new Set(alertasAgrupadas.proximos.map((g) => g.cliente_id)).size;
 
         let totalPorCobrar = 0;
         let cobradoHoy = 0;
@@ -5759,39 +5774,23 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
         });
 
         // KPI
-        document.getElementById("kpiTotalValue").textContent =
-          formatearDinero(totalPorCobrar);
-        document.getElementById(
-          "kpiTotalSub"
-        ).textContent = `${clientesActivos} clientes con deuda`;
+        document.getElementById("kpiTotalValue").textContent = formatearDinero(totalPorCobrar);
+        document.getElementById("kpiTotalSub").textContent = `${clientesActivos} clientes con deuda`;
 
-        document.getElementById("kpiClientesValue").textContent =
-          String(clientesActivos);
-        document.getElementById("kpiClientesSub").textContent =
-          "Cuentas activas por cobrar";
+        document.getElementById("kpiClientesValue").textContent = String(clientesActivos);
+        document.getElementById("kpiClientesSub").textContent = "Cuentas activas por cobrar";
 
-        document.getElementById("kpiHoyValue").textContent =
-          formatearDinero(cobradoHoy);
-        document.getElementById(
-          "kpiHoySub"
-        ).textContent = `${clientesHoy} cliente(s) con pago hoy`;
+        document.getElementById("kpiHoyValue").textContent = formatearDinero(cobradoHoy);
+        document.getElementById("kpiHoySub").textContent = `${clientesHoy} cliente(s) con pago hoy`;
 
-        document.getElementById("kpiSemanaValue").textContent =
-          formatearDinero(programadoSemana);
-        document.getElementById(
-          "kpiSemanaSub"
-        ).textContent = `${clientesProximos} cliente(s) por cobrar en 3 días`;
+        document.getElementById("kpiSemanaValue").textContent = formatearDinero(programadoSemana);
+        document.getElementById("kpiSemanaSub").textContent = `${clientesProximos} cliente(s) por cobrar en 3 días`;
 
-        document.getElementById("kpiMorososValue").textContent =
-          String(clientesMorosos);
-        document.getElementById(
-          "kpiMorososSub"
-        ).textContent = `${formatearDinero(morososMonto)} vencidos`;
+        document.getElementById("kpiMorososValue").textContent = String(clientesMorosos);
+        document.getElementById("kpiMorososSub").textContent = `${formatearDinero(morososMonto)} vencidos`;
 
-        document.getElementById("kpiAlertas3Value").textContent =
-          String(alertasEnviadasTotal);
-        document.getElementById("kpiAlertas3Sub").textContent =
-          "Historial de alertas";
+        document.getElementById("kpiAlertas3Value").textContent = String(alertasEnviadasTotal);
+        document.getElementById("kpiAlertas3Sub").textContent = "Historial de alertas";
 
         // Subtítulo
         if (clientesMorosos > 0) {
@@ -5812,38 +5811,22 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
         const semanaTexto = document.getElementById("cobroSemanaTexto");
         const semanaPct = document.getElementById("cobroSemanaPct");
         const semanaDetalle = document.getElementById("cobroSemanaDetalle");
-        if (semanaTexto)
-          semanaTexto.textContent = `Programado en 7 días: ${formatearDinero(
-            programadoSemana
-          )}`;
-        if (semanaPct)
-          semanaPct.textContent = `${
-            clientesProximos + clientesHoy + clientesMorosos > 0
-              ? Math.min(
-                  100,
-                  Math.round((cobradoHoy / (programadoSemana || 1)) * 100)
-                )
-              : 0
-          }%`;
-        if (semanaDetalle)
-          semanaDetalle.textContent = "Cobros por vencer en la próxima semana";
+        if (semanaTexto) semanaTexto.textContent = `Programado en 7 días: ${formatearDinero(programadoSemana)}`;
+        if (semanaPct) semanaPct.textContent = `${clientesProximos + clientesHoy + clientesMorosos > 0 ? Math.min(100, Math.round((cobradoHoy / (programadoSemana || 1)) * 100)) : 0}%`;
+        if (semanaDetalle) semanaDetalle.textContent = "Cobros por vencer en la próxima semana";
 
         renderUltimosCobros();
         renderCalendarioCobros();
 
         // Resumen principal
-        if (resumen)
-          if (resumen)
-            resumen.innerHTML = `
+        if (resumen) if (resumen) resumen.innerHTML = `
 <h2>💵 ${formatearDinero(totalPorCobrar)}</h2>
 <p>🔴 ${clientesMorosos} vencidos</p>
 <p>🟡 ${clientesProximos} próximos</p>
 `;
 
         // Si pantalla alerta abierta, refrescar detalle
-        if (
-          document.getElementById("alertasScreen").classList.contains("activa")
-        ) {
+        if (document.getElementById("alertasScreen").classList.contains("activa")) {
           renderAlertasDetalle(alertaCategoriaActiva);
         }
       }
@@ -5877,9 +5860,7 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
         }
 
         const saldoAnterior = Number(credito.saldo || 0);
-        const numeroCuotaPago = tipoPagoModalEsAbono()
-          ? null
-          : Number(credito.cuotas_pagada || 0) + 1;
+        const numeroCuotaPago = tipoPagoModalEsAbono() ? null : Number(credito.cuotas_pagada || 0) + 1;
 
         let nuevoSaldo = saldoAnterior - montoValor;
         if (nuevoSaldo < 0) nuevoSaldo = 0;
@@ -5891,10 +5872,7 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
         let nuevaFecha = credito.fecha_proximo_pago;
         if (!tipoPagoModalEsAbono() && nuevoSaldo > 0) {
           const baseFecha = credito.fecha_proximo_pago || fechaLocal();
-          nuevaFecha = sumarDiasISO(
-            baseFecha,
-            Number(credito.frecuencia_dias || 10)
-          );
+          nuevaFecha = sumarDiasISO(baseFecha, Number(credito.frecuencia_dias || 10));
         }
 
         if (nuevoSaldo === 0) {
@@ -5950,18 +5928,9 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
 
       function renderAlertasHome() {
         const totalEnviadas = contarAlertasEnviadas();
-        const totalMorosos = alertasAgrupadas.morosos.reduce(
-          (s, g) => s + Number(g.total || 0),
-          0
-        );
-        const totalHoy = alertasAgrupadas.hoy.reduce(
-          (s, g) => s + Number(g.total || 0),
-          0
-        );
-        const totalProximos = alertasAgrupadas.proximos.reduce(
-          (s, g) => s + Number(g.total || 0),
-          0
-        );
+        const totalMorosos = alertasAgrupadas.morosos.reduce((s, g) => s + Number(g.total || 0), 0);
+        const totalHoy = alertasAgrupadas.hoy.reduce((s, g) => s + Number(g.total || 0), 0);
+        const totalProximos = alertasAgrupadas.proximos.reduce((s, g) => s + Number(g.total || 0), 0);
 
         alertasHome.innerHTML = `
 <div class="alert-summary-grid">
@@ -6003,15 +5972,12 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
         }
 
         recientes.forEach((m) => {
-          const tipoTexto =
-            m.tipo_pago === "abono"
-              ? "🟡 Abono"
-              : `🟢 Cuota ${m.numero_cuota || 1}/${m.total_cuotas || "?"}`;
+          const tipoTexto = m.tipo_pago === "abono"
+            ? "🟡 Abono"
+            : `🟢 Cuota ${m.numero_cuota || 1}/${m.total_cuotas || "?"}`;
 
           listaPagosRecientes.innerHTML += `
-<div class="pago-item" style="cursor:pointer;" onclick="abrirCliente('${
-            m.cliente_id
-          }')">
+<div class="pago-item" style="cursor:pointer;" onclick="abrirCliente('${m.cliente_id}')">
   <b>${m.cliente_nombre}</b><br>
   📦 ${m.producto}<br>
   💵 Precio total del producto: ${formatearDinero(m.monto_total)}<br>
@@ -6082,32 +6048,18 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
         });
 
         return {
-          morosos: Array.from(grupos.morosos.values()).sort(
-            (a, b) => b.total - a.total
-          ),
-          hoy: Array.from(grupos.hoy.values()).sort(
-            (a, b) => b.total - a.total
-          ),
-          proximos: Array.from(grupos.proximos.values()).sort(
-            (a, b) => a.dias - b.dias
-          ),
+          morosos: Array.from(grupos.morosos.values()).sort((a, b) => b.total - a.total),
+          hoy: Array.from(grupos.hoy.values()).sort((a, b) => b.total - a.total),
+          proximos: Array.from(grupos.proximos.values()).sort((a, b) => a.dias - b.dias),
         };
       }
 
+
       function renderAlertasHome() {
         const totalEnviadas = contarAlertasEnviadas();
-        const totalMorosos = alertasAgrupadas.morosos.reduce(
-          (s, g) => s + Number(g.total || 0),
-          0
-        );
-        const totalHoy = alertasAgrupadas.hoy.reduce(
-          (s, g) => s + Number(g.total || 0),
-          0
-        );
-        const totalProximos = alertasAgrupadas.proximos.reduce(
-          (s, g) => s + Number(g.total || 0),
-          0
-        );
+        const totalMorosos = alertasAgrupadas.morosos.reduce((s, g) => s + Number(g.total || 0), 0);
+        const totalHoy = alertasAgrupadas.hoy.reduce((s, g) => s + Number(g.total || 0), 0);
+        const totalProximos = alertasAgrupadas.proximos.reduce((s, g) => s + Number(g.total || 0), 0);
 
         alertasHome.innerHTML = `
 <div class="alert-summary-grid">
@@ -6165,14 +6117,8 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
         const titulos = {
           morosos: ["🔴 Vencidos", "Clientes que ya pasaron su fecha de pago"],
           hoy: ["🟡 Vence hoy", "Clientes que deben pagar hoy"],
-          proximos: [
-            "🟢 Próximos 3 días",
-            "Clientes que necesitan recordatorio amable",
-          ],
-          enviadas: [
-            "🔔 Alertas enviadas",
-            "Historial de avisos ya registrados",
-          ],
+          proximos: ["🟢 Próximos 3 días", "Clientes que necesitan recordatorio amable"],
+          enviadas: ["🔔 Alertas enviadas", "Historial de avisos ya registrados"],
         };
 
         titulo.textContent = titulos[categoria][0];
@@ -6185,11 +6131,10 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
             return;
           }
 
-          lista.innerHTML = ultimas
-            .map((a) => {
-              const horas = horasDesde(a.fecha_envio || a.created_at);
-              const puede = puedeReenviarAlerta(a.fecha_envio || a.created_at);
-              return `
+          lista.innerHTML = ultimas.map((a) => {
+            const horas = horasDesde(a.fecha_envio || a.created_at);
+            const puede = puedeReenviarAlerta(a.fecha_envio || a.created_at);
+            return `
 <div class="alert-detail-item">
   <div class="alert-detail-top">
     <div>
@@ -6200,23 +6145,16 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
   </div>
 
   <div class="subtle" style="margin-top:8px;">
-    ${
-      horas >= 24
-        ? `${Math.floor(horas / 24)} día(s) desde la última alerta`
-        : `${horas || 0} hora(s) desde la última alerta`
-    }
+    ${horas >= 24 ? `${Math.floor(horas / 24)} día(s) desde la última alerta` : `${horas || 0} hora(s) desde la última alerta`}
   </div>
 
   <div class="alert-detail-actions">
     <button onclick="abrirCliente('${a.cliente_id}')">Ver cliente</button>
-    <button ${puede ? "" : "disabled"} onclick="reenviarAlertaDesdeHistorial('${
-                a.cliente_id
-              }')">${puede ? "Reenviar" : "Esperar 1 día"}</button>
+    <button ${puede ? '' : 'disabled'} onclick="reenviarAlertaDesdeHistorial('${a.cliente_id}')">${puede ? 'Reenviar' : 'Esperar 1 día'}</button>
   </div>
 </div>
 `;
-            })
-            .join("");
+          }).join("");
           return;
         }
 
@@ -6226,33 +6164,18 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
           return;
         }
 
-        lista.innerHTML = grupos
-          .map((g) => {
-            const etiquetas = g.productos
-              .map((p) => `• ${p.producto} - ${formatearDinero(p.saldo)}`)
-              .join("<br>");
-            const textoDias =
-              categoria === "morosos"
-                ? `${g.dias} días de retraso`
-                : categoria === "hoy"
-                ? "Último día de pago"
-                : `Vence en ${g.dias} día(s)`;
-            const tagClass =
-              categoria === "morosos"
-                ? "red"
-                : categoria === "hoy"
-                ? "yellow"
-                : "blue";
-            const ultima = alertasUltimasPorCliente.get(g.cliente_id);
-            const puede =
-              !ultima ||
-              puedeReenviarAlerta(ultima.fecha_envio || ultima.created_at);
-            const ultimoTexto = ultima
-              ? `Última alerta: ${formatearFechaHumana(
-                  ultima.fecha_envio || ultima.created_at
-                )}`
-              : "Sin alerta enviada";
-            return `
+        lista.innerHTML = grupos.map((g) => {
+          const etiquetas = g.productos.map((p) => `• ${p.producto} - ${formatearDinero(p.saldo)}`).join("<br>");
+          const textoDias = categoria === "morosos"
+            ? `${g.dias} días de retraso`
+            : categoria === "hoy"
+              ? "Último día de pago"
+              : `Vence en ${g.dias} día(s)`;
+          const tagClass = categoria === "morosos" ? "red" : categoria === "hoy" ? "yellow" : "blue";
+          const ultima = alertasUltimasPorCliente.get(g.cliente_id);
+          const puede = !ultima || puedeReenviarAlerta(ultima.fecha_envio || ultima.created_at);
+          const ultimoTexto = ultima ? `Última alerta: ${formatearFechaHumana(ultima.fecha_envio || ultima.created_at)}` : "Sin alerta enviada";
+          return `
 <div class="alert-detail-item">
   <div class="alert-detail-top">
     <div>
@@ -6271,28 +6194,18 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
 
   <div class="alert-detail-actions">
     <button onclick="abrirCliente('${g.cliente_id}')">Ver cliente</button>
-    <button ${
-      puede ? "" : "disabled"
-    } onclick="registrarAlertaYEnviar('${categoria}','${g.cliente_id}')">${
-              puede ? "WhatsApp" : "Esperar 1 día"
-            }</button>
+    <button ${puede ? '' : 'disabled'} onclick="registrarAlertaYEnviar('${categoria}','${g.cliente_id}')">${puede ? 'WhatsApp' : 'Esperar 1 día'}</button>
   </div>
 </div>
 `;
-          })
-          .join("");
+        }).join("");
       }
 
       async function registrarAlertaYEnviar(categoria, cliente_id) {
-        const grupo = alertasAgrupadas[categoria]?.find(
-          (g) => g.cliente_id === cliente_id
-        );
+        const grupo = alertasAgrupadas[categoria]?.find((g) => g.cliente_id === cliente_id);
         if (!grupo) return;
         const ultima = alertasUltimasPorCliente.get(cliente_id);
-        if (
-          ultima &&
-          !puedeReenviarAlerta(ultima.fecha_envio || ultima.created_at)
-        ) {
+        if (ultima && !puedeReenviarAlerta(ultima.fecha_envio || ultima.created_at)) {
           alert("Debe esperar al menos 1 día para reenviar otra alerta.");
           return;
         }
@@ -6302,34 +6215,20 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
         }
 
         const numero = grupo.telefono.replace(/\D/g, "");
-        const productos = grupo.productos
-          .map((p) => `• ${p.producto} (${formatearDinero(p.saldo)})`)
-          .join("\n");
+        const productos = grupo.productos.map((p) => `• ${p.producto} (${formatearDinero(p.saldo)})`).join("\n");
         const ahora = new Date().toISOString();
         let mensaje = "";
         let dias_retraso = 0;
 
         if (categoria === "morosos") {
           dias_retraso = grupo.dias;
-          mensaje = `Hola ${grupo.nombre}, tienes ${
-            grupo.dias
-          } días de retraso en los siguientes productos:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(
-            grupo.total
-          )}.\nPor favor comunícate para regularizar tu pago.`;
+          mensaje = `Hola ${grupo.nombre}, tienes ${grupo.dias} días de retraso en los siguientes productos:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(grupo.total)}.\nPor favor comunícate para regularizar tu pago.`;
         } else if (categoria === "hoy") {
           dias_retraso = 0;
-          mensaje = `Hola ${
-            grupo.nombre
-          }, hoy vence tu pago de:\n\n${productos}\n\nTotal a pagar: ${formatearDinero(
-            grupo.total
-          )}.\nGracias por tu puntualidad.`;
+          mensaje = `Hola ${grupo.nombre}, hoy vence tu pago de:\n\n${productos}\n\nTotal a pagar: ${formatearDinero(grupo.total)}.\nGracias por tu puntualidad.`;
         } else {
           dias_retraso = grupo.dias;
-          mensaje = `Hola ${grupo.nombre}, te recordamos que dentro de ${
-            grupo.dias
-          } día(s) vence tu pago de:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(
-            grupo.total
-          )}.\nGracias por tu puntualidad.`;
+          mensaje = `Hola ${grupo.nombre}, te recordamos que dentro de ${grupo.dias} día(s) vence tu pago de:\n\n${productos}\n\nTotal pendiente: ${formatearDinero(grupo.total)}.\nGracias por tu puntualidad.`;
         }
 
         const { error } = await supabaseClient.from("Alertas").insert([
@@ -6384,18 +6283,13 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
           alert("Cliente sin teléfono");
           return;
         }
-        abrirWhatsAppConMensaje(
-          numero,
-          alerta.mensaje || "Hola, te recordamos tu pago pendiente."
-        );
+        abrirWhatsAppConMensaje(numero, alerta.mensaje || "Hola, te recordamos tu pago pendiente.");
       }
 
       function abrirWhatsAppConMensaje(numero, mensaje) {
-        window.open(
-          `https://wa.me/51${numero}?text=${encodeURIComponent(mensaje)}`,
-          "_blank"
-        );
+        window.open(`https://wa.me/51${numero}?text=${encodeURIComponent(mensaje)}`, "_blank");
       }
+
 
       function construirAlertasAgrupadas(creditosActivos) {
         const hoy = fechaLocal();
@@ -6454,17 +6348,12 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
         });
 
         return {
-          morosos: Array.from(grupos.morosos.values()).sort(
-            (a, b) => b.total - a.total
-          ),
-          hoy: Array.from(grupos.hoy.values()).sort(
-            (a, b) => b.total - a.total
-          ),
-          proximos: Array.from(grupos.proximos.values()).sort(
-            (a, b) => a.dias - b.dias
-          ),
+          morosos: Array.from(grupos.morosos.values()).sort((a, b) => b.total - a.total),
+          hoy: Array.from(grupos.hoy.values()).sort((a, b) => b.total - a.total),
+          proximos: Array.from(grupos.proximos.values()).sort((a, b) => a.dias - b.dias),
         };
       }
+
 
       window.addEventListener("focus", () => {
         if (usuarioActual) {
@@ -6479,13 +6368,11 @@ Mes actual: <b>${formatearDinero(totalMesActual)}</b><br>
       });
 
       setInterval(() => {
-        if (
-          usuarioActual &&
-          document.getElementById("homeScreen").classList.contains("activa")
-        ) {
+        if (usuarioActual && document.getElementById("homeScreen").classList.contains("activa")) {
           verDashboard();
         }
       }, 60000);
+
     </script>
   </body>
 </html>
